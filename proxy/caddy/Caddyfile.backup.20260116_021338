@@ -1,0 +1,146 @@
+{
+	email munaim.tahir@gmail.com
+
+	log {
+		output file /home/munaim/srv/proxy/caddy/logs/caddy.log
+		format console
+	}
+}
+
+# ============================================================
+# FMU-PLATFORM (SIMS)
+# Frontend: sims.*  -> 127.0.0.1:8080
+# Backend:  api.sims.* -> 127.0.0.1:8010
+# ============================================================
+
+sims.alshifalab.pk, sims.pmc.edu.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8080
+}
+
+api.sims.alshifalab.pk, api.sims.pmc.edu.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8010 {
+		header_up Host {host}
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+	}
+}
+
+# ============================================================
+# PGSIMS
+# Frontend: pgsims.* -> 127.0.0.1:8082
+# Backend:  api.pgsims.* -> 127.0.0.1:8014
+# ============================================================
+
+pgsims.alshifalab.pk, pgsims.pmc.edu.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8082
+}
+
+api.pgsims.alshifalab.pk, api.pgsims.pmc.edu.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8014 {
+		header_up Host {host}
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+	}
+}
+
+# ============================================================
+# RADREPORT / RIMS
+# Frontend: rims.* -> 127.0.0.1:8081
+# Backend:  api.rims.* -> 127.0.0.1:8015
+# ============================================================
+
+rims.alshifalab.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8081
+}
+
+api.rims.alshifalab.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8015 {
+		header_up Host {host}
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+	}
+}
+
+# ============================================================
+# LIMS + PORTAL
+# Frontend: lims.*   -> 127.0.0.1:8013
+# Frontend: portal.* -> 127.0.0.1:8013
+# Backend:  api.lims.* -> 127.0.0.1:8013
+# ============================================================
+
+lims.alshifalab.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8013
+}
+
+portal.alshifalab.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8013
+}
+
+api.lims.alshifalab.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8013 {
+		header_up Host {host}
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+	}
+}
+
+# ============================================================
+# CONSULT / REFERRAL SYSTEM
+# Frontend: consult.* -> backend-served UI
+# Backend:  api.consult.* -> 127.0.0.1:8011
+# ============================================================
+
+consult.alshifalab.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8011
+}
+
+api.consult.alshifalab.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8011 {
+		header_up Host {host}
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+	}
+}
+
+# ============================================================
+# ACCRED-AI / PHC
+# Frontend: phc.* -> backend-served UI
+# Backend:  api.phc.* -> 127.0.0.1:8016
+# ============================================================
+
+phc.alshifalab.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8016
+}
+
+api.phc.alshifalab.pk {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8016 {
+		header_up Host {host}
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+	}
+}

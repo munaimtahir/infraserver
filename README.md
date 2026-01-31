@@ -1,2 +1,0 @@
-# infraserver
-server structure
