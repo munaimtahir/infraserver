@@ -1,0 +1,265 @@
+{
+	email munaim.tahir@gmail.com
+
+	log {
+		output file /home/munaim/srv/proxy/caddy/logs/caddy.log
+		format console
+	}
+}
+
+# ============================================================
+# Reusable snippets
+# ============================================================
+
+(sec_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Frame-Options "SAMEORIGIN"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+}
+
+(proxy_headers) {
+	header_up Host {host}
+	header_up X-Real-IP {remote_host}
+}
+
+# ============================================================
+# PORTAL (Main Landing)
+# ============================================================
+
+portal.alshifalab.pk {
+	encode gzip zstd
+	import sec_headers
+
+	reverse_proxy 127.0.0.1:8013 {
+		import proxy_headers
+	}
+}
+
+# ============================================================
+# LIMS
+# ============================================================
+
+lims.alshifalab.pk {
+	encode gzip zstd
+	import sec_headers
+
+	reverse_proxy 127.0.0.1:8012 {
+		import proxy_headers
+	}
+}
+
+api.lims.alshifalab.pk {
+	encode gzip zstd
+
+	reverse_proxy 127.0.0.1:8012 {
+		import proxy_headers
+	}
+}
+
+# ============================================================
+# SIMS
+# ============================================================
+
+sims.alshifalab.pk, sims.pmc.edu.pk {
+	encode gzip zstd
+	import sec_headers
+
+	handle /api/* {
+		reverse_proxy 127.0.0.1:8010 {
+			import proxy_headers
+		}
+	}
+
+	handle /admin/* {
+		reverse_proxy 127.0.0.1:8010 {
+			import proxy_headers
+		}
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8080 {
+			import proxy_headers
+		}
+	}
+}
+
+api.sims.alshifalab.pk, api.sims.pmc.edu.pk {
+	encode gzip zstd
+
+	reverse_proxy 127.0.0.1:8010 {
+		import proxy_headers
+	}
+}
+
+# ============================================================
+# PGSIMS
+# ============================================================
+
+pgsims.alshifalab.pk, pgsims.pmc.edu.pk {
+	encode gzip zstd
+	import sec_headers
+
+	handle /healthz* {
+		reverse_proxy 127.0.0.1:8014 {
+			import proxy_headers
+		}
+	}
+
+	handle /static/* {
+		root * /home/munaim/srv/apps/pgsims/staticfiles
+		file_server
+		header Cache-Control "public, max-age=31536000, immutable"
+	}
+
+	handle /media/* {
+		root * /home/munaim/srv/apps/pgsims/media
+		file_server
+		header Cache-Control "public, max-age=604800"
+	}
+
+	handle /api/* {
+		reverse_proxy 127.0.0.1:8014 {
+			import proxy_headers
+		}
+	}
+
+	handle /admin/* {
+		reverse_proxy 127.0.0.1:8014 {
+			import proxy_headers
+		}
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8082 {
+			import proxy_headers
+		}
+	}
+}
+
+api.pgsims.alshifalab.pk, api.pgsims.pmc.edu.pk {
+	encode gzip zstd
+
+	reverse_proxy 127.0.0.1:8014 {
+		import proxy_headers
+	}
+}
+
+# ============================================================
+# RIMS / RADREPORT
+# ============================================================
+
+rims.alshifalab.pk {
+	encode gzip zstd
+	import sec_headers
+
+	@backend_paths {
+		path /api/* /admin/* /media/* /static/*
+	}
+
+	handle @backend_paths {
+		reverse_proxy 127.0.0.1:8015 {
+			import proxy_headers
+		}
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8081 {
+			import proxy_headers
+		}
+	}
+}
+
+api.rims.alshifalab.pk {
+	encode gzip zstd
+
+	reverse_proxy 127.0.0.1:8015 {
+		import proxy_headers
+	}
+}
+
+# ============================================================
+# CONSULT / REFERRAL
+# ============================================================
+
+consult.alshifalab.pk {
+	encode gzip zstd
+	import sec_headers
+
+	reverse_proxy 127.0.0.1:8011 {
+		import proxy_headers
+	}
+}
+
+api.consult.alshifalab.pk {
+	encode gzip zstd
+
+	reverse_proxy 127.0.0.1:8011 {
+		import proxy_headers
+	}
+}
+
+# ============================================================
+# PHC
+# ============================================================
+
+phc.alshifalab.pk {
+	encode gzip zstd
+	import sec_headers
+
+	reverse_proxy 127.0.0.1:8016 {
+		import proxy_headers
+	}
+}
+
+api.phc.alshifalab.pk {
+	encode gzip zstd
+
+	reverse_proxy 127.0.0.1:8016 {
+		import proxy_headers
+	}
+}
+
+# ============================================================
+# SOS
+# ============================================================
+
+sos.alshifalab.pk {
+	encode gzip zstd
+	import sec_headers
+
+	@backend_paths {
+		path /api/* /admin/* /media/* /static/*
+	}
+
+	handle @backend_paths {
+		reverse_proxy 127.0.0.1:8017 {
+			import proxy_headers
+		}
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8083 {
+			import proxy_headers
+		}
+	}
+}
+
+api.sos.alshifalab.pk {
+	encode gzip zstd
+
+	reverse_proxy 127.0.0.1:8017 {
+		import proxy_headers
+	}
+}
+
+# ============================================================
+# IP Redirect
+# ============================================================
+
+http://34.16.82.13 {
+	redir https://portal.alshifalab.pk{uri} permanent
+}

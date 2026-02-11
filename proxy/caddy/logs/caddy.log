@@ -1,0 +1,29 @@
+2026/02/11 10:07:59.435	[34mINFO[0m	http.auto_https	server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS	{"server_name": "srv0", "https_port": 443}
+2026/02/11 10:07:59.436	[34mINFO[0m	tls.cache.maintenance	started background certificate maintenance	{"cache": "0xc0005fbe80"}
+2026/02/11 10:07:59.440	[34mINFO[0m	http.auto_https	enabling automatic HTTP->HTTPS redirects	{"server_name": "srv0"}
+2026/02/11 10:07:59.445	[34mINFO[0m	tls.cache.maintenance	stopped background certificate maintenance	{"cache": "0xc0005fbe80"}
+2026/02/11 10:07:59.445	[34mINFO[0m	http	servers shutting down with eternal grace period
+2026/02/11 10:36:10.628	[34mINFO[0m	http.auto_https	server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS	{"server_name": "srv0", "https_port": 443}
+2026/02/11 10:36:10.628	[34mINFO[0m	http.auto_https	enabling automatic HTTP->HTTPS redirects	{"server_name": "srv0"}
+2026/02/11 10:36:10.628	[33mWARN[0m	http.auto_https	server is listening only on the HTTP port, so no automatic HTTPS will be applied to this server	{"server_name": "srv1", "http_port": 80}
+2026/02/11 10:36:10.628	[34mINFO[0m	tls.cache.maintenance	started background certificate maintenance	{"cache": "0xc0005ec980"}
+2026/02/11 10:36:10.632	[34mINFO[0m	tls.cache.maintenance	stopped background certificate maintenance	{"cache": "0xc0005ec980"}
+2026/02/11 10:36:10.632	[34mINFO[0m	http	servers shutting down with eternal grace period
+2026/02/11 10:36:14.882	[34mINFO[0m	http.auto_https	server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS	{"server_name": "srv0", "https_port": 443}
+2026/02/11 10:36:14.882	[34mINFO[0m	http.auto_https	enabling automatic HTTP->HTTPS redirects	{"server_name": "srv0"}
+2026/02/11 10:36:14.882	[33mWARN[0m	http.auto_https	server is listening only on the HTTP port, so no automatic HTTPS will be applied to this server	{"server_name": "srv1", "http_port": 80}
+2026/02/11 10:36:14.882	[34mINFO[0m	tls.cache.maintenance	started background certificate maintenance	{"cache": "0xc0001af600"}
+2026/02/11 10:36:14.885	[34mINFO[0m	tls.cache.maintenance	stopped background certificate maintenance	{"cache": "0xc0001af600"}
+2026/02/11 10:36:14.885	[34mINFO[0m	http	servers shutting down with eternal grace period
+2026/02/11 10:37:44.306	[34mINFO[0m	http.auto_https	server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS	{"server_name": "srv0", "https_port": 443}
+2026/02/11 10:37:44.306	[34mINFO[0m	tls.cache.maintenance	started background certificate maintenance	{"cache": "0xc0006ba200"}
+2026/02/11 10:37:44.306	[34mINFO[0m	http.auto_https	enabling automatic HTTP->HTTPS redirects	{"server_name": "srv0"}
+2026/02/11 10:37:44.306	[33mWARN[0m	http.auto_https	server is listening only on the HTTP port, so no automatic HTTPS will be applied to this server	{"server_name": "srv1", "http_port": 80}
+2026/02/11 10:37:44.309	[34mINFO[0m	tls.cache.maintenance	stopped background certificate maintenance	{"cache": "0xc0006ba200"}
+2026/02/11 10:37:44.309	[34mINFO[0m	http	servers shutting down with eternal grace period
+2026/02/11 10:38:25.606	[34mINFO[0m	http.auto_https	server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS	{"server_name": "srv0", "https_port": 443}
+2026/02/11 10:38:25.606	[34mINFO[0m	tls.cache.maintenance	started background certificate maintenance	{"cache": "0xc0006da000"}
+2026/02/11 10:38:25.606	[34mINFO[0m	http.auto_https	enabling automatic HTTP->HTTPS redirects	{"server_name": "srv0"}
+2026/02/11 10:38:25.606	[33mWARN[0m	http.auto_https	server is listening only on the HTTP port, so no automatic HTTPS will be applied to this server	{"server_name": "srv1", "http_port": 80}
+2026/02/11 10:38:25.609	[34mINFO[0m	http	servers shutting down with eternal grace period
+2026/02/11 10:38:25.609	[34mINFO[0m	tls.cache.maintenance	stopped background certificate maintenance	{"cache": "0xc0006da000"}
