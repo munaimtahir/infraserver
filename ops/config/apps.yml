@@ -1,0 +1,73 @@
+apps:
+  lims:
+    id: lims
+    name: "LIMS"
+    compose_dir: /home/munaim/srv/apps/lims
+    db_container: lims_db
+    db_user: postgres
+    db_name: lims_db
+    env_files:
+      - .env.production
+    media_paths:
+      - lims-backend/media
+    static_paths:
+      - staticfiles
+
+  rims:
+    id: rims
+    name: "Radreport / RIMS"
+    compose_dir: /home/munaim/srv/apps/rims
+    db_container: rims_db_local
+    db_user: postgres
+    db_name: rims_db
+    env_files:
+      - .env
+    media_paths:
+      - media
+
+  consult:
+    id: consult
+    name: "Consult / Referral"
+    compose_dir: /home/munaim/srv/apps/consult
+    db_container: consult_db
+    db_user: postgres
+    db_name: consult_db
+    env_files:
+      - .env
+    media_paths:
+      - backend/media
+
+  accredivault:
+    id: accredivault
+    name: "AccrediVault"
+    compose_dir: /home/munaim/srv/apps/accredivault
+    db_container: accredivault_db
+    db_user: accredvault
+    db_name: accredvault
+    env_files:
+      - infra/.env
+    # minio_data is a volume, might need special handling or just backup the whole compose dir if it includes volumes?
+    # Actually, volumes are usually in /var/lib/docker/volumes. 
+    # The prompt says "tar+zstd the files: compose dir configs + media/static paths"
+    # I'll check if media is symlinked or in-dir.
+    media_paths: [] 
+
+  sims:
+    id: sims
+    name: "FMU Platform"
+    compose_dir: /home/munaim/srv/apps/sims
+    db_container: fmu_db
+    db_user: postgres
+    db_name: fmu_db
+    env_files:
+      - .env
+
+  pgsims:
+    id: pgsims
+    name: "PG SIMS"
+    compose_dir: /home/munaim/srv/apps/pgsims
+    db_container: pgsims_db
+    db_user: postgres
+    db_name: pgsims_db
+    env_files:
+      - .env

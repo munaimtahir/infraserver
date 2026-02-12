@@ -1,0 +1,25 @@
+#!/bin/bash
+set -euo pipefail
+source "$(dirname "$0")/common.sh"
+
+if [ $# -lt 1 ]; then
+    log_err "Usage: ops-dev-up <app_name>"
+    exit 1
+fi
+
+APP_NAME="$1"
+COMPOSE_FILE=$(find "$APPS_ROOT/$APP_NAME" -name "docker-compose.dev.yml" | head -n 1)
+
+if [ -z "$COMPOSE_FILE" ]; then
+    log_err "Could not find docker-compose.dev.yml for app: $APP_NAME"
+    exit 1
+fi
+
+log_info "Starting DEV App: $APP_NAME"
+log_info "Using Project: dev_$APP_NAME"
+
+cd "$(dirname "$COMPOSE_FILE")"
+docker compose -p "dev_$APP_NAME" -f "$(basename "$COMPOSE_FILE")" up -d
+
+log_info "Success: DEV $APP_NAME is up."
+echo "$(date): ops-dev-up $APP_NAME" >> "$LOG_DIR/ops.log"

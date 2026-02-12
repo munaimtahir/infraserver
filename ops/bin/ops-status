@@ -1,0 +1,24 @@
+#!/bin/bash
+set -euo pipefail
+source "$(dirname "$0")/common.sh"
+
+log_info "=== Production Status Report ==="
+
+echo -e "\n${YELLOW}Docker Compose Projects:${NC}"
+docker compose ls --all
+
+echo -e "\n${YELLOW}Running Postgres Containers:${NC}"
+docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}" | grep -i postgres || echo "None running."
+
+echo -e "\n${YELLOW}Database Volumes:${NC}"
+echo -e "PROD Volumes:"
+docker volume ls --format "{{.Name}}" | grep "^PROD_" || echo "  None found with PROD_ prefix."
+
+echo -e "\nDEV Volumes:"
+docker volume ls --format "{{.Name}}" | grep "^DEV_" || echo "  None found with DEV_ prefix."
+
+echo -e "\n${YELLOW}Backup Storage Space:${NC}"
+du -sh "$BACKUP_DIR"
+
+echo -e "\n${YELLOW}Recent Logs:${NC}"
+tail -n 5 "$LOG_DIR/ops.log" 2>/dev/null || echo "  No logs yet."

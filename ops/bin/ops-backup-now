@@ -1,0 +1,58 @@
+#!/bin/bash
+set -euo pipefail
+source "$(dirname "$0")/common.sh"
+source "$OPS_ROOT/backup.env"
+
+DATE=$(date +%Y-%m-%d_%H%M)
+mkdir -p "$BACKUP_DIR"
+
+log_info "Starting Automated Backup: $DATE"
+
+# Identify prod postgres containers
+# We'll look for containers with 'db' or 'postgres' in name that are part of a prod_ project or have PROD_ volumes
+CONTAINERS=$(docker ps --format "{{.Names}}" | grep -E "db|postgres" || true)
+
+for CT in $CONTAINERS; do
+    log_info "Backing up container: $CT"
+    
+    # Try to get DB name and user from env
+    DB_NAME=$(docker exec "$CT" env | grep POSTGRES_DB | cut -d= -f2 || echo "postgres")
+    DB_USER=$(docker exec "$CT" env | grep POSTGRES_USER | cut -d= -f2 || echo "postgres")
+    
+    FILENAME="${CT}__${DB_NAME}__${DATE}.sql.gz"
+    FULL_PATH="$BACKUP_DIR/$FILENAME"
+    
+    log_info "Creating dump for database: $DB_NAME"
+    if docker exec "$CT" pg_dump -U "$DB_USER" "$DB_NAME" | gzip > "$FULL_PATH"; then
+        log_info "Backup successful: $FILENAME"
+    else
+        log_err "Backup FAILED for container: $CT"
+    fi
+done
+
+# Weekly Full Dump (on Sundays or if forced)
+if [ "$(date +%u)" == "7" ]; then
+    log_info "Sunday detected: performing weekly globals dump."
+    for CT in $CONTAINERS; do
+        GLOBAL_FILE="${CT}__globals__${DATE}.sql.gz"
+        docker exec "$CT" pg_dumpall -U "postgres" --globals-only | gzip > "$BACKUP_DIR/$GLOBAL_FILE" || log_warn "Globals dump failed for $CT"
+    done
+fi
+
+# Retention
+log_info "Applying retention policy (Daily: $RETAIN_DAILY)"
+find "$BACKUP_DIR" -name "*.sql.gz" -mtime +"$RETAIN_DAILY" -not -name "*globals*" -delete
+log_info "Retention cleanup complete."
+
+# Offsite
+if [ "${OFFSITE_ENABLED:-0}" == "1" ]; then
+    if command -v rclone >/dev/null 2>&1; then
+        log_info "Syncing to offsite: $OFFSITE_REMOTE_NAME"
+        rclone sync "$BACKUP_DIR" "$OFFSITE_REMOTE_NAME:backups" >> "$LOG_FILE" 2>&1 || log_warn "Offsite sync failed."
+    else
+        log_warn "Rclone not installed. Skipping offsite sync."
+    fi
+fi
+
+log_info "Backup process finished."
+echo "$(date): ops-backup-now completed" >> "$LOG_FILE"

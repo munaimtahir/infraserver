@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+source "$(dirname "$0")/common.sh"
+
+if [ $# -lt 1 ]; then
+    log_err "Usage: ops-dev-down <app_name>"
+    exit 1
+fi
+
+APP_NAME="$1"
+
+log_info "Stopping DEV App: $APP_NAME"
+docker compose -p "dev_$APP_NAME" stop || log_warn "Failed to stop dev_$APP_NAME (maybe not running)"
+
+echo "$(date): ops-dev-down $APP_NAME" >> "$LOG_DIR/ops.log"

@@ -1,0 +1,58 @@
+#!/bin/bash
+set -euo pipefail
+source "$(dirname "$0")/common.sh"
+
+if [ $# -lt 1 ]; then
+    log_err "Usage: ops-restore-sandbox <backup_filename>"
+    log_info "Available backups:"
+    ls -1 "$BACKUP_DIR"
+    exit 1
+fi
+
+BACKUP_FILE="$BACKUP_DIR/$1"
+if [ ! -f "$BACKUP_FILE" ]; then
+    log_err "Backup file not found: $BACKUP_FILE"
+    exit 1
+fi
+
+SANDBOX_CONTAINER="pg_sandbox_restore"
+SANDBOX_PORT=55432
+SANDBOX_VOL="PROD_SANDBOX_restore_data"
+
+log_warn "Starting Sandbox Restore Drill..."
+log_info "Backup: $1"
+
+# 1. Cleanup old sandbox
+log_info "Cleaning up old sandbox..."
+docker rm -f "$SANDBOX_CONTAINER" >/dev/null 2>&1 || true
+docker volume rm -f "$SANDBOX_VOL" >/dev/null 2>&1 || true
+
+# 2. Create and start fresh sandbox
+log_info "Starting temporary postgres container on port $SANDBOX_PORT..."
+docker run -d \
+    --name "$SANDBOX_CONTAINER" \
+    -p "$SANDBOX_PORT:5432" \
+    -e POSTGRES_PASSWORD=sandbox_secret \
+    -v "$SANDBOX_VOL:/var/lib/postgresql/data" \
+    postgres:16-alpine
+
+# 3. Wait for postgres to be ready
+log_info "Waiting for sandbox to be ready..."
+for i in {1..30}; do
+    if docker exec "$SANDBOX_CONTAINER" pg_isready -U postgres >/dev/null 2>&1; then
+        break
+    fi
+    sleep 1
+done
+
+# 4. Restore
+log_info "Restoring data..."
+zcat "$BACKUP_FILE" | docker exec -i "$SANDBOX_CONTAINER" psql -U postgres
+
+# 5. Verification
+log_info "=== Verification Queries ==="
+docker exec "$SANDBOX_CONTAINER" psql -U postgres -l
+echo -e "\n${GREEN}Restore completed successfully in sandbox.${NC}"
+log_info "Connection: psql -h localhost -p $SANDBOX_PORT -U postgres"
+log_info "Password: sandbox_secret"
+log_info "Note: Run 'docker rm -f $SANDBOX_CONTAINER' when finished."

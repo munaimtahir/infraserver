@@ -1,0 +1,33 @@
+#!/bin/bash
+set -euo pipefail
+source "$(dirname "$0")/common.sh"
+
+if [ $# -lt 1 ]; then
+    log_err "Usage: ops-prod-up <app_name>"
+    log_info "Example: ops-prod-up lims"
+    exit 1
+fi
+
+APP_NAME="$1"
+# Search for the compose file in apps or its subdirectories
+COMPOSE_FILE=$(find "$APPS_ROOT/$APP_NAME" -name "docker-compose.prod.yml" | head -n 1)
+
+if [ -z "$COMPOSE_FILE" ]; then
+    # Fallback to standard docker-compose.yml if prod.yml doesn't exist yet
+    COMPOSE_FILE=$(find "$APPS_ROOT/$APP_NAME" -name "docker-compose.yml" | head -n 1)
+fi
+
+if [ -z "$COMPOSE_FILE" ]; then
+    log_err "Could not find a compose file for app: $APP_NAME"
+    exit 1
+fi
+
+log_info "Starting Production App: $APP_NAME"
+log_info "Using Project: prod_$APP_NAME"
+log_info "Using File: $COMPOSE_FILE"
+
+cd "$(dirname "$COMPOSE_FILE")"
+docker compose -p "prod_$APP_NAME" -f "$(basename "$COMPOSE_FILE")" up -d
+
+log_info "Success: $APP_NAME is up."
+echo "$(date): ops-prod-up $APP_NAME" >> "$LOG_DIR/ops.log"

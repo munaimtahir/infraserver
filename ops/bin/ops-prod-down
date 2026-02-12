@@ -1,0 +1,29 @@
+#!/bin/bash
+set -euo pipefail
+source "$(dirname "$0")/common.sh"
+
+if [ $# -lt 1 ]; then
+    log_err "Usage: ops-prod-down <app_name>"
+    exit 1
+fi
+
+APP_NAME="$1"
+
+log_info "Stopping Production App (Keep Data): $APP_NAME"
+# Attempt to find by project name
+if docker compose ls | grep -q "prod_$APP_NAME"; then
+    docker compose -p "prod_$APP_NAME" stop
+else
+    log_warn "Project prod_$APP_NAME not found in 'docker compose ls'."
+    log_info "Attempting to stop based on directory..."
+    COMPOSE_FILE=$(find "$APPS_ROOT/$APP_NAME" -name "docker-compose.prod.yml" -o -name "docker-compose.yml" | head -n 1)
+    if [ -n "$COMPOSE_FILE" ]; then
+        docker compose -f "$COMPOSE_FILE" -p "prod_$APP_NAME" stop
+    else
+        log_err "Could not find project or compose file for $APP_NAME"
+        exit 1
+    fi
+fi
+
+log_info "Stopped: $APP_NAME (Volumes preserved)."
+echo "$(date): ops-prod-down $APP_NAME" >> "$LOG_DIR/ops.log"

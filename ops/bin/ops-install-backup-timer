@@ -1,0 +1,44 @@
+#!/bin/bash
+set -euo pipefail
+source "$(dirname "$0")/common.sh"
+
+SERVICE_FILE="/etc/systemd/system/ops-backup.service"
+TIMER_FILE="/etc/systemd/system/ops-backup.timer"
+
+log_info "Installing Systemd Backup Timer..."
+
+# Create Service
+cat <<EOF | sudo tee "$SERVICE_FILE" > /dev/null
+[Unit]
+Description=Daily Production Backup
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=$OPS_ROOT/bin/ops-backup-now
+User=munaim
+Group=munaim
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Create Timer
+cat <<EOF | sudo tee "$TIMER_FILE" > /dev/null
+[Unit]
+Description=Run Production Backup Daily
+
+[Timer]
+OnCalendar=daily
+RandomizedDelaySec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now ops-backup.timer
+
+log_info "Backup timer installed and started."
+systemctl status ops-backup.timer --no-pager
