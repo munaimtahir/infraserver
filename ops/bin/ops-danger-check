@@ -1,32 +1,7 @@
 #!/bin/bash
 set -euo pipefail
+source "$(dirname "$0")/common.sh"
 
-# ops-danger-check: Helper to block destructive actions on PROD
-# Usage: ops-danger-check <command> <args...>
-
-COMMAND="$1"
-shift
-ARGS="$@"
-
-case "$COMMAND" in
-    "docker-system-prune")
-        if [[ "$ARGS" == *"--volumes"* ]]; then
-            echo "❌ ERROR: 'docker system prune --volumes' is BLOCKED. It is too dangerous for this environment."
-            echo "Use specific 'docker volume rm' if you MUST delete something, or use 'ops-dev-reset-hard'."
-            exit 1
-        fi
-        ;;
-    "docker-compose-down")
-        if [[ "$ARGS" == *"-v"* || "$ARGS" == *"--volumes"* ]]; then
-            # Check if we are in a production context
-            PROJECT_NAME=$(docker compose ls --format json | jq -r ".[] | select(.WorkingDir == \"$PWD\") | .Name" 2>/dev/null || echo "unknown")
-            if [[ "$PROJECT_NAME" == prod_* ]]; then
-                echo "❌ ERROR: 'docker compose down -v' is BLOCKED for production project '$PROJECT_NAME'."
-                echo "Data volumes in production must NEVER be removed via compose."
-                exit 1
-            fi
-        fi
-        ;;
-esac
-
-exit 0
+log_info "Running Safety Check..."
+check_danger "$*"
+log_info "Check passed: Operation appears safe."
