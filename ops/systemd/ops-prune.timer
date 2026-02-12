@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly backup prune
+
+[Timer]
+OnCalendar=Sun 03:40
+Persistent=true
+Unit=ops-prune.service
+
+[Install]
+WantedBy=timers.target

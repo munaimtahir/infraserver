@@ -1,0 +1,8 @@
+[Unit]
+Description=Run scheduled full backup via ops-agent
+After=ops-agent.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/home/munaim/srv/ops/scripts/opsctl.sh backup

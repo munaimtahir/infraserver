@@ -2,16 +2,16 @@ apps:
   lims:
     app_key: lims
     compose_dir: /home/munaim/srv/apps/lims
-    db_container: lims_db
+    db_container: lims_db_prod
     db_name: lims_db
     db_user: postgres
     containers:
       - lims_frontend
-      - lims_backend
-      - lims_db
-      - lims_celery
-      - lims_proxy
-      - lims_redis
+      - lims_backend_prod
+      - lims_db_prod
+      - lims_celery_prod
+      - lims_proxy_prod
+      - lims_redis_prod
     env_files:
       - /home/munaim/srv/apps/lims/.env
       - /home/munaim/srv/apps/lims/.env.production
@@ -25,13 +25,13 @@ apps:
   rims:
     app_key: rims
     compose_dir: /home/munaim/srv/apps/radreport
-    db_container: rims_db_local
+    db_container: rims_db_prod
     db_name: rims_db_prod
     db_user: rims
     containers:
-      - rims_frontend_local
-      - rims_backend_local
-      - rims_db_local
+      - rims_frontend_prod
+      - rims_backend_prod
+      - rims_db_prod
       - rims_caddy_local
     env_files:
       - /home/munaim/srv/apps/radreport/.env
@@ -66,15 +66,15 @@ apps:
   accred:
     app_key: accred
     compose_dir: /home/munaim/srv/apps/accredivault/infra
-    db_container: accredivault_db
+    db_container: accredivault_db_prod
     db_name: accredvault
     db_user: accredvault
     containers:
-      - accredivault_frontend
-      - accredivault_backend
-      - accredivault_db
-      - accredivault_minio
-      - accredivault_proxy
+      - accredivault_frontend_prod
+      - accredivault_backend_prod
+      - accredivault_db_prod
+      - accredivault_minio_prod
+      - accredivault_proxy_prod
     env_files:
       - /home/munaim/srv/apps/accredivault/infra/.env
     media_paths:

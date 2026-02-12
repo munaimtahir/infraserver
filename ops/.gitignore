@@ -1,0 +1,7 @@
+backups/*
+!backups/.gitkeep
+logs/*.log
+agent/.venv/
+**/__pycache__/
+*.swp
+.DS_Store

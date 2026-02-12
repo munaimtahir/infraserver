@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly backup validation drill
+
+[Timer]
+OnCalendar=Sat 04:10
+Persistent=true
+Unit=ops-validate.service
+
+[Install]
+WantedBy=timers.target

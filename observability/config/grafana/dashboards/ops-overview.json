@@ -1,0 +1,35 @@
+{
+  "id": null,
+  "uid": "ops-overview",
+  "title": "Ops Overview",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "CPU Usage %",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "targets": [{"expr": "100 - (avg by(instance)(rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)", "refId": "A"}]
+    },
+    {
+      "type": "timeseries",
+      "title": "Memory Usage %",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+      "targets": [{"expr": "(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100", "refId": "A"}]
+    },
+    {
+      "type": "timeseries",
+      "title": "Disk Used %",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+      "targets": [{"expr": "(1 - (node_filesystem_avail_bytes{mountpoint=\"/\"} / node_filesystem_size_bytes{mountpoint=\"/\"})) * 100", "refId": "A"}]
+    },
+    {
+      "type": "logs",
+      "title": "Caddy Access Logs",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+      "targets": [{"expr": "{job=\"caddy-access\"}", "refId": "A"}]
+    }
+  ]
+}

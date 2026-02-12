@@ -1,0 +1,8 @@
+[Unit]
+Description=Run scheduled restic prune policy via ops-agent
+After=ops-agent.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/home/munaim/srv/ops/scripts/opsctl.sh prune

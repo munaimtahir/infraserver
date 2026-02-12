@@ -1,0 +1,51 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: docker-logs
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: docker
+          __path__: /var/lib/docker/containers/*/*-json.log
+
+  - job_name: caddy-access
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: caddy-access
+          service: caddy
+          log_type: access
+          __path__: /var/log/caddy/access.log
+
+  - job_name: caddy-error
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: caddy-error
+          service: caddy
+          log_type: error
+          __path__: /var/log/caddy/error.log
+
+  - job_name: ops-agent
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: ops-agent
+          service: ops-agent
+          __path__: /var/log/ops/*.log
+
+  - job_name: ops-agent-runs
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: ops-agent-runs
+          service: ops-agent
+          __path__: /var/log/ops/runs/*.log

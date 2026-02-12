@@ -2,8 +2,8 @@
 	email munaim.tahir@gmail.com
 
 	log {
-		output file /home/munaim/srv/proxy/caddy/logs/error.log
-		format json
+		output file /home/munaim/srv/proxy/caddy/logs/caddy.log
+		format console
 	}
 }
 
@@ -21,13 +21,6 @@
 	}
 }
 
-(access_json) {
-	log {
-		output file /home/munaim/srv/proxy/caddy/logs/access.log
-		format json
-	}
-}
-
 (proxy_headers) {
 	header_up Host {host}
 	header_up X-Real-IP {remote_host}
@@ -39,7 +32,6 @@
 
 portal.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 	import sec_headers
 
 	reverse_proxy 127.0.0.1:8013 {
@@ -53,7 +45,6 @@ portal.alshifalab.pk {
 
 lims.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 	import sec_headers
 
 	reverse_proxy 127.0.0.1:8012 {
@@ -63,7 +54,6 @@ lims.alshifalab.pk {
 
 api.lims.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 
 	reverse_proxy 127.0.0.1:8012 {
 		import proxy_headers
@@ -76,7 +66,6 @@ api.lims.alshifalab.pk {
 
 sims.alshifalab.pk, sims.pmc.edu.pk {
 	encode gzip zstd
-	import access_json
 	import sec_headers
 
 	handle /api/* {
@@ -100,7 +89,6 @@ sims.alshifalab.pk, sims.pmc.edu.pk {
 
 api.sims.alshifalab.pk, api.sims.pmc.edu.pk {
 	encode gzip zstd
-	import access_json
 
 	reverse_proxy 127.0.0.1:8010 {
 		import proxy_headers
@@ -113,7 +101,6 @@ api.sims.alshifalab.pk, api.sims.pmc.edu.pk {
 
 pgsims.alshifalab.pk, pgsims.pmc.edu.pk {
 	encode gzip zstd
-	import access_json
 	import sec_headers
 
 	handle /healthz* {
@@ -155,7 +142,6 @@ pgsims.alshifalab.pk, pgsims.pmc.edu.pk {
 
 api.pgsims.alshifalab.pk, api.pgsims.pmc.edu.pk {
 	encode gzip zstd
-	import access_json
 
 	reverse_proxy 127.0.0.1:8014 {
 		import proxy_headers
@@ -168,7 +154,6 @@ api.pgsims.alshifalab.pk, api.pgsims.pmc.edu.pk {
 
 rims.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 	import sec_headers
 
 	@backend_paths {
@@ -190,7 +175,6 @@ rims.alshifalab.pk {
 
 api.rims.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 
 	reverse_proxy 127.0.0.1:8015 {
 		import proxy_headers
@@ -203,7 +187,6 @@ api.rims.alshifalab.pk {
 
 consult.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 	import sec_headers
 
 	reverse_proxy 127.0.0.1:8011 {
@@ -213,7 +196,6 @@ consult.alshifalab.pk {
 
 api.consult.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 
 	reverse_proxy 127.0.0.1:8011 {
 		import proxy_headers
@@ -226,7 +208,6 @@ api.consult.alshifalab.pk {
 
 phc.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 	import sec_headers
 
 	reverse_proxy 127.0.0.1:8016 {
@@ -236,7 +217,6 @@ phc.alshifalab.pk {
 
 api.phc.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 
 	reverse_proxy 127.0.0.1:8016 {
 		import proxy_headers
@@ -249,7 +229,6 @@ api.phc.alshifalab.pk {
 
 sos.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 	import sec_headers
 
 	@backend_paths {
@@ -271,49 +250,8 @@ sos.alshifalab.pk {
 
 api.sos.alshifalab.pk {
 	encode gzip zstd
-	import access_json
 
 	reverse_proxy 127.0.0.1:8017 {
-		import proxy_headers
-	}
-}
-
-
-# ============================================================
-# DASHBOARD + OBSERVABILITY
-# ============================================================
-
-dashboard.alshifalab.pk {
-	encode gzip zstd
-	import access_json
-	import sec_headers
-
-	basic_auth {
-		admin $2a$14$PqKk.zvVLn1g2fR3KQ7v9e7d2Mcxv4xnSxA6y7JdY0qz3isRk7mOu
-	}
-
-	reverse_proxy 127.0.0.1:8013 {
-		transport http {
-			read_timeout 30s
-			write_timeout 30s
-		}
-		header_up Host {host}
-		header_up X-Real-IP {remote_host}
-		header_up X-Forwarded-Proto {scheme}
-		header_up X-Forwarded-For {remote_host}
-	}
-}
-
-grafana.alshifalab.pk {
-	encode gzip zstd
-	import access_json
-	import sec_headers
-
-	basic_auth {
-		admin $2a$14$PqKk.zvVLn1g2fR3KQ7v9e7d2Mcxv4xnSxA6y7JdY0qz3isRk7mOu
-	}
-
-	reverse_proxy 127.0.0.1:13000 {
 		import proxy_headers
 	}
 }

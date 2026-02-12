@@ -47,6 +47,7 @@ ALLOWLIST_ACTIONS = {
     "upload_latest",
     "upload_snapshot",
     "rclone_test",
+    "cloud_config",
 }
 
 RETENTION = {"daily": 14, "weekly": 8, "monthly": 12}
@@ -588,6 +589,32 @@ def docker_status() -> Dict[str, Any]:
     return {"apps": result, "checked_at": now_iso()}
 
 
+def system_status() -> Dict[str, Any]:
+    vm = os.sysconf("SC_PAGE_SIZE") * os.sysconf("SC_PHYS_PAGES")
+    av = os.sysconf("SC_AVPHYS_PAGES") * os.sysconf("SC_PAGE_SIZE")
+    du = shutil.disk_usage("/")
+    load1, load5, load15 = os.getloadavg()
+    return {
+        "status": "ok",
+        "checked_at": now_iso(),
+        "hostname": os.uname().nodename,
+        "memory": {
+            "total_bytes": vm,
+            "free_bytes": av,
+            "used_bytes": vm - av,
+            "used_percent": round(((vm - av) / vm) * 100, 2) if vm else None,
+        },
+        "disk": {
+            "total_bytes": du.total,
+            "free_bytes": du.free,
+            "used_bytes": du.used,
+            "used_percent": round((du.used / du.total) * 100, 2) if du.total else None,
+        },
+        "loadavg": {"m1": load1, "m5": load5, "m15": load15},
+        "uptime_seconds": time.time() - os.stat("/proc/1").st_ctime if Path("/proc/1").exists() else None,
+    }
+
+
 class BackupRequest(BaseModel):
     apps: Optional[List[str]] = None
     scopes: List[str] = Field(default_factory=lambda: ["db", "files", "env", "caddy"])
@@ -631,6 +658,11 @@ def metrics() -> PlainTextResponse:
 @APP.get("/status/apps", dependencies=[Depends(token_guard)])
 def status_apps() -> Dict[str, Any]:
     return docker_status()
+
+
+@APP.get("/status/system", dependencies=[Depends(token_guard)])
+def status_system() -> Dict[str, Any]:
+    return system_status()
 
 
 @APP.get("/runs", dependencies=[Depends(token_guard)])
@@ -694,6 +726,17 @@ def cloud_test(body: Dict[str, str]) -> Dict[str, Any]:
         raise HTTPException(status_code=404, detail="remote not configured")
     out = shell(["rclone", "lsd", f"{remote}:", "--config", str(RCLONE_CONF)], check=False)
     return {"ok": out.returncode == 0, "output": out.stdout[-500:], "error": out.stderr[-500:]}
+
+
+@APP.post("/cloud/config", dependencies=[Depends(token_guard)])
+def cloud_config(body: Dict[str, str], actor: str = Depends(token_guard)) -> Dict[str, Any]:
+    config_text = (body or {}).get("config_text", "")
+    if not config_text.strip():
+        raise HTTPException(status_code=400, detail="config_text is required")
+    RCLONE_CONF.write_text(config_text, encoding="utf-8")
+    os.chmod(RCLONE_CONF, 0o600)
+    audit("cloud_config", "success", actor, {"size": len(config_text)})
+    return {"status": "saved", "path": str(RCLONE_CONF)}
 
 
 @APP.post("/actions/backup", dependencies=[Depends(token_guard)])

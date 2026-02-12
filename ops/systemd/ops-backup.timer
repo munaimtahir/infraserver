@@ -1,0 +1,10 @@
+[Unit]
+Description=Nightly backup (02:15 Asia/Karachi)
+
+[Timer]
+OnCalendar=*-*-* 02:15:00 Asia/Karachi
+Persistent=true
+Unit=ops-backup.service
+
+[Install]
+WantedBy=timers.target

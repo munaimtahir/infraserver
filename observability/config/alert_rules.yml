@@ -1,0 +1,50 @@
+groups:
+  - name: infra-alerts
+    rules:
+      - alert: HostDiskLow
+        expr: (node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"}) * 100 < 15
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Host root disk low"
+
+      - alert: HostMemoryHigh
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 90
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Host memory usage high"
+
+      - alert: HostCPUHigh
+        expr: 100 - (avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 90
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Host CPU usage high"
+
+      - alert: ContainerDown
+        expr: absent(container_last_seen)
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "cAdvisor did not report containers"
+
+      - alert: PromtailNotScraping
+        expr: up{job="promtail"} == 0
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Promtail log stream missing"
+
+      - alert: BackupFailure
+        expr: min(ops_backup_last_success) by (app) < 1
+        for: 15m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Last backup failed for app {{ $labels.app }}"
