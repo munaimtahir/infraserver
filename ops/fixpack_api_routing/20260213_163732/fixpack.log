@@ -1,0 +1,177 @@
+OUT=/home/munaim/srv/ops/fixpack_api_routing/20260213_163732
+== Snapshot ==
+/home/munaim/srv
+Fri Feb 13 16:37:32 PKT 2026
+NAMES                        STATUS                 PORTS
+ops_dashboard_beat           Up 5 hours             
+ops_dashboard_worker         Up 5 hours             
+ops_dashboard_frontend       Up 5 hours             127.0.0.1:18001->80/tcp
+ops_dashboard_backend        Up 5 hours             127.0.0.1:18000->8000/tcp
+ops_dashboard_postgres       Up 5 hours (healthy)   5432/tcp
+ops_dashboard_redis          Up 5 hours             6379/tcp
+rims_backend_prod            Up 5 hours (healthy)   127.0.0.1:8015->8000/tcp
+lims_backend_prod            Up 5 hours (healthy)   8000/tcp
+lims_celery_prod             Up 5 hours             8000/tcp
+lims_celery_prod_beat        Up 5 hours             8000/tcp
+lims_proxy_prod              Up 5 hours (healthy)   443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8012->80/tcp
+lims_frontend_prod           Up 5 hours             80/tcp
+lims_db_prod                 Up 5 hours (healthy)   5432/tcp
+lims_redis_prod              Up 5 hours (healthy)   6379/tcp
+obs_grafana                  Up 5 hours             127.0.0.1:13000->3000/tcp
+accredivault_frontend        Up 5 hours (healthy)   5173/tcp
+accredivault_backend         Up 5 hours (healthy)   8000/tcp
+dashboard_ui                 Up 5 hours             127.0.0.1:8013->80/tcp
+accredivault_proxy           Up 5 hours (healthy)   
+accredivault_frontend_prod   Up 5 hours (healthy)   5173/tcp
+accredivault_backend_prod    Up 5 hours (healthy)   8000/tcp
+rims_frontend_prod           Up 5 hours (healthy)   127.0.0.1:8081->80/tcp
+rims_caddy_local             Up 5 hours             443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8080->80/tcp
+obs_promtail                 Up 5 hours             127.0.0.1:9080->9080/tcp
+obs_prometheus               Up 5 hours             
+obs_cadvisor                 Up 5 hours (healthy)   127.0.0.1:8088->8080/tcp
+obs_alertmanager             Up 5 hours             127.0.0.1:9093->9093/tcp
+obs_loki                     Up 5 hours             127.0.0.1:3100->3100/tcp
+obs_node_exporter            Up 5 hours             127.0.0.1:9100->9100/tcp
+accredivault_db              Up 5 hours (healthy)   5432/tcp
+accredivault_minio           Up 5 hours (healthy)   9000/tcp
+rims_db_prod                 Up 5 hours (healthy)   5432/tcp
+accredivault_proxy_prod      Up 5 hours (healthy)   443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8016->80/tcp
+accredivault_db_prod         Up 5 hours (healthy)   5432/tcp
+accredivault_minio_prod      Up 5 hours (healthy)   9000/tcp
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                                                                                                                      
+LISTEN 0      2048       127.0.0.1:9753       0.0.0.0:*    users:(("python",pid=5032,fd=6))                                                                                                            
+LISTEN 0      4096       127.0.0.1:9093       0.0.0.0:*    users:(("docker-proxy",pid=4637,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:9100       0.0.0.0:*    users:(("docker-proxy",pid=4770,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:9080       0.0.0.0:*    users:(("docker-proxy",pid=4556,fd=8))                                                                                                      
+LISTEN 0      511        127.0.0.1:44579      0.0.0.0:*    users:(("node",pid=428025,fd=38))                                                                                                           
+LISTEN 0      4096       127.0.0.1:44349      0.0.0.0:*    users:(("language_server",pid=430074,fd=17))                                                                                                
+LISTEN 0      511        127.0.0.1:43289      0.0.0.0:*    users:(("node",pid=277928,fd=21))                                                                                                           
+LISTEN 0      4096       127.0.0.1:45765      0.0.0.0:*    users:(("language_server",pid=430074,fd=10))                                                                                                
+LISTEN 0      4096       127.0.0.1:13000      0.0.0.0:*    users:(("docker-proxy",pid=4685,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:45345      0.0.0.0:*    users:(("language_server",pid=428427,fd=11))                                                                                                
+LISTEN 0      511        127.0.0.1:34445      0.0.0.0:*    users:(("node",pid=429413,fd=25))                                                                                                           
+LISTEN 0      4096       127.0.0.1:18000      0.0.0.0:*    users:(("docker-proxy",pid=4450,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:18001      0.0.0.0:*    users:(("docker-proxy",pid=4376,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:2019       0.0.0.0:*    users:(("caddy",pid=670,fd=4))                                                                                                              
+LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*    users:(("systemd-resolve",pid=431,fd=17))                                                                                                   
+LISTEN 0      511        127.0.0.1:33535      0.0.0.0:*    users:(("node",pid=430653,fd=25))                                                                                                           
+LISTEN 0      511        127.0.0.1:36573      0.0.0.0:*    users:(("node",pid=428025,fd=51))                                                                                                           
+LISTEN 0      511        127.0.0.1:4000       0.0.0.0:*    users:(("node",pid=673,fd=19))                                                                                                              
+LISTEN 0      511        127.0.0.1:36017      0.0.0.0:*    users:(("node",pid=429518,fd=64))                                                                                                           
+LISTEN 0      4096       127.0.0.1:3100       0.0.0.0:*    users:(("docker-proxy",pid=4862,fd=8))                                                                                                      
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*    users:(("systemd-resolve",pid=431,fd=15))                                                                                                   
+LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*    users:(("sshd",pid=1130,fd=3),("systemd",pid=1,fd=89))                                                                                      
+LISTEN 0      200        127.0.0.1:5432       0.0.0.0:*    users:(("postgres",pid=788,fd=6))                                                                                                           
+LISTEN 0      511        127.0.0.1:38245      0.0.0.0:*    users:(("node",pid=429518,fd=47))                                                                                                           
+LISTEN 0      4096       127.0.0.1:37523      0.0.0.0:*    users:(("language_server",pid=430074,fd=11))                                                                                                
+LISTEN 0      4096       127.0.0.1:8080       0.0.0.0:*    users:(("docker-proxy",pid=3176,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:8081       0.0.0.0:*    users:(("docker-proxy",pid=4208,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:8088       0.0.0.0:*    users:(("docker-proxy",pid=4814,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:8016       0.0.0.0:*    users:(("docker-proxy",pid=4006,fd=8))                                                                                                      
+LISTEN 0      2048       127.0.0.1:8000       0.0.0.0:*    users:(("gunicorn",pid=1040,fd=5),("gunicorn",pid=1034,fd=5),("gunicorn",pid=1027,fd=5),("gunicorn",pid=991,fd=5),("gunicorn",pid=941,fd=5))
+LISTEN 0      4096       127.0.0.1:8015       0.0.0.0:*    users:(("docker-proxy",pid=4612,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:8012       0.0.0.0:*    users:(("docker-proxy",pid=4501,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:8013       0.0.0.0:*    users:(("docker-proxy",pid=3242,fd=8))                                                                                                      
+LISTEN 0      4096       127.0.0.1:40359      0.0.0.0:*    users:(("language_server",pid=428427,fd=17))                                                                                                
+LISTEN 0      4096       127.0.0.1:39029      0.0.0.0:*    users:(("language_server",pid=428427,fd=10))                                                                                                
+LISTEN 0      4096               *:9090             *:*    users:(("prometheus",pid=3439,fd=7))                                                                                                        
+LISTEN 0      4096               *:443              *:*    users:(("caddy",pid=670,fd=8))                                                                                                              
+LISTEN 0      4096            [::]:22            [::]:*    users:(("sshd",pid=1130,fd=4),("systemd",pid=1,fd=90))                                                                                      
+LISTEN 0      4096               *:80               *:*    users:(("caddy",pid=670,fd=10))                                                                                                             
+== Load Caddyfile ==
+== Extract domain blocks + /api routes + upstreams (best-effort grep) ==
+3:	log {
+9:(std_headers) {
+10:	header {
+19:(std_log) {
+20:	log {
+26:(std_proxy) {
+27:	transport http {
+35:(maintenance_503) {
+36:	header {
+44:portal.alshifalab.pk {
+49:	handle /api/* {
+50:		reverse_proxy 127.0.0.1:4000 {
+55:	handle {
+56:		reverse_proxy 127.0.0.1:8013 {
+63:lims.alshifalab.pk {
+68:	handle /api/* {
+69:		reverse_proxy 127.0.0.1:8012 {
+74:	handle /admin/* {
+75:		reverse_proxy 127.0.0.1:8012 {
+80:	handle /static/* {
+81:		reverse_proxy 127.0.0.1:8012 {
+86:	handle /media/* {
+87:		reverse_proxy 127.0.0.1:8012 {
+92:	handle {
+93:		reverse_proxy 127.0.0.1:8012 {
+99:api.lims.alshifalab.pk {
+103:	handle /healthz {
+108:	handle {
+109:		reverse_proxy 127.0.0.1:8012 {
+116:rims.alshifalab.pk {
+121:	handle /api/* {
+122:		reverse_proxy 127.0.0.1:8015 {
+127:	handle /admin/* {
+128:		reverse_proxy 127.0.0.1:8015 {
+133:	handle /static/* {
+134:		reverse_proxy 127.0.0.1:8015 {
+139:	handle /media/* {
+140:		reverse_proxy 127.0.0.1:8015 {
+145:	handle {
+146:		reverse_proxy 127.0.0.1:8081 {
+152:api.rims.alshifalab.pk {
+156:	@root_path path /
+158:	handle /healthz {
+163:	handle @root_path {
+167:	handle {
+168:		reverse_proxy 127.0.0.1:8015 {
+175:phc.alshifalab.pk {
+180:	handle /api/* {
+181:		reverse_proxy 127.0.0.1:8016 {
+186:	handle /admin/* {
+187:		reverse_proxy 127.0.0.1:8016 {
+192:	handle /static/* {
+193:		reverse_proxy 127.0.0.1:8016 {
+198:	handle /media/* {
+199:		reverse_proxy 127.0.0.1:8016 {
+204:	handle {
+205:		reverse_proxy 127.0.0.1:8016 {
+211:api.phc.alshifalab.pk {
+215:	handle /healthz {
+220:	handle {
+221:		reverse_proxy 127.0.0.1:8016 {
+228:sims.alshifalab.pk, sims.pmc.edu.pk {
+235:api.sims.alshifalab.pk, api.sims.pmc.edu.pk {
+239:	handle /healthz {
+244:	handle {
+249:pgsims.alshifalab.pk, pgsims.pmc.edu.pk {
+256:api.pgsims.alshifalab.pk, api.pgsims.pmc.edu.pk {
+260:	handle /healthz {
+265:	handle {
+270:consult.alshifalab.pk {
+277:api.consult.alshifalab.pk {
+281:	handle /healthz {
+286:	handle {
+291:sos.alshifalab.pk {
+298:api.sos.alshifalab.pk {
+302:	handle /healthz {
+307:	handle {
+313:dashboard.alshifalab.pk {
+318:	basic_auth {
+322:	handle /api/* {
+323:		basic_auth {
+326:		reverse_proxy 127.0.0.1:4000 {
+332:	handle {
+333:		reverse_proxy 127.0.0.1:8013 {
+340:ops.alshifalab.pk {
+345:	handle /api/* {
+346:		reverse_proxy 127.0.0.1:18000 {
+351:	handle {
+352:		reverse_proxy 127.0.0.1:18001 {
+358:grafana.alshifalab.pk {
+363:	basic_auth {
+367:	reverse_proxy 127.0.0.1:13000 {
+372:http://34.16.82.13 {
+== Done initial snapshot ==
+OUT=/home/munaim/srv/ops/fixpack_api_routing/20260213_163732

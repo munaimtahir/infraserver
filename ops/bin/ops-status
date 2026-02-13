@@ -2,6 +2,65 @@
 set -euo pipefail
 source "$(dirname "$0")/common.sh"
 
+json_mode=0
+if [ "${1:-}" = "--json" ]; then
+    json_mode=1
+fi
+
+if [ "$json_mode" -eq 1 ]; then
+    compose_json=$(docker compose ls --format json 2>/dev/null || echo '[]')
+
+    projects_compact=$(echo "$compose_json" | jq -c '[ .[] | {name:.Name, status:.Status, config_files:.ConfigFiles} ]')
+
+    app_lines=$(find "$APPS_ROOT" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort)
+    apps_json='[]'
+
+    while IFS= read -r app; do
+        [ -z "$app" ] && continue
+
+        prod_status=$(echo "$compose_json" | jq -r --arg pn "prod_${app}" '.[] | select(.Name==$pn) | .Status' | head -n1)
+        if [ -z "$prod_status" ]; then
+            prod_status="not-found"
+        fi
+
+        dev_status=$(echo "$compose_json" | jq -r --arg pn "dev_${app}" '.[] | select(.Name==$pn) | .Status' | head -n1)
+        if [ -z "$dev_status" ]; then
+            dev_status=$(echo "$compose_json" | jq -r --arg pn "$app" --arg app "$app" '.[] | select(.Name==$pn and (.ConfigFiles|test("/"+$app+"/")) and (.ConfigFiles|test("docker-compose\\.dev\\.yml"))) | .Status' | head -n1)
+        fi
+        if [ -z "$dev_status" ]; then
+            dev_status="not-found"
+        fi
+
+        prod_running=0
+        dev_running=0
+        [[ "$prod_status" == running* ]] && prod_running=1
+        [[ "$dev_status" == running* ]] && dev_running=1
+
+        app_json=$(jq -cn \
+            --arg app "$app" \
+            --arg prod_status "$prod_status" \
+            --arg dev_status "$dev_status" \
+            --arg prod_project "prod_${app}" \
+            --arg dev_project "dev_${app}" \
+            --argjson prod_running "$prod_running" \
+            --argjson dev_running "$dev_running" \
+            '{app:$app,prod:{project:$prod_project,status:$prod_status,running:$prod_running},dev:{project:$dev_project,status:$dev_status,running:$dev_running}}')
+
+        apps_json=$(echo "$apps_json" | jq -c --argjson item "$app_json" '. + [$item]')
+    done <<< "$app_lines"
+
+    backups_total=$(find "$BACKUP_DIR" -maxdepth 1 -type f 2>/dev/null | wc -l | tr -d ' ')
+
+    jq -cn \
+      --arg generated_at "$(date -Iseconds)" \
+      --arg backup_dir "$BACKUP_DIR" \
+      --argjson backups_total "$backups_total" \
+      --argjson projects "$projects_compact" \
+      --argjson apps "$apps_json" \
+      '{generated_at:$generated_at,backup_dir:$backup_dir,backups_total:$backups_total,projects:$projects,apps:$apps}'
+    exit 0
+fi
+
 log_info "=== Production Status Report ==="
 
 echo -e "\n${YELLOW}Docker Compose Projects:${NC}"

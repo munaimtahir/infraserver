@@ -1,0 +1,13 @@
+== Direct upstream 4000 ==
+-- /
+404 text/html; charset=utf-8
+-- /api
+404 text/html; charset=utf-8
+-- /auth/login
+404 text/html; charset=utf-8
+-- /api/auth/login
+404 text/html; charset=utf-8
+-- /healthz
+404 text/html; charset=utf-8
+-- /api/healthz
+404 text/html; charset=utf-8

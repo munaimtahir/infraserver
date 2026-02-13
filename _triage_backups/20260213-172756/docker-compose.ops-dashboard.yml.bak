@@ -1,0 +1,85 @@
+services:
+  ops-postgres:
+    image: postgres:16-alpine
+    container_name: ops_dashboard_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ops_dashboard}
+      POSTGRES_USER: ${POSTGRES_USER:-ops_dashboard}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ops_dashboard}
+    volumes:
+      - ops_dashboard_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ops_dashboard} -d ${POSTGRES_DB:-ops_dashboard}"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
+  ops-redis:
+    image: redis:7-alpine
+    container_name: ops_dashboard_redis
+    restart: unless-stopped
+
+  ops-backend:
+    build: ./ops_dashboard_backend
+    container_name: ops_dashboard_backend
+    restart: unless-stopped
+    env_file:
+      - ./.env.ops-dashboard
+    depends_on:
+      ops-postgres:
+        condition: service_healthy
+      ops-redis:
+        condition: service_started
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${HOST_APPS_ROOT:-/home/munaim/srv/apps}:${APPS_ROOT:-/srv/apps}
+      - ${HOST_PROXY_ROOT:-/home/munaim/srv/proxy}:${PROXY_ROOT:-/srv/proxy}
+      - ${HOST_OPS_ROOT:-/home/munaim/srv/ops}:${OPS_ROOT:-/srv/ops}
+      - ${HOST_BACKUP_ROOT:-/home/munaim/srv/backups}:${BACKUP_ROOT:-/srv/backups}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "127.0.0.1:${OPS_BACKEND_PORT:-18000}:8000"
+
+  ops-worker:
+    build: ./ops_dashboard_backend
+    container_name: ops_dashboard_worker
+    restart: unless-stopped
+    env_file:
+      - ./.env.ops-dashboard
+    depends_on:
+      - ops-backend
+    command: ["celery", "-A", "ops_dashboard", "worker", "-l", "info"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${HOST_APPS_ROOT:-/home/munaim/srv/apps}:${APPS_ROOT:-/srv/apps}
+      - ${HOST_PROXY_ROOT:-/home/munaim/srv/proxy}:${PROXY_ROOT:-/srv/proxy}
+      - ${HOST_OPS_ROOT:-/home/munaim/srv/ops}:${OPS_ROOT:-/srv/ops}
+      - ${HOST_BACKUP_ROOT:-/home/munaim/srv/backups}:${BACKUP_ROOT:-/srv/backups}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  ops-beat:
+    build: ./ops_dashboard_backend
+    container_name: ops_dashboard_beat
+    restart: unless-stopped
+    env_file:
+      - ./.env.ops-dashboard
+    depends_on:
+      - ops-worker
+    command: ["celery", "-A", "ops_dashboard", "beat", "-l", "info"]
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  ops-frontend:
+    build: ./ops_dashboard_frontend
+    container_name: ops_dashboard_frontend
+    restart: unless-stopped
+    depends_on:
+      - ops-backend
+    ports:
+      - "127.0.0.1:${OPS_FRONTEND_PORT:-18001}:80"
+
+volumes:
+  ops_dashboard_pgdata:

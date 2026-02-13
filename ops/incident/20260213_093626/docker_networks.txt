@@ -1,0 +1,10 @@
+CONFIGURATION_REVIEW.md
+PORTS_REGISTRY.md
+apps
+backups
+config_updated.txt
+dashboard
+logs
+observability
+ops
+proxy

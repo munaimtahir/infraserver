@@ -1,0 +1,18 @@
+HTTP/2 200 
+accept-ranges: bytes
+alt-svc: h3=":443"; ma=2592000
+cache-control: max-age=31536000
+cache-control: public, immutable
+content-type: application/javascript
+date: Fri, 13 Feb 2026 11:14:16 GMT
+etag: "698d545b-5cc20"
+expires: Sat, 13 Feb 2027 11:14:16 GMT
+last-modified: Thu, 12 Feb 2026 04:17:31 GMT
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+vary: Accept-Encoding
+via: 1.1 Caddy
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+content-length: 379936
+

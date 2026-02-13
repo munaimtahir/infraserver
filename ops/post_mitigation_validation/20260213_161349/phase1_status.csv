@@ -1,0 +1,5 @@
+domain,status_head_root,status_api_health,status_api_root
+portal.alshifalab.pk,200,404,404
+lims.alshifalab.pk,200,404,404
+rims.alshifalab.pk,200,200,401
+ops.alshifalab.pk,200,404,404

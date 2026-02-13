@@ -1,0 +1,530 @@
+==== PHASE 1 — REAL API HEALTH CHECK (2026-02-13T16:14:03+05:00) ====
+\n-- DOMAIN: portal.alshifalab.pk --
+[1] HEAD /
+STATUS_HEAD_ROOT=200
+[2] GET / (first 20 lines)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Shifa Launchpad | Service Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: var(--bg, #F7F8FC);
+            color: var(--text, #0B1220);
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+        }
+        #app {
+            padding: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+[3] GET /api/health/
+STATUS_API_HEALTH=404
+[4] GET /api/
+STATUS_API_ROOT=404
+\n-- DOMAIN: lims.alshifalab.pk --
+[1] HEAD /
+STATUS_HEAD_ROOT=200
+[2] GET / (first 20 lines)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al Shifa LIMS</title>
+    <script type="module" crossorigin src="/assets/index-CUdGCFhQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CkY8uhoO.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+[3] GET /api/health/
+STATUS_API_HEALTH=404
+[4] GET /api/
+STATUS_API_ROOT=404
+\n-- DOMAIN: rims.alshifalab.pk --
+[1] HEAD /
+STATUS_HEAD_ROOT=200
+[2] GET / (first 20 lines)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultants Place Clinic</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script type="module" crossorigin src="/assets/index-bBjV4yiu.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BWb6KA-C.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+[3] GET /api/health/
+STATUS_API_HEALTH=200
+[4] GET /api/
+STATUS_API_ROOT=401
+\n-- DOMAIN: ops.alshifalab.pk --
+[1] HEAD /
+STATUS_HEAD_ROOT=200
+[2] GET / (first 20 lines)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operations Dashboard</title>
+    <script type="module" crossorigin src="/assets/index-vK6ObEE1.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CNOnZsTx.css">
+  </head>
+  <body class="bg-slate-950">
+    <div id="root"></div>
+  </body>
+</html>
+[3] GET /api/health/
+STATUS_API_HEALTH=404
+[4] GET /api/
+STATUS_API_ROOT=404
+domain,status_head_root,status_api_health,status_api_root
+portal.alshifalab.pk,200,404,404
+lims.alshifalab.pk,200,404,404
+rims.alshifalab.pk,200,200,401
+ops.alshifalab.pk,200,404,404
+==== CONTAINER DISCOVERY (2026-02-13T16:14:16+05:00) ====
+==== PHASE 2 — STATIC FILE VALIDATION (2026-02-13T16:14:16+05:00) ====
+\n-- DOMAIN: portal.alshifalab.pk --
+STATIC_JS_PATH=/assets/index-CvIBfKzX.js
+STATIC_JS_STATUS=200
+STATIC_JS_CONTENT_TYPE=application/javascript
+\n-- DOMAIN: lims.alshifalab.pk --
+STATIC_JS_PATH=/assets/index-CUdGCFhQ.js
+STATIC_JS_STATUS=200
+STATIC_JS_CONTENT_TYPE=application/javascript
+\n-- DOMAIN: rims.alshifalab.pk --
+STATIC_JS_PATH=/assets/index-bBjV4yiu.js
+STATIC_JS_STATUS=200
+STATIC_JS_CONTENT_TYPE=application/javascript
+\n-- DOMAIN: ops.alshifalab.pk --
+STATIC_JS_PATH=/assets/index-vK6ObEE1.js
+STATIC_JS_STATUS=200
+STATIC_JS_CONTENT_TYPE=application/javascript
+NAMES                        IMAGE                              STATUS
+ops_dashboard_beat           dashboard-ops-beat                 Up 4 hours
+ops_dashboard_worker         dashboard-ops-worker               Up 4 hours
+ops_dashboard_frontend       dashboard-ops-frontend             Up 4 hours
+ops_dashboard_backend        dashboard-ops-backend              Up 4 hours
+ops_dashboard_postgres       postgres:16-alpine                 Up 4 hours (healthy)
+ops_dashboard_redis          redis:7-alpine                     Up 4 hours
+rims_backend_prod            prod_radreport-backend             Up 4 hours (healthy)
+lims_backend_prod            prod_lims-backend                  Up 4 hours (healthy)
+lims_celery_prod             prod_lims-celery                   Up 4 hours
+lims_celery_prod_beat        prod_lims-celery-beat              Up 4 hours
+lims_proxy_prod              caddy:2-alpine                     Up 4 hours (healthy)
+lims_frontend_prod           prod_lims-frontend                 Up 4 hours
+lims_db_prod                 postgres:16-alpine                 Up 4 hours (healthy)
+lims_redis_prod              redis:7-alpine                     Up 4 hours (healthy)
+obs_grafana                  grafana/grafana:11.2.0             Up 4 hours
+accredivault_frontend        infra-frontend                     Up 4 hours (healthy)
+accredivault_backend         infra-backend                      Up 4 hours (healthy)
+dashboard_ui                 nginx:alpine                       Up 4 hours
+accredivault_proxy           caddy:2                            Up 4 hours (healthy)
+accredivault_frontend_prod   prod_accredivault-frontend         Up 4 hours (healthy)
+accredivault_backend_prod    prod_accredivault-backend          Up 4 hours (healthy)
+rims_frontend_prod           prod_radreport-frontend            Up 4 hours (healthy)
+rims_caddy_local             caddy:2-alpine                     Up 4 hours
+obs_promtail                 grafana/promtail:2.9.9             Up 4 hours
+obs_prometheus               prom/prometheus:v2.54.1            Up 4 hours
+obs_cadvisor                 gcr.io/cadvisor/cadvisor:v0.49.1   Up 4 hours (healthy)
+obs_alertmanager             prom/alertmanager:v0.27.0          Up 4 hours
+obs_loki                     grafana/loki:2.9.9                 Up 4 hours
+obs_node_exporter            prom/node-exporter:v1.8.2          Up 4 hours
+accredivault_db              postgres:16                        Up 4 hours (healthy)
+accredivault_minio           minio/minio:latest                 Up 4 hours (healthy)
+rims_db_prod                 postgres:16-alpine                 Up 4 hours (healthy)
+accredivault_proxy_prod      caddy:2                            Up 4 hours (healthy)
+accredivault_db_prod         postgres:16                        Up 4 hours (healthy)
+accredivault_minio_prod      minio/minio:latest                 Up 4 hours (healthy)
+==== PHASE 3 — AUTHENTICATION FLOW TEST (2026-02-13T16:14:28+05:00) ====
+\n-- DOMAIN: portal.alshifalab.pk --
+AUTH_STATUS=404
+SET_COOKIE=NONE
+CSRF_INDICATOR=NONE
+AUTH_BODY_HEAD=
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot POST /api/login/</pre>
+</body>
+</html>
+\n-- DOMAIN: lims.alshifalab.pk --
+AUTH_STATUS=404
+SET_COOKIE=NONE
+CSRF_INDICATOR=NONE
+AUTH_BODY_HEAD=
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Not Found</title>
+</head>
+<body>
+  <h1>Not Found</h1><p>The requested resource was not found on this server.</p>
+</body>
+</html>
+\n-- DOMAIN: rims.alshifalab.pk --
+AUTH_STATUS=404
+SET_COOKIE=NONE
+CSRF_INDICATOR=NONE
+AUTH_BODY_HEAD=
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Not Found</title>
+</head>
+<body>
+  <h1>Not Found</h1><p>The requested resource was not found on this server.</p>
+</body>
+</html>
+\n-- DOMAIN: ops.alshifalab.pk --
+AUTH_STATUS=404
+SET_COOKIE=NONE
+CSRF_INDICATOR=NONE
+AUTH_BODY_HEAD=
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Not Found</title>
+</head>
+<body>
+  <h1>Not Found</h1><p>The requested resource was not found on this server.</p>
+</body>
+</html>
+==== PHASE 4 — DATABASE CONNECTIVITY (2026-02-13T16:14:44+05:00) ====
+Backend containers: ops_dashboard_backend rims_backend_prod lims_backend_prod accredivault_backend accredivault_backend_prod
+\n-- CONTAINER: ops_dashboard_backend --
+Saved logs: /home/munaim/srv/ops/post_mitigation_validation/20260213_161349/db_check_ops_dashboard_backend.txt
+DB CHECK
+ENV OK
+DJANGO_MANAGEPY=YES
+COLLECTSTATIC_EXIT_CODE=0
+
+You have activated the --dry-run option so no files will be modified.
+
+You have requested to collect static files at the destination
+location as specified in your settings.
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type 'yes' to continue, or 'no' to cancel: Traceback (most recent call last):
+  File "/app/manage.py", line 13, in <module>
+    main()
+  File "/app/manage.py", line 9, in main
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 413, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 459, in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 206, in handle
+    if input("".join(message)) != "yes":
+       ^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+SHOWMIGRATIONS_EXIT_CODE=0
+admin
+ [X] 0001_initial
+ [X] 0002_logentry_remove_auto_add
+ [X] 0003_logentry_add_action_flag_choices
+auth
+ [X] 0001_initial
+ [X] 0002_alter_permission_name_max_length
+ [X] 0003_alter_user_email_max_length
+ [X] 0004_alter_user_username_opts
+ [X] 0005_alter_user_last_login_null
+ [X] 0006_require_contenttypes_0002
+ [X] 0007_alter_validators_add_error_messages
+ [X] 0008_alter_user_username_max_length
+ [X] 0009_alter_user_last_name_max_length
+ [X] 0010_alter_group_name_max_length
+ [X] 0011_update_proxy_permissions
+ [X] 0012_alter_user_first_name_max_length
+contenttypes
+ [X] 0001_initial
+ [X] 0002_remove_content_type_name
+core
+ [X] 0001_initial
+ [X] 0002_audit_hash_and_alerts
+sessions
+ [X] 0001_initial
+\n-- CONTAINER: rims_backend_prod --
+Saved logs: /home/munaim/srv/ops/post_mitigation_validation/20260213_161349/db_check_rims_backend_prod.txt
+DB CHECK
+ENV OK
+DJANGO_MANAGEPY=YES
+COLLECTSTATIC_EXIT_CODE=0
+Traceback (most recent call last):
+  File "/app/manage.py", line 11, in <module>
+    main()
+  File "/app/manage.py", line 7, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+SHOWMIGRATIONS_EXIT_CODE=0
+Traceback (most recent call last):
+  File "/app/manage.py", line 11, in <module>
+    main()
+  File "/app/manage.py", line 7, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+\n-- CONTAINER: lims_backend_prod --
+Saved logs: /home/munaim/srv/ops/post_mitigation_validation/20260213_161349/db_check_lims_backend_prod.txt
+DB CHECK
+ENV OK
+DJANGO_MANAGEPY=YES
+COLLECTSTATIC_EXIT_CODE=0
+
+You have activated the --dry-run option so no files will be modified.
+
+You have requested to collect static files at the destination
+location as specified in your settings:
+
+    /app/staticfiles
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type 'yes' to continue, or 'no' to cancel: Traceback (most recent call last):
+  File "/app/manage.py", line 22, in <module>
+    main()
+  File "/app/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 206, in handle
+    if input("".join(message)) != "yes":
+       ^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+SHOWMIGRATIONS_EXIT_CODE=0
+accounts
+ [X] 0001_initial
+ [X] 0002_user_tenant_userbranchmembership_and_more
+admin
+ [X] 0001_initial
+ [X] 0002_logentry_remove_auto_add
+ [X] 0003_logentry_add_action_flag_choices
+audit
+ [X] 0001_initial
+ [X] 0002_phase2_audit_fields
+auth
+ [X] 0001_initial
+ [X] 0002_alter_permission_name_max_length
+ [X] 0003_alter_user_email_max_length
+ [X] 0004_alter_user_username_opts
+ [X] 0005_alter_user_last_login_null
+ [X] 0006_require_contenttypes_0002
+ [X] 0007_alter_validators_add_error_messages
+ [X] 0008_alter_user_username_max_length
+ [X] 0009_alter_user_last_name_max_length
+ [X] 0010_alter_group_name_max_length
+ [X] 0011_update_proxy_permissions
+ [X] 0012_alter_user_first_name_max_length
+backups
+ [X] 0001_initial
+ [X] 0002_assign_backup_permissions
+ [X] 0003_alter_backupartifact_id
+billing
+ [X] 0001_initial
+ [X] 0002_payment_billing_pay_payment_bed741_idx_and_more
+\n-- CONTAINER: accredivault_backend --
+Saved logs: /home/munaim/srv/ops/post_mitigation_validation/20260213_161349/db_check_accredivault_backend.txt
+DB CHECK
+ENV OK
+DJANGO_MANAGEPY=YES
+COLLECTSTATIC_EXIT_CODE=0
+Traceback (most recent call last):
+  File "/app/manage.py", line 22, in <module>
+
+You have activated the --dry-run option so no files will be modified.
+
+You have requested to collect static files at the destination
+location as specified in your settings:
+
+    /app/staticfiles
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type 'yes' to continue, or 'no' to cancel:     main()
+  File "/app/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 413, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 459, in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 206, in handle
+    if input("".join(message)) != "yes":
+       ^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+SHOWMIGRATIONS_EXIT_CODE=0
+admin
+ [X] 0001_initial
+ [X] 0002_logentry_remove_auto_add
+ [X] 0003_logentry_add_action_flag_choices
+audit
+ [X] 0001_initial
+auth
+ [X] 0001_initial
+ [X] 0002_alter_permission_name_max_length
+ [X] 0003_alter_user_email_max_length
+ [X] 0004_alter_user_username_opts
+ [X] 0005_alter_user_last_login_null
+ [X] 0006_require_contenttypes_0002
+ [X] 0007_alter_validators_add_error_messages
+ [X] 0008_alter_user_username_max_length
+ [X] 0009_alter_user_last_name_max_length
+ [X] 0010_alter_group_name_max_length
+ [X] 0011_update_proxy_permissions
+ [X] 0012_alter_user_first_name_max_length
+compliance
+ [X] 0001_initial
+ [X] 0002_compliancealert_controlnote
+contenttypes
+ [X] 0001_initial
+ [X] 0002_remove_content_type_name
+evidence
+ [X] 0001_initial
+ [X] 0002_rename_evidence_co_control_0d9b84_idx_evidence_co_control_cc08cf_idx_and_more
+sessions
+ [X] 0001_initial
+\n-- CONTAINER: accredivault_backend_prod --
+Saved logs: /home/munaim/srv/ops/post_mitigation_validation/20260213_161349/db_check_accredivault_backend_prod.txt
+DB CHECK
+ENV OK
+DJANGO_MANAGEPY=YES
+COLLECTSTATIC_EXIT_CODE=0
+
+You have activated the --dry-run option so no files will be modified.
+
+You have requested to collect static files at the destination
+location as specified in your settings:
+
+    /app/staticfiles
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type 'yes' to continue, or 'no' to cancel: Traceback (most recent call last):
+  File "/app/manage.py", line 22, in <module>
+    main()
+  File "/app/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 413, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 459, in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 206, in handle
+    if input("".join(message)) != "yes":
+       ^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line
+SHOWMIGRATIONS_EXIT_CODE=0
+admin
+ [X] 0001_initial
+ [X] 0002_logentry_remove_auto_add
+ [X] 0003_logentry_add_action_flag_choices
+audit
+ [X] 0001_initial
+auth
+ [X] 0001_initial
+ [X] 0002_alter_permission_name_max_length
+ [X] 0003_alter_user_email_max_length
+ [X] 0004_alter_user_username_opts
+ [X] 0005_alter_user_last_login_null
+ [X] 0006_require_contenttypes_0002
+ [X] 0007_alter_validators_add_error_messages
+ [X] 0008_alter_user_username_max_length
+ [X] 0009_alter_user_last_name_max_length
+ [X] 0010_alter_group_name_max_length
+ [X] 0011_update_proxy_permissions
+ [X] 0012_alter_user_first_name_max_length
+compliance
+ [X] 0001_initial
+ [X] 0002_compliancealert_controlnote
+contenttypes
+ [X] 0001_initial
+ [X] 0002_remove_content_type_name
+evidence
+ [X] 0001_initial
+ [X] 0002_rename_evidence_co_control_0d9b84_idx_evidence_co_control_cc08cf_idx_and_more
+sessions
+ [X] 0001_initial
+==== PHASE 5 — CORS & HEADERS VALIDATION (2026-02-13T16:15:05+05:00) ====
+\n-- DOMAIN: portal.alshifalab.pk --
+CORS_STATUS=404
+ACCESS_CONTROL_ALLOW_ORIGIN=MISSING
+ACCESS_CONTROL_ALLOW_CREDENTIALS=MISSING
+\n-- DOMAIN: lims.alshifalab.pk --
+CORS_STATUS=404
+ACCESS_CONTROL_ALLOW_ORIGIN=https://lims.alshifalab.pk
+ACCESS_CONTROL_ALLOW_CREDENTIALS=true
+\n-- DOMAIN: rims.alshifalab.pk --
+CORS_STATUS=401
+ACCESS_CONTROL_ALLOW_ORIGIN=https://rims.alshifalab.pk
+ACCESS_CONTROL_ALLOW_CREDENTIALS=true
+\n-- DOMAIN: ops.alshifalab.pk --
+CORS_STATUS=404
+ACCESS_CONTROL_ALLOW_ORIGIN=MISSING
+ACCESS_CONTROL_ALLOW_CREDENTIALS=MISSING
+==== EXTRA DIAGNOSTICS — EXPECTED ENDPOINT SHAPE (2026-02-13T16:15:49+05:00) ====
+\n-- LIMS likely versioned API --
+LIMS_V1_HEALTH_STATUS=200
+{"status":"healthy","service":"LIMS Backend","database":"connected"}LIMS_V1_AUTH_LOGIN_STATUS=400
+{"detail":["Invalid credentials."],"error":"bad_request"}\n-- RIMS token auth endpoint --
+RIMS_AUTH_TOKEN_STATUS=401
+{"detail":"No active account found with the given credentials"}\n-- CORS on known-good paths --
+LIMS_V1_ACAO=https://lims.alshifalab.pk
+RIMS_HEALTH_ACAO=https://rims.alshifalab.pk
+==== DB LOG SCAN (2026-02-13T16:16:03+05:00) ====
+\n-- db_check_accredivault_backend.txt --
+No obvious DB error patterns in last 200 log lines
+\n-- db_check_accredivault_backend_prod.txt --
+No obvious DB error patterns in last 200 log lines
+\n-- db_check_lims_backend_prod.txt --
+No obvious DB error patterns in last 200 log lines
+\n-- db_check_ops_dashboard_backend.txt --
+36:[2026-02-13 06:02:44 +0000] [8] [ERROR] Worker (pid:9) exited with code 1
+37:[2026-02-13 06:02:44 +0000] [8] [ERROR] Worker (pid:9) exited with code 1.
+\n-- db_check_rims_backend_prod.txt --
+No obvious DB error patterns in last 200 log lines

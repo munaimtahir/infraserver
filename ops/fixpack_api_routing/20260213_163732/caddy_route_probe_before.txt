@@ -1,0 +1,23 @@
+== Via Caddy host routes ==
+## portal.alshifalab.pk
+-- /
+200 text/html
+-- /api
+200 text/html
+-- /api/
+404 text/html; charset=utf-8
+-- /api/auth/login
+404 text/html; charset=utf-8
+-- /api/healthz
+404 text/html; charset=utf-8
+## ops.alshifalab.pk
+-- /
+200 text/html
+-- /api
+200 text/html
+-- /api/
+404 text/html; charset=utf-8
+-- /api/auth/login
+404 text/html; charset=utf-8
+-- /api/healthz
+404 text/html; charset=utf-8

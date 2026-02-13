@@ -1,0 +1,13 @@
+$ restic -r /srv/backups/restic_repo check --read-data-subset=1/20
+using temporary cache in /tmp/restic-check-cache-4291494872
+create exclusive lock for repository
+load indexes
+check all packs
+check snapshots, trees and blobs
+[0:00] 100.00%  3 / 3 snapshots
+
+read group #1 of 1 data packs (out of total 6 packs in 20 groups)
+[0:00] 100.00%  1 / 1 packs
+
+no errors were found
+

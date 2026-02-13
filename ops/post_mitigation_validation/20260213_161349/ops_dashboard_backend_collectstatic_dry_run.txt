@@ -1,0 +1,27 @@
+
+You have activated the --dry-run option so no files will be modified.
+
+You have requested to collect static files at the destination
+location as specified in your settings.
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type 'yes' to continue, or 'no' to cancel: Traceback (most recent call last):
+  File "/app/manage.py", line 13, in <module>
+    main()
+  File "/app/manage.py", line 9, in main
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 413, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/local/lib/python3.12/site-packages/django/core/management/base.py", line 459, in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 206, in handle
+    if input("".join(message)) != "yes":
+       ^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: EOF when reading a line

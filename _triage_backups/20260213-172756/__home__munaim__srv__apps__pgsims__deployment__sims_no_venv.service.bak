@@ -1,0 +1,35 @@
+# Systemd service file for SIMS (System Python - No Virtual Environment)
+# Save as: /etc/systemd/system/sims.service
+# Then run: sudo systemctl daemon-reload && sudo systemctl enable sims && sudo systemctl start sims
+
+[Unit]
+Description=SIMS Gunicorn Application Server
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/sims_project
+Environment="PATH=/usr/bin:/bin"
+Environment="SECRET_KEY=django-insecure-temp-key-for-deployment"
+Environment="DEBUG=False"
+Environment="ALLOWED_HOSTS=139.162.9.224,localhost,127.0.0.1"
+Environment="DJANGO_SETTINGS_MODULE=sims_project.settings"
+ExecStart=/usr/bin/gunicorn \
+          --bind unix:/opt/sims_project/sims.sock \
+          --workers 3 \
+          --user www-data \
+          --group www-data \
+          --timeout 30 \
+          --keep-alive 2 \
+          --max-requests 1000 \
+          sims_project.wsgi:application
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

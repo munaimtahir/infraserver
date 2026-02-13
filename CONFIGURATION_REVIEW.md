@@ -1,6 +1,6 @@
 # VPS Server Configuration Review
 
-**Date:** January 13, 2025  
+**Date:** February 13, 2026  
 **User:** munaim  
 **Home Directory:** `/home/munaim`  
 **Content Directory:** `/home/munaim/srv`
@@ -12,9 +12,12 @@
 ```
 /home/munaim/srv/
 ├── apps/          # All application repositories
-├── config/        # Configuration files (currently empty)
-├── logs/          # Log files (currently empty)
-└── proxy/         # MISSING - Needs to be created for Caddy configs
+├── backups/       # Automated offsite & local backups
+├── dashboard/     # Al-Shifa Launchpad (Ops Management)
+├── logs/          # System-wide operational logs
+├── observability/ # Monitoring stack (Prometheus/Grafana)
+├── ops/           # Operational scripts and control logic
+└── proxy/         # Centralized Caddy reverse proxy
 ```
 
 ---
@@ -23,14 +26,18 @@
 
 ### 1. **lims** (Laboratory Information Management System)
 - **Location:** `/home/munaim/srv/apps/lims/`
-- **Reverse Proxy:** Caddy (Docker container)
-- **Port Mapping:** 
-  - Internal Caddy: Port 8013 (exposed from Docker)
-  - Expects host-level Caddy for HTTPS termination
+- **Reverse Proxy:** Host-level Caddy
 - **Status:** 
-  - ✅ Has `Caddyfile` configured for internal routing
-  - ⚠️ Configured to work with host-level Caddy (not yet installed)
-  - Uses Docker Compose with 6 services: db, redis, backend, celery, frontend, proxy
+  - ✅ Fully integrated with central Caddy proxy.
+  - ✅ Docker Compose orchestration active.
+
+### 2. **accredivault** (Evidence & Accreditation Management)
+- **Location:** `/home/munaim/srv/apps/accredivault/`
+- **Status:** Integrated with MinIO for storage and central Caddy.
+
+### 3. **dashboard** (Al-Shifa Launchpad)
+- **Location:** `/home/munaim/srv/dashboard/`
+- **Status:** Provides centralized control for starting/stopping all containers.
 
 ### 2. **accred-ai** (Accreditation AI)
 - **Location:** `/home/munaim/srv/apps/accred-ai/`
@@ -79,18 +86,11 @@
 
 ---
 
-## 🎯 Migration Requirements
-
-### Current State
-- Applications are configured for **domain-based** or **Coolify-based** deployment
-- Mixed reverse proxy solutions (Nginx, Caddy, Traefik)
-- No centralized host-level routing
-
-### Target State
-- **IP-based server access** (new deployment server)
-- **Caddy-based routing** at host level
-- **Centralized configuration** in `/home/munaim/srv/proxy/`
-- All apps accessible through IP-based routing
+## 🎯 Target State Achieved
+- **IP-based and Domain routing** active.
+- **Caddy-based routing** at host level fully operational.
+- **Centralized configuration** in `/home/munaim/srv/proxy/caddy/`.
+- All apps (LIMS, Accredivault, etc.) accessible via central proxy.
 
 ---
 

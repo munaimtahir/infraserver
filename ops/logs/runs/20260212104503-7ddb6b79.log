@@ -1,0 +1,20 @@
+$ gunzip -t /srv/backups/work/20260212104453-be3ac239/db/accred.sql.gz
+$ zstd -t /srv/backups/work/20260212104453-be3ac239/files/accred_files.tar.zst
+/srv/backups/work/20260212104453-be3ac239/files/accred_files.tar.zst: 10240 bytes 
+
+$ zstd -t /srv/backups/work/20260212104453-be3ac239/caddy/caddy_config.tar.zst
+/srv/backups/work/20260212104453-be3ac239/caddy/caddy_config.tar.zst: 20480 bytes 
+
+$ restic -r /srv/backups/restic_repo check --read-data-subset=1/20
+using temporary cache in /tmp/restic-check-cache-3583204120
+create exclusive lock for repository
+load indexes
+check all packs
+check snapshots, trees and blobs
+[0:00] 100.00%  1 / 1 snapshots
+
+read group #1 of 0 data packs (out of total 2 packs in 20 groups)
+[0:00]          0 packs
+
+no errors were found
+

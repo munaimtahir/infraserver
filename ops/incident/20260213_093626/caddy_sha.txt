@@ -1,0 +1,2 @@
+c63b0a9db5f6720febcf2e29a97c03c2ead5edf69d2b9613d0c31c70c98ebdb8  /home/munaim/srv/proxy/caddy/Caddyfile
+78327ba3b3067fc1c8adef5e06a7c8b76ddff2c91273f5a76eebda23ee799cef  /etc/caddy/Caddyfile

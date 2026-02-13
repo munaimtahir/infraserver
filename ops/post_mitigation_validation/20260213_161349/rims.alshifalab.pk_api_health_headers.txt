@@ -1,0 +1,14 @@
+HTTP/2 200 
+allow: GET, OPTIONS
+alt-svc: h3=":443"; ma=2592000
+content-type: application/json
+cross-origin-opener-policy: same-origin
+date: Fri, 13 Feb 2026 11:14:03 GMT
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+vary: Accept, origin
+via: 1.1 Caddy
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+content-length: 148
+

@@ -1,0 +1,31 @@
+--- /home/munaim/srv/ops/fixpack_api_routing/20260213_163732/Caddyfile_before.txt	2026-02-13 16:37:32.232222296 +0500
++++ /home/munaim/srv/proxy/caddy/Caddyfile	2026-02-13 16:40:40.748620104 +0500
+@@ -46,9 +46,15 @@
+ 	import std_log portal
+ 	import std_headers
+ 
++	@api_root path /api /api/
++	handle @api_root {
++		redir /api/docs/ temporary
++	}
++
+ 	handle /api/* {
+-		reverse_proxy 127.0.0.1:4000 {
++		reverse_proxy 127.0.0.1:18000 {
+ 			import std_proxy
++			header_up Host ops.alshifalab.pk
+ 		}
+ 	}
+ 
+@@ -342,6 +348,11 @@
+ 	import std_log ops
+ 	import std_headers
+ 
++	@api_root path /api /api/
++	handle @api_root {
++		redir /api/docs/ temporary
++	}
++
+ 	handle /api/* {
+ 		reverse_proxy 127.0.0.1:18000 {
+ 			import std_proxy

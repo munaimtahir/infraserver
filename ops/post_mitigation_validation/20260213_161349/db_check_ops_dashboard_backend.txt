@@ -1,0 +1,71 @@
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, core, sessions
+Running migrations:
+  No migrations to apply.
+  Your models in app(s): 'core' have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+[2026-02-12 22:42:58 +0000] [8] [INFO] Starting gunicorn 22.0.0
+[2026-02-12 22:42:58 +0000] [8] [INFO] Listening at: http://0.0.0.0:8000 (8)
+[2026-02-12 22:42:58 +0000] [8] [INFO] Using worker: sync
+[2026-02-12 22:42:58 +0000] [9] [INFO] Booting worker with pid: 9
+[2026-02-12 22:42:58 +0000] [10] [INFO] Booting worker with pid: 10
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, core, sessions
+Running migrations:
+  No migrations to apply.
+  Your models in app(s): 'core' have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+[2026-02-13 04:43:41 +0000] [8] [INFO] Starting gunicorn 22.0.0
+[2026-02-13 04:43:41 +0000] [8] [INFO] Listening at: http://0.0.0.0:8000 (8)
+[2026-02-13 04:43:41 +0000] [8] [INFO] Using worker: sync
+[2026-02-13 04:43:41 +0000] [9] [INFO] Booting worker with pid: 9
+[2026-02-13 04:43:41 +0000] [10] [INFO] Booting worker with pid: 10
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, core, sessions
+Running migrations:
+  No migrations to apply.
+  Your models in app(s): 'core' have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+[2026-02-13 04:45:23 +0000] [8] [INFO] Starting gunicorn 22.0.0
+[2026-02-13 04:45:23 +0000] [8] [INFO] Listening at: http://0.0.0.0:8000 (8)
+[2026-02-13 04:45:23 +0000] [8] [INFO] Using worker: sync
+[2026-02-13 04:45:23 +0000] [9] [INFO] Booting worker with pid: 9
+[2026-02-13 04:45:23 +0000] [10] [INFO] Booting worker with pid: 10
+[2026-02-13 06:01:36 +0000] [8] [CRITICAL] WORKER TIMEOUT (pid:9)
+[2026-02-13 06:02:16 +0000] [9] [INFO] Worker exiting (pid: 9)
+[2026-02-13 06:02:44 +0000] [8] [ERROR] Worker (pid:9) exited with code 1
+[2026-02-13 06:02:44 +0000] [8] [ERROR] Worker (pid:9) exited with code 1.
+[2026-02-13 06:02:44 +0000] [23] [INFO] Booting worker with pid: 23
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, core, sessions
+Running migrations:
+  No migrations to apply.
+  Your models in app(s): 'core' have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+[2026-02-13 06:39:25 +0000] [8] [INFO] Starting gunicorn 22.0.0
+[2026-02-13 06:39:25 +0000] [8] [INFO] Listening at: http://0.0.0.0:8000 (8)
+[2026-02-13 06:39:25 +0000] [8] [INFO] Using worker: sync
+[2026-02-13 06:39:25 +0000] [9] [INFO] Booting worker with pid: 9
+[2026-02-13 06:39:25 +0000] [10] [INFO] Booting worker with pid: 10
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, core, sessions
+Running migrations:
+  No migrations to apply.
+  Your models in app(s): 'core' have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+[2026-02-13 06:44:19 +0000] [8] [INFO] Starting gunicorn 22.0.0
+[2026-02-13 06:44:19 +0000] [8] [INFO] Listening at: http://0.0.0.0:8000 (8)
+[2026-02-13 06:44:19 +0000] [8] [INFO] Using worker: sync
+[2026-02-13 06:44:19 +0000] [9] [INFO] Booting worker with pid: 9
+[2026-02-13 06:44:19 +0000] [10] [INFO] Booting worker with pid: 10
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, core, sessions
+Running migrations:
+  No migrations to apply.
+  Your models in app(s): 'core' have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+[2026-02-13 06:46:43 +0000] [8] [INFO] Starting gunicorn 22.0.0
+[2026-02-13 06:46:43 +0000] [8] [INFO] Listening at: http://0.0.0.0:8000 (8)
+[2026-02-13 06:46:43 +0000] [8] [INFO] Using worker: sync
+[2026-02-13 06:46:43 +0000] [9] [INFO] Booting worker with pid: 9
+[2026-02-13 06:46:43 +0000] [10] [INFO] Booting worker with pid: 10

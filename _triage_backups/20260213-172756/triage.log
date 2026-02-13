@@ -1,0 +1,1369 @@
+
+==================== 0) QUICK SNAPSHOT ====================
+Fri Feb 13 17:27:56 PKT 2026
+Linux vps.us-central1-f.c.munaimfinance.internal 6.14.0-1021-gcp #22~24.04.1-Ubuntu SMP Sat Nov 22 06:23:18 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+✅ Log: /home/munaim/srv/_triage_backups/20260213-172756/triage.log
+✅ Backup dir: /home/munaim/srv/_triage_backups/20260213-172756
+
+==================== 1) INVENTORY: DOCKER STATUS + PORTS ====================
+NAMES                        STATUS                    PORTS
+exam_platform_frontend       Up 3 minutes (healthy)    127.0.0.1:3025->3000/tcp
+exam_platform_backend        Up 3 minutes (healthy)    127.0.0.1:8025->8000/tcp
+exam_platform_postgres       Up 8 minutes (healthy)    5432/tcp
+exam_platform_redis          Up 8 minutes (healthy)    6379/tcp
+ops_dashboard_beat           Up 13 minutes             
+ops_dashboard_worker         Up 13 minutes             
+ops_dashboard_backend        Up 13 minutes             127.0.0.1:18000->8000/tcp
+ops_dashboard_frontend       Up 14 minutes             127.0.0.1:18001->80/tcp
+ops_dashboard_postgres       Up 19 minutes (healthy)   5432/tcp
+ops_dashboard_redis          Up 6 hours                6379/tcp
+rims_backend_prod            Up 6 hours (healthy)      127.0.0.1:8015->8000/tcp
+lims_backend_prod            Up 6 hours (healthy)      8000/tcp
+lims_celery_prod             Up 6 hours                8000/tcp
+lims_celery_prod_beat        Up 6 hours                8000/tcp
+lims_proxy_prod              Up 6 hours (healthy)      443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8012->80/tcp
+lims_frontend_prod           Up 6 hours                80/tcp
+lims_db_prod                 Up 6 hours (healthy)      5432/tcp
+lims_redis_prod              Up 6 hours (healthy)      6379/tcp
+obs_grafana                  Up 6 hours                127.0.0.1:13000->3000/tcp
+accredivault_frontend        Up 6 hours (healthy)      5173/tcp
+accredivault_backend         Up 6 hours (healthy)      8000/tcp
+dashboard_ui                 Up 6 hours                127.0.0.1:8013->80/tcp
+accredivault_proxy           Up 6 hours (healthy)      
+accredivault_frontend_prod   Up 6 hours (healthy)      5173/tcp
+accredivault_backend_prod    Up 6 hours (healthy)      8000/tcp
+rims_frontend_prod           Up 6 hours (healthy)      127.0.0.1:8081->80/tcp
+rims_caddy_local             Up 6 hours                443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8080->80/tcp
+obs_promtail                 Up 6 hours                127.0.0.1:9080->9080/tcp
+obs_prometheus               Up 6 hours                
+obs_cadvisor                 Up 6 hours (healthy)      127.0.0.1:8088->8080/tcp
+obs_alertmanager             Up 6 hours                127.0.0.1:9093->9093/tcp
+obs_loki                     Up 6 hours                127.0.0.1:3100->3100/tcp
+obs_node_exporter            Up 6 hours                127.0.0.1:9100->9100/tcp
+accredivault_db              Up 6 hours (healthy)      5432/tcp
+accredivault_minio           Up 6 hours (healthy)      9000/tcp
+rims_db_prod                 Up 6 hours (healthy)      5432/tcp
+accredivault_proxy_prod      Up 6 hours (healthy)      443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8016->80/tcp
+accredivault_db_prod         Up 6 hours (healthy)      5432/tcp
+accredivault_minio_prod      Up 6 hours (healthy)      9000/tcp
+
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                                                                                                                      
+LISTEN 0      2048       127.0.0.1:9753       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:9093       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:9100       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:9080       0.0.0.0:*                                                                                                                                                
+LISTEN 0      511        127.0.0.1:44579      0.0.0.0:*    users:(("node",pid=428025,fd=38))                                                                                                           
+LISTEN 0      4096       127.0.0.1:44349      0.0.0.0:*    users:(("language_server",pid=430074,fd=17))                                                                                                
+LISTEN 0      511        127.0.0.1:43289      0.0.0.0:*    users:(("node",pid=277928,fd=21))                                                                                                           
+LISTEN 0      4096       127.0.0.1:45765      0.0.0.0:*    users:(("language_server",pid=430074,fd=10))                                                                                                
+LISTEN 0      4096       127.0.0.1:13000      0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:45345      0.0.0.0:*    users:(("language_server",pid=428427,fd=11))                                                                                                
+LISTEN 0      4096       127.0.0.1:18000      0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:18001      0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:2019       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*                                                                                                                                                
+LISTEN 0      511        127.0.0.1:34157      0.0.0.0:*    users:(("node",pid=499190,fd=25))                                                                                                           
+LISTEN 0      511        127.0.0.1:36573      0.0.0.0:*    users:(("node",pid=428025,fd=51))                                                                                                           
+LISTEN 0      511        127.0.0.1:4000       0.0.0.0:*                                                                                                                                                
+LISTEN 0      511        127.0.0.1:36017      0.0.0.0:*    users:(("node",pid=429518,fd=64))                                                                                                           
+LISTEN 0      4096       127.0.0.1:3100       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:3025       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*                                                                                                                                                
+LISTEN 0      200        127.0.0.1:5432       0.0.0.0:*                                                                                                                                                
+LISTEN 0      511        127.0.0.1:38245      0.0.0.0:*    users:(("node",pid=429518,fd=47))                                                                                                           
+LISTEN 0      4096       127.0.0.1:37523      0.0.0.0:*    users:(("language_server",pid=430074,fd=11))                                                                                                
+LISTEN 0      511        127.0.0.1:36943      0.0.0.0:*    users:(("node",pid=499181,fd=25))                                                                                                           
+LISTEN 0      4096       127.0.0.1:8080       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8081       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8088       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8016       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8025       0.0.0.0:*                                                                                                                                                
+LISTEN 0      2048       127.0.0.1:8000       0.0.0.0:*    users:(("gunicorn",pid=1040,fd=5),("gunicorn",pid=1034,fd=5),("gunicorn",pid=1027,fd=5),("gunicorn",pid=991,fd=5),("gunicorn",pid=941,fd=5))
+LISTEN 0      4096       127.0.0.1:8015       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8012       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8013       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:40359      0.0.0.0:*    users:(("language_server",pid=428427,fd=17))                                                                                                
+LISTEN 0      4096       127.0.0.1:39029      0.0.0.0:*    users:(("language_server",pid=428427,fd=10))                                                                                                
+LISTEN 0      4096               *:9090             *:*                                                                                                                                                
+LISTEN 0      4096               *:443              *:*                                                                                                                                                
+LISTEN 0      4096            [::]:22            [::]:*                                                                                                                                                
+LISTEN 0      4096               *:80               *:*                                                                                                                                                
+
+==================== 2) BACKUP CURRENT CONFIGS (CADDY + COMPOSE + ENVS) ====================
+✅ Backed up: /home/munaim/srv/proxy/caddy/Caddyfile
+✅ Backed up: /etc/caddy/Caddyfile
+✅ Backed up: /home/munaim/srv/apps/lims/docker-compose.prod.yml
+✅ Backed up: /home/munaim/srv/apps/radreport/docker-compose.prod.yml
+✅ Backed up: /home/munaim/srv/apps/accredivault/infra/docker-compose.prod.yml
+⚠️  Missing: /home/munaim/srv/dashboard/docker-compose.yml
+✅ Backed up: /home/munaim/srv/dashboard/docker-compose.ops-dashboard.yml
+✅ Best-effort env backups completed (up to 200 files).
+
+==================== 3) DETECT 'OPS DASHBOARD' (DANGEROUS CONTROL API) AND STOP IT ====================
+⚠️  Ops dashboard appears to be running. Stopping it for safety (prevents accidental app shutdowns).
+ Container ops_dashboard_frontend Stopping 
+ Container ops_dashboard_beat Stopping 
+ Container ops_dashboard_frontend Stopped 
+ Container ops_dashboard_beat Stopped 
+ Container ops_dashboard_worker Stopping 
+ Container ops_dashboard_worker Stopped 
+ Container ops_dashboard_backend Stopping 
+ Container ops_dashboard_backend Stopped 
+ Container ops_dashboard_redis Stopping 
+ Container ops_dashboard_postgres Stopping 
+ Container ops_dashboard_redis Stopped 
+ Container ops_dashboard_postgres Stopped 
+ Container ops_dashboard_frontend Stopping 
+ Container ops_dashboard_beat Stopping 
+ Container ops_dashboard_frontend Stopped 
+ Container ops_dashboard_frontend Removing 
+ Container ops_dashboard_beat Stopped 
+ Container ops_dashboard_beat Removing 
+ Container ops_dashboard_frontend Removed 
+ Container ops_dashboard_beat Removed 
+ Container ops_dashboard_worker Stopping 
+ Container ops_dashboard_worker Stopped 
+ Container ops_dashboard_worker Removing 
+ Container ops_dashboard_worker Removed 
+ Container ops_dashboard_backend Stopping 
+ Container ops_dashboard_backend Stopped 
+ Container ops_dashboard_backend Removing 
+ Container ops_dashboard_backend Removed 
+ Container ops_dashboard_redis Stopping 
+ Container ops_dashboard_postgres Stopping 
+ Container ops_dashboard_redis Stopped 
+ Container ops_dashboard_redis Removing 
+ Container ops_dashboard_postgres Stopped 
+ Container ops_dashboard_postgres Removing 
+ Container ops_dashboard_redis Removed 
+ Container ops_dashboard_postgres Removed 
+ Network dashboard_default Removing 
+ Network dashboard_default Removed 
+✅ Ops dashboard stopped (compose).
+
+==================== 4) CADDYFILE SYNC + VALIDATE + RELOAD (AUTOFIX COMMON BREAKS) ====================
+✅ Caddyfile already synced.
+{"level":"info","ts":1770985690.824829,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+{"level":"info","ts":1770985690.8367748,"msg":"adapted config to JSON","adapter":"caddyfile"}
+{"level":"warn","ts":1770985690.8367903,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":388}
+{"level":"info","ts":1770985690.8396258,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
+Valid configuration
+✅ Caddyfile validation PASS.
+✅ Caddy reloaded.
+
+==================== 5) BRING UP PROD STACKS (UP ONLY, NO DATA DELETION) ====================
+✅ docker compose up -d : /home/munaim/srv/apps/lims/docker-compose.prod.yml
+time="2026-02-13T17:28:11+05:00" level=warning msg="volume \"PROD_lims_caddy_data\" already exists but was created for project \"prod_lims\" (expected \"lims\"). Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:11+05:00" level=warning msg="volume \"PROD_lims_caddy_config\" already exists but was created for project \"prod_lims\" (expected \"lims\"). Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:11+05:00" level=warning msg="volume \"PROD_lims_pgdata\" already exists but was not created by Docker Compose. Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:11+05:00" level=warning msg="volume \"PROD_lims_redis_data\" already exists but was not created by Docker Compose. Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:11+05:00" level=warning msg="volume \"PROD_lims_static_files\" already exists but was created for project \"prod_lims\" (expected \"lims\"). Use `external: true` to use an existing volume"
+ Container lims_redis_prod Creating 
+ Container lims_db_prod Creating 
+ Container lims_redis_prod Error response from daemon: Conflict. The container name "/lims_redis_prod" is already in use by container "4eed917dead9cbcbc65d00b37c550b33ac33778f37ab057586bb31c22bb078ce". You have to remove (or rename) that container to be able to reuse that name. 
+Error response from daemon: Conflict. The container name "/lims_redis_prod" is already in use by container "4eed917dead9cbcbc65d00b37c550b33ac33778f37ab057586bb31c22bb078ce". You have to remove (or rename) that container to be able to reuse that name.
+⚠️  Compose up failed for /home/munaim/srv/apps/lims/docker-compose.prod.yml (check logs below).
+✅ docker compose up -d : /home/munaim/srv/apps/radreport/docker-compose.prod.yml
+time="2026-02-13T17:28:11+05:00" level=warning msg="volume \"PROD_radreport_pgdata\" already exists but was not created by Docker Compose. Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:11+05:00" level=warning msg="volume \"PROD_radreport_media_data\" already exists but was not created by Docker Compose. Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:11+05:00" level=warning msg="volume \"PROD_radreport_static_data\" already exists but was not created by Docker Compose. Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:11+05:00" level=warning msg="Found orphan containers ([rims_caddy_local]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container rims_db_prod Creating 
+ Container rims_frontend_prod Creating 
+ Container rims_frontend_prod Error response from daemon: Conflict. The container name "/rims_frontend_prod" is already in use by container "84833c4d4d99ff1d92b025d39bf7d8530710a73fc9e9703349da190cc8a5f838". You have to remove (or rename) that container to be able to reuse that name. 
+Error response from daemon: Conflict. The container name "/rims_frontend_prod" is already in use by container "84833c4d4d99ff1d92b025d39bf7d8530710a73fc9e9703349da190cc8a5f838". You have to remove (or rename) that container to be able to reuse that name.
+⚠️  Compose up failed for /home/munaim/srv/apps/radreport/docker-compose.prod.yml (check logs below).
+✅ docker compose up -d : /home/munaim/srv/apps/accredivault/infra/docker-compose.prod.yml
+ Image infra-compliance_cron Building 
+ Image infra-frontend Building 
+ Image infra-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.52kB done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 806B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/python:3.12-slim@sha256:9e01bf1ae5db7649a236da7be1e94ffbbbdd7a93f867dd0d8d5720d9e1f89fab
+#5 resolve docker.io/library/python:3.12-slim@sha256:9e01bf1ae5db7649a236da7be1e94ffbbbdd7a93f867dd0d8d5720d9e1f89fab 0.0s done
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 117.02MB 2.9s done
+#6 DONE 2.9s
+
+#7 [2/7] RUN apt-get update && apt-get install -y     gcc     busybox     postgresql-client     && rm -rf /var/lib/apt/lists/*
+#7 0.296 Hit:1 http://deb.debian.org/debian trixie InRelease
+#7 0.296 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#7 0.311 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#7 0.336 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9670 kB]
+#7 0.471 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+#7 0.472 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [108 kB]
+#7 1.663 Fetched 9874 kB in 1s (7033 kB/s)
+#7 1.663 Reading package lists...
+#7 2.606 Reading package lists...
+#7 3.252 Building dependency tree...
+#7 3.361 Reading state information...
+#7 3.513 The following additional packages will be installed:
+#7 3.513   binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-14
+#7 3.513   cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu gcc-14 gcc-14-x86-64-linux-gnu
+#7 3.513   gcc-x86-64-linux-gnu krb5-locales libasan8 libatomic1 libbinutils
+#7 3.513   libc-dev-bin libc6-dev libcc1-0 libcom-err2 libcrypt-dev libctf-nobfd0
+#7 3.513   libctf0 libgcc-14-dev libgdbm-compat4t64 libgomp1 libgprofng0
+#7 3.514   libgssapi-krb5-2 libhwasan0 libisl23 libitm1 libjansson4 libk5crypto3
+#7 3.514   libkeyutils1 libkrb5-3 libkrb5support0 libldap-common libldap2 liblsan0
+#7 3.514   libmpc3 libmpfr6 libperl5.40 libpq5 libquadmath0 libsasl2-2 libsasl2-modules
+#7 3.514   libsasl2-modules-db libsframe1 libtsan2 libubsan1 linux-libc-dev manpages
+#7 3.514   manpages-dev perl perl-modules-5.40 postgresql-client-17
+#7 3.515   postgresql-client-common rpcsvc-proto sensible-utils
+#7 3.516 Suggested packages:
+#7 3.516   binutils-doc gprofng-gui binutils-gold cpp-doc gcc-14-locales cpp-14-doc
+#7 3.516   gcc-multilib make autoconf automake libtool flex bison gdb gcc-doc
+#7 3.516   gcc-14-multilib gcc-14-doc gdb-x86-64-linux-gnu libc-devtools glibc-doc
+#7 3.516   krb5-doc krb5-user libsasl2-modules-gssapi-mit
+#7 3.516   | libsasl2-modules-gssapi-heimdal libsasl2-modules-ldap libsasl2-modules-otp
+#7 3.516   libsasl2-modules-sql man-browser perl-doc libterm-readline-gnu-perl
+#7 3.516   | libterm-readline-perl-perl libtap-harness-archive-perl postgresql-17
+#7 3.516   postgresql-doc-17
+#7 3.748 The following NEW packages will be installed:
+#7 3.748   binutils binutils-common binutils-x86-64-linux-gnu busybox cpp cpp-14
+#7 3.748   cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu gcc gcc-14
+#7 3.748   gcc-14-x86-64-linux-gnu gcc-x86-64-linux-gnu krb5-locales libasan8
+#7 3.748   libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcom-err2
+#7 3.748   libcrypt-dev libctf-nobfd0 libctf0 libgcc-14-dev libgdbm-compat4t64 libgomp1
+#7 3.748   libgprofng0 libgssapi-krb5-2 libhwasan0 libisl23 libitm1 libjansson4
+#7 3.748   libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-common libldap2
+#7 3.749   liblsan0 libmpc3 libmpfr6 libperl5.40 libpq5 libquadmath0 libsasl2-2
+#7 3.749   libsasl2-modules libsasl2-modules-db libsframe1 libtsan2 libubsan1
+#7 3.749   linux-libc-dev manpages manpages-dev perl perl-modules-5.40
+#7 3.749   postgresql-client postgresql-client-17 postgresql-client-common rpcsvc-proto
+#7 3.749   sensible-utils
+#7 3.806 0 upgraded, 60 newly installed, 0 to remove and 0 not upgraded.
+#7 3.806 Need to get 72.0 MB of archives.
+#7 3.806 After this operation, 291 MB of additional disk space will be used.
+#7 3.806 Get:1 http://deb.debian.org/debian trixie/main amd64 sensible-utils all 0.0.25 [25.0 kB]
+#7 3.819 Get:2 http://deb.debian.org/debian trixie/main amd64 krb5-locales all 1.21.3-5 [101 kB]
+#7 3.833 Get:3 http://deb.debian.org/debian trixie/main amd64 manpages all 6.9.1-1 [1393 kB]
+#7 3.870 Get:4 http://deb.debian.org/debian trixie/main amd64 perl-modules-5.40 all 5.40.1-6 [3019 kB]
+#7 3.892 Get:5 http://deb.debian.org/debian trixie/main amd64 libgdbm-compat4t64 amd64 1.24-2 [50.3 kB]
+#7 3.893 Get:6 http://deb.debian.org/debian trixie/main amd64 libperl5.40 amd64 5.40.1-6 [4341 kB]
+#7 3.915 Get:7 http://deb.debian.org/debian trixie/main amd64 perl amd64 5.40.1-6 [267 kB]
+#7 3.916 Get:8 http://deb.debian.org/debian trixie/main amd64 libsframe1 amd64 2.44-3 [78.4 kB]
+#7 3.917 Get:9 http://deb.debian.org/debian trixie/main amd64 binutils-common amd64 2.44-3 [2509 kB]
+#7 3.929 Get:10 http://deb.debian.org/debian trixie/main amd64 libbinutils amd64 2.44-3 [534 kB]
+#7 3.932 Get:11 http://deb.debian.org/debian trixie/main amd64 libgprofng0 amd64 2.44-3 [808 kB]
+#7 3.941 Get:12 http://deb.debian.org/debian trixie/main amd64 libctf-nobfd0 amd64 2.44-3 [156 kB]
+#7 3.942 Get:13 http://deb.debian.org/debian trixie/main amd64 libctf0 amd64 2.44-3 [88.6 kB]
+#7 3.943 Get:14 http://deb.debian.org/debian trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+#7 3.943 Get:15 http://deb.debian.org/debian trixie/main amd64 binutils-x86-64-linux-gnu amd64 2.44-3 [1014 kB]
+#7 3.953 Get:16 http://deb.debian.org/debian trixie/main amd64 binutils amd64 2.44-3 [265 kB]
+#7 3.955 Get:17 http://deb.debian.org/debian trixie/main amd64 busybox amd64 1:1.37.0-6+b5 [485 kB]
+#7 3.958 Get:18 http://deb.debian.org/debian trixie/main amd64 libisl23 amd64 0.27-1 [659 kB]
+#7 3.961 Get:19 http://deb.debian.org/debian trixie/main amd64 libmpfr6 amd64 4.2.2-1 [729 kB]
+#7 3.965 Get:20 http://deb.debian.org/debian trixie/main amd64 libmpc3 amd64 1.3.1-1+b3 [52.2 kB]
+#7 3.965 Get:21 http://deb.debian.org/debian trixie/main amd64 cpp-14-x86-64-linux-gnu amd64 14.2.0-19 [11.0 MB]
+#7 4.021 Get:22 http://deb.debian.org/debian trixie/main amd64 cpp-14 amd64 14.2.0-19 [1280 B]
+#7 4.021 Get:23 http://deb.debian.org/debian trixie/main amd64 cpp-x86-64-linux-gnu amd64 4:14.2.0-1 [4840 B]
+#7 4.021 Get:24 http://deb.debian.org/debian trixie/main amd64 cpp amd64 4:14.2.0-1 [1568 B]
+#7 4.021 Get:25 http://deb.debian.org/debian trixie/main amd64 libcc1-0 amd64 14.2.0-19 [42.8 kB]
+#7 4.022 Get:26 http://deb.debian.org/debian trixie/main amd64 libgomp1 amd64 14.2.0-19 [137 kB]
+#7 4.023 Get:27 http://deb.debian.org/debian trixie/main amd64 libitm1 amd64 14.2.0-19 [26.0 kB]
+#7 4.024 Get:28 http://deb.debian.org/debian trixie/main amd64 libatomic1 amd64 14.2.0-19 [9308 B]
+#7 4.024 Get:29 http://deb.debian.org/debian trixie/main amd64 libasan8 amd64 14.2.0-19 [2725 kB]
+#7 4.037 Get:30 http://deb.debian.org/debian trixie/main amd64 liblsan0 amd64 14.2.0-19 [1204 kB]
+#7 4.043 Get:31 http://deb.debian.org/debian trixie/main amd64 libtsan2 amd64 14.2.0-19 [2460 kB]
+#7 4.055 Get:32 http://deb.debian.org/debian trixie/main amd64 libubsan1 amd64 14.2.0-19 [1074 kB]
+#7 4.061 Get:33 http://deb.debian.org/debian trixie/main amd64 libhwasan0 amd64 14.2.0-19 [1488 kB]
+#7 4.068 Get:34 http://deb.debian.org/debian trixie/main amd64 libquadmath0 amd64 14.2.0-19 [145 kB]
+#7 4.069 Get:35 http://deb.debian.org/debian trixie/main amd64 libgcc-14-dev amd64 14.2.0-19 [2672 kB]
+#7 4.082 Get:36 http://deb.debian.org/debian trixie/main amd64 gcc-14-x86-64-linux-gnu amd64 14.2.0-19 [21.4 MB]
+#7 4.185 Get:37 http://deb.debian.org/debian trixie/main amd64 gcc-14 amd64 14.2.0-19 [540 kB]
+#7 4.189 Get:38 http://deb.debian.org/debian trixie/main amd64 gcc-x86-64-linux-gnu amd64 4:14.2.0-1 [1436 B]
+#7 4.189 Get:39 http://deb.debian.org/debian trixie/main amd64 gcc amd64 4:14.2.0-1 [5136 B]
+#7 4.189 Get:40 http://deb.debian.org/debian trixie/main amd64 libc-dev-bin amd64 2.41-12+deb13u1 [58.5 kB]
+#7 4.190 Get:41 http://deb.debian.org/debian-security trixie-security/main amd64 linux-libc-dev all 6.12.69-1 [2742 kB]
+#7 4.200 Get:42 http://deb.debian.org/debian trixie/main amd64 libcrypt-dev amd64 1:4.4.38-1 [119 kB]
+#7 4.201 Get:43 http://deb.debian.org/debian trixie/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#7 4.201 Get:44 http://deb.debian.org/debian trixie/main amd64 libc6-dev amd64 2.41-12+deb13u1 [1994 kB]
+#7 4.211 Get:45 http://deb.debian.org/debian trixie/main amd64 libcom-err2 amd64 1.47.2-3+b7 [25.0 kB]
+#7 4.212 Get:46 http://deb.debian.org/debian trixie/main amd64 libkrb5support0 amd64 1.21.3-5 [33.0 kB]
+#7 4.212 Get:47 http://deb.debian.org/debian trixie/main amd64 libk5crypto3 amd64 1.21.3-5 [81.5 kB]
+#7 4.213 Get:48 http://deb.debian.org/debian trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+#7 4.213 Get:49 http://deb.debian.org/debian trixie/main amd64 libkrb5-3 amd64 1.21.3-5 [326 kB]
+#7 4.215 Get:50 http://deb.debian.org/debian trixie/main amd64 libgssapi-krb5-2 amd64 1.21.3-5 [138 kB]
+#7 4.220 Get:51 http://deb.debian.org/debian trixie/main amd64 libldap-common all 2.6.10+dfsg-1 [35.1 kB]
+#7 4.221 Get:52 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9 [19.8 kB]
+#7 4.221 Get:53 http://deb.debian.org/debian trixie/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9 [57.5 kB]
+#7 4.231 Get:54 http://deb.debian.org/debian trixie/main amd64 libldap2 amd64 2.6.10+dfsg-1 [194 kB]
+#7 4.233 Get:55 http://deb.debian.org/debian-security trixie-security/main amd64 libpq5 amd64 17.8-0+deb13u1 [228 kB]
+#7 4.234 Get:56 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules amd64 2.1.28+dfsg1-9 [66.7 kB]
+#7 4.234 Get:57 http://deb.debian.org/debian trixie/main amd64 manpages-dev all 6.9.1-1 [2122 kB]
+#7 4.245 Get:58 http://deb.debian.org/debian trixie/main amd64 postgresql-client-common all 278 [47.1 kB]
+#7 4.246 Get:59 http://deb.debian.org/debian-security trixie-security/main amd64 postgresql-client-17 amd64 17.8-0+deb13u1 [2046 kB]
+#7 4.253 Get:60 http://deb.debian.org/debian trixie/main amd64 postgresql-client all 17+278 [14.0 kB]
+#7 4.406 debconf: unable to initialize frontend: Dialog
+#7 4.406 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 4.406 debconf: falling back to frontend: Readline
+#7 4.406 debconf: unable to initialize frontend: Readline
+#7 4.406 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 60.)
+#7 4.406 debconf: falling back to frontend: Teletype
+#7 4.411 debconf: unable to initialize frontend: Teletype
+#7 4.411 debconf: (This frontend requires a controlling tty.)
+#7 4.411 debconf: falling back to frontend: Noninteractive
+#7 5.545 Fetched 72.0 MB in 0s (147 MB/s)
+#7 5.568 Selecting previously unselected package sensible-utils.
+#7 5.568 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 5645 files and directories currently installed.)
+#7 5.597 Preparing to unpack .../00-sensible-utils_0.0.25_all.deb ...
+#7 5.598 Unpacking sensible-utils (0.0.25) ...
+#7 5.625 Selecting previously unselected package krb5-locales.
+#7 5.626 Preparing to unpack .../01-krb5-locales_1.21.3-5_all.deb ...
+#7 5.628 Unpacking krb5-locales (1.21.3-5) ...
+#7 5.649 Selecting previously unselected package manpages.
+#7 5.650 Preparing to unpack .../02-manpages_6.9.1-1_all.deb ...
+#7 5.652 Unpacking manpages (6.9.1-1) ...
+#7 5.704 Selecting previously unselected package perl-modules-5.40.
+#7 5.705 Preparing to unpack .../03-perl-modules-5.40_5.40.1-6_all.deb ...
+#7 5.707 Unpacking perl-modules-5.40 (5.40.1-6) ...
+#7 5.924 Selecting previously unselected package libgdbm-compat4t64:amd64.
+#7 5.925 Preparing to unpack .../04-libgdbm-compat4t64_1.24-2_amd64.deb ...
+#7 5.930 Unpacking libgdbm-compat4t64:amd64 (1.24-2) ...
+#7 5.951 Selecting previously unselected package libperl5.40:amd64.
+#7 5.952 Preparing to unpack .../05-libperl5.40_5.40.1-6_amd64.deb ...
+#7 5.954 Unpacking libperl5.40:amd64 (5.40.1-6) ...
+#7 6.204 Selecting previously unselected package perl.
+#7 6.205 Preparing to unpack .../06-perl_5.40.1-6_amd64.deb ...
+#7 6.207 Unpacking perl (5.40.1-6) ...
+#7 6.242 Selecting previously unselected package libsframe1:amd64.
+#7 6.243 Preparing to unpack .../07-libsframe1_2.44-3_amd64.deb ...
+#7 6.245 Unpacking libsframe1:amd64 (2.44-3) ...
+#7 6.265 Selecting previously unselected package binutils-common:amd64.
+#7 6.267 Preparing to unpack .../08-binutils-common_2.44-3_amd64.deb ...
+#7 6.268 Unpacking binutils-common:amd64 (2.44-3) ...
+#7 6.404 Selecting previously unselected package libbinutils:amd64.
+#7 6.405 Preparing to unpack .../09-libbinutils_2.44-3_amd64.deb ...
+#7 6.407 Unpacking libbinutils:amd64 (2.44-3) ...
+#7 6.455 Selecting previously unselected package libgprofng0:amd64.
+#7 6.456 Preparing to unpack .../10-libgprofng0_2.44-3_amd64.deb ...
+#7 6.458 Unpacking libgprofng0:amd64 (2.44-3) ...
+#7 6.520 Selecting previously unselected package libctf-nobfd0:amd64.
+#7 6.521 Preparing to unpack .../11-libctf-nobfd0_2.44-3_amd64.deb ...
+#7 6.523 Unpacking libctf-nobfd0:amd64 (2.44-3) ...
+#7 6.548 Selecting previously unselected package libctf0:amd64.
+#7 6.550 Preparing to unpack .../12-libctf0_2.44-3_amd64.deb ...
+#7 6.552 Unpacking libctf0:amd64 (2.44-3) ...
+#7 6.576 Selecting previously unselected package libjansson4:amd64.
+#7 6.577 Preparing to unpack .../13-libjansson4_2.14-2+b3_amd64.deb ...
+#7 6.579 Unpacking libjansson4:amd64 (2.14-2+b3) ...
+#7 6.598 Selecting previously unselected package binutils-x86-64-linux-gnu.
+#7 6.599 Preparing to unpack .../14-binutils-x86-64-linux-gnu_2.44-3_amd64.deb ...
+#7 6.600 Unpacking binutils-x86-64-linux-gnu (2.44-3) ...
+#7 6.684 Selecting previously unselected package binutils.
+#7 6.685 Preparing to unpack .../15-binutils_2.44-3_amd64.deb ...
+#7 6.688 Unpacking binutils (2.44-3) ...
+#7 6.719 Selecting previously unselected package busybox.
+#7 6.720 Preparing to unpack .../16-busybox_1%3a1.37.0-6+b5_amd64.deb ...
+#7 6.723 Unpacking busybox (1:1.37.0-6+b5) ...
+#7 6.764 Selecting previously unselected package libisl23:amd64.
+#7 6.765 Preparing to unpack .../17-libisl23_0.27-1_amd64.deb ...
+#7 6.768 Unpacking libisl23:amd64 (0.27-1) ...
+#7 6.824 Selecting previously unselected package libmpfr6:amd64.
+#7 6.825 Preparing to unpack .../18-libmpfr6_4.2.2-1_amd64.deb ...
+#7 6.827 Unpacking libmpfr6:amd64 (4.2.2-1) ...
+#7 6.867 Selecting previously unselected package libmpc3:amd64.
+#7 6.868 Preparing to unpack .../19-libmpc3_1.3.1-1+b3_amd64.deb ...
+#7 6.870 Unpacking libmpc3:amd64 (1.3.1-1+b3) ...
+#7 6.892 Selecting previously unselected package cpp-14-x86-64-linux-gnu.
+#7 6.893 Preparing to unpack .../20-cpp-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#7 6.895 Unpacking cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+#7 7.329 Selecting previously unselected package cpp-14.
+#7 7.330 Preparing to unpack .../21-cpp-14_14.2.0-19_amd64.deb ...
+#7 7.333 Unpacking cpp-14 (14.2.0-19) ...
+#7 7.352 Selecting previously unselected package cpp-x86-64-linux-gnu.
+#7 7.353 Preparing to unpack .../22-cpp-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#7 7.355 Unpacking cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+#7 7.377 Selecting previously unselected package cpp.
+#7 7.378 Preparing to unpack .../23-cpp_4%3a14.2.0-1_amd64.deb ...
+#7 7.386 Unpacking cpp (4:14.2.0-1) ...
+#7 7.408 Selecting previously unselected package libcc1-0:amd64.
+#7 7.409 Preparing to unpack .../24-libcc1-0_14.2.0-19_amd64.deb ...
+#7 7.411 Unpacking libcc1-0:amd64 (14.2.0-19) ...
+#7 7.436 Selecting previously unselected package libgomp1:amd64.
+#7 7.437 Preparing to unpack .../25-libgomp1_14.2.0-19_amd64.deb ...
+#7 7.439 Unpacking libgomp1:amd64 (14.2.0-19) ...
+#7 7.465 Selecting previously unselected package libitm1:amd64.
+#7 7.466 Preparing to unpack .../26-libitm1_14.2.0-19_amd64.deb ...
+#7 7.468 Unpacking libitm1:amd64 (14.2.0-19) ...
+#7 7.490 Selecting previously unselected package libatomic1:amd64.
+#7 7.492 Preparing to unpack .../27-libatomic1_14.2.0-19_amd64.deb ...
+#7 7.494 Unpacking libatomic1:amd64 (14.2.0-19) ...
+#7 7.517 Selecting previously unselected package libasan8:amd64.
+#7 7.518 Preparing to unpack .../28-libasan8_14.2.0-19_amd64.deb ...
+#7 7.522 Unpacking libasan8:amd64 (14.2.0-19) ...
+#7 7.679 Selecting previously unselected package liblsan0:amd64.
+#7 7.681 Preparing to unpack .../29-liblsan0_14.2.0-19_amd64.deb ...
+#7 7.682 Unpacking liblsan0:amd64 (14.2.0-19) ...
+#7 7.758 Selecting previously unselected package libtsan2:amd64.
+#7 7.760 Preparing to unpack .../30-libtsan2_14.2.0-19_amd64.deb ...
+#7 7.761 Unpacking libtsan2:amd64 (14.2.0-19) ...
+#7 7.906 Selecting previously unselected package libubsan1:amd64.
+#7 7.907 Preparing to unpack .../31-libubsan1_14.2.0-19_amd64.deb ...
+#7 7.909 Unpacking libubsan1:amd64 (14.2.0-19) ...
+#7 7.985 Selecting previously unselected package libhwasan0:amd64.
+#7 7.986 Preparing to unpack .../32-libhwasan0_14.2.0-19_amd64.deb ...
+#7 7.988 Unpacking libhwasan0:amd64 (14.2.0-19) ...
+#7 8.114 Selecting previously unselected package libquadmath0:amd64.
+#7 8.115 Preparing to unpack .../33-libquadmath0_14.2.0-19_amd64.deb ...
+#7 8.117 Unpacking libquadmath0:amd64 (14.2.0-19) ...
+#7 8.139 Selecting previously unselected package libgcc-14-dev:amd64.
+#7 8.140 Preparing to unpack .../34-libgcc-14-dev_14.2.0-19_amd64.deb ...
+#7 8.142 Unpacking libgcc-14-dev:amd64 (14.2.0-19) ...
+#7 8.279 Selecting previously unselected package gcc-14-x86-64-linux-gnu.
+#7 8.280 Preparing to unpack .../35-gcc-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#7 8.282 Unpacking gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+#7 8.853 Selecting previously unselected package gcc-14.
+#7 8.854 Preparing to unpack .../36-gcc-14_14.2.0-19_amd64.deb ...
+#7 8.856 Unpacking gcc-14 (14.2.0-19) ...
+#7 8.882 Selecting previously unselected package gcc-x86-64-linux-gnu.
+#7 8.883 Preparing to unpack .../37-gcc-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#7 8.885 Unpacking gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+#7 8.904 Selecting previously unselected package gcc.
+#7 8.905 Preparing to unpack .../38-gcc_4%3a14.2.0-1_amd64.deb ...
+#7 8.907 Unpacking gcc (4:14.2.0-1) ...
+#7 8.926 Selecting previously unselected package libc-dev-bin.
+#7 8.927 Preparing to unpack .../39-libc-dev-bin_2.41-12+deb13u1_amd64.deb ...
+#7 8.929 Unpacking libc-dev-bin (2.41-12+deb13u1) ...
+#7 8.949 Selecting previously unselected package linux-libc-dev.
+#7 8.950 Preparing to unpack .../40-linux-libc-dev_6.12.69-1_all.deb ...
+#7 8.952 Unpacking linux-libc-dev (6.12.69-1) ...
+#7 9.160 Selecting previously unselected package libcrypt-dev:amd64.
+#7 9.162 Preparing to unpack .../41-libcrypt-dev_1%3a4.4.38-1_amd64.deb ...
+#7 9.168 Unpacking libcrypt-dev:amd64 (1:4.4.38-1) ...
+#7 9.190 Selecting previously unselected package rpcsvc-proto.
+#7 9.192 Preparing to unpack .../42-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#7 9.194 Unpacking rpcsvc-proto (1.4.3-1) ...
+#7 9.215 Selecting previously unselected package libc6-dev:amd64.
+#7 9.217 Preparing to unpack .../43-libc6-dev_2.41-12+deb13u1_amd64.deb ...
+#7 9.219 Unpacking libc6-dev:amd64 (2.41-12+deb13u1) ...
+#7 9.347 Selecting previously unselected package libcom-err2:amd64.
+#7 9.348 Preparing to unpack .../44-libcom-err2_1.47.2-3+b7_amd64.deb ...
+#7 9.350 Unpacking libcom-err2:amd64 (1.47.2-3+b7) ...
+#7 9.373 Selecting previously unselected package libkrb5support0:amd64.
+#7 9.375 Preparing to unpack .../45-libkrb5support0_1.21.3-5_amd64.deb ...
+#7 9.376 Unpacking libkrb5support0:amd64 (1.21.3-5) ...
+#7 9.400 Selecting previously unselected package libk5crypto3:amd64.
+#7 9.401 Preparing to unpack .../46-libk5crypto3_1.21.3-5_amd64.deb ...
+#7 9.404 Unpacking libk5crypto3:amd64 (1.21.3-5) ...
+#7 9.427 Selecting previously unselected package libkeyutils1:amd64.
+#7 9.428 Preparing to unpack .../47-libkeyutils1_1.6.3-6_amd64.deb ...
+#7 9.430 Unpacking libkeyutils1:amd64 (1.6.3-6) ...
+#7 9.450 Selecting previously unselected package libkrb5-3:amd64.
+#7 9.452 Preparing to unpack .../48-libkrb5-3_1.21.3-5_amd64.deb ...
+#7 9.454 Unpacking libkrb5-3:amd64 (1.21.3-5) ...
+#7 9.491 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#7 9.493 Preparing to unpack .../49-libgssapi-krb5-2_1.21.3-5_amd64.deb ...
+#7 9.495 Unpacking libgssapi-krb5-2:amd64 (1.21.3-5) ...
+#7 9.520 Selecting previously unselected package libldap-common.
+#7 9.521 Preparing to unpack .../50-libldap-common_2.6.10+dfsg-1_all.deb ...
+#7 9.524 Unpacking libldap-common (2.6.10+dfsg-1) ...
+#7 9.542 Selecting previously unselected package libsasl2-modules-db:amd64.
+#7 9.544 Preparing to unpack .../51-libsasl2-modules-db_2.1.28+dfsg1-9_amd64.deb ...
+#7 9.546 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#7 9.566 Selecting previously unselected package libsasl2-2:amd64.
+#7 9.567 Preparing to unpack .../52-libsasl2-2_2.1.28+dfsg1-9_amd64.deb ...
+#7 9.569 Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#7 9.591 Selecting previously unselected package libldap2:amd64.
+#7 9.593 Preparing to unpack .../53-libldap2_2.6.10+dfsg-1_amd64.deb ...
+#7 9.594 Unpacking libldap2:amd64 (2.6.10+dfsg-1) ...
+#7 9.624 Selecting previously unselected package libpq5:amd64.
+#7 9.625 Preparing to unpack .../54-libpq5_17.8-0+deb13u1_amd64.deb ...
+#7 9.629 Unpacking libpq5:amd64 (17.8-0+deb13u1) ...
+#7 9.661 Selecting previously unselected package libsasl2-modules:amd64.
+#7 9.662 Preparing to unpack .../55-libsasl2-modules_2.1.28+dfsg1-9_amd64.deb ...
+#7 9.668 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg1-9) ...
+#7 9.693 Selecting previously unselected package manpages-dev.
+#7 9.695 Preparing to unpack .../56-manpages-dev_6.9.1-1_all.deb ...
+#7 9.697 Unpacking manpages-dev (6.9.1-1) ...
+#7 9.795 Selecting previously unselected package postgresql-client-common.
+#7 9.797 Preparing to unpack .../57-postgresql-client-common_278_all.deb ...
+#7 9.803 Unpacking postgresql-client-common (278) ...
+#7 9.828 Selecting previously unselected package postgresql-client-17.
+#7 9.829 Preparing to unpack .../58-postgresql-client-17_17.8-0+deb13u1_amd64.deb ...
+#7 9.831 Unpacking postgresql-client-17 (17.8-0+deb13u1) ...
+#7 9.943 Selecting previously unselected package postgresql-client.
+#7 9.944 Preparing to unpack .../59-postgresql-client_17+278_all.deb ...
+#7 9.946 Unpacking postgresql-client (17+278) ...
+#7 9.974 Setting up libkeyutils1:amd64 (1.6.3-6) ...
+#7 9.980 Setting up libgdbm-compat4t64:amd64 (1.24-2) ...
+#7 9.985 Setting up manpages (6.9.1-1) ...
+#7 9.991 Setting up libsasl2-modules:amd64 (2.1.28+dfsg1-9) ...
+#7 10.00 Setting up binutils-common:amd64 (2.44-3) ...
+#7 10.01 Setting up linux-libc-dev (6.12.69-1) ...
+#7 10.01 Setting up libctf-nobfd0:amd64 (2.44-3) ...
+#7 10.01 Setting up krb5-locales (1.21.3-5) ...
+#7 10.02 Setting up libcom-err2:amd64 (1.47.2-3+b7) ...
+#7 10.02 Setting up libgomp1:amd64 (14.2.0-19) ...
+#7 10.03 Setting up libldap-common (2.6.10+dfsg-1) ...
+#7 10.04 Setting up libsframe1:amd64 (2.44-3) ...
+#7 10.04 Setting up libjansson4:amd64 (2.14-2+b3) ...
+#7 10.05 Setting up libkrb5support0:amd64 (1.21.3-5) ...
+#7 10.05 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#7 10.06 Setting up busybox (1:1.37.0-6+b5) ...
+#7 10.07 Setting up rpcsvc-proto (1.4.3-1) ...
+#7 10.07 Setting up libmpfr6:amd64 (4.2.2-1) ...
+#7 10.08 Setting up libquadmath0:amd64 (14.2.0-19) ...
+#7 10.08 Setting up libmpc3:amd64 (1.3.1-1+b3) ...
+#7 10.09 Setting up libatomic1:amd64 (14.2.0-19) ...
+#7 10.09 Setting up libk5crypto3:amd64 (1.21.3-5) ...
+#7 10.10 Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#7 10.10 Setting up libubsan1:amd64 (14.2.0-19) ...
+#7 10.11 Setting up perl-modules-5.40 (5.40.1-6) ...
+#7 10.12 Setting up sensible-utils (0.0.25) ...
+#7 10.12 Setting up libhwasan0:amd64 (14.2.0-19) ...
+#7 10.13 Setting up libcrypt-dev:amd64 (1:4.4.38-1) ...
+#7 10.14 Setting up libasan8:amd64 (14.2.0-19) ...
+#7 10.14 Setting up libkrb5-3:amd64 (1.21.3-5) ...
+#7 10.15 Setting up libtsan2:amd64 (14.2.0-19) ...
+#7 10.16 Setting up libbinutils:amd64 (2.44-3) ...
+#7 10.16 Setting up libisl23:amd64 (0.27-1) ...
+#7 10.17 Setting up libc-dev-bin (2.41-12+deb13u1) ...
+#7 10.17 Setting up libcc1-0:amd64 (14.2.0-19) ...
+#7 10.18 Setting up libldap2:amd64 (2.6.10+dfsg-1) ...
+#7 10.18 Setting up liblsan0:amd64 (14.2.0-19) ...
+#7 10.19 Setting up libitm1:amd64 (14.2.0-19) ...
+#7 10.19 Setting up libctf0:amd64 (2.44-3) ...
+#7 10.20 Setting up manpages-dev (6.9.1-1) ...
+#7 10.21 Setting up libperl5.40:amd64 (5.40.1-6) ...
+#7 10.21 Setting up perl (5.40.1-6) ...
+#7 10.22 Setting up libgprofng0:amd64 (2.44-3) ...
+#7 10.23 Setting up libgssapi-krb5-2:amd64 (1.21.3-5) ...
+#7 10.24 Setting up cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+#7 10.24 Setting up cpp-14 (14.2.0-19) ...
+#7 10.25 Setting up libc6-dev:amd64 (2.41-12+deb13u1) ...
+#7 10.25 Setting up libgcc-14-dev:amd64 (14.2.0-19) ...
+#7 10.26 Setting up binutils-x86-64-linux-gnu (2.44-3) ...
+#7 10.27 Setting up cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+#7 10.27 Setting up postgresql-client-common (278) ...
+#7 10.29 Setting up libpq5:amd64 (17.8-0+deb13u1) ...
+#7 10.29 Setting up binutils (2.44-3) ...
+#7 10.30 Setting up cpp (4:14.2.0-1) ...
+#7 10.32 Setting up gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+#7 10.33 Setting up gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+#7 10.33 Setting up postgresql-client-17 (17.8-0+deb13u1) ...
+#7 10.65 update-alternatives: using /usr/share/postgresql/17/man/man1/psql.1.gz to provide /usr/share/man/man1/psql.1.gz (psql.1.gz) in auto mode
+#7 10.68 Setting up gcc-14 (14.2.0-19) ...
+#7 10.68 Setting up postgresql-client (17+278) ...
+#7 10.69 Setting up gcc (4:14.2.0-1) ...
+#7 10.70 Processing triggers for libc-bin (2.41-12+deb13u1) ...
+#7 DONE 12.9s
+
+#8 [3/7] WORKDIR /app
+#8 DONE 0.1s
+
+#9 [4/7] COPY requirements.txt .
+#9 DONE 0.0s
+
+#10 [5/7] RUN pip install -r requirements.txt
+#10 1.785 Collecting Django==5.1.14 (from -r requirements.txt (line 1))
+#10 1.850   Downloading django-5.1.14-py3-none-any.whl.metadata (4.1 kB)
+#10 1.898 Collecting djangorestframework==3.15.2 (from -r requirements.txt (line 2))
+#10 1.913   Downloading djangorestframework-3.15.2-py3-none-any.whl.metadata (10 kB)
+#10 1.975 Collecting psycopg2-binary==2.9.10 (from -r requirements.txt (line 3))
+#10 1.989   Downloading psycopg2_binary-2.9.10-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#10 2.011 Collecting django-storages==1.14.4 (from -r requirements.txt (line 4))
+#10 2.024   Downloading django_storages-1.14.4-py3-none-any.whl.metadata (4.7 kB)
+#10 2.305 Collecting boto3==1.35.76 (from -r requirements.txt (line 5))
+#10 2.318   Downloading boto3-1.35.76-py3-none-any.whl.metadata (6.7 kB)
+#10 2.414 Collecting reportlab==4.2.5 (from -r requirements.txt (line 6))
+#10 2.428   Downloading reportlab-4.2.5-py3-none-any.whl.metadata (1.5 kB)
+#10 2.450 Collecting python-dotenv==1.0.1 (from -r requirements.txt (line 7))
+#10 2.463   Downloading python_dotenv-1.0.1-py3-none-any.whl.metadata (23 kB)
+#10 2.493 Collecting django-cors-headers==4.6.0 (from -r requirements.txt (line 8))
+#10 2.506   Downloading django_cors_headers-4.6.0-py3-none-any.whl.metadata (16 kB)
+#10 2.527 Collecting dj-database-url==2.3.0 (from -r requirements.txt (line 9))
+#10 2.541   Downloading dj_database_url-2.3.0-py3-none-any.whl.metadata (12 kB)
+#10 2.566 Collecting asgiref<4,>=3.8.1 (from Django==5.1.14->-r requirements.txt (line 1))
+#10 2.579   Downloading asgiref-3.11.1-py3-none-any.whl.metadata (9.3 kB)
+#10 2.599 Collecting sqlparse>=0.3.1 (from Django==5.1.14->-r requirements.txt (line 1))
+#10 2.612   Downloading sqlparse-0.5.5-py3-none-any.whl.metadata (4.7 kB)
+#10 2.997 Collecting botocore<1.36.0,>=1.35.76 (from boto3==1.35.76->-r requirements.txt (line 5))
+#10 3.010   Downloading botocore-1.35.99-py3-none-any.whl.metadata (5.7 kB)
+#10 3.030 Collecting jmespath<2.0.0,>=0.7.1 (from boto3==1.35.76->-r requirements.txt (line 5))
+#10 3.043   Downloading jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)
+#10 3.068 Collecting s3transfer<0.11.0,>=0.10.0 (from boto3==1.35.76->-r requirements.txt (line 5))
+#10 3.081   Downloading s3transfer-0.10.4-py3-none-any.whl.metadata (1.7 kB)
+#10 3.226 Collecting pillow>=9.0.0 (from reportlab==4.2.5->-r requirements.txt (line 6))
+#10 3.240   Downloading pillow-12.1.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+#10 3.260 Collecting chardet (from reportlab==4.2.5->-r requirements.txt (line 6))
+#10 3.273   Downloading chardet-5.2.0-py3-none-any.whl.metadata (3.4 kB)
+#10 3.309 Collecting typing-extensions>=3.10.0.0 (from dj-database-url==2.3.0->-r requirements.txt (line 9))
+#10 3.322   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+#10 3.345 Collecting python-dateutil<3.0.0,>=2.1 (from botocore<1.36.0,>=1.35.76->boto3==1.35.76->-r requirements.txt (line 5))
+#10 3.357   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#10 3.393 Collecting urllib3!=2.2.0,<3,>=1.25.4 (from botocore<1.36.0,>=1.35.76->boto3==1.35.76->-r requirements.txt (line 5))
+#10 3.406   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+#10 3.551 Collecting six>=1.5 (from python-dateutil<3.0.0,>=2.1->botocore<1.36.0,>=1.35.76->boto3==1.35.76->-r requirements.txt (line 5))
+#10 3.565   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#10 3.584 Downloading django-5.1.14-py3-none-any.whl (8.3 MB)
+#10 3.679    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 120.3 MB/s eta 0:00:00
+#10 3.693 Downloading djangorestframework-3.15.2-py3-none-any.whl (1.1 MB)
+#10 3.696    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 848.1 MB/s eta 0:00:00
+#10 3.710 Downloading psycopg2_binary-2.9.10-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+#10 3.725    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 215.8 MB/s eta 0:00:00
+#10 3.738 Downloading django_storages-1.14.4-py3-none-any.whl (31 kB)
+#10 3.751 Downloading boto3-1.35.76-py3-none-any.whl (139 kB)
+#10 3.766 Downloading reportlab-4.2.5-py3-none-any.whl (1.9 MB)
+#10 3.771    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 561.3 MB/s eta 0:00:00
+#10 3.784 Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+#10 3.797 Downloading django_cors_headers-4.6.0-py3-none-any.whl (12 kB)
+#10 3.811 Downloading dj_database_url-2.3.0-py3-none-any.whl (7.8 kB)
+#10 3.824 Downloading asgiref-3.11.1-py3-none-any.whl (24 kB)
+#10 3.837 Downloading botocore-1.35.99-py3-none-any.whl (13.3 MB)
+#10 3.919    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.3/13.3 MB 163.2 MB/s eta 0:00:00
+#10 3.933 Downloading jmespath-1.1.0-py3-none-any.whl (20 kB)
+#10 3.946 Downloading pillow-12.1.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.0 MB)
+#10 3.998    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 137.4 MB/s eta 0:00:00
+#10 4.011 Downloading s3transfer-0.10.4-py3-none-any.whl (83 kB)
+#10 4.025 Downloading sqlparse-0.5.5-py3-none-any.whl (46 kB)
+#10 4.038 Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+#10 4.051 Downloading chardet-5.2.0-py3-none-any.whl (199 kB)
+#10 4.064 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#10 4.078 Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+#10 4.091 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#10 4.293 Installing collected packages: urllib3, typing-extensions, sqlparse, six, python-dotenv, psycopg2-binary, pillow, jmespath, chardet, asgiref, reportlab, python-dateutil, Django, djangorestframework, django-storages, django-cors-headers, dj-database-url, botocore, s3transfer, boto3
+#10 8.117 Successfully installed Django-5.1.14 asgiref-3.11.1 boto3-1.35.76 botocore-1.35.99 chardet-5.2.0 dj-database-url-2.3.0 django-cors-headers-4.6.0 django-storages-1.14.4 djangorestframework-3.15.2 jmespath-1.1.0 pillow-12.1.1 psycopg2-binary-2.9.10 python-dateutil-2.9.0.post0 python-dotenv-1.0.1 reportlab-4.2.5 s3transfer-0.10.4 six-1.17.0 sqlparse-0.5.5 typing-extensions-4.15.0 urllib3-2.6.3
+#10 8.118 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#10 DONE 9.0s
+
+#11 [6/7] COPY . .
+#11 DONE 2.0s
+
+#12 [7/7] RUN python manage.py collectstatic --noinput || true
+#12 1.153 
+#12 1.153 163 static files copied to '/app/staticfiles'.
+#12 DONE 1.2s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 13.8s done
+#13 exporting manifest sha256:10eb98d5e14b44732bff04c81aee26c1d4935cbbcd66c35a8d0c0222e74bbe3c done
+#13 exporting config sha256:14f2e0524fea250444ff9abe2d5de6d57f8249ad9ceb2ea34748c81edc815fd3 done
+#13 exporting attestation manifest sha256:50310e7e548c98e239da9d9109ef7393114bdf967dc7daa480078a4198f17df5 0.0s done
+#13 exporting manifest list sha256:19c136b491296087fcc6d02e76822cbe3fdd20ca12f6365858c0041f546b08a1 done
+#13 naming to docker.io/library/infra-compliance_cron:latest done
+#13 unpacking to docker.io/library/infra-compliance_cron:latest
+#13 unpacking to docker.io/library/infra-compliance_cron:latest 6.4s done
+#13 DONE 20.2s
+
+#14 resolving provenance for metadata file
+#14 DONE 0.1s
+ Image infra-compliance_cron Built 
+time="2026-02-13T17:28:57+05:00" level=warning msg="a network with name prod_accredivault_network exists but was not created for project \"infra\".\nSet `external: true` to use an existing network"
+time="2026-02-13T17:28:57+05:00" level=warning msg="volume \"PROD_accredivault_minio_data\" already exists but was not created by Docker Compose. Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:57+05:00" level=warning msg="volume \"PROD_accredivault_caddy_data\" already exists but was created for project \"prod_accredivault\" (expected \"infra\"). Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:57+05:00" level=warning msg="volume \"PROD_accredivault_caddy_config\" already exists but was created for project \"prod_accredivault\" (expected \"infra\"). Use `external: true` to use an existing volume"
+time="2026-02-13T17:28:57+05:00" level=warning msg="volume \"PROD_accredivault_pgdata\" already exists but was not created by Docker Compose. Use `external: true` to use an existing volume"
+ Container accredivault_minio Recreate 
+ Container accredivault_db Recreate 
+ Container accredivault_minio Error response from daemon: Error when allocating new name: Conflict. The container name "/accredivault_minio_prod" is already in use by container "3cbb29d1e2fd3d3dd5668c9fa4d60d909907df58c1eb3dfcde309045e7a7fc92". You have to remove (or rename) that container to be able to reuse that name. 
+Error response from daemon: Error when allocating new name: Conflict. The container name "/accredivault_minio_prod" is already in use by container "3cbb29d1e2fd3d3dd5668c9fa4d60d909907df58c1eb3dfcde309045e7a7fc92". You have to remove (or rename) that container to be able to reuse that name.
+⚠️  Compose up failed for /home/munaim/srv/apps/accredivault/infra/docker-compose.prod.yml (check logs below).
+⚠️  Compose file missing: /home/munaim/srv/dashboard/docker-compose.yml
+
+==================== 6) COMMON SCENARIOS: PORT CONFLICTS / LISTENERS / HEALTH ====================
+---- Listening ports of interest (8012/8013/8015/8016/8081) ----
+LISTEN 0      4096       127.0.0.1:8081       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8016       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8015       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8012       0.0.0.0:*                                                                                                                                                
+LISTEN 0      4096       127.0.0.1:8013       0.0.0.0:*                                                                                                                                                
+
+---- Container ports (trimmed) ----
+rims_backend_prod            Up 6 hours (healthy)     127.0.0.1:8015->8000/tcp
+lims_proxy_prod              Up 6 hours (healthy)     443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8012->80/tcp
+dashboard_ui                 Up 6 hours               127.0.0.1:8013->80/tcp
+accredivault_proxy           Up 6 hours (healthy)     
+rims_frontend_prod           Up 6 hours (healthy)     127.0.0.1:8081->80/tcp
+rims_caddy_local             Up 6 hours               443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8080->80/tcp
+accredivault_proxy_prod      Up 6 hours (healthy)     443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8016->80/tcp
+
+==================== 7) LOCAL HEALTH CHECKS (DIRECT TO 127.0.0.1) ====================
+>> http://127.0.0.1:8012/health
+OK
+>> http://127.0.0.1:8012/api/health
+curl: (22) The requested URL returned error: 404
+
+>> http://127.0.0.1:8015/api/health/
+{"status": "ok", "server_time": "2026-02-13T12:29:01.204977+00:00", "version": "unknown", "checks": {"db": "ok", "storage": "ok"}, "latency_ms": 9}
+>> http://127.0.0.1:8081/
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultants Place Clinic</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script type="module" crossorigin src="/assets/index-bBjV4yiu.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BWb6KA-C.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+>> http://127.0.0.1:8016/
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+    <script type="module" crossorigin src="/assets/index-CgI6SAJJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DTSCvIqS.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+>> http://127.0.0.1:8016/api/v1/health
+{"status":"healthy","checks":{"database":"ok","minio":"ok","minio_buckets":["exports"]}}
+>> http://127.0.0.1:8013/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Shifa Launchpad | Service Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: var(--bg, #F7F8FC);
+            color: var(--text, #0B1220);
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+        }
+        #app {
+            padding: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/index-CvIBfKzX.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CyrUt6WW.css">
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
+
+
+==================== 8) EXTERNAL DOMAIN CHECKS (THROUGH CADDY) ====================
+>> https://portal.alshifalab.pk
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Shifa Launchpad | Service Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: var(--bg, #F7F8FC);
+            color: var(--text, #0B1220);
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+        }
+        #app {
+            padding: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/index-CvIBfKzX.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CyrUt6WW.css">
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
+
+>> https://lims.alshifalab.pk/health
+OK
+>> https://rims.alshifalab.pk/api/health/
+{"status": "ok", "server_time": "2026-02-13T12:29:01.467299+00:00", "version": "unknown", "checks": {"db": "ok", "storage": "ok"}, "latency_ms": 9}
+>> https://phc.alshifalab.pk/api/v1/health
+{"status":"healthy","checks":{"database":"ok","minio":"ok","minio_buckets":["exports"]}}
+
+==================== 9) IF STILL BROKEN: AUTO-COLLECT THE RIGHT LOGS (NO GUESSING) ====================
+---- Caddy status ----
+* caddy.service - Caddy
+     Loaded: loaded (/usr/lib/systemd/system/caddy.service; enabled; preset: enabled)
+    Drop-In: /etc/systemd/system/caddy.service.d
+             `-override.conf
+     Active: active (running) since Fri 2026-02-13 17:27:13 PKT; 1min 48s ago
+       Docs: https://caddyserver.com/docs/
+    Process: 580392 ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile --force (code=exited, status=0/SUCCESS)
+   Main PID: 576821 (caddy)
+      Tasks: 12 (limit: 26339)
+     Memory: 19.1M (peak: 30.2M)
+        CPU: 732ms
+     CGroup: /system.slice/caddy.service
+             `-576821 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
+
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"info","ts":1770985633.2656786,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"warn","ts":1770985633.2657125,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":388}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"info","ts":1770985633.2706876,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"info","ts":1770985633.313658,"msg":"serving initial configuration"}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Started caddy.service - Caddy.
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal caddy[580392]: {"level":"info","ts":1770985690.9218457,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal caddy[580392]: {"level":"info","ts":1770985690.9332004,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal caddy[580392]: {"level":"warn","ts":1770985690.9332206,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":388}
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloaded caddy.service - Caddy.
+
+---- Recent Caddy journal (last 200 lines) ----
+Feb 12 13:46:58 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.770886018979086e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
+Feb 12 14:18:03 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708878835215738e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
+Feb 12 14:21:08 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708880686466959e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock)
+Feb 12 14:25:18 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708883188354757e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
+Feb 12 14:25:53 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708883538602028e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
+Feb 12 14:40:49 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708892495737398e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock)
+Feb 12 14:42:25 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708893456554022e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
+Feb 12 14:44:30 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708894707165916e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
+Feb 12 15:23:56 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918369385166e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock)
+Feb 12 15:24:06 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918469499013e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock)
+Feb 12 15:24:11 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918519571946e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
+Feb 12 15:24:26 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918669692044e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
+Feb 12 15:26:02 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708919620571718e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
+Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
+Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal caddy[3043334]: {"level":"info","ts":1770957570.270226,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal caddy[3043334]: {"level":"info","ts":1770957570.283162,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloaded caddy.service - Caddy.
+Feb 13 09:53:02 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
+Feb 13 09:53:02 vps.us-central1-f.c.munaimfinance.internal caddy[3076536]: {"level":"info","ts":1770958382.6184044,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 09:53:02 vps.us-central1-f.c.munaimfinance.internal caddy[3076536]: {"level":"info","ts":1770958382.643955,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 09:53:02 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloaded caddy.service - Caddy.
+Feb 13 09:59:26 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
+Feb 13 09:59:26 vps.us-central1-f.c.munaimfinance.internal caddy[3092937]: {"level":"info","ts":1770958766.3496592,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 09:59:26 vps.us-central1-f.c.munaimfinance.internal caddy[3092937]: {"level":"info","ts":1770958766.3643522,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 09:59:26 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloaded caddy.service - Caddy.
+Feb 13 11:02:44 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7709625638018084e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock)
+Feb 13 11:03:28 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7709626084360235e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
+Feb 13 11:03:28 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7709626084886281e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
+Feb 13 11:03:58 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7709626385043855e+09        error        Keeping lock file fresh: invalid character '}' after top-level value - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
+Feb 13 11:04:03 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7709626435034964e+09        error        Keeping lock file fresh: invalid character '}' after top-level value - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
+Feb 13 11:04:03 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.770962643503548e+09        error        Keeping lock file fresh: invalid character '}' after top-level value - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
+Feb 13 11:04:18 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.77096265855542e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
+Feb 13 11:05:33 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7709627335451467e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
+Feb 13 11:05:48 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7709627485575113e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock)
+Feb 13 11:06:03 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7709627635754278e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock)
+Feb 13 11:06:23 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.770962783587904e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock)
+Feb 13 11:06:33 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7709627935948932e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock)
+Feb 13 11:08:33 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.770962913693959e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
+Feb 13 11:08:53 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.770962933708449e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
+-- Boot 72620f55be16426eb9fb9bc8e828345c --
+Feb 13 11:38:52 vps systemd[1]: Starting caddy.service - Caddy...
+Feb 13 11:38:54 vps caddy[667]: {"level":"info","ts":1770964734.2198408,"msg":"maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined"}
+Feb 13 11:38:54 vps caddy[667]: {"level":"info","ts":1770964734.2200944,"msg":"GOMEMLIMIT is updated","package":"github.com/KimMachineGun/automemlimit/memlimit","GOMEMLIMIT":15543484416,"previous":9223372036854775807}
+Feb 13 11:38:54 vps caddy[667]: caddy.HomeDir=/var/lib/caddy
+Feb 13 11:38:54 vps caddy[667]: caddy.AppDataDir=/var/lib/caddy/.local/share/caddy
+Feb 13 11:38:54 vps caddy[667]: caddy.AppConfigDir=/var/lib/caddy/.config/caddy
+Feb 13 11:38:54 vps caddy[667]: caddy.ConfigAutosavePath=/var/lib/caddy/.config/caddy/autosave.json
+Feb 13 11:38:54 vps caddy[667]: caddy.Version=v2.10.2 h1:g/gTYjGMD0dec+UgMw8SnfmJ3I9+M2TdvoRL/Ovu6U8=
+Feb 13 11:38:54 vps caddy[667]: runtime.GOOS=linux
+Feb 13 11:38:54 vps caddy[667]: runtime.GOARCH=amd64
+Feb 13 11:38:54 vps caddy[667]: runtime.Compiler=gc
+Feb 13 11:38:54 vps caddy[667]: runtime.NumCPU=4
+Feb 13 11:38:54 vps caddy[667]: runtime.GOMAXPROCS=4
+Feb 13 11:38:54 vps caddy[667]: runtime.Version=go1.25.0
+Feb 13 11:38:54 vps caddy[667]: os.Getwd=/
+Feb 13 11:38:54 vps caddy[667]: LANG=C.UTF-8
+Feb 13 11:38:54 vps caddy[667]: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/snap/bin
+Feb 13 11:38:54 vps caddy[667]: NOTIFY_SOCKET=/run/systemd/notify
+Feb 13 11:38:54 vps caddy[667]: USER=caddy
+Feb 13 11:38:54 vps caddy[667]: LOGNAME=caddy
+Feb 13 11:38:54 vps caddy[667]: HOME=/var/lib/caddy
+Feb 13 11:38:54 vps caddy[667]: INVOCATION_ID=ce41de029df9489f856980b0c9a0d79d
+Feb 13 11:38:54 vps caddy[667]: JOURNAL_STREAM=9:7752
+Feb 13 11:38:54 vps caddy[667]: SYSTEMD_EXEC_PID=667
+Feb 13 11:38:54 vps caddy[667]: MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/caddy.service/memory.pressure
+Feb 13 11:38:54 vps caddy[667]: MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+Feb 13 11:38:54 vps caddy[667]: {"level":"info","ts":1770964734.2222564,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 11:38:54 vps caddy[667]: {"level":"info","ts":1770964734.2422419,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 11:38:54 vps caddy[667]: {"level":"info","ts":1770964734.2491922,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
+Feb 13 11:38:54 vps caddy[667]: 1.7709647343103187e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_api.sims.pmc.edu.pk' is stale (created: 2026-02-13 09:59:27.387385752 +0500 PKT, last update: 2026-02-13 11:20:24.344900423 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock
+Feb 13 11:38:54 vps caddy[667]: 1.770964734310524e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_sims.pmc.edu.pk' is stale (created: 2026-02-13 09:59:26.389636031 +0500 PKT, last update: 2026-02-13 11:20:24.344996086 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock
+Feb 13 11:38:54 vps caddy[667]: 1.770964734327606e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_api.sos.alshifalab.pk' is stale (created: 2026-02-13 09:59:27.387435592 +0500 PKT, last update: 2026-02-13 11:03:58.5007284 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock
+Feb 13 11:38:54 vps caddy[667]: 1.7709647343355076e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_pgsims.pmc.edu.pk' is stale (created: 2026-02-13 09:59:26.390101876 +0500 PKT, last update: 2026-02-13 11:20:24.344921407 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock
+Feb 13 11:38:54 vps caddy[667]: 1.7709647343356044e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_api.pgsims.pmc.edu.pk' is stale (created: 2026-02-13 09:59:27.387392231 +0500 PKT, last update: 2026-02-13 11:20:24.345022784 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock
+Feb 13 11:38:54 vps caddy[667]: {"level":"info","ts":1770964734.3357735,"msg":"serving initial configuration"}
+Feb 13 11:39:03 vps systemd[1]: Started caddy.service - Caddy.
+Feb 13 11:42:48 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Stopping caddy.service - Caddy...
+Feb 13 11:42:48 vps.us-central1-f.c.munaimfinance.internal systemd[1]: caddy.service: Deactivated successfully.
+Feb 13 11:42:48 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Stopped caddy.service - Caddy.
+-- Boot c03f597555264f5ea3565f113b49d87d --
+Feb 13 11:43:48 vps systemd[1]: Starting caddy.service - Caddy...
+Feb 13 11:43:49 vps caddy[670]: {"level":"info","ts":1770965029.681347,"msg":"maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined"}
+Feb 13 11:43:49 vps caddy[670]: {"level":"info","ts":1770965029.681615,"msg":"GOMEMLIMIT is updated","package":"github.com/KimMachineGun/automemlimit/memlimit","GOMEMLIMIT":20775459225,"previous":9223372036854775807}
+Feb 13 11:43:49 vps caddy[670]: caddy.HomeDir=/var/lib/caddy
+Feb 13 11:43:49 vps caddy[670]: caddy.AppDataDir=/var/lib/caddy/.local/share/caddy
+Feb 13 11:43:49 vps caddy[670]: caddy.AppConfigDir=/var/lib/caddy/.config/caddy
+Feb 13 11:43:49 vps caddy[670]: caddy.ConfigAutosavePath=/var/lib/caddy/.config/caddy/autosave.json
+Feb 13 11:43:49 vps caddy[670]: caddy.Version=v2.10.2 h1:g/gTYjGMD0dec+UgMw8SnfmJ3I9+M2TdvoRL/Ovu6U8=
+Feb 13 11:43:49 vps caddy[670]: runtime.GOOS=linux
+Feb 13 11:43:49 vps caddy[670]: runtime.GOARCH=amd64
+Feb 13 11:43:49 vps caddy[670]: runtime.Compiler=gc
+Feb 13 11:43:49 vps caddy[670]: runtime.NumCPU=4
+Feb 13 11:43:49 vps caddy[670]: runtime.GOMAXPROCS=4
+Feb 13 11:43:49 vps caddy[670]: runtime.Version=go1.25.0
+Feb 13 11:43:49 vps caddy[670]: os.Getwd=/
+Feb 13 11:43:49 vps caddy[670]: LANG=C.UTF-8
+Feb 13 11:43:49 vps caddy[670]: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/snap/bin
+Feb 13 11:43:49 vps caddy[670]: NOTIFY_SOCKET=/run/systemd/notify
+Feb 13 11:43:49 vps caddy[670]: USER=caddy
+Feb 13 11:43:49 vps caddy[670]: LOGNAME=caddy
+Feb 13 11:43:49 vps caddy[670]: HOME=/var/lib/caddy
+Feb 13 11:43:49 vps caddy[670]: INVOCATION_ID=000f8775af6c40e193260cbf359c16be
+Feb 13 11:43:49 vps caddy[670]: JOURNAL_STREAM=9:7786
+Feb 13 11:43:49 vps caddy[670]: SYSTEMD_EXEC_PID=670
+Feb 13 11:43:49 vps caddy[670]: MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/caddy.service/memory.pressure
+Feb 13 11:43:49 vps caddy[670]: MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+Feb 13 11:43:49 vps caddy[670]: {"level":"info","ts":1770965029.6833653,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 11:43:49 vps caddy[670]: {"level":"info","ts":1770965029.7021158,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 11:43:49 vps caddy[670]: {"level":"info","ts":1770965029.7100117,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
+Feb 13 11:43:49 vps caddy[670]: {"level":"info","ts":1770965029.7898464,"msg":"serving initial configuration"}
+Feb 13 11:43:58 vps systemd[1]: Started caddy.service - Caddy.
+-- Boot 695b467569ac4376918869c3d1c444f4 --
+Feb 13 11:46:20 vps systemd[1]: Starting caddy.service - Caddy...
+Feb 13 11:46:21 vps caddy[670]: {"level":"info","ts":1770965181.4974782,"msg":"maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined"}
+Feb 13 11:46:21 vps caddy[670]: {"level":"info","ts":1770965181.4978387,"msg":"GOMEMLIMIT is updated","package":"github.com/KimMachineGun/automemlimit/memlimit","GOMEMLIMIT":20775451852,"previous":9223372036854775807}
+Feb 13 11:46:21 vps caddy[670]: caddy.HomeDir=/var/lib/caddy
+Feb 13 11:46:21 vps caddy[670]: caddy.AppDataDir=/var/lib/caddy/.local/share/caddy
+Feb 13 11:46:21 vps caddy[670]: caddy.AppConfigDir=/var/lib/caddy/.config/caddy
+Feb 13 11:46:21 vps caddy[670]: caddy.ConfigAutosavePath=/var/lib/caddy/.config/caddy/autosave.json
+Feb 13 11:46:21 vps caddy[670]: caddy.Version=v2.10.2 h1:g/gTYjGMD0dec+UgMw8SnfmJ3I9+M2TdvoRL/Ovu6U8=
+Feb 13 11:46:21 vps caddy[670]: runtime.GOOS=linux
+Feb 13 11:46:21 vps caddy[670]: runtime.GOARCH=amd64
+Feb 13 11:46:21 vps caddy[670]: runtime.Compiler=gc
+Feb 13 11:46:21 vps caddy[670]: runtime.NumCPU=4
+Feb 13 11:46:21 vps caddy[670]: runtime.GOMAXPROCS=4
+Feb 13 11:46:21 vps caddy[670]: runtime.Version=go1.25.0
+Feb 13 11:46:21 vps caddy[670]: os.Getwd=/
+Feb 13 11:46:21 vps caddy[670]: LANG=C.UTF-8
+Feb 13 11:46:21 vps caddy[670]: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/snap/bin
+Feb 13 11:46:21 vps caddy[670]: NOTIFY_SOCKET=/run/systemd/notify
+Feb 13 11:46:21 vps caddy[670]: USER=caddy
+Feb 13 11:46:21 vps caddy[670]: LOGNAME=caddy
+Feb 13 11:46:21 vps caddy[670]: HOME=/var/lib/caddy
+Feb 13 11:46:21 vps caddy[670]: INVOCATION_ID=62b5b75e04ac4d0ebf42440c315dd11d
+Feb 13 11:46:21 vps caddy[670]: JOURNAL_STREAM=9:6790
+Feb 13 11:46:21 vps caddy[670]: SYSTEMD_EXEC_PID=670
+Feb 13 11:46:21 vps caddy[670]: MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/caddy.service/memory.pressure
+Feb 13 11:46:21 vps caddy[670]: MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+Feb 13 11:46:21 vps caddy[670]: {"level":"info","ts":1770965181.499517,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 11:46:21 vps caddy[670]: {"level":"info","ts":1770965181.5142639,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 11:46:21 vps caddy[670]: {"level":"info","ts":1770965181.521689,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
+Feb 13 11:46:21 vps caddy[670]: 1.7709651815668845e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_pgsims.pmc.edu.pk' is stale (created: 2026-02-13 11:43:49.774322315 +0500 PKT, last update: 2026-02-13 11:45:29.834325738 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock
+Feb 13 11:46:21 vps caddy[670]: 1.7709651815677464e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_sims.pmc.edu.pk' is stale (created: 2026-02-13 11:43:49.751705274 +0500 PKT, last update: 2026-02-13 11:45:29.836973108 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock
+Feb 13 11:46:21 vps caddy[670]: 1.7709651815709937e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_api.pgsims.pmc.edu.pk' is stale (created: 2026-02-13 11:43:49.774268655 +0500 PKT, last update: 2026-02-13 11:45:29.834172477 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock
+Feb 13 11:46:21 vps caddy[670]: 1.7709651815845249e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_api.sos.alshifalab.pk' is stale (created: 2026-02-13 11:43:49.746976473 +0500 PKT, last update: 2026-02-13 11:45:29.83442512 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock
+Feb 13 11:46:21 vps caddy[670]: 1.770965181590219e+09        info        [FileStorage:/var/lib/caddy/.local/share/caddy] Lock for 'issue_cert_api.sims.pmc.edu.pk' is stale (created: 2026-02-13 11:43:49.746951036 +0500 PKT, last update: 2026-02-13 11:45:29.834417272 +0500 PKT); removing then retrying: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock
+Feb 13 11:46:21 vps caddy[670]: {"level":"info","ts":1770965181.5921936,"msg":"serving initial configuration"}
+Feb 13 11:46:25 vps systemd[1]: Started caddy.service - Caddy.
+Feb 13 16:40:13 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
+Feb 13 16:40:13 vps.us-central1-f.c.munaimfinance.internal caddy[452730]: {"level":"info","ts":1770982813.4835978,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 16:40:13 vps.us-central1-f.c.munaimfinance.internal caddy[452730]: {"level":"info","ts":1770982813.4946446,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 16:40:13 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloaded caddy.service - Caddy.
+Feb 13 16:41:01 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
+Feb 13 16:41:01 vps.us-central1-f.c.munaimfinance.internal caddy[454781]: {"level":"info","ts":1770982861.5264854,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 16:41:01 vps.us-central1-f.c.munaimfinance.internal caddy[454781]: {"level":"info","ts":1770982861.5401618,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 16:41:01 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloaded caddy.service - Caddy.
+Feb 13 17:25:10 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
+Feb 13 17:25:10 vps.us-central1-f.c.munaimfinance.internal caddy[570879]: {"level":"info","ts":1770985510.8392475,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 17:25:10 vps.us-central1-f.c.munaimfinance.internal caddy[570879]: {"level":"info","ts":1770985510.8558798,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 17:25:10 vps.us-central1-f.c.munaimfinance.internal caddy[570879]: {"level":"warn","ts":1770985510.855926,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":388}
+Feb 13 17:25:10 vps.us-central1-f.c.munaimfinance.internal caddy[570879]: Error: sending configuration to instance: caddy responded with error: HTTP 400: {"error":"loading config: loading new config: setting up custom log 'log18': opening log writer using \u0026logging.FileWriter{Filename:\"/var/log/caddy/mediq.log\", Mode:0x0, Roll:(*bool)(nil), RollSizeMB:0, RollCompress:(*bool)(nil), RollLocalTime:false, RollKeep:0, RollKeepDays:0}: open /var/log/caddy/mediq.log: permission denied"}
+Feb 13 17:25:10 vps.us-central1-f.c.munaimfinance.internal systemd[1]: caddy.service: Control process exited, code=exited, status=1/FAILURE
+Feb 13 17:26:40 vps.us-central1-f.c.munaimfinance.internal systemd[1]: caddy.service: Reload operation timed out. Killing reload process.
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal systemd[1]: caddy.service: Deactivated successfully.
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Stopped caddy.service - Caddy.
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal systemd[1]: caddy.service: Consumed 10.875s CPU time, 74.3M memory peak, 0B memory swap peak.
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Starting caddy.service - Caddy...
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"info","ts":1770985633.2481313,"msg":"maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined"}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"info","ts":1770985633.2492034,"msg":"GOMEMLIMIT is updated","package":"github.com/KimMachineGun/automemlimit/memlimit","GOMEMLIMIT":20775451852,"previous":9223372036854775807}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: caddy.HomeDir=/var/lib/caddy
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: caddy.AppDataDir=/var/lib/caddy/.local/share/caddy
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: caddy.AppConfigDir=/var/lib/caddy/.config/caddy
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: caddy.ConfigAutosavePath=/var/lib/caddy/.config/caddy/autosave.json
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: caddy.Version=v2.10.2 h1:g/gTYjGMD0dec+UgMw8SnfmJ3I9+M2TdvoRL/Ovu6U8=
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: runtime.GOOS=linux
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: runtime.GOARCH=amd64
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: runtime.Compiler=gc
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: runtime.NumCPU=4
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: runtime.GOMAXPROCS=4
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: runtime.Version=go1.25.0
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: os.Getwd=/
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: LANG=C.UTF-8
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/snap/bin
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: NOTIFY_SOCKET=/run/systemd/notify
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: USER=caddy
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: LOGNAME=caddy
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: HOME=/var/lib/caddy
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: INVOCATION_ID=8025e028615743a2acc6b71cfc06e165
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: JOURNAL_STREAM=9:2718121
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: SYSTEMD_EXEC_PID=576821
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/caddy.service/memory.pressure
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"info","ts":1770985633.2493584,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"info","ts":1770985633.2656786,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"warn","ts":1770985633.2657125,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":388}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"info","ts":1770985633.2706876,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal caddy[576821]: {"level":"info","ts":1770985633.313658,"msg":"serving initial configuration"}
+Feb 13 17:27:13 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Started caddy.service - Caddy.
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal caddy[580392]: {"level":"info","ts":1770985690.9218457,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal caddy[580392]: {"level":"info","ts":1770985690.9332004,"msg":"adapted config to JSON","adapter":"caddyfile"}
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal caddy[580392]: {"level":"warn","ts":1770985690.9332206,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":388}
+Feb 13 17:28:10 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloaded caddy.service - Caddy.
+
+---- LIMS compose ps + last 120 log lines (best-effort) ----
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
+
+---- RIMS compose ps + last 120 log lines (best-effort) ----
+NAME               IMAGE            COMMAND                  SERVICE   CREATED        STATUS       PORTS
+rims_caddy_local   caddy:2-alpine   "caddy run --config …"   caddy     31 hours ago   Up 6 hours   443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8080->80/tcp
+
+---- AccrediVault compose ps + last 120 log lines (best-effort) ----
+NAME                    IMAGE            COMMAND                  SERVICE    CREATED        STATUS                 PORTS
+accredivault_backend    infra-backend    "/bin/sh -c 'python …"   backend    30 hours ago   Up 6 hours (healthy)   8000/tcp
+accredivault_frontend   infra-frontend   "docker-entrypoint.s…"   frontend   30 hours ago   Up 6 hours (healthy)   5173/tcp
+accredivault_proxy      caddy:2          "caddy run --config …"   caddy      30 hours ago   Up 6 hours (healthy)   
+accredivault_frontend  |  HTTP  2/13/2026 11:58:54 AM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 11:58:54 AM 127.0.0.1 Returned 200 in 0 ms
+accredivault_frontend  |  HTTP  2/13/2026 11:59:24 AM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 11:59:24 AM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 11:59:54 AM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 11:59:54 AM 127.0.0.1 Returned 200 in 0 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:00:24 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:00:24 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:00:54 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:00:54 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:01:25 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:01:25 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:01:55 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:01:55 PM 127.0.0.1 Returned 200 in 0 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:02:25 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:02:25 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:02:55 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:02:55 PM 127.0.0.1 Returned 200 in 0 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:03:25 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:03:25 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:03:55 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:03:55 PM 127.0.0.1 Returned 200 in 0 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:04:25 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:04:25 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:04:55 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:04:55 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:05:26 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:05:26 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:05:56 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:05:56 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:06:26 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:06:26 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:06:56 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:06:56 PM 127.0.0.1 Returned 200 in 0 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:07:26 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:07:26 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:07:56 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:07:56 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:08:26 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:08:26 PM 127.0.0.1 Returned 200 in 3 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:08:56 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:08:56 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:09:26 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:09:26 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:09:57 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:09:57 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:10:27 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:10:27 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:10:57 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:10:57 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:11:27 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:11:27 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:11:57 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:11:57 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:12:27 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:12:27 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:12:58 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:12:58 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:13:28 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:13:28 PM 127.0.0.1 Returned 200 in 0 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:13:58 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:13:58 PM 127.0.0.1 Returned 200 in 0 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:14:28 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:14:28 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:14:59 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:14:59 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:15:29 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:15:29 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:15:59 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:15:59 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:16:29 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:16:29 PM 127.0.0.1 Returned 200 in 3 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:16:59 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:16:59 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:17:29 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:17:29 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:18:00 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:18:00 PM 127.0.0.1 Returned 200 in 3 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:18:30 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:18:30 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:19:00 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:19:00 PM 127.0.0.1 Returned 200 in 43 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:19:30 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:19:30 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:20:00 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:20:00 PM 127.0.0.1 Returned 200 in 4 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:20:30 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:20:30 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:21:01 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:21:01 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:21:31 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:21:31 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:22:01 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:22:01 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:22:31 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:22:31 PM 127.0.0.1 Returned 200 in 4 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:23:01 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:23:01 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:23:31 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:23:31 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:24:01 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:24:01 PM 127.0.0.1 Returned 200 in 2 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:24:32 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:24:32 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:25:02 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:25:02 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:25:32 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:25:32 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:26:02 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:26:02 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:26:32 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:26:32 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:27:02 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:27:02 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:27:32 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:27:32 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:28:02 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:28:02 PM 127.0.0.1 Returned 200 in 0 ms
+accredivault_frontend  |  HTTP  2/13/2026 12:28:33 PM 127.0.0.1 GET /
+accredivault_frontend  |  HTTP  2/13/2026 12:28:33 PM 127.0.0.1 Returned 200 in 1 ms
+accredivault_backend   | [13/Feb/2026 11:28:38] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:29:09] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:29:39] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:30:09] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:30:40] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:31:10] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:31:40] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:32:11] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:32:41] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:33:11] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:33:42] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:34:12] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:34:42] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:35:13] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:35:43] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:36:13] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:36:44] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:37:14] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:37:44] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:38:14] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:38:45] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:39:15] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:39:45] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:40:16] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:40:46] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:41:16] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:41:47] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:42:17] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:42:48] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:43:18] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:43:49] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:44:19] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:44:49] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:45:20] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:45:50] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:46:20] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:46:51] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:47:21] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:47:51] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:48:22] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:48:52] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:49:22] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:49:53] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:50:23] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:50:53] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:51:24] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:51:54] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:52:24] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:52:54] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:53:25] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:53:55] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:54:25] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:54:56] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:55:26] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:55:56] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:56:27] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:56:57] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:57:27] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:57:57] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:58:28] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:58:58] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:59:28] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 11:59:59] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:00:29] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:00:59] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:01:30] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:02:00] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:02:30] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:03:01] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:03:31] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:04:02] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:04:32] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:05:02] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:05:33] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:06:04] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:06:34] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:07:04] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:07:35] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:08:05] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:08:36] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:09:06] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:09:37] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:10:08] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:10:38] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:11:09] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:11:39] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:12:10] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:12:41] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:13:11] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:13:42] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:14:12] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:14:43] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:15:14] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:15:44] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:16:15] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:16:45] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:17:16] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:17:46] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:18:17] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:18:47] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:19:18] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:19:48] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:20:19] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:20:50] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:21:20] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:21:51] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:22:21] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:22:52] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:23:23] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:23:54] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:24:25] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:24:55] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:25:25] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:25:56] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:26:26] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:26:57] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:27:27] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:27:57] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:28:28] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_backend   | [13/Feb/2026 12:28:58] "GET /api/v1/health HTTP/1.1" 200 79
+accredivault_proxy     | {"level":"info","ts":1770876488.8542454,"msg":"maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined"}
+accredivault_proxy     | {"level":"info","ts":1770876488.8549488,"msg":"GOMEMLIMIT is updated","package":"github.com/KimMachineGun/automemlimit/memlimit","GOMEMLIMIT":15543488102,"previous":9223372036854775807}
+accredivault_proxy     | {"level":"info","ts":1770876488.8554227,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+accredivault_proxy     | {"level":"info","ts":1770876488.8633776,"msg":"adapted config to JSON","adapter":"caddyfile"}
+accredivault_proxy     | {"level":"warn","ts":1770876488.8634472,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":5}
+accredivault_proxy     | {"level":"info","ts":1770876488.8674693,"logger":"admin","msg":"admin endpoint started","address":"localhost:2019","enforce_origin":false,"origins":["//localhost:2019","//[::1]:2019","//127.0.0.1:2019"]}
+accredivault_proxy     | {"level":"warn","ts":1770876488.86934,"logger":"http.auto_https","msg":"server is listening only on the HTTP port, so no automatic HTTPS will be applied to this server","server_name":"srv0","http_port":80}
+accredivault_proxy     | {"level":"info","ts":1770876488.870798,"logger":"tls.cache.maintenance","msg":"started background certificate maintenance","cache":"0xc0005eab00"}
+accredivault_proxy     | {"level":"warn","ts":1770876488.8723366,"logger":"http","msg":"HTTP/2 skipped because it requires TLS","network":"tcp","addr":":80"}
+accredivault_proxy     | {"level":"warn","ts":1770876488.8723583,"logger":"http","msg":"HTTP/3 skipped because it requires TLS","network":"tcp","addr":":80"}
+accredivault_proxy     | {"level":"info","ts":1770876488.8723643,"logger":"http.log","msg":"server running","name":"srv0","protocols":["h1","h2","h3"]}
+accredivault_proxy     | {"level":"info","ts":1770876488.8745542,"msg":"autosaved config (load with --resume flag)","file":"/config/caddy/autosave.json"}
+accredivault_proxy     | {"level":"info","ts":1770876488.8745828,"msg":"serving initial configuration"}
+accredivault_proxy     | {"level":"info","ts":1770876488.876464,"logger":"tls","msg":"storage cleaning happened too recently; skipping for now","storage":"FileStorage:/data/caddy","instance":"367a60e7-d011-4bf9-9545-6576a27839af","try_again":1770962888.876461,"try_again_in":86399.999999578}
+accredivault_proxy     | {"level":"info","ts":1770876488.8765392,"logger":"tls","msg":"finished cleaning storage units"}
+accredivault_proxy     | {"level":"info","ts":1770962888.8833897,"logger":"tls","msg":"cleaning storage unit","storage":"FileStorage:/data/caddy"}
+accredivault_proxy     | {"level":"info","ts":1770962888.8855824,"logger":"tls","msg":"finished cleaning storage units"}
+accredivault_proxy     | {"level":"info","ts":1770964755.8707151,"msg":"maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined"}
+accredivault_proxy     | {"level":"info","ts":1770964755.8709223,"msg":"GOMEMLIMIT is updated","package":"github.com/KimMachineGun/automemlimit/memlimit","GOMEMLIMIT":15543484416,"previous":9223372036854775807}
+accredivault_proxy     | {"level":"info","ts":1770964755.877995,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+accredivault_proxy     | {"level":"info","ts":1770964755.880174,"msg":"adapted config to JSON","adapter":"caddyfile"}
+accredivault_proxy     | {"level":"warn","ts":1770964755.8801932,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":5}
+accredivault_proxy     | {"level":"info","ts":1770964755.908931,"logger":"admin","msg":"admin endpoint started","address":"localhost:2019","enforce_origin":false,"origins":["//[::1]:2019","//127.0.0.1:2019","//localhost:2019"]}
+accredivault_proxy     | {"level":"warn","ts":1770964755.9092505,"logger":"http.auto_https","msg":"server is listening only on the HTTP port, so no automatic HTTPS will be applied to this server","server_name":"srv0","http_port":80}
+accredivault_proxy     | {"level":"info","ts":1770964755.9095817,"logger":"tls.cache.maintenance","msg":"started background certificate maintenance","cache":"0xc000597180"}
+accredivault_proxy     | {"level":"warn","ts":1770964755.9473732,"logger":"http","msg":"HTTP/2 skipped because it requires TLS","network":"tcp","addr":":80"}
+accredivault_proxy     | {"level":"warn","ts":1770964755.9473858,"logger":"http","msg":"HTTP/3 skipped because it requires TLS","network":"tcp","addr":":80"}
+accredivault_proxy     | {"level":"info","ts":1770964755.9473886,"logger":"http.log","msg":"server running","name":"srv0","protocols":["h1","h2","h3"]}
+accredivault_proxy     | {"level":"info","ts":1770964755.9616668,"msg":"autosaved config (load with --resume flag)","file":"/config/caddy/autosave.json"}
+accredivault_proxy     | {"level":"info","ts":1770964755.961681,"msg":"serving initial configuration"}
+accredivault_proxy     | {"level":"info","ts":1770964756.0114522,"logger":"tls","msg":"storage cleaning happened too recently; skipping for now","storage":"FileStorage:/data/caddy","instance":"367a60e7-d011-4bf9-9545-6576a27839af","try_again":1771051156.0114496,"try_again_in":86399.99999948}
+accredivault_proxy     | {"level":"info","ts":1770964756.0115721,"logger":"tls","msg":"finished cleaning storage units"}
+accredivault_proxy     | {"level":"info","ts":1770964969.1261735,"msg":"shutting down apps, then terminating","signal":"SIGTERM"}
+accredivault_proxy     | {"level":"warn","ts":1770964969.1263468,"msg":"exiting; byeee!! 👋","signal":"SIGTERM"}
+accredivault_proxy     | {"level":"info","ts":1770964969.1265142,"logger":"http","msg":"servers shutting down with eternal grace period"}
+accredivault_proxy     | {"level":"info","ts":1770964969.1283772,"logger":"admin","msg":"stopped previous server","address":"localhost:2019"}
+accredivault_proxy     | {"level":"info","ts":1770964969.12846,"msg":"shutdown complete","signal":"SIGTERM","exit_code":0}
+accredivault_proxy     | {"level":"info","ts":1770965049.8557112,"msg":"maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined"}
+accredivault_proxy     | {"level":"info","ts":1770965049.855931,"msg":"GOMEMLIMIT is updated","package":"github.com/KimMachineGun/automemlimit/memlimit","GOMEMLIMIT":20775459225,"previous":9223372036854775807}
+accredivault_proxy     | {"level":"info","ts":1770965049.8573656,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+accredivault_proxy     | {"level":"info","ts":1770965049.8591564,"msg":"adapted config to JSON","adapter":"caddyfile"}
+accredivault_proxy     | {"level":"warn","ts":1770965049.859169,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":5}
+accredivault_proxy     | {"level":"info","ts":1770965049.8607879,"logger":"admin","msg":"admin endpoint started","address":"localhost:2019","enforce_origin":false,"origins":["//localhost:2019","//[::1]:2019","//127.0.0.1:2019"]}
+accredivault_proxy     | {"level":"info","ts":1770965049.8611283,"logger":"tls.cache.maintenance","msg":"started background certificate maintenance","cache":"0xc00063ae80"}
+accredivault_proxy     | {"level":"warn","ts":1770965049.861183,"logger":"http.auto_https","msg":"server is listening only on the HTTP port, so no automatic HTTPS will be applied to this server","server_name":"srv0","http_port":80}
+accredivault_proxy     | {"level":"warn","ts":1770965049.8617964,"logger":"http","msg":"HTTP/2 skipped because it requires TLS","network":"tcp","addr":":80"}
+accredivault_proxy     | {"level":"warn","ts":1770965049.861806,"logger":"http","msg":"HTTP/3 skipped because it requires TLS","network":"tcp","addr":":80"}
+accredivault_proxy     | {"level":"info","ts":1770965049.8618083,"logger":"http.log","msg":"server running","name":"srv0","protocols":["h1","h2","h3"]}
+accredivault_proxy     | {"level":"info","ts":1770965049.864728,"msg":"autosaved config (load with --resume flag)","file":"/config/caddy/autosave.json"}
+accredivault_proxy     | {"level":"info","ts":1770965049.864756,"msg":"serving initial configuration"}
+accredivault_proxy     | {"level":"info","ts":1770965049.8707745,"logger":"tls","msg":"storage cleaning happened too recently; skipping for now","storage":"FileStorage:/data/caddy","instance":"367a60e7-d011-4bf9-9545-6576a27839af","try_again":1771051449.8707707,"try_again_in":86399.999999193}
+accredivault_proxy     | {"level":"info","ts":1770965049.8708935,"logger":"tls","msg":"finished cleaning storage units"}
+accredivault_proxy     | {"level":"info","ts":1770965193.8290868,"msg":"maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined"}
+accredivault_proxy     | {"level":"info","ts":1770965193.8293152,"msg":"GOMEMLIMIT is updated","package":"github.com/KimMachineGun/automemlimit/memlimit","GOMEMLIMIT":20775451852,"previous":9223372036854775807}
+accredivault_proxy     | {"level":"info","ts":1770965193.8299568,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+accredivault_proxy     | {"level":"info","ts":1770965193.8340979,"msg":"adapted config to JSON","adapter":"caddyfile"}
+accredivault_proxy     | {"level":"warn","ts":1770965193.834111,"msg":"Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies","adapter":"caddyfile","file":"/etc/caddy/Caddyfile","line":5}
+accredivault_proxy     | {"level":"info","ts":1770965193.8365164,"logger":"admin","msg":"admin endpoint started","address":"localhost:2019","enforce_origin":false,"origins":["//localhost:2019","//[::1]:2019","//127.0.0.1:2019"]}
+accredivault_proxy     | {"level":"warn","ts":1770965193.8375068,"logger":"http.auto_https","msg":"server is listening only on the HTTP port, so no automatic HTTPS will be applied to this server","server_name":"srv0","http_port":80}
+accredivault_proxy     | {"level":"info","ts":1770965193.8391259,"logger":"tls.cache.maintenance","msg":"started background certificate maintenance","cache":"0xc0004d1700"}
+accredivault_proxy     | {"level":"warn","ts":1770965193.8442097,"logger":"http","msg":"HTTP/2 skipped because it requires TLS","network":"tcp","addr":":80"}
+accredivault_proxy     | {"level":"warn","ts":1770965193.8442297,"logger":"http","msg":"HTTP/3 skipped because it requires TLS","network":"tcp","addr":":80"}
+accredivault_proxy     | {"level":"info","ts":1770965193.8442328,"logger":"http.log","msg":"server running","name":"srv0","protocols":["h1","h2","h3"]}
+accredivault_proxy     | {"level":"info","ts":1770965193.8472116,"msg":"autosaved config (load with --resume flag)","file":"/config/caddy/autosave.json"}
+accredivault_proxy     | {"level":"info","ts":1770965193.8472211,"msg":"serving initial configuration"}
+accredivault_proxy     | {"level":"info","ts":1770965193.8528476,"logger":"tls","msg":"storage cleaning happened too recently; skipping for now","storage":"FileStorage:/data/caddy","instance":"367a60e7-d011-4bf9-9545-6576a27839af","try_again":1771051593.852846,"try_again_in":86399.999999463}
+accredivault_proxy     | {"level":"info","ts":1770965193.8529277,"logger":"tls","msg":"finished cleaning storage units"}
+
+---- Portal UI compose ps + last 120 log lines (best-effort) ----
+
+==================== 10) FINAL SUMMARY (WHAT TO PASTE BACK IF NOT FIXED) ====================
+If anything is still not working, paste ONLY these from /home/munaim/srv/_triage_backups/20260213-172756/triage.log:
+1) The section: '4) CADDYFILE SYNC + VALIDATE + RELOAD' (including any validation errors)
+2) Output of: docker ps (first snapshot)
+3) Output of: ss -ltnp | grep expected ports
+4) The relevant compose logs from section 9
+✅ Triage completed.

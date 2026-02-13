@@ -1,0 +1,31 @@
+$ bash -lc docker exec accredivault_db_prod pg_dump -U accredvault accredvault | gzip -c > /srv/backups/work/20260212104453-be3ac239/db/accred.sql.gz
+$ gunzip -t /srv/backups/work/20260212104453-be3ac239/db/accred.sql.gz
+$ tar --zstd -cf /srv/backups/work/20260212104453-be3ac239/files/accred_files.tar.zst /home/munaim/srv/apps/accredivault/infra/docker-compose.yml
+tar: Removing leading `/' from member names
+
+$ zstd -t /srv/backups/work/20260212104453-be3ac239/files/accred_files.tar.zst
+/srv/backups/work/20260212104453-be3ac239/files/accred_files.tar.zst: 10240 bytes 
+
+$ tar -tf /srv/backups/work/20260212104453-be3ac239/files/accred_files.tar.zst
+home/munaim/srv/apps/accredivault/infra/docker-compose.yml
+
+$ tar --zstd -cf /srv/backups/work/20260212104453-be3ac239/caddy/caddy_config.tar.zst /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile
+tar: Removing leading `/' from member names
+tar: Removing leading `/' from hard link targets
+
+$ zstd -t /srv/backups/work/20260212104453-be3ac239/caddy/caddy_config.tar.zst
+/srv/backups/work/20260212104453-be3ac239/caddy/caddy_config.tar.zst: 20480 bytes 
+
+$ restic -r /srv/backups/restic_repo backup /srv/backups/work/20260212104453-be3ac239 --tag run:20260212104453-be3ac239 --tag scope:full --tag server:vps.us-central1-f.c.munaimfinance.internal --tag app:accred
+no parent snapshot found, will read all files
+
+Files:           3 new,     0 changed,     0 unmodified
+Dirs:            8 new,     0 changed,     0 unmodified
+Added to the repository: 23.320 KiB (22.128 KiB stored)
+
+processed 3 files, 19.236 KiB in 0:00
+snapshot f801df8f saved
+
+$ restic -r /srv/backups/restic_repo snapshots --json --tag run:20260212104453-be3ac239
+[{"time":"2026-02-12T10:44:54.418578881+05:00","tree":"7f591ee8d717fcdcbc1d696e1573034f69a1620a199500acba347a0886bc5d10","paths":["/srv/backups/work/20260212104453-be3ac239"],"hostname":"vps.us-central1-f.c.munaimfinance.internal","username":"munaim","uid":1004,"gid":1004,"tags":["run:20260212104453-be3ac239","scope:full","server:vps.us-central1-f.c.munaimfinance.internal","app:accred"],"program_version":"restic 0.16.4","id":"f801df8f5f0ba687019515992f8cc11087facdf673cc7e4fd972fc2254a5a621","short_id":"f801df8f"}]
+

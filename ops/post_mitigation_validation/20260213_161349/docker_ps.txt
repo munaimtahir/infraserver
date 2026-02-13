@@ -1,0 +1,36 @@
+NAMES                        IMAGE                              STATUS
+ops_dashboard_beat           dashboard-ops-beat                 Up 4 hours
+ops_dashboard_worker         dashboard-ops-worker               Up 4 hours
+ops_dashboard_frontend       dashboard-ops-frontend             Up 4 hours
+ops_dashboard_backend        dashboard-ops-backend              Up 4 hours
+ops_dashboard_postgres       postgres:16-alpine                 Up 4 hours (healthy)
+ops_dashboard_redis          redis:7-alpine                     Up 4 hours
+rims_backend_prod            prod_radreport-backend             Up 4 hours (healthy)
+lims_backend_prod            prod_lims-backend                  Up 4 hours (healthy)
+lims_celery_prod             prod_lims-celery                   Up 4 hours
+lims_celery_prod_beat        prod_lims-celery-beat              Up 4 hours
+lims_proxy_prod              caddy:2-alpine                     Up 4 hours (healthy)
+lims_frontend_prod           prod_lims-frontend                 Up 4 hours
+lims_db_prod                 postgres:16-alpine                 Up 4 hours (healthy)
+lims_redis_prod              redis:7-alpine                     Up 4 hours (healthy)
+obs_grafana                  grafana/grafana:11.2.0             Up 4 hours
+accredivault_frontend        infra-frontend                     Up 4 hours (healthy)
+accredivault_backend         infra-backend                      Up 4 hours (healthy)
+dashboard_ui                 nginx:alpine                       Up 4 hours
+accredivault_proxy           caddy:2                            Up 4 hours (healthy)
+accredivault_frontend_prod   prod_accredivault-frontend         Up 4 hours (healthy)
+accredivault_backend_prod    prod_accredivault-backend          Up 4 hours (healthy)
+rims_frontend_prod           prod_radreport-frontend            Up 4 hours (healthy)
+rims_caddy_local             caddy:2-alpine                     Up 4 hours
+obs_promtail                 grafana/promtail:2.9.9             Up 4 hours
+obs_prometheus               prom/prometheus:v2.54.1            Up 4 hours
+obs_cadvisor                 gcr.io/cadvisor/cadvisor:v0.49.1   Up 4 hours (healthy)
+obs_alertmanager             prom/alertmanager:v0.27.0          Up 4 hours
+obs_loki                     grafana/loki:2.9.9                 Up 4 hours
+obs_node_exporter            prom/node-exporter:v1.8.2          Up 4 hours
+accredivault_db              postgres:16                        Up 4 hours (healthy)
+accredivault_minio           minio/minio:latest                 Up 4 hours (healthy)
+rims_db_prod                 postgres:16-alpine                 Up 4 hours (healthy)
+accredivault_proxy_prod      caddy:2                            Up 4 hours (healthy)
+accredivault_db_prod         postgres:16                        Up 4 hours (healthy)
+accredivault_minio_prod      minio/minio:latest                 Up 4 hours (healthy)

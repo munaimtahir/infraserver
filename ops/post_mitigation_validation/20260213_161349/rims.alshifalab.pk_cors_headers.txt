@@ -1,0 +1,17 @@
+HTTP/2 401 
+access-control-allow-credentials: true
+access-control-allow-origin: https://rims.alshifalab.pk
+allow: GET, HEAD, OPTIONS
+alt-svc: h3=":443"; ma=2592000
+content-type: application/json
+cross-origin-opener-policy: same-origin
+date: Fri, 13 Feb 2026 11:15:05 GMT
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+vary: Accept, origin
+via: 1.1 Caddy
+www-authenticate: Bearer realm="api"
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+content-length: 58
+
