@@ -5,3 +5,9 @@ agent/.venv/
 **/__pycache__/
 *.swp
 .DS_Store
+
+# Runtime data/logs (do not commit)
+_triage_backups/
+observability/data/
+proxy/caddy/logs/
+ops/logs/
