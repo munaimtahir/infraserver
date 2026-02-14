@@ -1,0 +1,30 @@
+=== snapshot_time ===
+2026-02-14T02:03:44+05:00
+\n=== docker_ps ===
+\n=== systemctl_caddy_status ===
+● caddy.service - Caddy
+     Loaded: loaded (/usr/lib/systemd/system/caddy.service; enabled; preset: enabled)
+    Drop-In: /etc/systemd/system/caddy.service.d
+             └─override.conf
+     Active: active (running) since Sat 2026-02-14 00:23:17 PKT; 1h 40min ago
+       Docs: https://caddyserver.com/docs/
+   Main PID: 671 (caddy)
+      Tasks: 13 (limit: 26339)
+     Memory: 56.0M (peak: 58.1M)
+        CPU: 2.237s
+     CGroup: /system.slice/caddy.service
+             └─671 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
+
+Warning: some journal files were not opened due to insufficient permissions.
+\n=== ss_ltnp ===
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                                                                                                                                        
+LISTEN 0      4096         0.0.0.0:22        0.0.0.0:*                                                                                                                                                  
+LISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*                                                                                                                                                  
+LISTEN 0      2048       127.0.0.1:9753      0.0.0.0:*                                                                                                                                                  
+LISTEN 0      2048       127.0.0.1:8000      0.0.0.0:*    users:(("gunicorn",pid=1148,fd=5),("gunicorn",pid=1144,fd=5),("gunicorn",pid=1143,fd=5),("gunicorn",pid=1138,fd=5),("gunicorn",pid=1083,fd=5))
+LISTEN 0      4096      127.0.0.54:53        0.0.0.0:*                                                                                                                                                  
+LISTEN 0      200        127.0.0.1:5432      0.0.0.0:*                                                                                                                                                  
+LISTEN 0      4096       127.0.0.1:2019      0.0.0.0:*                                                                                                                                                  
+LISTEN 0      4096               *:80              *:*                                                                                                                                                  
+LISTEN 0      4096            [::]:22           [::]:*                                                                                                                                                  
+LISTEN 0      4096               *:443             *:*                                                                                                                                                  

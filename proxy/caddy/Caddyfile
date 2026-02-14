@@ -59,7 +59,7 @@ portal.alshifalab.pk {
 	}
 
 	handle {
-		reverse_proxy 127.0.0.1:8013 {
+		reverse_proxy 127.0.0.1:18001 {
 			import std_proxy
 		}
 	}
@@ -235,20 +235,28 @@ sims.alshifalab.pk, sims.pmc.edu.pk {
 	encode gzip zstd
 	import std_log sims
 	import std_headers
-	import maintenance_503
+
+	handle /api/* {
+		reverse_proxy 127.0.0.1:8010 {
+			import std_proxy
+		}
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8080 {
+			import std_proxy
+		}
+	}
 }
 
 api.sims.alshifalab.pk, api.sims.pmc.edu.pk {
 	encode gzip zstd
 	import std_log api_sims
 
-	handle /healthz {
-		header Content-Type "application/json"
-		respond "{\"status\":\"maintenance\",\"service\":\"api.sims\"}" 200
-	}
-
 	handle {
-		import maintenance_503
+		reverse_proxy 127.0.0.1:8010 {
+			import std_proxy
+		}
 	}
 }
 
@@ -256,20 +264,46 @@ pgsims.alshifalab.pk, pgsims.pmc.edu.pk {
 	encode gzip zstd
 	import std_log pgsims
 	import std_headers
-	import maintenance_503
+
+	handle /api/* {
+		reverse_proxy 127.0.0.1:8014 {
+			import std_proxy
+		}
+	}
+
+	handle /admin/* {
+		reverse_proxy 127.0.0.1:8014 {
+			import std_proxy
+		}
+	}
+
+	handle /static/* {
+		reverse_proxy 127.0.0.1:8014 {
+			import std_proxy
+		}
+	}
+
+	handle /media/* {
+		reverse_proxy 127.0.0.1:8014 {
+			import std_proxy
+		}
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8082 {
+			import std_proxy
+		}
+	}
 }
 
 api.pgsims.alshifalab.pk, api.pgsims.pmc.edu.pk {
 	encode gzip zstd
 	import std_log api_pgsims
 
-	handle /healthz {
-		header Content-Type "application/json"
-		respond "{\"status\":\"maintenance\",\"service\":\"api.pgsims\"}" 200
-	}
-
 	handle {
-		import maintenance_503
+		reverse_proxy 127.0.0.1:8014 {
+			import std_proxy
+		}
 	}
 }
 
@@ -277,20 +311,22 @@ consult.alshifalab.pk {
 	encode gzip zstd
 	import std_log consult
 	import std_headers
-	import maintenance_503
+
+	handle {
+		reverse_proxy 127.0.0.1:8011 {
+			import std_proxy
+		}
+	}
 }
 
 api.consult.alshifalab.pk {
 	encode gzip zstd
 	import std_log api_consult
 
-	handle /healthz {
-		header Content-Type "application/json"
-		respond "{\"status\":\"maintenance\",\"service\":\"api.consult\"}" 200
-	}
-
 	handle {
-		import maintenance_503
+		reverse_proxy 127.0.0.1:8011 {
+			import std_proxy
+		}
 	}
 }
 
@@ -298,20 +334,46 @@ sos.alshifalab.pk {
 	encode gzip zstd
 	import std_log sos
 	import std_headers
-	import maintenance_503
+
+	handle /api/* {
+		reverse_proxy 127.0.0.1:8016 {
+			import std_proxy
+		}
+	}
+
+	handle /admin/* {
+		reverse_proxy 127.0.0.1:8016 {
+			import std_proxy
+		}
+	}
+
+	handle /static/* {
+		reverse_proxy 127.0.0.1:8016 {
+			import std_proxy
+		}
+	}
+
+	handle /media/* {
+		reverse_proxy 127.0.0.1:8016 {
+			import std_proxy
+		}
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8016 {
+			import std_proxy
+		}
+	}
 }
 
 api.sos.alshifalab.pk {
 	encode gzip zstd
 	import std_log api_sos
 
-	handle /healthz {
-		header Content-Type "application/json"
-		respond "{\"status\":\"maintenance\",\"service\":\"api.sos\"}" 200
-	}
-
 	handle {
-		import maintenance_503
+		reverse_proxy 127.0.0.1:8016 {
+			import std_proxy
+		}
 	}
 }
 
@@ -321,22 +383,16 @@ dashboard.alshifalab.pk {
 	import std_log dashboard
 	import std_headers
 
-	basic_auth {
-		opsadmin $2a$14$.8FsybE0OlOjXiKjYZUsdePhRxLqHgHbjdsjv2fviimoMvfi6A3ge
-	}
-
 	handle /api/* {
-		basic_auth {
-			opsadmin $2a$14$.8FsybE0OlOjXiKjYZUsdePhRxLqHgHbjdsjv2fviimoMvfi6A3ge
-		}
-		reverse_proxy 127.0.0.1:4000 {
+		reverse_proxy 127.0.0.1:18000 {
 			import std_proxy
+			header_up Host ops.alshifalab.pk
 			header_up X-Remote-User {http.auth.user.id}
 		}
 	}
 
 	handle {
-		reverse_proxy 127.0.0.1:8013 {
+		reverse_proxy 127.0.0.1:18001 {
 			import std_proxy
 		}
 	}
@@ -366,13 +422,24 @@ ops.alshifalab.pk {
 	}
 }
 
+api.ops.alshifalab.pk {
+	encode gzip zstd
+	import std_log api_ops
+
+	handle {
+		reverse_proxy 127.0.0.1:18000 {
+			import std_proxy
+		}
+	}
+}
+
 grafana.alshifalab.pk {
 	encode gzip zstd
 	import std_log grafana
 	import std_headers
 
 	basic_auth {
-		admin $2a$14$Ih5v04BALYVOevfEIa5ZJONj9.76GD3Lt51HeHCWSiYnmlx.CUyn2
+		admin $2a$14$L9eJKu97nRURr5z7ZQ3Ul.F30tLTI/dVmYdhVFLi6pN41bcN/p2X.
 	}
 
 	reverse_proxy 127.0.0.1:13000 {
@@ -399,6 +466,18 @@ mediq.alshifalab.pk {
         reverse_proxy 127.0.0.1:8025
     }
 
+    handle_path /admin/* {
+        reverse_proxy 127.0.0.1:8025
+    }
+
+    handle_path /static/* {
+        reverse_proxy 127.0.0.1:8025
+    }
+
+    handle_path /media/* {
+        reverse_proxy 127.0.0.1:8025
+    }
+
     handle_path /health {
         reverse_proxy 127.0.0.1:8025
     }
@@ -411,4 +490,20 @@ mediq.alshifalab.pk {
         output file /var/log/caddy/mediq.log
         format json
     }
+}
+
+api.mediq.alshifalab.pk {
+	encode gzip zstd
+	import std_log api_mediq
+
+	handle /healthz {
+		header Content-Type "application/json"
+		respond "{\"status\":\"ok\",\"service\":\"api.mediq\"}" 200
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8025 {
+			import std_proxy
+		}
+	}
 }

@@ -1,0 +1,37 @@
+=== time ===
+2026-02-14T02:21:54+05:00
+=== ops agent service ===
+disabled
+inactive
+=== 9753 listener ===
+9753 closed
+=== health lims ===
+OK=== health vault ===
+{"status":"healthy","checks":{"database":"ok","minio":"ok","minio_buckets":[]}}=== docker ps ===
+exam_platform_postgres	Up About a minute (healthy)	5432/tcp
+exam_platform_redis	Up About a minute (healthy)	6379/tcp
+exam_platform_redis_exporter	Up About a minute	0.0.0.0:9121->9121/tcp, [::]:9121->9121/tcp
+exam_platform_tempo	Restarting (1) 11 seconds ago	
+exam_platform_mailpit	Up About a minute (healthy)	0.0.0.0:1025->1025/tcp, [::]:1025->1025/tcp, 0.0.0.0:8025->8025/tcp, [::]:8025->8025/tcp, 1110/tcp
+lims_proxy	Up 3 minutes (healthy)	443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8012->80/tcp
+lims_frontend	Up 3 minutes	80/tcp
+lims_backend	Up 3 minutes (healthy)	8000/tcp
+lims_celery	Up 3 minutes	8000/tcp
+lims_celery_beat	Up 3 minutes	8000/tcp
+lims_db	Up 3 minutes (healthy)	5432/tcp
+lims_redis	Up 3 minutes (healthy)	6379/tcp
+fmu_redis	Up 5 minutes (healthy)	6379/tcp
+fmu_frontend	Up 5 minutes	127.0.0.1:8080->80/tcp
+consult_nginx	Up 6 minutes (unhealthy)	127.0.0.1:8011->80/tcp
+consult_frontend	Up 6 minutes (unhealthy)	80/tcp
+consult_backend	Restarting (1) 33 seconds ago	
+consult_db	Up 6 minutes (healthy)	5432/tcp
+consult_redis	Up 6 minutes (healthy)	6379/tcp
+accredivault_proxy	Up 7 minutes (healthy)	443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8016->80/tcp
+accredivault_frontend	Up 8 minutes (healthy)	5173/tcp
+accredivault_compliance_cron	Up 8 minutes	8000/tcp
+accredivault_backend	Up 8 minutes (healthy)	8000/tcp
+accredivault_db	Up 8 minutes (healthy)	5432/tcp
+accredivault_minio	Up 8 minutes (healthy)	9000/tcp
+=== caddy active ===
+active

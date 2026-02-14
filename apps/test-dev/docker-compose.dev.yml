@@ -1,9 +1,0 @@
-services:
-  db:
-    image: alpine
-    command: sleep 3600
-    volumes:
-      - DEV_test_data:/data
-volumes:
-  DEV_test_data:
-    name: DEV_test_data
