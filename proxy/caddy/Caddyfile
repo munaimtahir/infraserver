@@ -40,31 +40,6 @@
 	respond "<!doctype html><html><head><title>Service Maintenance</title></head><body style=\"font-family:sans-serif;max-width:760px;margin:40px auto;line-height:1.5;\"><h1>Service not deployed</h1><p>This domain is currently offline or under maintenance. Please try again later.</p></body></html>" 503
 }
 
-# PORTAL
-portal.alshifalab.pk {
-	encode gzip zstd
-	import std_log portal
-	import std_headers
-
-	@api_root path /api /api/
-	handle @api_root {
-		redir /api/docs/ temporary
-	}
-
-	handle /api/* {
-		reverse_proxy 127.0.0.1:18000 {
-			import std_proxy
-			header_up Host ops.alshifalab.pk
-		}
-	}
-
-	handle {
-		reverse_proxy 127.0.0.1:18001 {
-			import std_proxy
-		}
-	}
-}
-
 # LIMS
 lims.alshifalab.pk {
 	encode gzip zstd
@@ -330,52 +305,6 @@ api.consult.alshifalab.pk {
 	}
 }
 
-sos.alshifalab.pk {
-	encode gzip zstd
-	import std_log sos
-	import std_headers
-
-	handle /api/* {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-
-	handle /admin/* {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-
-	handle /static/* {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-
-	handle /media/* {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-
-	handle {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-}
-
-api.sos.alshifalab.pk {
-	encode gzip zstd
-	import std_log api_sos
-
-	handle {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-}
 
 # DASHBOARD + OBSERVABILITY
 dashboard.alshifalab.pk {
@@ -386,13 +315,12 @@ dashboard.alshifalab.pk {
 	handle /api/* {
 		reverse_proxy 127.0.0.1:18000 {
 			import std_proxy
-			header_up Host ops.alshifalab.pk
 			header_up X-Remote-User {http.auth.user.id}
 		}
 	}
 
 	handle {
-		reverse_proxy 127.0.0.1:18001 {
+		reverse_proxy 127.0.0.1:8013 {
 			import std_proxy
 		}
 	}
@@ -416,7 +344,7 @@ ops.alshifalab.pk {
 	}
 
 	handle {
-		reverse_proxy 127.0.0.1:18001 {
+		reverse_proxy 127.0.0.1:8013 {
 			import std_proxy
 		}
 	}
@@ -433,19 +361,19 @@ api.ops.alshifalab.pk {
 	}
 }
 
-grafana.alshifalab.pk {
-	encode gzip zstd
-	import std_log grafana
-	import std_headers
-
-	basic_auth {
-		admin $2a$14$L9eJKu97nRURr5z7ZQ3Ul.F30tLTI/dVmYdhVFLi6pN41bcN/p2X.
-	}
-
-	reverse_proxy 127.0.0.1:13000 {
-		import std_proxy
-	}
-}
+# grafana.alshifalab.pk {
+# 	encode gzip zstd
+# 	import std_log grafana
+# 	import std_headers
+# 
+# 	basic_auth {
+# 		admin $2a$14$L9eJKu97nRURr5z7ZQ3Ul.F30tLTI/dVmYdhVFLi6pN41bcN/p2X.
+# 	}
+# 
+# 	reverse_proxy 127.0.0.1:13000 {
+# 		import std_proxy
+# 	}
+# }
 
 http://34.16.82.13 {
 	redir https://portal.alshifalab.pk{uri} permanent
@@ -507,3 +435,6 @@ api.mediq.alshifalab.pk {
 		}
 	}
 }
+
+# Load local overrides (do not edit large blocks directly)
+import overrides/*

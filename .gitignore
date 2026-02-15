@@ -11,3 +11,7 @@ _triage_backups/
 observability/data/
 proxy/caddy/logs/
 ops/logs/
+ops/caddy_backups/
+ops/truth_audit/
+proxy/caddy/XX1wiPAa
+
