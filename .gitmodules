@@ -1,0 +1,24 @@
+[submodule "apps/accredivault"]
+	path = apps/accredivault
+	url = git@github.com:munaimtahir/accredivault
+[submodule "apps/consult"]
+	path = apps/consult
+	url = git@github.com:munaimtahir/consult.git
+[submodule "apps/dashboard"]
+	path = apps/dashboard
+	url = git@github.com:munaimtahir/dashboard.git
+[submodule "apps/fmu-platform"]
+	path = apps/fmu-platform
+	url = git@github.com:munaimtahir/fmu-platform
+[submodule "apps/lims"]
+	path = apps/lims
+	url = git@github.com:munaimtahir/lims
+[submodule "apps/mediq"]
+	path = apps/mediq
+	url = git@github.com:munaimtahir/mediq.git
+[submodule "apps/pgsims"]
+	path = apps/pgsims
+	url = git@github.com:munaimtahir/pgsims
+[submodule "apps/radreport"]
+	path = apps/radreport
+	url = git@github.com:munaimtahir/radreport
