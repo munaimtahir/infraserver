@@ -9,14 +9,14 @@ Since `.env` files are excluded from Git for security, they must be backed up se
 ### Option A: Local Secure Backup (Recommended)
 Store all production `.env` files in a local, encrypted archive on your personal machine or a secure storage location (e.g., 1Password, Bitwarden, encrypted USB drive).
 
-**Action:** Run the following command on the *current* server to bundle all secrets:
+**Action:** Run the provided backup script to bundle all secrets:
 
 ```bash
-# Create a tarball of all .env files (excluding examples and node_modules)
-find apps/ -name ".env*" -not -name "*.example" -not -path "*/node_modules/*" | tar -czvf secrets_backup_$(date +%Y%m%d).tar.gz -T -
+# Execute the backup script from the root directory
+./envlogic/backup_env.sh
 ```
 
-Download `secrets_backup_YYYYMMDD.tar.gz` to your secure storage.
+This will create a file named `secrets_backup_YYYYMMDD_HHMMSS.tar.gz` in the root directory. Download this file to your secure storage.
 
 ### Option B: Cloud Secrets Manager (Advanced)
 For a more automated approach, use a secrets manager (like HashiCorp Vault, AWS Secrets Manager, or Doppler) to inject secrets at runtime. This is overkill for a single VPS but good for scaling.
@@ -25,15 +25,15 @@ For a more automated approach, use a secrets manager (like HashiCorp Vault, AWS 
 
 When setting up a new VPS using the `setup_vps.sh` script:
 
-1.  **Transfer Secrets**: Upload your `secrets_backup_YYYYMMDD.tar.gz` to the new server's `/home/munaim/srv/` directory.
+1.  **Transfer Secrets**: Upload your backup file to the new server's `/home/munaim/srv/` directory.
     ```bash
-    scp secrets_backup.tar.gz munaim@new-vps-ip:/home/munaim/srv/
+    scp secrets_backup_YYYYMMDD_HHMMSS.tar.gz munaim@new-vps-ip:/home/munaim/srv/
     ```
 
-2.  **Extract Secrets**:
+2.  **Restore Secrets**:
+    Run the restore script with the backup file as an argument:
     ```bash
-    cd /home/munaim/srv
-    tar -xzvf secrets_backup.tar.gz
+    ./envlogic/restore_env.sh secrets_backup_YYYYMMDD_HHMMSS.tar.gz
     ```
 
 3.  **Verify Placement**:

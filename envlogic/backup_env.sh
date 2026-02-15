@@ -9,6 +9,13 @@ BACKUP_NAME="secrets_backup_$(date +%Y%m%d_%H%M%S).tar.gz"
 
 echo "=== Environment Backup Start ==="
 
+# Change to root directory
+cd "$ROOT_DIR" || {
+    echo "ERROR: Cannot change to directory $ROOT_DIR"
+    exit 1
+}
+echo "Working directory: $(pwd)"
+
 # 1. Finding files
 echo "Searching for .env files in apps/..."
 FILES=$(find apps/ -name ".env*" -not -name "*.example" -not -path "*/node_modules/*")

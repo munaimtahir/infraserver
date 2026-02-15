@@ -1,1720 +1,0 @@
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B
-[?2004l]633;E;;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Becho "--- A2: Basic System ---"
-[?2004l]633;E;echo "--- A2: Basic System ---";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C--- A2: Basic System ---
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bpwd
-[?2004l]633;E;pwd;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bls -la /home/munaim/srv
-[?2004l]633;E;ls -la /home/munaim/srv;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Ctotal 80
-drwxrwxr-x+ 11 munaim munaim 4096 Feb 12 16:31 .
-drwxr-x---+ 18 munaim munaim 4096 Feb 13 06:56 ..
-drwxrwxr-x+  8 munaim munaim 4096 Feb 13 03:50 .git
--rw-rw-r--+  1 munaim munaim   84 Feb 12 10:44 .gitignore
-drwxrwxr-x+  3 munaim munaim 4096 Jan 13 18:00 .mypy_cache
--rw-rwxr--+  1 munaim munaim 5148 Feb 13 03:06 CONFIGURATION_REVIEW.md
--rw-rw-r--+  1 munaim munaim 2135 Feb 12 11:24 PORTS_REGISTRY.md
-drwxrwxr-x+ 12 munaim munaim 4096 Feb 12 15:10 apps
-drwxr-xr-x+  2 root   root   4096 Feb 12 16:31 backups
--rw-rw-r--+  1 munaim munaim 7167 Jan 13 18:00 config_updated.txt
-drwxrwxr-x+ 11 munaim munaim 4096 Feb 12 15:20 dashboard
-drwxrwxr-x+  2 munaim munaim 4096 Jan 13 15:46 logs
-drwxrwxr-x+  5 munaim munaim 4096 Feb 12 10:42 observability
-drwxrwxr-x+ 12 munaim munaim 4096 Feb 13 09:36 ops
-drwxrwxr-x+  3 munaim munaim 4096 Feb 11 15:03 proxy
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo systemctl status caddy --no-pager || true
-[?2004l]633;E;sudo systemctl status caddy --no-pager || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C● caddy.service - Caddy
-     Loaded: loaded (/usr/lib/systemd/system/caddy.service; enabled; preset: enabled)
-     Active: active (running) since Thu 2026-02-12 12:57:34 PKT; 20h ago
-       Docs: https://caddyserver.com/docs/
-    Process: 987881 ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile --force (code=exited, status=0/SUCCESS)
-   Main PID: 938525 (caddy)
-      Tasks: 15 (limit: 19686)
-     Memory: 17.3M (peak: 31.8M)
-        CPU: 36.950s
-     CGroup: /system.slice/caddy.service
-             └─938525 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
-
-Feb 12 14:25:18 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708883188354757e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
-Feb 12 14:25:53 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708883538602028e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
-Feb 12 14:40:49 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708892495737398e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock)
-Feb 12 14:42:25 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708893456554022e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
-Feb 12 14:44:30 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708894707165916e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
-Feb 12 15:23:56 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918369385166e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock)
-Feb 12 15:24:06 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918469499013e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock)
-Feb 12 15:24:11 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918519571946e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
-Feb 12 15:24:26 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918669692044e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
-Feb 12 15:26:02 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708919620571718e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo caddy version || true
-[?2004l]633;E;sudo caddy version || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Cv2.10.2 h1:g/gTYjGMD0dec+UgMw8SnfmJ3I9+M2TdvoRL/Ovu6U8=
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo ss -ltnp | egrep ':(80|443|8012|8013|8015|8016)\b' || true
-[?2004l]633;E;sudo ss -ltnp | egrep ':(80|443|8012|8013|8015|8016)\\b' || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CLISTEN 0      4096       127.0.0.1:8015       0.0.0.0:*    users:(("docker-proxy",pid=950599,fd=8))                                                                                                                
-LISTEN 0      4096       127.0.0.1:8013       0.0.0.0:*    users:(("docker-proxy",pid=691487,fd=8))                                                                                                                
-LISTEN 0      4096       127.0.0.1:8012       0.0.0.0:*    users:(("docker-proxy",pid=700529,fd=8))                                                                                                                
-LISTEN 0      4096       127.0.0.1:8016       0.0.0.0:*    users:(("docker-proxy",pid=685319,fd=8))                                                                                                                
-LISTEN 0      4096               *:80               *:*    users:(("caddy",pid=938525,fd=12))                                                                                                                      
-LISTEN 0      4096               *:443              *:*    users:(("caddy",pid=938525,fd=11))                                                                                                                      
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdf -h
-[?2004l]633;E;df -h;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CFilesystem      Size  Used Avail Use% Mounted on
-/dev/root        77G   47G   30G  62% /
-tmpfs           8.1G  1.1M  8.1G   1% /dev/shm
-tmpfs           3.3G  4.3M  3.3G   1% /run
-tmpfs           5.0M     0  5.0M   0% /run/lock
-efivarfs         56K   24K   27K  48% /sys/firmware/efi/efivars
-/dev/sda16      881M   65M  755M   8% /boot
-/dev/sda15      105M  6.2M   99M   6% /boot/efi
-tmpfs           1.7G   60K  1.7G   1% /run/user/1004
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfree -h
-[?2004l]633;E;free -h;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C               total        used        free      shared  buff/cache   available
-Mem:            16Gi        13Gi       257Mi       129Mi       2.5Gi       2.3Gi
-Swap:             0B          0B          0B
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B
-[?2004l]633;E;;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Becho "--- A3: Caddy Snapshot ---"
-[?2004l]633;E;echo "--- A3: Caddy Snapshot ---";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C--- A3: Caddy Snapshot ---
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Btest -f /home/munaim/srv/proxy/caddy/Caddyfile && echo "OK: srv Caddyfile exists"
-[?2004l]633;E;test -f /home/munaim/srv/proxy/caddy/Caddyfile && echo "OK: srv Caddyfile exists";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;COK: srv Caddyfile exists
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo test -f /etc/caddy/Caddyfile && echo "OK: etc Caddyfile exists"
-[?2004l]633;E;sudo test -f /etc/caddy/Caddyfile && echo "OK: etc Caddyfile exists";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;COK: etc Caddyfile exists
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo sha256sum /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile | tee "$OUT/caddy_sha.txt" || true
-[?2004l]633;E;sudo sha256sum /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile | tee "$OUT/caddy_sha.txt" || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Cc63b0a9db5f6720febcf2e29a97c03c2ead5edf69d2b9613d0c31c70c98ebdb8  /home/munaim/srv/proxy/caddy/Caddyfile
-78327ba3b3067fc1c8adef5e06a7c8b76ddff2c91273f5a76eebda23ee799cef  /etc/caddy/Caddyfile
-]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo cat /home/munaim/srv/proxy/caddy/Caddyfile > "$OUT/Caddyfile_srv.txt"
-[?2004l]633;E;sudo cat /home/munaim/srv/proxy/caddy/Caddyfile > "$OUT/Caddyfile_srv.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;BOUT="/home/munaim/srv/ops/incident/20260213_093626"
-[?2004l]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bexec > >(tee -a "$OUT/commands.log") 2>&1
-[?2004l]633;E;exec > >(tee -a "$OUT/commands.log") 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B
-[?2004l
-[?2004l]633;E;;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D]633;D]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Becho "--- A3 (cont): Caddy Snapshot ---"
-[?2004lecho "--- A3 (cont): Caddy Snapshot ---"
-[?2004l]633;E;echo "--- A3 (cont): Caddy Snapshot ---";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;echo "--- A3 (cont): Caddy Snapshot ---";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C--- A3 (cont): Caddy Snapshot ---
---- A3 (cont): Caddy Snapshot ---
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo cat /etc/caddy/Caddyfile > "$OUT/Caddyfile_etc.txt"
-[?2004lsudo cat /etc/caddy/Caddyfile > "$OUT/Caddyfile_etc.txt"
-[?2004l]633;E;sudo cat /etc/caddy/Caddyfile > "$OUT/Caddyfile_etc.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo cat /etc/caddy/Caddyfile > "$OUT/Caddyfile_etc.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bls > "$OUT/docker_networks.txt"
-[?2004lls > "$OUT/docker_networks.txt"
-[?2004l]633;E;ls > "$OUT/docker_networks.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;ls > "$OUT/docker_networks.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker volume ls > "$OUT/docker_volumes.txt"
-[?2004ldocker volume ls > "$OUT/docker_volumes.txt"
-[?2004l]633;E;docker volume ls > "$OUT/docker_volumes.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker volume ls > "$OUT/docker_volumes.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker stats --no-stream > "$OUT/docker_stats.txt" || true
-[?2004ldocker stats --no-stream > "$OUT/docker_stats.txt" || true
-[?2004l]633;E;docker stats --no-stream > "$OUT/docker_stats.txt" || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker stats --no-stream > "$OUT/docker_stats.txt" || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B
-[?2004l[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B
-[?2004l]633;E;;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D]633;D]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Becho "--- A5: Compose Files ---"
-[?2004lecho "--- A5: Compose Files ---"
-[?2004l]633;E;echo "--- A5: Compose Files ---";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;echo "--- A5: Compose Files ---";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C--- A5: Compose Files ---
---- A5: Compose Files ---
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv -maxdepth 5 -name "docker-compose*.yml" -o -name "compose*.yml" | sort | tee "$OUT/compose_files.txt"
-[?2004lfind /home/munaim/srv -maxdepth 5 -name "docker-compose*.yml" -o -name "compose*.yml" | sort | tee "$OUT/compose_files.txt"
-[?2004l]633;E;find /home/munaim/srv -maxdepth 5 -name "docker-compose*.yml" -o -name "compose*.yml" | sort | tee "$OUT/compose_files.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv -maxdepth 5 -name "docker-compose*.yml" -o -name "compose*.yml" | sort | tee "$OUT/compose_files.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Cfind: find: ‘/home/munaim/srv/observability/data/grafana/pdf’: Permission denied
-find: ‘/home/munaim/srv/observability/data/grafana/png’: Permission denied
-find: ‘/home/munaim/srv/observability/data/grafana/csv’: Permission denied
-‘/home/munaim/srv/observability/data/grafana/pdf’: Permission denied
-find: ‘/home/munaim/srv/observability/data/grafana/png’: Permission denied
-find: ‘/home/munaim/srv/observability/data/grafana/csv’: Permission denied
-find: ‘/home/munaim/srv/ops/logs’: Permission denied
-find: ‘/home/munaim/srv/ops/logs’: Permission denied
-/home/munaim/srv/apps/accredivault/infra/docker-compose.prod.yml
-/home/munaim/srv/apps/accredivault/infra/docker-compose.yml
-/home/munaim/srv/apps/consult/docker-compose.coolify.yml
-/home/munaim/srv/apps/consult/docker-compose.dev.yml
-/home/munaim/srv/apps/consult/docker-compose.prod.yml
-/home/munaim/srv/apps/consult/docker-compose.yml
-/home/munaim/srv/apps/consult/templates/docker-compose-app-template.yml
-/home/munaim/srv/apps/fmu-platform/docker-compose.dev.yml
-/home/munaim/srv/apps/fmu-platform/docker-compose.prod.yml
-/home/munaim/srv/apps/fmu-platform/docker-compose.yml
-/home/munaim/srv/apps/launchpad/docker-compose.yml
-/home/munaim/srv/apps/lims/docker-compose.dev.yml
-/home/munaim/srv/apps/lims/docker-compose.override.yml
-/home/munaim/srv/apps/lims/docker-compose.prod.yml
-/home/munaim/srv/apps/lims/docker-compose.yml
-/home/munaim/srv/apps/pgsims/docker-compose.coolify.yml
-/home/munaim/srv/apps/pgsims/docker-compose.dev.yml
-/home/munaim/srv/apps/pgsims/docker-compose.local.yml
-/home/munaim/srv/apps/pgsims/docker-compose.phc.yml
-/home/munaim/srv/apps/pgsims/docker-compose.prod.yml
-/home/munaim/srv/apps/pgsims/docker-compose.yml
-/home/munaim/srv/apps/radreport/backend/docker-compose.yml
-/home/munaim/srv/apps/radreport/docker-compose.dev.yml
-/home/munaim/srv/apps/radreport/docker-compose.prod.yml
-/home/munaim/srv/apps/radreport/docker-compose.yml
-/home/munaim/srv/apps/test-dev/docker-compose.dev.yml
-/home/munaim/srv/dashboard/docker-compose.ops-dashboard.yml
-/home/munaim/srv/dashboard/docker-compose.yml
-/home/munaim/srv/observability/docker-compose.yml
-/home/munaim/srv/apps/accredivault/infra/docker-compose.prod.yml
-/home/munaim/srv/apps/accredivault/infra/docker-compose.yml
-/home/munaim/srv/apps/consult/docker-compose.coolify.yml
-/home/munaim/srv/apps/consult/docker-compose.dev.yml
-/home/munaim/srv/apps/consult/docker-compose.prod.yml
-/home/munaim/srv/apps/consult/docker-compose.yml
-/home/munaim/srv/apps/consult/templates/docker-compose-app-template.yml
-/home/munaim/srv/apps/fmu-platform/docker-compose.dev.yml
-/home/munaim/srv/apps/fmu-platform/docker-compose.prod.yml
-/home/munaim/srv/apps/fmu-platform/docker-compose.yml
-/home/munaim/srv/apps/launchpad/docker-compose.yml
-/home/munaim/srv/apps/lims/docker-compose.dev.yml
-/home/munaim/srv/apps/lims/docker-compose.override.yml
-/home/munaim/srv/apps/lims/docker-compose.prod.yml
-/home/munaim/srv/apps/lims/docker-compose.yml
-/home/munaim/srv/apps/pgsims/docker-compose.coolify.yml
-/home/munaim/srv/apps/pgsims/docker-compose.dev.yml
-/home/munaim/srv/apps/pgsims/docker-compose.local.yml
-/home/munaim/srv/apps/pgsims/docker-compose.phc.yml
-/home/munaim/srv/apps/pgsims/docker-compose.prod.yml
-/home/munaim/srv/apps/pgsims/docker-compose.yml
-/home/munaim/srv/apps/radreport/backend/docker-compose.yml
-/home/munaim/srv/apps/radreport/docker-compose.dev.yml
-/home/munaim/srv/apps/radreport/docker-compose.prod.yml
-/home/munaim/srv/apps/radreport/docker-compose.yml
-/home/munaim/srv/apps/test-dev/docker-compose.dev.yml
-/home/munaim/srv/dashboard/docker-compose.ops-dashboard.yml
-/home/munaim/srv/dashboard/docker-compose.yml
-/home/munaim/srv/observability/docker-compose.yml
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;BOUT="/home/munaim/srv/ops/incident/20260213_093626OUT="/home/munaim/srv/ops/incident/20260213_093626"
-"
-[?2004l[?2004l]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Becho "--- A3 (Verified): Caddy ---"
-[?2004lecho "--- A3 (Verified): Caddy ---"
-[?2004l]633;E;echo "--- A3 (Verified): Caddy ---";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;echo "--- A3 (Verified): Caddy ---";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C--- A3 (Verified): Caddy ---
---- A3 (Verified): Caddy ---
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo caddy validate --config /etc/caddy/Caddyfile 2>&1 | tee "$OUT/caddy_validation.txt"
-[?2004lsudo caddy validate --config /etc/caddy/Caddyfile 2>&1 | tee "$OUT/caddy_validation.txt"
-[?2004l]633;E;sudo caddy validate --config /etc/caddy/Caddyfile 2>&1 | tee "$OUT/caddy_validation.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo caddy validate --config /etc/caddy/Caddyfile 2>&1 | tee "$OUT/caddy_validation.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C{"level":"info","ts":1770957447.4357946,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-{"level":"info","ts":1770957447.4357946,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-{"level":"info","ts":1770957447.452117,"msg":"adapted config to JSON","adapter":"caddyfile"}
-{"level":"info","ts":1770957447.452117,"msg":"adapted config to JSON","adapter":"caddyfile"}
-{"level":"info","ts":1770957447.4552898,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
-{"level":"info","ts":1770957447.4552898,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
-Valid configuration
-Valid configuration
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo caddy adapt --config /etc/caddy/Caddyfile --pretty > "$OUT/caddy_effective.txt" 2>&1
-[?2004lsudo caddy adapt --config /etc/caddy/Caddyfile --pretty > "$OUT/caddy_effective.txt" 2>&1
-[?2004l]633;E;sudo caddy adapt --config /etc/caddy/Caddyfile --pretty > "$OUT/caddy_effective.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo caddy adapt --config /etc/caddy/Caddyfile --pretty > "$OUT/caddy_effective.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bls -la /home/munaim/srv/ops/incident/20260213_0936ls -la /home/munaim/srv/ops/incident/20260213_093626/
-[?2004l26/
-[?2004l]633;E;ls -la /home/munaim/srv/ops/incident/20260213_093626/;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;ls -la /home/munaim/srv/ops/incident/20260213_093626/;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Ctotal 144
-drwxrwxr-x+ 2 munaim munaim  4096 Feb 13 09:37 .
-drwxrwxr-x+ 3 munaim munaim  4096 Feb 13 09:36 ..
--rw-rw-r--+ 1 munaim munaim  5893 Feb 13 09:36 Caddyfile_etc.txt
--rw-rw-r--+ 1 munaim munaim  6162 Feb 13 09:36 Caddyfile_srv.txt
--rw-rw-r--+ 1 munaim munaim 66129 Feb 13 09:37 caddy_effective.txt
--rw-rw-r--+ 1 munaim munaim   192 Feb 13 09:36 caddy_sha.txt
--rw-rw-r--+ 1 munaim munaim   357 Feb 13 09:37 caddy_validation.txt
--rw-rw-r--+ 1 munaim munaim 24071 Feb 13 09:37 commands.log
--rw-rw-r--+ 1 munaim munaim  1580 Feb 13 09:37 compose_files.txt
--rw-rw-r--+ 1 munaim munaim   113 Feb 13 09:36 docker_networks.txt
--rw-rw-r--+ 1 munaim munaim  4855 Feb 13 09:37 docker_stats.txt
--rw-rw-r--+ 1 munaim munaim  2036 Feb 13 09:36 docker_volumes.txt
-total 144
-drwxrwxr-x+ 2 munaim munaim  4096 Feb 13 09:37 .
-drwxrwxr-x+ 3 munaim munaim  4096 Feb 13 09:36 ..
--rw-rw-r--+ 1 munaim munaim  5893 Feb 13 09:36 Caddyfile_etc.txt
--rw-rw-r--+ 1 munaim munaim  6162 Feb 13 09:36 Caddyfile_srv.txt
--rw-rw-r--+ 1 munaim munaim 66129 Feb 13 09:37 caddy_effective.txt
--rw-rw-r--+ 1 munaim munaim   192 Feb 13 09:36 caddy_sha.txt
--rw-rw-r--+ 1 munaim munaim   357 Feb 13 09:37 caddy_validation.txt
--rw-rw-r--+ 1 munaim munaim 24071 Feb 13 09:37 commands.log
--rw-rw-r--+ 1 munaim munaim  1580 Feb 13 09:37 compose_files.txt
--rw-rw-r--+ 1 munaim munaim   113 Feb 13 09:36 docker_networks.txt
--rw-rw-r--+ 1 munaim munaim  4855 Feb 13 09:37 docker_stats.txt
--rw-rw-r--+ 1 munaim munaim  2036 Feb 13 09:36 docker_volumes.txt
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker ps
-[?2004ldocker ps
-[?2004l]633;E;docker ps;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker ps;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CCONTAINER ID   IMAGE                              COMMAND                  CREATED        STATUS                  PORTS        CONTAINER ID   IMAGE                              COMMAND                  CREATED        STATUS                  PORTS                                                NAMES
-87af0bf9b4a1   dev_lims-backend                   "/app/bootstrap_prod…"   6 hours ago    Up 6 hours              8000/tcp                                             lims_backend_dev
-7f34217dbc46   postgres:16-alpine                 "docker-entrypoint.s…"   6 hours ago    Up 6 hours              5432/tcp                                             lims_db_dev
-8fc3ad3c44c9   redis:7-alpine                     "docker-entrypoint.s…"   6 hours ago    Up 6 hours              6379/tcp                                             lims_redis_dev
-a4f11a6a90ab   dashboard-ops-beat                 "celery -A ops_dashb…"   6 hours ago    Up 6 hours                                                                   ops_dashboard_beat
-d79254bd8bf0   dashboard-ops-worker               "celery -A ops_dashb…"   6 hours ago    Up 6 hours                                                                   ops_dashboard_worker
-c2fd4b8223c8   dashboard-ops-frontend             "/docker-entrypoint.…"   6 hours ago    Up 6 hours              127.0.0.1:18001->80/tcp                              ops_dashboard_frontend
-031b1195101f   dashboard-ops-backend              "sh -c 'python manag…"   6 hours ago    Up 6 hours              127.0.0.1:18000->8000/tcp                            ops_dashboard_backend
-4d1d5133b6e0   postgres:16-alpine                 "docker-entrypoint.s…"   6 hours ago                                            NAMES
-87af0bf9b4a1   dev_lims-backend                   "/app/bootstrap_prod…"   6 hours ago    Up 6 hours              8000/tcp                                             lims_backend_dev
-7f34217dbc46   postgres:16-alpine                 "docker-entrypoint.s…"   6 hours ago    Up 6 hours              5432/tcp                                             lims_db_dev
-8fc3ad3c44c9   redis:7-alpine                     "docker-entrypoint.s…"   6 hours ago    Up 6 hours              6379/tcp                                             lims_redis_dev
-a4f11a6a90ab   dashboard-ops-beat                 "celery -A ops_dashb…"   6 hours ago    Up 6 hours                                                                   ops_dashboard_beat
-d79254bd8bf0   dashboard-ops-worker               "celery -A ops_dashb…"   6 hours ago    Up 6 hours                                                                   ops_dashboard_worker
-c2fd4b8223c8   dashboard-ops-frontend             "/docker-entrypoint.…"   6 hours ago    Up 6 hours              127.0.0.1:18001->80/tcp                              ops_dashboard_frontend
-031b1195101f   dashboard-ops-backend              "sh -c 'python manag…"   6 hours ago    Up 6 hours              127.0.0.1:18000->8000/tcp                            ops_dashboard_backend
-4d1d5133b6e0   postgres:16-alpine                 "docker-entrypoint.s…"   6 hours ago    Up 6 hours (healthy)    5432/tcp                                             ops_dashboard_postgres
-9e2a1296888a   redis:7-alpine                     "docker-entrypoint.s…"   17 hours ago   Up 17 hours             6379/tcp                                             ops_dashboard_redis
-6b18afb7c569   prod_radreport-backend             "/app/scripts/entryp…"   21 hours ago   Up 21 hours (healthy)   127.0.0.1:8015->8000/tcp                             rims_backend_prod
-e12b5ac42779   prod_lims-backend                  "/app/bootstrap_prod…"   22 hours ago   Up 22 hours (healthy)   8000/tcp                                             lims_backend_prod
-2263f2ff179a   prod_lims-celery                   "celery -A config wo…"   22 hours ago   Up 22 hours             8000/tcp                                             lims_celery_prod
-be81b0f7f02d   prod_lims-celery-beat              "celery -A config be…"   22 hours ago   Up 22 hours             8000/tcp                                             lims_celery_prod_beat
-c523e1fbc012   caddy:2-alpine                     Up 6 hours (healthy)    5432/tcp                                             ops_dashboard_postgres
-9e2a1296888a   redis:7-alpine                     "docker-entrypoint.s…"   17 hours ago   Up 17 hours             6379/tcp                                             ops_dashboard_redis
-6b18afb7c569   prod_radreport-backend             "/app/scripts/entryp…"   21 hours ago   Up 21 hours (healthy)   127.0.0.1:8015->8000/tcp                             rims_backend_prod
-e12b5ac42779   prod_lims-backend                  "/app/bootstrap_prod…"   22 hours ago   Up 22 hours (healthy)   8000/tcp                                             lims_backend_prod
-2263f2ff179a   prod_lims-celery                   "celery -A config wo…"   22 hours ago   Up 22 hours             8000/tcp                                             lims_celery_prod
-be81b0f7f02d   prod_lims-celery-beat              "celery -A config be…"   22 hours ago   Up 22 hours             8000/tcp                "caddy run --config …"   22 hours ago                             lims_celery_prod_beat
-c523e1fbc012   caddy:2-alpine                        Up 22 hours (healthy)   443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8012->80/tcp"caddy run --config …"   22 hours ago   Up 22 hours (healthy)   443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8012->80/tcp   lims_proxy_prod
-   lims_proxy_prod
-c0d57c7313b5   prod_lims-frontendc0d57c7313b5   prod_lims-frontend                 "/docker-entrypoint.…"                 "/docker-entrypoint.…"   22 hours ago   Up 22 hours   22 hours ago   Up 22 hours             80/tcp                     80/tcp                                                                       lims_frontend_prod               lims_frontend_prod
-62962348f851   postgres:16-alpine
-62962348f851   postgres:16-alpine                                  "docker-entrypoint.s…"   22 hours ago   "docker-entrypoint.s…"   22 hours ago   Up 22 hours (healthy)   5432/tcpUp 22 hours (healthy)   5432/tcp                                                                             lims_db_prod             lims_db_prod
-4eed917dead9   
-4eed917dead9   redis:7-alpine                     redis:7-alpine                     "docker-entrypoint.s…"   22 hours ago"docker-entrypoint.s…"   22 hours ago   Up 22 hours (healthy)   6379/tcp   Up 22 hours (healthy)   6379/tcp                                                                     lims_redis_prod                     lims_redis_prod
-ef48ecc59986   grafana/grafana:11.2.0             "/run.sh"        
-ef48ecc59986   grafana/grafana:11.2.0        22 hours ago   Up 22 hours             127.0.0.1:13000->3000/tcp                                     "/run.sh"            obs_grafana
-e0abe1cc193f   infra-frontend                     "docker-entrypoint.s…"   23 hours ago        22 hours ago   Up 22 hours             127.0.0.1:13000->3000/tcp                            obs_grafana
-e0abe1cc193f   Up 23 hours (healthy)      infra-frontend                     "docker-entrypoint.s…"   23 hours ago5173/tcp                   Up 23 hours (healthy)                                5173/tcp                accredivault_frontend
-8127ee0d2125                                infra-backend                accredivault_frontend
-8127ee0d2125      "/bin/sh -c 'python …"      infra-backend                      "/bin/sh -c 'python …"   23 hours ago   Up 23 hours (healthy)   23 hours ago   Up 23 hours (healthy)   8000/tcp                8000/tcp                                                                          accredivault_backend
-ca3bf84ed749   accredivault_backend
-ca3bf84ed749   nginx:alpine                       "/docker-entrypoint.…"   23 hours ago   nginx:alpine                       Up 23 hours             "/docker-entrypoint.…"   23 hours ago   Up 23 hours             127.0.0.1:8013->80/tcp                        127.0.0.1:8013->80/tcp                               dashboard_ui
-5a00da74c43c       dashboard_ui
-5a00da74c43c   caddy:2   caddy:2                                                        "caddy run --config …"   23 hours ago   Up 22 hours (healthy)                                                        accredivault_proxy
-5a8c04e61c18   prod_accredivault-frontend         "docker-entrypoint.s…"   23 hours ago   Up 23 hours (healthy)"caddy run --config …"   23 hours ago   Up 22 hours (healthy)                                                        accredivault_proxy
-5a8c04e61c18   prod_accredivault-frontend         "docker-entrypoint.s…"      5173/tcp        23 hours ago   Up 23 hours (healthy)   5173/tcp                                             accredivault_frontend_prod
-                                0d9d6c5b80f8   prod_accredivault-backend     accredivault_frontend_prod
-          "/bin/sh -c 'python …"0d9d6c5b80f8   prod_accredivault-backend   23 hours ago   Up 23 hours (healthy)          "/bin/sh -c 'python …"   23 hours ago   Up 23 hours (healthy)   8000/tcp           8000/tcp                                                                             accredivault_backend_prod
-84833c4d4d99     accredivault_backend_prod
-84833c4d4d99   prod_radreport-frontend               prod_radreport-frontend            "/docker-entrypoint.…"   23 hours ago   "/docker-entrypoint.…"   23 hours ago   Up 23 hours (healthy)   127.0.0.1:8081->80/tcp        Up 23 hours (healthy)   127.0.0.1:8081->80/tcp                               rims_frontend_prod                       rims_frontend_prod
-6de13346ec68   caddy:2-alpine
-6de13346ec68   caddy:2-alpine                     "caddy run --config …"   23 hours ago                        "caddy run --config …"Up 23 hours                23 hours ago   443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8080->80/tcp   rims_caddy_localUp 23 hours             
-b2469408c922   grafana/promtail:2.9.9443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8080->80/tcp   rims_caddy_local             "/usr/bin/promtail -…"
-b2469408c922   grafana/promtail:2.9.9             "/usr/bin/promtail -…"   23 hours ago      23 hours ago   Up 23 hours             127.0.0.1:9080->9080/tcpUp 23 hours             127.0.0.1:9080->9080/tcp                                                     obs_promtail
-9d2b93a08817     obs_promtail
-9d2b93a08817   prom/prometheus:v2.54.1               prom/prometheus:v2.54.1            "/bin/prometheus --c…"   23 hours ago   "/bin/prometheus --c…"   23 hours ago   Up 23 hours                     Up 23 hours                                                                                                  obs_prometheus
-8f8c740d84fc   gcr.io/cadvisor/cadvisor:v0.49.1                obs_prometheus
-"/usr/bin/cadvisor -…"   23 hours ago   Up 23 hours (healthy)   127.0.0.1:8088->8080/tcp        8f8c740d84fc   gcr.io/cadvisor/cadvisor:v0.49.1                        obs_cadvisor"/usr/bin/cadvisor -…"   23 hours ago   Up 23 hours (healthy)   127.0.0.1:8088->8080/tcp                             obs_cadvisor
-7bc09b13424f   prom/alertmanager:v0.27.0          "/bin/alertmanager -…"   23 hours ago   Up 23 hours             127.0.0.1:9093->9093/tcp                             obs_alertmanager
-7bc09b13424f   prom/alertmanager:v0.27.0          "/bin/alertmanager -…"   23 hours ago   Up 23 hours             127.0.0.1:9093->9093/tcp                
-7e6ebf2235f8   grafana/loki:2.9.9             obs_alertmanager
-7e6ebf2235f8   grafana/loki:2.9.9                 "/usr/bin/loki -conf…"                 "/usr/bin/loki -conf…"   23 hours ago   Up 23 hours   23 hours ago   Up 23 hours             127.0.0.1:3100->3100/tcp                                          127.0.0.1:3100->3100/tcpobs_loki
-1d60ce286fc3                                prom/node-exporter:v1.8.2        obs_loki
-1d60ce286fc3  "/bin/node_exporter …"      prom/node-exporter:v1.8.2        23 hours ago   Up 23 hours  "/bin/node_exporter …"                127.0.0.1:9100->9100/tcp23 hours ago   Up 23 hours             127.0.0.1:9100->9100/tcp                                                     obs_node_exporter
-425be580f37b   postgres:16                        "docker-entrypoint.s…"   23 hours ago   Up 23 hours (healthy)   5432/tcp                                             accredivault_db
-79ee328ffc0d   minio/minio:latest                 "/usr/bin/docker-ent…"   23 hours ago   Up 23 hours (healthy)   9000/tcp                                             accredivault_minio
-6bbeca957014   postgres:16-alpine                 "docker-entrypoint.s…"   23 hours ago   Up 23 hours (healthy)   5432/tcp                                             rims_db_prod
-defc8fe1acbb   caddy:2                            "caddy run --config …"   23 hours ago   Up 23 hours (healthy)   443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8016->80/tcp   accredivault_proxy_prod
-40177a78b019   postgres:16                     obs_node_exporter
-425be580f37b   postgres:16                        "docker-entrypoint.s…"   23 hours ago   Up 23 hours (healthy)   5432/tcp                                             accredivault_db
-79ee328ffc0d   minio/minio:latest                 "/usr/bin/docker-ent…"   23 hours ago   Up 23 hours (healthy)   9000/tcp                                             accredivault_minio
-6bbeca957014   postgres:16-alpine                 "docker-entrypoint.s…"   23 hours ago   Up 23 hours (healthy)   5432/tcp                                             rims_db_prod
-defc8fe1acbb   caddy:2                            "caddy run --config …"   23 hours ago   Up 23 hours (healthy)   443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8016->80/tcp   accredivault_proxy_prod
-40177a78b019   postgres:16                        "docker-entrypoint.s…"   23 hours ago   Up 23 hours (healthy)   5432/tcp                                             accredivault_db_prod
-3cbb29d1e2fd   minio/minio:latest                 "/usr/bin/docker-ent…"   23 hours ago   Up 23 hours (healthy)   9000/tcp                                             accredivault_minio_prod        "docker-entrypoint.s…"   23 hours ago   Up 23 hours (healthy)   5432/tcp                                             accredivault_db_prod
-3cbb29d1e2fd   minio/minio:latest                 "/usr/bin/docker-ent…"   23 hours ago   Up 23 hours (healthy)   9000/tcp                                             accredivault_minio_prod
-
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;BOUT="/home/munaim/srv/ops/incident/20260213_093626OUT="/home/munaim/srv/ops/incident/20260213_093626"
-[?2004l"
-[?2004l]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" > "$OUT/docker_state.txt"
-[?2004ldocker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" > "$OUT/docker_state.txt"
-[?2004l]633;E;docker ps -a --format "table {{.Names}}\\t{{.Status}}\\t{{.Ports}}" > "$OUT/docker_state.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker ps -a --format "table {{.Names}}\\t{{.Status}}\\t{{.Ports}}" > "$OUT/docker_state.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo journalctl -u caddy -n 500 --no-pager > "$OUT/caddy_journal.txt"
-[?2004lsudo journalctl -u caddy -n 500 --no-pager > "$OUT/caddy_journal.txt"
-[?2004l]633;E;sudo journalctl -u caddy -n 500 --no-pager > "$OUT/caddy_journal.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo journalctl -u caddy -n 500 --no-pager > "$OUT/caddy_journal.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcd /home/munaim/srv/ops/incident/20260213_093626
-[?2004lcd /home/munaim/srv/ops/incident/20260213_093626
-[?2004l]633;E;cd /home/munaim/srv/ops/incident/20260213_093626;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;cd /home/munaim/srv/ops/incident/20260213_093626;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;BOUT="/home/munaim/srv/ops/incident/20260213_093626OUT="/home/munaim/srv/ops/incident/20260213_093626""
-[?2004l
-[?2004l]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626[?2004h[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;B]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;Bcat << 'EOF' > "$OUT/curl_matrix_script.sh"cat << 'EOF' > "$OUT/curl_matrix_script.sh"
-
-[?2004l[?2004l[?2004h[?2004h]633;F> ]633;G]633;F> ]633;G#!/bin/bash#!/bin/bash
-
-[?2004l[?2004l[?2004h]633;F> ]633;GOUT=$1
-[?2004l[?2004h]633;F> ]633;Gecho "Domain,Type,URL,Status,Server[?2004h]633;F> ]633;GOUT=$1
-[?2004l[?2004h]633;F> ]633;Gecho "Domain,Type,URL,Status,Server,Time" > "$OUT/curl_matrix.csv"
-[?2004l[?2004h]633;F> ]633;G,Time" > "$OUT/curl_matrix.csv"
-[?2004l
-[?2004l[?2004h]633;F> ]633;G
-[?2004l[?2004h[?2004h]633;F> ]633;G]633;F> ]633;Gtest_curl() {
-[?2004l[?2004h]633;F> ]633;G   test_curl() {
-[?2004l[?2004h]633;F> ]633;G    local domain=$1
-[?2004l local domain=$1
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    local type=$2
-[?2004l[?2004h]633;F> ]633;G    local type=$2
-[?2004l[?2004h]633;F> ]633;G    local url=$    local url=$3
-[?2004l3
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    local host_header=$4 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K4
-[?2004l    local host_header=$4 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K4
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    
-[?2004l    
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    echo "Testing     echo "Testing $domain ($type) via $url with Host: $host_header"
-[?2004l$domain ($type) via $url with Host: $host_header"
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    res=$(curl -k -sS -D- "$url" -H "Host: $host_h     res=$(curl -k -sS -D- "$url" -H "Host: $host_h eader" -o /dev/null -w "%{http_code},%{time_total}eader" -o /dev/null -w "%{http_code},%{time_total}") [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K)
-[?2004l") [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K)
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    code=$(echo $res | cut -d',' -f1)
-[?2004l    code=$(echo $res | cut -d',' -f1)
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    time=    time=$(echo $res | cut -d',' -f2)
-[?2004l[?2004h$(echo $res | cut -d',' -f2)
-[?2004l[?2004h]633;F> ]633;G]633;F> ]633;G    server=$(curl -k     server=$(curl -k -sS -I "$url" -H "Host: $host_header" 2>/dev/null -sS -I "$url" -H "Host: $host_header" 2>/dev/null | grep -i "^Server:" | cut -d' ' -f2- | tr -d '\r'| grep -i "^Server:" | cut -d' ' -f2- | tr -d '\r')
-[?2004l)
-[?2004l[?2004h]633;F> ]633;G    
-[?2004h]633;F> ]633;G    
-[?2004l[?2004h]633;F> ]633;G[?2004l[?2004h]633;F> ]633;G    echo "$domain,$type,$url,$code,\"$serve    echo "$domain,$type,$url,$code,\"$server\",$time" >> "$OUT/curl_matrix.csv"
-[?2004lr\",$time" >> "$OUT/curl_matrix.csv"
-[?2004l[?2004h]633;F> ]633;G}
-[?2004l[?2004h]633;F> ]633;G}
-[?2004l[?2004h]633;F> ]633;G
-[?2004l[?2004h]633;F> ]633;G
-[?2004l[?2004h]633;F> ]633;G# Domains [?2004h]633;F> ]633;G# Domains to test
-[?2004lto test
-[?2004l[?2004h]633;F> ]633;GDOMAINS=(
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;GDOMAINS=(
-[?2004l[?2004h]633;F> ]633;G    "portal.alshifalab.pk:8013"
-[?2004l[?2004h]633;F> ]633;G    "portal.alshifalab.pk:8013"
-[?2004l[?2004h]633;F> ]633;G    "lims.alshifalab.pk:8012"
-[?2004l    "lims.alshifalab.pk:8012"
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    "api.lims.alshif    "api.lims.alshifalab.pk:8012"
-[?2004lalab.pk:8012"
-[?2004l[?2004h]633;F> ]633;G    "rims.alshifalab.pk:8081"
-[?2004l[?2004h]633;F> ]633;G    "a[?2004h]633;F> ]633;G    "rims.alshifalab.pk:8081"
-[?2004l[?2004h]633;F> ]633;G    "api.rims.alshifalab.pk:8015"
-[?2004lpi.rims.alshifalab.pk:8015"
-[?2004l[?2004h]633;F> ]633;G    "phc.alshifalab.pk[?2004h]633;F> ]633;G    "phc.alshifalab.pk:8016"
-[?2004l:8016"
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    "api.phc.alshifalab.pk:8016"
-[?2004l[?2004h]633;F> ]633;G    "dashb    "api.phc.alshifalab.pk:8016"
-[?2004l[?2004h]633;F> ]633;G    "dashboard.alshifalab.pk:8013"
-[?2004l[?2004h]633;F> ]633;Goard.alshifalab.pk:8013"
-[?2004l[?2004h]633;F> ]633;G    "ops.alshifalab.pk:18    "ops.alshifalab.pk:18001"
-[?2004l001"
-[?2004h]633;F> ]633;G[?2004l[?2004h]633;F> ]633;G    "grafana.alshifalab.pk:13000"
-[?2004l    "grafana.alshifalab.pk:13000"
-[?2004l[?2004h]633;F> ]633;G)
-[?2004l[?2004h]633;F> ]633;G
-[?2004l[?2004h]633;F> ]633;G)
-[?2004l[?2004h]633;F> ]633;G
-[?2004l[?2004h]633;F> ]633;G# Test v[?2004h]633;F> ]633;G# Test via localhost HTTPS
-[?2004l[?2004h]633;F> ]633;Gia localhost HTTPS
-[?2004l[?2004h]633;F> ]633;Gfor entry in "${DOMAINS[@]}"; dfor entry in "${DOMAINS[@]}"; do
-[?2004l[?2004h]633;F> ]633;Go
-[?2004l[?2004h]633;F> ]633;G    domain=${entry%%:*}
-[?2004l    domain=${entry%%:*}
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    port=${entry##*:}
-[?2004l    port=${entry##*:}
-[?2004l[?2004h]633;F> ]633;G  [?2004h]633;F> ]633;G    test_curl "$domain" "HTTPS-Local" "https://127.0  test_curl "$domain" "HTTPS-Local" "https://127.0.0.1/" "$domain"
-[?2004l.0.1/" "$domain"
-[?2004l[?2004h]633;F> ]633;G    test_curl "$domain" "Upstream[?2004h]633;F> ]633;G    test_curl "$domain" "Upstream" "http://127.0.0.1:$port/" "$domain"
-[?2004l" "http://127.0.0.1:$port/" "$domain"
-[?2004l[?2004h[?2004h]633;F> ]633;Gdone
-]633;F> ]633;Gdone
-[?2004l[?2004l[?2004h[?2004h]633;F> ]633;G
-[?2004l]633;F> ]633;G
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G# Spec# Special paths
-[?2004lial paths
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;Gtest_curl "portal.alshifalab.pk" "API" "test_curl "portal.alshifalab.pk" "API" "https://127.0.0.1/api/apps" "portal.alshifalab.pk"https://127.0.0.1/api/apps" "portal.alshifalab.pk"
-[?2004l
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;Gtest_curl "ops.alshifalab.pk" "API" "https://127.test_curl "ops.alshifalab.pk" "API" "https://127.0.0.1/api/" "ops.alshifalab.pk"
-[?2004l0.0.1/api/" "ops.alshifalab.pk"
-[?2004l[?2004h]633;F> ]633;GEOF
-[?2004l[?2004h]633;F> ]633;GEOF
-[?2004l]633;E;EOF;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;EOF;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;B
-[?2004l[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;B
-[?2004l]633;E;;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D]633;D]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;Bchmod +x "$OUT/curl_matrix_script.sh"
-[?2004lchmod +x "$OUT/curl_matrix_script.sh"
-[?2004l]633;E;chmod +x "$OUT/curl_matrix_script.sh";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;chmod +x "$OUT/curl_matrix_script.sh";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;B"$OUT/curl_matrix_script.sh" "$OUT"
-[?2004l"$OUT/curl_matrix_script.sh" "$OUT"
-[?2004l]633;E;"$OUT/curl_matrix_script.sh" "$OUT";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;"$OUT/curl_matrix_script.sh" "$OUT";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CTesting portal.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: portal.alshifalab.pk
-Testing portal.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: portal.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing portal.alshifalab.pk (Upstream) via http://127.0.0.1:8013/ with Host: portal.alshifalab.pk
-Testing portal.alshifalab.pk (Upstream) via http://127.0.0.1:8013/ with Host: portal.alshifalab.pk
-Testing lims.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: lims.alshifalab.pk
-Testing lims.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: lims.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing lims.alshifalab.pk (Upstream) via http://127.0.0.1:8012/ with Host: lims.alshifalab.pk
-Testing lims.alshifalab.pk (Upstream) via http://127.0.0.1:8012/ with Host: lims.alshifalab.pk
-Testing api.lims.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: api.lims.alshifalab.pk
-Testing api.lims.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: api.lims.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing api.lims.alshifalab.pk (Upstream) via http://127.0.0.1:8012/ with Host: api.lims.alshifalab.pk
-Testing api.lims.alshifalab.pk (Upstream) via http://127.0.0.1:8012/ with Host: api.lims.alshifalab.pk
-Testing rims.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: rims.alshifalab.pk
-Testing rims.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: rims.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing rims.alshifalab.pk (Upstream) via http://127.0.0.1:8081/ with Host: rims.alshifalab.pk
-Testing rims.alshifalab.pk (Upstream) via http://127.0.0.1:8081/ with Host: rims.alshifalab.pk
-Testing api.rims.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: api.rims.alshifalab.pk
-Testing api.rims.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: api.rims.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing api.rims.alshifalab.pk (Upstream) via http://127.0.0.1:8015/ with Host: api.rims.alshifalab.pk
-Testing api.rims.alshifalab.pk (Upstream) via http://127.0.0.1:8015/ with Host: api.rims.alshifalab.pk
-Testing phc.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: phc.alshifalab.pk
-Testing phc.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: phc.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing phc.alshifalab.pk (Upstream) via http://127.0.0.1:8016/ with Host: phc.alshifalab.pk
-Testing phc.alshifalab.pk (Upstream) via http://127.0.0.1:8016/ with Host: phc.alshifalab.pk
-Testing api.phc.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: api.phc.alshifalab.pk
-Testing api.phc.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: api.phc.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing api.phc.alshifalab.pk (Upstream) via http://127.0.0.1:8016/ with Host: api.phc.alshifalab.pk
-Testing api.phc.alshifalab.pk (Upstream) via http://127.0.0.1:8016/ with Host: api.phc.alshifalab.pk
-Testing dashboard.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: dashboard.alshifalab.pk
-Testing dashboard.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: dashboard.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing dashboard.alshifalab.pk (Upstream) via http://127.0.0.1:8013/ with Host: dashboard.alshifalab.pk
-Testing dashboard.alshifalab.pk (Upstream) via http://127.0.0.1:8013/ with Host: dashboard.alshifalab.pk
-Testing ops.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: ops.alshifalab.pk
-Testing ops.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: ops.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing ops.alshifalab.pk (Upstream) via http://127.0.0.1:18001/ with Host: ops.alshifalab.pk
-Testing ops.alshifalab.pk (Upstream) via http://127.0.0.1:18001/ with Host: ops.alshifalab.pk
-Testing grafana.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: grafana.alshifalab.pk
-Testing grafana.alshifalab.pk (HTTPS-Local) via https://127.0.0.1/ with Host: grafana.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing grafana.alshifalab.pk (Upstream) via http://127.0.0.1:13000/ with Host: grafana.alshifalab.pk
-Testing grafana.alshifalab.pk (Upstream) via http://127.0.0.1:13000/ with Host: grafana.alshifalab.pk
-Testing portal.alshifalab.pk (API) via https://127.0.0.1/api/apps with Host: portal.alshifalab.pk
-Testing portal.alshifalab.pk (API) via https://127.0.0.1/api/apps with Host: portal.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-Testing ops.alshifalab.pk (API) via https://127.0.0.1/api/ with Host: ops.alshifalab.pk
-Testing ops.alshifalab.pk (API) via https://127.0.0.1/api/ with Host: ops.alshifalab.pk
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626[?2004h[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;B]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;Bcolumn -t -s, "$OUT/curl_matrix.csv" > "$OUT/curl_matrix.txt"
-[?2004lcolumn -t -s, "$OUT/curl_matrix.csv" > "$OUT/curl_matrix.txt"
-[?2004l]633;E;column -t -s, "$OUT/curl_matrix.csv" > "$OUT/curl_matrix.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;column -t -s, "$OUT/curl_matrix.csv" > "$OUT/curl_matrix.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626]633;P;Cwd=/home/munaim/srv/ops/incident/20260213_093626[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/ops/incident/20260213_093626[01;32mmunaim@vps[00m:[01;34m~/srv/ops/incident/20260213_093626[00m$ ]633;Bcd /home/munaim/srv
-[?2004lcd /home/munaim/srv
-[?2004l]633;E;cd /home/munaim/srv;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;cd /home/munaim/srv;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo ss -ltnp | grep :4000
-[?2004lsudo ss -ltnp | grep :4000
-[?2004l]633;E;sudo ss -ltnp | grep :4000;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo ss -ltnp | grep :4000;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CLISTEN 0      511        127.0.0.1:4000       0.0.0.0:*    users:(("node",pid=756019,fd=19))                                                                                                                       
-LISTEN 0      511        127.0.0.1:4000       0.0.0.0:*    users:(("node",pid=756019,fd=19))                                                                                                                       
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bps -fp 756019
-[?2004lps -fp 756019
-[?2004l]633;E;ps -fp 756019;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;ps -fp 756019;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CUID          PID    PPID  C STIME TTY          TIME CMD
-opsweb    756019       1  0 Feb12 ?        00:00:00 /usr/bin/node /home/munaim/srv/dashboard/api/server.js
-UID          PID    PPID  C STIME TTY          TIME CMD
-opsweb    756019       1  0 Feb12 ?        00:00:00 /usr/bin/node /home/munaim/srv/dashboard/api/server.js
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;BOUT="/home/munaim/srv/ops/incident/20260213_093626OUT="/home/munaim/srv/ops/incident/20260213_093626"
-[?2004l"
-[?2004l]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker logs --tail 300 ops_dashboard_backend > "$OUT/logs_ops_dashboard_backend.txt" 2>&1
-[?2004ldocker logs --tail 300 ops_dashboard_backend > "$OUT/logs_ops_dashboard_backend.txt" 2>&1
-[?2004l]633;E;docker logs --tail 300 ops_dashboard_backend > "$OUT/logs_ops_dashboard_backend.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker logs --tail 300 ops_dashboard_backend > "$OUT/logs_ops_dashboard_backend.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker logs --tail 300 rims_backend_prod > "$OUT/logs_rims_backend_prod.txt" 2>&1
-docker logs --tail 300 rims_backend_prod > "$OUT/logs_rims_backend_prod.txt" 2>&1
-[?2004l[?2004l]633;E;docker logs --tail 300 rims_backend_prod > "$OUT/logs_rims_backend_prod.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker logs --tail 300 rims_backend_prod > "$OUT/logs_rims_backend_prod.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker logs --tail 300 lims_backend_prod > "$OUT/logs_lims_backend_prod.txt" 2>&1
-[?2004ldocker logs --tail 300 lims_backend_prod > "$OUT/logs_lims_backend_prod.txt" 2>&1
-[?2004l]633;E;docker logs --tail 300 lims_backend_prod > "$OUT/logs_lims_backend_prod.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker logs --tail 300 lims_backend_prod > "$OUT/logs_lims_backend_prod.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker logs --tail 300 accredivault_backend_prod > "$OUT/logs_accredivault_backend_prod.txt" 2>&1
-[?2004ldocker logs --tail 300 accredivault_backend_prod > "$OUT/logs_accredivault_backend_prod.txt" 2>&1
-[?2004l]633;E;docker logs --tail 300 accredivault_backend_prod > "$OUT/logs_accredivault_backend_prod.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker logs --tail 300 accredivault_backend_prod > "$OUT/logs_accredivault_backend_prod.txt" 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/dashboard -name "*.env"
-find /home/munaim/srv/dashboard -name "*.env"
-[?2004l[?2004l]633;E;find /home/munaim/srv/dashboard -name "*.env";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/dashboard -name "*.env";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/lims -name "*.env"
-[?2004lfind /home/munaim/srv/apps/lims -name "*.env"
-[?2004l]633;E;find /home/munaim/srv/apps/lims -name "*.env";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/lims -name "*.env";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/lims/e2e/.env
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/root/.env
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/backend/.env
-/home/munaim/srv/apps/lims/.env
-/home/munaim/srv/apps/lims/e2e/.env
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/root/.env
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/backend/.env
-/home/munaim/srv/apps/lims/.env
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/dashboard -name ".env*"
-[?2004lfind /home/munaim/srv/dashboard -name ".env*"
-[?2004l]633;E;find /home/munaim/srv/dashboard -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/dashboard -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/dashboard/.env.ops-dashboard.example
-/home/munaim/srv/dashboard/ops_dashboard_backend/.env.example
-/home/munaim/srv/dashboard/.env.ops-dashboard
-/home/munaim/srv/dashboard/ops_dashboard_frontend/.env.example
-/home/munaim/srv/dashboard/.env.ops-dashboard.example
-/home/munaim/srv/dashboard/ops_dashboard_backend/.env.example
-/home/munaim/srv/dashboard/.env.ops-dashboard
-/home/munaim/srv/dashboard/ops_dashboard_frontend/.env.example
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/lims -name ".env*"
-[?2004lfind /home/munaim/srv/apps/lims -name ".env*"
-[?2004l]633;E;find /home/munaim/srv/apps/lims -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/lims -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/lims/.env.production.example
-/home/munaim/srv/apps/lims/e2e/.env
-/home/munaim/srv/apps/lims/e2e/.env.example
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/root/.env.production.bak
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/root/.env
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/backend/.env
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/backend/.env.production
-/home/munaim/srv/apps/lims/.env
-/home/munaim/srv/apps/lims/lims-backend/.env.prod
-/home/munaim/srv/apps/lims/.env.production
-/home/munaim/srv/apps/lims/.env.bak_20260212_1117
-/home/munaim/srv/apps/lims/.env.production.example
-/home/munaim/srv/apps/lims/e2e/.env
-/home/munaim/srv/apps/lims/e2e/.env.example
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/root/.env.production.bak
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/root/.env
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/backend/.env
-/home/munaim/srv/apps/lims/ARCHIVE/config-snapshots/backend/.env.production
-/home/munaim/srv/apps/lims/.env
-/home/munaim/srv/apps/lims/lims-backend/.env.prod
-/home/munaim/srv/apps/lims/.env.production
-/home/munaim/srv/apps/lims/.env.bak_20260212_1117
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/rims -name ".env*"
-[?2004lfind /home/munaim/srv/apps/rims -name ".env*"
-[?2004l]633;E;find /home/munaim/srv/apps/rims -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/rims -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Cfind: ‘/home/munaim/srv/apps/rims’: No such file or directory
-find: ‘/home/munaim/srv/apps/rims’: No such file or directory
-]633;D;1]633;D;1]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/accredivault -name ".env*"
-[?2004lfind /home/munaim/srv/apps/accredivault -name ".env*"
-[?2004l]633;E;find /home/munaim/srv/apps/accredivault -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/accredivault -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/accredivault/infra/.env.example
-/home/munaim/srv/apps/accredivault/frontend/.env.example
-/home/munaim/srv/apps/accredivault/backend/.env.example
-/home/munaim/srv/apps/accredivault/infra/.env.example
-/home/munaim/srv/apps/accredivault/frontend/.env.example
-/home/munaim/srv/apps/accredivault/backend/.env.example
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bls -a /home/munaim/srv/dashboard/ops_dashboard_bacls -a /home/munaim/srv/dashboard/ops_dashboard_backend/.env || true
-[?2004lkend/.env || true
-[?2004l]633;E;ls -a /home/munaim/srv/dashboard/ops_dashboard_backend/.env || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;ls -a /home/munaim/srv/dashboard/ops_dashboard_backend/.env || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Cls: cannot access '/home/munaim/srv/dashboard/ops_dashboard_backend/.env': No such file or directory
-ls: cannot access '/home/munaim/srv/dashboard/ops_dashboard_backend/.env': No such file or directory
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bls -a /home/munaim/srv/apps/lims/.env || true
-[?2004lls -a /home/munaim/srv/apps/lims/.env || true
-[?2004l]633;E;ls -a /home/munaim/srv/apps/lims/.env || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;ls -a /home/munaim/srv/apps/lims/.env || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/lims/.env
-/home/munaim/srv/apps/lims/.env
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bls -a /home/munaim/srv/apps/rims/.env || true
-[?2004lls -a /home/munaim/srv/apps/rims/.env || true
-[?2004l]633;E;ls -a /home/munaim/srv/apps/rims/.env || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;ls -a /home/munaim/srv/apps/rims/.env || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Cls: cannot access '/home/munaim/srv/apps/rims/.env': No such file or directory
-ls: cannot access '/home/munaim/srv/apps/rims/.env': No such file or directory
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bls -a /home/munaim/srv/apps/accredivault/.env || true
-[?2004lls -a /home/munaim/srv/apps/accredivault/.env || true
-[?2004l]633;E;ls -a /home/munaim/srv/apps/accredivault/.env || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;ls -a /home/munaim/srv/apps/accredivault/.env || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Cls: cannot access '/home/munaim/srv/apps/accredivault/.env': No such file or directory
-ls: cannot access '/home/munaim/srv/apps/accredivault/.env': No such file or directory
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv -maxdepth 4 -name ".env*" 2>find /home/munaim/srv -maxdepth 4 -name ".env*" 2>/dev/null
-[?2004l/dev/null
-[?2004l]633;E;find /home/munaim/srv -maxdepth 4 -name ".env*" 2>/dev/null;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;E;find /home/munaim/srv -maxdepth 4 -name ".env*" 2>/dev/null;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;C/home/munaim/srv/dashboard/.env.ops-dashboard.example
-/home/munaim/srv/dashboard/ops_dashboard_backend/.env.example
-/home/munaim/srv/dashboard/.env.ops-dashboard
-/home/munaim/srv/dashboard/ops_dashboard_frontend/.env.example
-/home/munaim/srv/dashboard/.env.ops-dashboard.example
-/home/munaim/srv/dashboard/ops_dashboard_backend/.env.example
-/home/munaim/srv/dashboard/.env.ops-dashboard
-/home/munaim/srv/dashboard/ops_dashboard_frontend/.env.example
-/home/munaim/srv/apps/mediQ/mobile/.env.example
-/home/munaim/srv/apps/mediQ/frontend/.env.example
-/home/munaim/srv/apps/mediQ/.env.example
-/home/munaim/srv/apps/mediQ/backend/.env.example
-/home/munaim/srv/apps/fmu-platform/.env.bak
-/home/munaim/srv/apps/fmu-platform/.env
-/home/munaim/srv/apps/fmu-platform/frontend/.env.example
-/home/munaim/srv/apps/fmu-platform/.env.example
-/home/munaim/srv/apps/accredivault/infra/.env.example
-/home/munaim/srv/apps/accredivault/frontend/.env.example
-/home/munaim/srv/apps/accredivault/backend/.env.example
-/home/munaim/srv/apps/pgsims/.env.coolify.example
-/home/munaim/srv/apps/pgsims/.env
-/home/munaim/srv/apps/pgsims/frontend/.env.local.example
-/home/munaim/srv/apps/pgsims/.env.example
-/home/munaim/srv/apps/lims/.env.production.example
-/home/munaim/srv/apps/lims/e2e/.env
-/home/munaim/srv/apps/lims/e2e/.env.example
-/home/munaim/srv/apps/lims/.env
-/home/munaim/srv/apps/lims/lims-backend/.env.prod
-/home/munaim/srv/apps/lims/.env.production
-/home/munaim/srv/apps/lims/.env.bak_20260212_1117
-/home/munaim/srv/apps/consult/.env.coolify.bak_20260212_1117
-/home/munaim/srv/apps/consult/.env.coolify
-/home/munaim/srv/apps/consult/frontend/.env.example
-/home/munaim/srv/apps/consult/.env.example
-/home/munaim/srv/apps/consult/backend/.env.example
-/home/munaim/srv/apps/radreport/scripts/.env.smoke.example
-/home/munaim/srv/apps/radreport/.env.e2e.example
-/home/munaim/srv/apps/radreport/.env
-/home/munaim/srv/apps/radreport/.env.e2e
-/home/munaim/srv/apps/radreport/.env.prod.example
-/home/munaim/srv/apps/radreport/backend/.env.local
-/home/munaim/srv/apps/radreport/backend/.env.production
-/home/munaim/srv/apps/mediQ/mobile/.env.example
-/home/munaim/srv/apps/mediQ/frontend/.env.example
-/home/munaim/srv/apps/mediQ/.env.example
-/home/munaim/srv/apps/mediQ/backend/.env.example
-/home/munaim/srv/apps/fmu-platform/.env.bak
-/home/munaim/srv/apps/fmu-platform/.env
-/home/munaim/srv/apps/fmu-platform/frontend/.env.example
-/home/munaim/srv/apps/fmu-platform/.env.example
-/home/munaim/srv/apps/accredivault/infra/.env.example
-/home/munaim/srv/apps/accredivault/frontend/.env.example
-/home/munaim/srv/apps/accredivault/backend/.env.example
-/home/munaim/srv/apps/pgsims/.env.coolify.example
-/home/munaim/srv/apps/pgsims/.env
-/home/munaim/srv/apps/pgsims/frontend/.env.local.example
-/home/munaim/srv/apps/pgsims/.env.example
-/home/munaim/srv/apps/lims/.env.production.example
-/home/munaim/srv/apps/lims/e2e/.env
-/home/munaim/srv/apps/lims/e2e/.env.example
-/home/munaim/srv/apps/lims/.env
-/home/munaim/srv/apps/lims/lims-backend/.env.prod
-/home/munaim/srv/apps/lims/.env.production
-/home/munaim/srv/apps/lims/.env.bak_20260212_1117
-/home/munaim/srv/apps/consult/.env.coolify.bak_20260212_1117
-/home/munaim/srv/apps/consult/.env.coolify
-/home/munaim/srv/apps/consult/frontend/.env.example
-/home/munaim/srv/apps/consult/.env.example
-/home/munaim/srv/apps/consult/backend/.env.example
-/home/munaim/srv/apps/radreport/scripts/.env.smoke.example
-/home/munaim/srv/apps/radreport/.env.e2e.example
-/home/munaim/srv/apps/radreport/.env
-/home/munaim/srv/apps/radreport/.env.e2e
-/home/munaim/srv/apps/radreport/.env.prod.example
-/home/munaim/srv/apps/radreport/backend/.env.local
-/home/munaim/srv/apps/radreport/backend/.env.production
-]633;D;1]633;D;1]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;BTS=$(date +%Y%m%d_%H%M%S)
-[?2004lTS=$(date +%Y%m%d_%H%M%S)
-[?2004l]633;E;TS=$(date +%Y%m%d_%H%M%S);38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;TS=$(date +%Y%m%d_%H%M%S);38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo cp /etc/caddy/Caddyfile /etc/caddy/Caddyfile.bak.$TS
-[?2004lsudo cp /etc/caddy/Caddyfile /etc/caddy/Caddyfile.bak.$TS
-[?2004l]633;E;sudo cp /etc/caddy/Caddyfile /etc/caddy/Caddyfile.bak.$TS;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo cp /etc/caddy/Caddyfile /etc/caddy/Caddyfile.bak.$TS;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo cp /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile
-[?2004lsudo cp /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile
-[?2004l]633;E;sudo cp /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo cp /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo caddy validate --config /etc/caddy/Caddyfile
-[?2004lsudo caddy validate --config /etc/caddy/Caddyfile
-[?2004l]633;E;sudo caddy validate --config /etc/caddy/Caddyfile;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo caddy validate --config /etc/caddy/Caddyfile;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C{"level":"info","ts":1770957570.125068,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-{"level":"info","ts":1770957570.125068,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-{"level":"info","ts":1770957570.1389632,"msg":"adapted config to JSON","adapter":"caddyfile"}
-{"level":"info","ts":1770957570.1389632,"msg":"adapted config to JSON","adapter":"caddyfile"}
-{"level":"info","ts":1770957570.1414924,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
-{"level":"info","ts":1770957570.1414924,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
-Valid configuration
-Valid configuration
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo systemctl reload caddy
-[?2004lsudo systemctl reload caddy
-[?2004l]633;E;sudo systemctl reload caddy;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo systemctl reload caddy;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo caddy validate --config /etc/caddy/Caddyfile sudo caddy validate --config /etc/caddy/Caddyfile 2>&1
-[?2004l2>&1
-[?2004l]633;E;sudo caddy validate --config /etc/caddy/Caddyfile 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo caddy validate --config /etc/caddy/Caddyfile 2>&1;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C{"level":"info","ts":1770957575.2119997,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-{"level":"info","ts":1770957575.2119997,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-{"level":"info","ts":1770957575.2250502,"msg":"adapted config to JSON","adapter":"caddyfile"}
-{"level":"info","ts":1770957575.2250502,"msg":"adapted config to JSON","adapter":"caddyfile"}
-{"level":"info","ts":1770957575.2278686,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
-{"level":"info","ts":1770957575.2278686,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
-Valid configuration
-Valid configuration
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo systemctl status caddy --no-pager
-[?2004lsudo systemctl status caddy --no-pager
-[?2004l]633;E;sudo systemctl status caddy --no-pager;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo systemctl status caddy --no-pager;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C● caddy.service - Caddy
-     Loaded: loaded (/usr/lib/systemd/system/caddy.service; enabled; preset: enabled)
-     Active: active (running) since Thu 2026-02-12 12:57:34 PKT; 20h ago
-       Docs: https://caddyserver.com/docs/
-    Process: 3043334 ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile --force (code=exited, status=0/SUCCESS)
-   Main PID: 938525 (caddy)
-      Tasks: 18 (limit: 19686)
-     Memory: 24.5M (peak: 35.9M)
-        CPU: 37.296s
-     CGroup: /system.slice/caddy.service
-             └─938525 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
-
-Feb 12 14:44:30 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708894707165916e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
-Feb 12 15:23:56 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918369385166e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock)
-Feb 12 15:24:06 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918469499013e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock)
-Feb 12 15:24:11 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918519571946e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
-Feb 12 15:24:26 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918669692044e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
-Feb 12 15:26:02 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708919620571718e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
-Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
-Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal caddy[3043334]: {"level":"info","ts":1770957570.270226,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal caddy[3043334]: {"level":"info","ts":1770957570.283162,"msg":"adapted config to JSON","adapter":"caddyfile"}
-Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloaded caddy.service - Caddy.
-● caddy.service - Caddy
-     Loaded: loaded (/usr/lib/systemd/system/caddy.service; enabled; preset: enabled)
-     Active: active (running) since Thu 2026-02-12 12:57:34 PKT; 20h ago
-       Docs: https://caddyserver.com/docs/
-    Process: 3043334 ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile --force (code=exited, status=0/SUCCESS)
-   Main PID: 938525 (caddy)
-      Tasks: 18 (limit: 19686)
-     Memory: 24.5M (peak: 35.9M)
-        CPU: 37.296s
-     CGroup: /system.slice/caddy.service
-             └─938525 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
-
-Feb 12 14:44:30 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708894707165916e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
-Feb 12 15:23:56 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918369385166e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_sims.pmc.edu.pk.lock)
-Feb 12 15:24:06 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918469499013e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sims.pmc.edu.pk.lock)
-Feb 12 15:24:11 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918519571946e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.pgsims.pmc.edu.pk.lock)
-Feb 12 15:24:26 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708918669692044e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_api.sos.alshifalab.pk.lock)
-Feb 12 15:26:02 vps.us-central1-f.c.munaimfinance.internal caddy[938525]: 1.7708919620571718e+09        error        Keeping lock file fresh: unexpected end of JSON input - terminating lock maintenance (lockfile: /var/lib/caddy/.local/share/caddy/locks/issue_cert_pgsims.pmc.edu.pk.lock)
-Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloading caddy.service - Caddy...
-Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal caddy[3043334]: {"level":"info","ts":1770957570.270226,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal caddy[3043334]: {"level":"info","ts":1770957570.283162,"msg":"adapted config to JSON","adapter":"caddyfile"}
-Feb 13 09:39:30 vps.us-central1-f.c.munaimfinance.internal systemd[1]: Reloaded caddy.service - Caddy.
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;BOUT="/home/munaim/srv/ops/incident/20260213_093626OUT="/home/munaim/srv/ops/incident/20260213_093626"
-[?2004l"
-[?2004l]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcurl -k -sS -D- https://127.0.0.1/ -H "Host: ops.alshifalab.pk" -o /dev/null -w "%{http_code}\n"
-[?2004lcurl -k -sS -D- https://127.0.0.1/ -H "Host: ops.alshifalab.pk" -o /dev/null -w "%{http_code}\n"
-[?2004l]633;E;curl -k -sS -D- https://127.0.0.1/ -H "Host: ops.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;curl -k -sS -D- https://127.0.0.1/ -H "Host: ops.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Ccurl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-000
-000
-]633;D;35]633;D;35]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcurl -sS -D- http://127.0.0.1/ -H "Host: ops.alshicurl -sS -D- http://127.0.0.1/ -H "Host: ops.alshifalab.pk" -o /dev/null -w "%{http_code}\n"falab.pk" -o /dev/null -w "%{http_code}\n"
-
-[?2004l[?2004l]633;E;curl -sS -D- http://127.0.0.1/ -H "Host: ops.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;curl -sS -D- http://127.0.0.1/ -H "Host: ops.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CHTTP/1.1 308 Permanent Redirect
-Connection: close
-Location: https://ops.alshifalab.pk/
-Server: Caddy
-Date: Fri, 13 Feb 2026 04:39:50 GMT
-Content-Length: 0
-
-HTTP/1.1 308 Permanent Redirect
-Connection: close
-Location: https://ops.alshifalab.pk/
-Server: Caddy
-Date: Fri, 13 Feb 2026 04:39:50 GMT
-Content-Length: 0
-
-308
-308
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcurl -sS -D- http://127.0.0.1/ -H "Host: lims.alshcurl -sS -D- http://127.0.0.1/ -H "Host: lims.alshifalab.pk" -o /dev/null -w "%{http_code}\n"
-[?2004lifalab.pk" -o /dev/null -w "%{http_code}\n"
-[?2004l]633;E;curl -sS -D- http://127.0.0.1/ -H "Host: lims.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;curl -sS -D- http://127.0.0.1/ -H "Host: lims.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CHTTP/1.1 308 Permanent Redirect
-Connection: close
-Location: https://lims.alshifalab.pk/
-Server: Caddy
-Date: Fri, 13 Feb 2026 04:39:55 GMT
-Content-Length: 0
-
-HTTP/1.1 308 Permanent Redirect
-Connection: close
-Location: https://lims.alshifalab.pk/
-Server: Caddy
-Date: Fri, 13 Feb 2026 04:39:55 GMT
-Content-Length: 0
-
-308
-308
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bgrep -r "VITE_API_URL" /home/munaim/srv/dashboard/grep -r "VITE_API_URL" /home/munaim/srv/dashboard/ops_dashboard_frontend/.env* || true [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ke
-[?2004lops_dashboard_frontend/.env* || true [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ke
-[?2004l]633;E;grep -r "VITE_API_URL" /home/munaim/srv/dashboard/ops_dashboard_frontend/.env* || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;grep -r "VITE_API_URL" /home/munaim/srv/dashboard/ops_dashboard_frontend/.env* || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bgrep -r "API_URL" /home/munaim/srv/dashboard/ops_dashboard_frontend/dist | head -n 5 || true
-[?2004lgrep -r "API_URL" /home/munaim/srv/dashboard/ops_dashboard_frontend/dist | head -n 5 || true
-[?2004l]633;E;grep -r "API_URL" /home/munaim/srv/dashboard/ops_dashboard_frontend/dist | head -n 5 || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;grep -r "API_URL" /home/munaim/srv/dashboard/ops_dashboard_frontend/dist | head -n 5 || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/dashboard -name ".env*"
-[?2004lfind /home/munaim/srv/dashboard -name ".env*"
-[?2004l]633;E;find /home/munaim/srv/dashboard -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/dashboard -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/dashboard/.env.ops-dashboard.example
-/home/munaim/srv/dashboard/ops_dashboard_backend/.env.example
-/home/munaim/srv/dashboard/.env.ops-dashboard
-/home/munaim/srv/dashboard/ops_dashboard_frontend/.env.example
-/home/munaim/srv/dashboard/.env.ops-dashboard.example
-/home/munaim/srv/dashboard/ops_dashboard_backend/.env.example
-/home/munaim/srv/dashboard/.env.ops-dashboard
-/home/munaim/srv/dashboard/ops_dashboard_frontend/.env.example
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/lims -name "settings.pyfind /home/munaim/srv/apps/lims -name "settings.py"
-[?2004l"
-[?2004l]633;E;find /home/munaim/srv/apps/lims -name "settings.py";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/lims -name "settings.py";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/isort/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/django_extensions/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/rest_framework/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/jedi/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/drf_spectacular/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/rest_framework_simplejwt/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/isort/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/django_extensions/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/rest_framework/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/jedi/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/drf_spectacular/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/rest_framework_simplejwt/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/isort/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/django_extensions/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/rest_framework/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/jedi/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/drf_spectacular/settings.py
-/home/munaim/srv/apps/lims/AUDIT_RUNS/20260206_221831/.venv/lib/python3.12/site-packages/rest_framework_simplejwt/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/isort/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/django_extensions/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/rest_framework/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/jedi/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/drf_spectacular/settings.py
-/home/munaim/srv/apps/lims/lims-backend/.venv/lib/python3.12/site-packages/rest_framework_simplejwt/settings.py
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/lims -name "settings.pyfind /home/munaim/srv/apps/lims -name "settings.py" -not -path "*/site-packages/*" -not -path "*/.ve" -not -path "*/site-packages/*" -not -path "*/.venv/*"
-[?2004lnv/*"
-[?2004l]633;E;find /home/munaim/srv/apps/lims -name "settings.py" -not -path "*/site-packages/*" -not -path "*/.venv/*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/lims -name "settings.py" -not -path "*/site-packages/*" -not -path "*/.venv/*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker compose -f /home/munaim/srv/dashboard/dockedocker compose -f /home/munaim/srv/dashboard/docker-compose.yml restart ops_dashboard_backend
-[?2004lr-compose.yml restart ops_dashboard_backend
-[?2004l]633;E;docker compose -f /home/munaim/srv/dashboard/docker-compose.yml restart ops_dashboard_backend;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker compose -f /home/munaim/srv/dashboard/docker-compose.yml restart ops_dashboard_backend;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Cno such service: ops_dashboard_backend
-no such service: ops_dashboard_backend
-]633;D;1]633;D;1]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcd /home/munaim/srv/dashboard
-cd /home/munaim/srv/dashboard
-[?2004l[?2004l]633;E;cd /home/munaim/srv/dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;cd /home/munaim/srv/dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Bdocker compose -f /home/munaim/srv/dashboard/docke docker compose -f /home/munaim/srv/dashboard/docke r-compose.ops-dashboard.yml restart ops-backend
-[?2004lr-compose.ops-dashboard.yml restart ops-backend
-[?2004l]633;E;docker compose -f /home/munaim/srv/dashboard/docker-compose.ops-dashboard.yml restart ops-backend;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker compose -f /home/munaim/srv/dashboard/docker-compose.ops-dashboard.yml restart ops-backend;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C Container ops_dashboard_backend Restarting 
- Container ops_dashboard_backend Restarting 
- Container ops_dashboard_backend Started 
- Container ops_dashboard_backend Started 
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Bcd /home/munaim/srv
-cd /home/munaim/srv
-[?2004l[?2004l]633;E;cd /home/munaim/srv;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;cd /home/munaim/srv;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker ps --filter "name=ops_dashboard_backend"
-[?2004ldocker ps --filter "name=ops_dashboard_backend"
-[?2004l]633;E;docker ps --filter "name=ops_dashboard_backend";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker ps --filter "name=ops_dashboard_backend";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CCONTAINER ID   IMAGE                   COMMAND                  CREATED       STATUS          PORTS                       NAMES
-031b1195101f   dashboard-ops-backend   "sh -c 'python manag…"   6 hours ago   Up 10 seconds   127.0.0.1:18000->8000/tcp   ops_dashboard_backend
-CONTAINER ID   IMAGE                   COMMAND                  CREATED       STATUS          PORTS                       NAMES
-031b1195101f   dashboard-ops-backend   "sh -c 'python manag…"   6 hours ago   Up 10 seconds   127.0.0.1:18000->8000/tcp   ops_dashboard_backend
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker exec lims_backend_prod python manage.py coldocker exec lims_backend_prod python manage.py collectstatic --noinput
-[?2004llectstatic --noinput
-[?2004l]633;E;docker exec lims_backend_prod python manage.py collectstatic --noinput;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;E;docker exec lims_backend_prod python manage.py collectstatic --noinput;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;C
-0 static files copied to '/app/staticfiles', 161 unmodified, 422 post-processed.
-
-0 static files copied to '/app/staticfiles', 161 unmodified, 422 post-processed.
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/radreport -name "dockerfind /home/munaim/srv/apps/radreport -name "docker-compose.prod.yml"
--compose.prod.yml"
-[?2004l[?2004l]633;E;find /home/munaim/srv/apps/radreport -name "docker-compose.prod.yml";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/radreport -name "docker-compose.prod.yml";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/radreport/docker-compose.prod.yml
-/home/munaim/srv/apps/radreport/docker-compose.prod.yml
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bgrep -r "whitenoise" /home/munaim/srv/apps/radrepogrep -r "whitenoise" /home/munaim/srv/apps/radreport/backend/config/settings || grep -r "whitenoise"rt/backend/config/settings || grep -r "whitenoise" /home/munaim/srv/apps/radreport/backend/radreport /home/munaim/srv/apps/radreport/backend/radreport/settings.py || true
-[?2004l/settings.py || true
-[?2004l]633;E;grep -r "whitenoise" /home/munaim/srv/apps/radreport/backend/config/settings || grep -r "whitenoise" /home/munaim/srv/apps/radreport/backend/radreport/settings.py || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;E;grep -r "whitenoise" /home/munaim/srv/apps/radreport/backend/config/settings || grep -r "whitenoise" /home/munaim/srv/apps/radreport/backend/radreport/settings.py || true;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;Cgrep: /home/munaim/srv/apps/radreport/backend/config/settings: No such file or directory
-grep: /home/munaim/srv/apps/radreport/backend/config/settings: No such file or directory
-grep: /home/munaim/srv/apps/radreport/backend/radreport/settings.py: No such file or directory
-grep: /home/munaim/srv/apps/radreport/backend/radreport/settings.py: No such file or directory
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/radreport/backend -namefind /home/munaim/srv/apps/radreport/backend -name "settings.py"
-[?2004l "settings.py"
-[?2004l]633;E;find /home/munaim/srv/apps/radreport/backend -name "settings.py";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/radreport/backend -name "settings.py";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/radreport/backend/.venv/lib/python3.12/site-packages/rest_framework/settings.py
-/home/munaim/srv/apps/radreport/backend/.venv/lib/python3.12/site-packages/drf_spectacular/settings.py
-/home/munaim/srv/apps/radreport/backend/.venv/lib/python3.12/site-packages/rest_framework_simplejwt/settings.py
-/home/munaim/srv/apps/radreport/backend/rims_backend/settings.py
-/home/munaim/srv/apps/radreport/backend/.venv/lib/python3.12/site-packages/rest_framework/settings.py
-/home/munaim/srv/apps/radreport/backend/.venv/lib/python3.12/site-packages/drf_spectacular/settings.py
-/home/munaim/srv/apps/radreport/backend/.venv/lib/python3.12/site-packages/rest_framework_simplejwt/settings.py
-/home/munaim/srv/apps/radreport/backend/rims_backend/settings.py
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcd /home/munaim/srv/dashboard/www
-[?2004lcd /home/munaim/srv/dashboard/www
-[?2004l]633;E;cd /home/munaim/srv/dashboard/www;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;E;cd /home/munaim/srv/dashboard/www;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard/www[?2004h]633;A]0;munaim@vps: ~/srv/dashboard/www[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard/www[00m$ ]633;B]633;P;Cwd=/home/munaim/srv/dashboard/www[?2004h]633;A]0;munaim@vps: ~/srv/dashboard/www[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard/www[00m$ ]633;Bls -la /home/munaim/srv/dashboard/www/dist
-ls -la /home/munaim/srv/dashboard/www/dist
-[?2004l[?2004l]633;E;ls -la /home/munaim/srv/dashboard/www/dist;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;ls -la /home/munaim/srv/dashboard/www/dist;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Ctotal 16
-drwxrwxr-x+ 3 munaim munaim 4096 Feb 12 11:26 .
-drwxrwxr-x+ 5 munaim munaim 4096 Feb 12 11:26 ..
-drwxrwxr-x+ 2 munaim munaim 4096 Feb 12 11:26 assets
--rw-rw-r--+ 1 munaim munaim 1045 Feb 12 11:26 index.html
-total 16
-drwxrwxr-x+ 3 munaim munaim 4096 Feb 12 11:26 .
-drwxrwxr-x+ 5 munaim munaim 4096 Feb 12 11:26 ..
-drwxrwxr-x+ 2 munaim munaim 4096 Feb 12 11:26 assets
--rw-rw-r--+ 1 munaim munaim 1045 Feb 12 11:26 index.html
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard/www]633;P;Cwd=/home/munaim/srv/dashboard/www[?2004h]633;A]0;munaim@vps: ~/srv/dashboard/www[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard/www[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/dashboard/www[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard/www[00m$ ]633;Bcd /home/munaim/srv/dashboard
-[?2004lcd /home/munaim/srv/dashboard
-[?2004l]633;E;cd /home/munaim/srv/dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;cd /home/munaim/srv/dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Becho "SESSION_COOKIE_SECURE=True" >> /home/munaim/ echo "SESSION_COOKIE_SECURE=True" >> /home/munaim/ srv/dashboard/.env.ops-dashboard
-[?2004lsrv/dashboard/.env.ops-dashboard
-[?2004l]633;E;echo "SESSION_COOKIE_SECURE=True" >> /home/munaim/srv/dashboard/.env.ops-dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;E;echo "SESSION_COOKIE_SECURE=True" >> /home/munaim/srv/dashboard/.env.ops-dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;B]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Becho "CSRF_COOKIE_SECURE=True" >> /home/munaim/srv/dashboard/.env.ops-dashboard
-[?2004lecho "CSRF_COOKIE_SECURE=True" >> /home/munaim/srv/dashboard/.env.ops-dashboard
-[?2004l]633;E;echo "CSRF_COOKIE_SECURE=True" >> /home/munaim/srv/dashboard/.env.ops-dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;echo "CSRF_COOKIE_SECURE=True" >> /home/munaim/srv/dashboard/.env.ops-dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Becho "CSRF_TRUSTED_ORIGINS=https://ops.alshifalab.pk" >> /home/munaim/srv/dashboard/.env.ops-dashboard [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kd
-[?2004l]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Becho "CSRF_TRUSTED_ORIGINS=https://ops.alshifalab.pk" >> /home/munaim/srv/dashboard/.env.ops-dashboard [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kd
-[?2004l]633;E;echo "CSRF_TRUSTED_ORIGINS=https://ops.alshifalab.pk" >> /home/munaim/srv/dashboard/.env.ops-dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;echo "CSRF_TRUSTED_ORIGINS=https://ops.alshifalab.pk" >> /home/munaim/srv/dashboard/.env.ops-dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;B]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Bdocker compose -f /home/munaim/srv/dashboard/docke docker compose -f /home/munaim/srv/dashboard/docke r-compose.ops-dashboard.yml restart ops-backendr-compose.ops-dashboard.yml restart ops-backend
-
-[?2004l[?2004l]633;E;docker compose -f /home/munaim/srv/dashboard/docker-compose.ops-dashboard.yml restart ops-backend;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;E;docker compose -f /home/munaim/srv/dashboard/docker-compose.ops-dashboard.yml restart ops-backend;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;C Container ops_dashboard_backend Restarting 
- Container ops_dashboard_backend Restarting 
- Container ops_dashboard_backend Started 
- Container ops_dashboard_backend Started 
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Bcd /home/munaim/srv/apps/radreport
-cd /home/munaim/srv/apps/radreport
-[?2004l[?2004l]633;E;cd /home/munaim/srv/apps/radreport;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;cd /home/munaim/srv/apps/radreport;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/apps/radreport]633;P;Cwd=/home/munaim/srv/apps/radreport[?2004h]633;A]0;munaim@vps: ~/srv/apps/radreport[01;32mmunaim@vps[00m:[01;34m~/srv/apps/radreport[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/apps/radreport[01;32mmunaim@vps[00m:[01;34m~/srv/apps/radreport[00m$ ]633;Becho "SESSION_COOKIE_SECURE=1" >> /home/munaim/srvecho "SESSION_COOKIE_SECURE=1" >> /home/munaim/srv/apps/radreport/.env
-[?2004l/apps/radreport/.env
-[?2004l]633;E;echo "SESSION_COOKIE_SECURE=1" >> /home/munaim/srv/apps/radreport/.env;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;echo "SESSION_COOKIE_SECURE=1" >> /home/munaim/srv/apps/radreport/.env;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/apps/radreport]633;P;Cwd=/home/munaim/srv/apps/radreport[?2004h]633;A]0;munaim@vps: ~/srv/apps/radreport[01;32mmunaim@vps[00m:[01;34m~/srv/apps/radreport[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/apps/radreport[01;32mmunaim@vps[00m:[01;34m~/srv/apps/radreport[00m$ ]633;Becho "CSRF_COOKIE_SECURE=1" >> /home/munaim/srv/apps/radreport/.env
-[?2004lecho "CSRF_COOKIE_SECURE=1" >> /home/munaim/srv/apps/radreport/.env
-[?2004l]633;E;echo "CSRF_COOKIE_SECURE=1" >> /home/munaim/srv/apps/radreport/.env;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;echo "CSRF_COOKIE_SECURE=1" >> /home/munaim/srv/apps/radreport/.env;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/apps/radreport]633;P;Cwd=/home/munaim/srv/apps/radreport[?2004h]633;A]0;munaim@vps: ~/srv/apps/radreport[01;32mmunaim@vps[00m:[01;34m~/srv/apps/radreport[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/apps/radreport[01;32mmunaim@vps[00m:[01;34m~/srv/apps/radreport[00m$ ]633;Bdocker compose -f /home/munaim/srv/apps/radreport/docker compose -f /home/munaim/srv/apps/radreport/docker-compose.prod.yml restart backend
-docker-compose.prod.yml restart backend
-[?2004l[?2004l]633;E;docker compose -f /home/munaim/srv/apps/radreport/docker-compose.prod.yml restart backend;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker compose -f /home/munaim/srv/apps/radreport/docker-compose.prod.yml restart backend;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/apps/radreport]633;P;Cwd=/home/munaim/srv/apps/radreport[?2004h]633;A]0;munaim@vps: ~/srv/apps/radreport[01;32mmunaim@vps[00m:[01;34m~/srv/apps/radreport[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/apps/radreport[01;32mmunaim@vps[00m:[01;34m~/srv/apps/radreport[00m$ ]633;Bcd /home/munaim/srv/dashboard
-[?2004lcd /home/munaim/srv/dashboard
-[?2004l]633;E;cd /home/munaim/srv/dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;E;cd /home/munaim/srv/dashboard;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Bdocker exec ops_dashboard_backend python manage.py docker exec ops_dashboard_backend python manage.py  showmigrations
-[?2004l showmigrations
-[?2004l]633;E;docker exec ops_dashboard_backend python manage.py showmigrations;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker exec ops_dashboard_backend python manage.py showmigrations;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Cadmin
-admin
- [X] 0001_initial
- [X] 0002_logentry_remove_auto_add
- [X] 0003_logentry_add_action_flag_choices
-auth
- [X] 0001_initial
- [X] 0002_alter_permission_name_max_length
- [X] 0003_alter_user_email_max_length
- [X] 0004_alter_user_username_opts
- [X] 0005_alter_user_last_login_null
- [X] 0006_require_contenttypes_0002
- [X] 0007_alter_validators_add_error_messages
- [X] 0008_alter_user_username_max_length
- [X] 0009_alter_user_last_name_max_length
- [X] 0010_alter_group_name_max_length
- [X] 0011_update_proxy_permissions
- [X] 0012_alter_user_first_name_max_length
-contenttypes
- [X] 0001_initial
- [X] 0001_initial
- [X] 0002_logentry_remove_auto_add
- [X] 0003_logentry_add_action_flag_choices
-auth
- [X] 0001_initial
- [X] 0002_alter_permission_name_max_length
- [X] 0003_alter_user_email_max_length
- [X] 0004_alter_user_username_opts
- [X] 0005_alter_user_last_login_null
- [X] 0006_require_contenttypes_0002
- [X] 0007_alter_validators_add_error_messages
- [X] 0008_alter_user_username_max_length
- [X] 0009_alter_user_last_name_max_length
- [X] 0010_alter_group_name_max_length
- [X] 0011_update_proxy_permissions
- [X] 0012_alter_user_first_name_max_length
-contenttypes
- [X] 0001_initial
- [X] 0002_remove_content_type_name
-core
- [X] 0002_remove_content_type_name
-core
- [X] 0001_initial
- [X] 0002_audit_hash_and_alerts
- [X] 0001_initial
- [X] 0002_audit_hash_and_alerts
-sessions
- [X] 0001_initial
-sessions
- [X] 0001_initial
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv/dashboard]633;P;Cwd=/home/munaim/srv/dashboard[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv/dashboard[01;32mmunaim@vps[00m:[01;34m~/srv/dashboard[00m$ ]633;Bcd /home/munaim/srv
-[?2004lcd /home/munaim/srv
-[?2004l]633;E;cd /home/munaim/srv;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;cd /home/munaim/srv;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;BOUT="/home/munaim/srv/ops/incident/20260213_093626OUT="/home/munaim/srv/ops/incident/20260213_093626"
-[?2004l"
-[?2004l]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;OUT="/home/munaim/srv/ops/incident/20260213_093626";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Becho "Domain,Status,Server" > "$OUT/verification_curl.csv"
-[?2004lecho "Domain,Status,Server" > "$OUT/verification_curl.csv"
-[?2004l]633;E;echo "Domain,Status,Server" > "$OUT/verification_curl.csv";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;echo "Domain,Status,Server" > "$OUT/verification_curl.csv";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfor domain in ops.alshifalab.pk portal.alshifalab.pk lims.alshifalab.pk rims.alshifalab.pfor domain in ops.alshifalab.pk portal.alshifalab.pk lims.alshifalab.pk rims.alshifalab.pk; do
-[?2004lk; do
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;G    res=$(curl -sS -I http://127.0.0.1/ -H "    res=$(curl -sS -I http://127.0.0.1/ -H "Host: $domain" 2>/dev/null | head -n 1)
-[?2004l[?2004h]633;F> ]633;G    echo "Host: $domain" 2>/dev/null | head -n 1)
-[?2004l[?2004h]633;F> ]633;G    echo "$domain,\"$res\"" >> "$OUT/verification_curl.csv"
-[?2004l$domain,\"$res\"" >> "$OUT/verification_curl.csv"
-[?2004l[?2004h]633;F> ]633;G[?2004h]633;F> ]633;Gdone
-[?2004ldone
-[?2004l]633;E;done;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;done;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcolumn -t -s, "$OUT/verification_curl.csv" > "$OUT/verification_curl.txt"
-[?2004lcolumn -t -s, "$OUT/verification_curl.csv" > "$OUT/verification_curl.txt"
-[?2004l]633;E;column -t -s, "$OUT/verification_curl.csv" > "$OUT/verification_curl.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;column -t -s, "$OUT/verification_curl.csv" > "$OUT/verification_curl.txt";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/radreport/frontend -namfind /home/munaim/srv/apps/radreport/frontend -name ".env*"
-[?2004le ".env*"
-[?2004l]633;E;find /home/munaim/srv/apps/radreport/frontend -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/radreport/frontend -name ".env*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bgrep -r "BASE_URL" /home/munaim/srv/apps/radreportgrep -r "BASE_URL" /home/munaim/srv/apps/radreport/frontend/src || grep -r "fetch" /home/munaim/srv//frontend/src || grep -r "fetch" /home/munaim/srv/apps/radreport/frontend/src | head -n 20
-[?2004lapps/radreport/frontend/src | head -n 20
-[?2004l]633;E;grep -r "BASE_URL" /home/munaim/srv/apps/radreport/frontend/src || grep -r "fetch" /home/munaim/srv/apps/radreport/frontend/src | head -n 20;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;grep -r "BASE_URL" /home/munaim/srv/apps/radreport/frontend/src || grep -r "fetch" /home/munaim/srv/apps/radreport/frontend/src | head -n 20;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/radreport/frontend/src/utils/download.ts:    const response = await fetch(`${API_BASE}${path}`, { headers });
-/home/munaim/srv/apps/radreport/frontend/src/components/reporting/SmartSchemaFormV2.tsx:        // If I inject into Right Kidney, I need to fetch Left Kidney fields.
-/home/munaim/srv/apps/radreport/frontend/src/components/reporting/SmartSchemaFormV2.tsx:        // 3. If remaining fields match a PairedGroup (Right side), Render the paired group (fetching Left fields even if they are in another section).
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:export async function fetchReportPdf(serviceVisitItemId: string, token: string | null): Promise<Blob> {
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:    const response = await fetch(`${API_BASE}/reporting/workitems/${serviceVisitItemId}/report-pdf/`, {
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:        throw new Error("Failed to fetch PDF");
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:export async function fetchPublishedPdf(serviceVisitItemId: string, version: number, token: string | null): Promise<Blob> {
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:    const response = await fetch(`${API_BASE}/reporting/workitems/${serviceVisitItemId}/published-pdf/?version=${version}`, {
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:        throw new Error("Failed to fetch PDF");
-/home/munaim/srv/apps/radreport/frontend/src/ui/auth.tsx:    // Only fetch user if we don't have it? Or always?
-/home/munaim/srv/apps/radreport/frontend/src/ui/auth.tsx:    // If we just refreshed token, we might not need to refetch user, but it's safe.
-/home/munaim/srv/apps/radreport/frontend/src/ui/api.ts:  let r = await fetch(`${API_BASE}${path}`, { ...options, headers });
-/home/munaim/srv/apps/radreport/frontend/src/ui/api.ts:        const refreshResponse = await fetch(`${API_BASE}/auth/token/refresh/`, {
-/home/munaim/srv/apps/radreport/frontend/src/ui/api.ts:          r = await fetch(`${API_BASE}${path}`, { ...options, headers });
-/home/munaim/srv/apps/radreport/frontend/src/ui/api.ts:  const r = await fetch(loginUrl, {
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:    fetchReportPdf,
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:    fetchPublishedPdf,
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:            const blob = await fetchReportPdf(id, token);
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:            setError(e.message || "Failed to fetch PDF");
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:            const blob = await fetchPublishedPdf(id, version, token);
-/home/munaim/srv/apps/radreport/frontend/src/utils/download.ts:    const response = await fetch(`${API_BASE}${path}`, { headers });
-/home/munaim/srv/apps/radreport/frontend/src/components/reporting/SmartSchemaFormV2.tsx:        // If I inject into Right Kidney, I need to fetch Left Kidney fields.
-/home/munaim/srv/apps/radreport/frontend/src/components/reporting/SmartSchemaFormV2.tsx:        // 3. If remaining fields match a PairedGroup (Right side), Render the paired group (fetching Left fields even if they are in another section).
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:export async function fetchReportPdf(serviceVisitItemId: string, token: string | null): Promise<Blob> {
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:    const response = await fetch(`${API_BASE}/reporting/workitems/${serviceVisitItemId}/report-pdf/`, {
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:        throw new Error("Failed to fetch PDF");
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:export async function fetchPublishedPdf(serviceVisitItemId: string, version: number, token: string | null): Promise<Blob> {
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:    const response = await fetch(`${API_BASE}/reporting/workitems/${serviceVisitItemId}/published-pdf/?version=${version}`, {
-/home/munaim/srv/apps/radreport/frontend/src/ui/reporting.ts:        throw new Error("Failed to fetch PDF");
-/home/munaim/srv/apps/radreport/frontend/src/ui/auth.tsx:    // Only fetch user if we don't have it? Or always?
-/home/munaim/srv/apps/radreport/frontend/src/ui/auth.tsx:    // If we just refreshed token, we might not need to refetch user, but it's safe.
-/home/munaim/srv/apps/radreport/frontend/src/ui/api.ts:  let r = await fetch(`${API_BASE}${path}`, { ...options, headers });
-/home/munaim/srv/apps/radreport/frontend/src/ui/api.ts:        const refreshResponse = await fetch(`${API_BASE}/auth/token/refresh/`, {
-/home/munaim/srv/apps/radreport/frontend/src/ui/api.ts:          r = await fetch(`${API_BASE}${path}`, { ...options, headers });
-/home/munaim/srv/apps/radreport/frontend/src/ui/api.ts:  const r = await fetch(loginUrl, {
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:    fetchReportPdf,
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:    fetchPublishedPdf,
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:            const blob = await fetchReportPdf(id, token);
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:            setError(e.message || "Failed to fetch PDF");
-/home/munaim/srv/apps/radreport/frontend/src/views/ReportingPage.tsx:            const blob = await fetchPublishedPdf(id, version, token);
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/lims -name "urls.py" -nfind /home/munaim/srv/apps/lims -name "urls.py" -not -path "*/.venv/*"
-[?2004lot -path "*/.venv/*"
-[?2004l]633;E;find /home/munaim/srv/apps/lims -name "urls.py" -not -path "*/.venv/*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;find /home/munaim/srv/apps/lims -name "urls.py" -not -path "*/.venv/*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/lims/lims-backend/apps/audit/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/billing/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/orders/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/dashboard/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/results/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/patients/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/samples/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/backups/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/accounts/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/laboratory/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/core/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/reports/urls.py
-/home/munaim/srv/apps/lims/lims-backend/config/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/audit/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/billing/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/orders/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/dashboard/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/results/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/patients/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/samples/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/backups/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/accounts/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/laboratory/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/core/urls.py
-/home/munaim/srv/apps/lims/lims-backend/apps/reports/urls.py
-/home/munaim/srv/apps/lims/lims-backend/config/urls.py
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bfind /home/munaim/srv/apps/accredivault -name "urlfind /home/munaim/srv/apps/accredivault -name "urls.py" -not -path "*/.venv/*"
-[?2004ls.py" -not -path "*/.venv/*"
-[?2004l]633;E;find /home/munaim/srv/apps/accredivault -name "urls.py" -not -path "*/.venv/*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;E;find /home/munaim/srv/apps/accredivault -name "urls.py" -not -path "*/.venv/*";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;C/home/munaim/srv/apps/accredivault/backend/apps/evidence/urls.py
-/home/munaim/srv/apps/accredivault/backend/apps/standards/urls.py
-/home/munaim/srv/apps/accredivault/backend/apps/compliance/urls.py
-/home/munaim/srv/apps/accredivault/backend/config/urls.py
-/home/munaim/srv/apps/accredivault/backend/apps/evidence/urls.py
-/home/munaim/srv/apps/accredivault/backend/apps/standards/urls.py
-/home/munaim/srv/apps/accredivault/backend/apps/compliance/urls.py
-/home/munaim/srv/apps/accredivault/backend/config/urls.py
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo cp /home/munaim/srv/proxy/caddy/Caddyfile /etsudo cp /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile
-[?2004lc/caddy/Caddyfile
-[?2004l]633;E;sudo cp /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo cp /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo caddy validate --config /etc/caddy/Caddyfile
-[?2004lsudo caddy validate --config /etc/caddy/Caddyfile
-[?2004l]633;E;sudo caddy validate --config /etc/caddy/Caddyfile;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;sudo caddy validate --config /etc/caddy/Caddyfile;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C{"level":"info","ts":1770958766.2159667,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-{"level":"info","ts":1770958766.2159667,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-{"level":"info","ts":1770958766.2342694,"msg":"adapted config to JSON","adapter":"caddyfile"}
-{"level":"info","ts":1770958766.2342694,"msg":"adapted config to JSON","adapter":"caddyfile"}
-{"level":"info","ts":1770958766.238617,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
-{"level":"info","ts":1770958766.238617,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
-Valid configuration
-Valid configuration
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo systemctl reload caddy
-[?2004l[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bsudo systemctl reload caddy
-[?2004l]633;E;sudo systemctl reload caddy;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;E;sudo systemctl reload caddy;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;C]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcurl -k -sS -D- https://127.0.0.1/api/auth/token/ curl -k -sS -D- https://127.0.0.1/api/auth/token/ -H "Host: rims.alshifalab.pk" -o /dev/null -w "%{h-H "Host: rims.alshifalab.pk" -o /dev/null -w "%{http_code}\n" [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K"
-[?2004lttp_code}\n" [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K"
-[?2004l]633;E;curl -k -sS -D- https://127.0.0.1/api/auth/token/ -H "Host: rims.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;curl -k -sS -D- https://127.0.0.1/api/auth/token/ -H "Host: rims.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Ccurl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-000
-000
-]633;D;35]633;D;35]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcurl -sS -D- http://127.0.0.1:8015/api/auth/token/curl -sS -D- http://127.0.0.1:8015/api/auth/token/ -o /dev/null -w "%{http_code}\n"
-[?2004l -o /dev/null -w "%{http_code}\n"
-[?2004l]633;E;curl -sS -D- http://127.0.0.1:8015/api/auth/token/ -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;curl -sS -D- http://127.0.0.1:8015/api/auth/token/ -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CHTTP/1.1 405 Method Not Allowed
-Server: gunicorn
-HTTP/1.1 405 Method Not Allowed
-Server: gunicorn
-Date: Fri, 13 Feb 2026 04:59:37 GMT
-Connection: close
-Content-Type: application/json
-Vary: Accept, origin
-Allow: POST, OPTIONS
-X-Frame-Options: DENY
-Content-Length: 40
-X-Content-Type-Options: nosniff
-Referrer-Policy: same-origin
-Cross-Origin-Opener-Policy: same-origin
-
-Date: Fri, 13 Feb 2026 04:59:37 GMT
-Connection: close
-Content-Type: application/json
-Vary: Accept, origin
-Allow: POST, OPTIONS
-X-Frame-Options: DENY
-Content-Length: 40
-X-Content-Type-Options: nosniff
-Referrer-Policy: same-origin
-Cross-Origin-Opener-Policy: same-origin
-
-405
-405
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcurl -sS -D- http://127.0.0.1:8012/api/v1/health/ curl -sS -D- http://127.0.0.1:8012/api/v1/health/ -o /dev/null -w "%{http_code}\n"
-[?2004l-o /dev/null -w "%{http_code}\n"
-[?2004l]633;E;curl -sS -D- http://127.0.0.1:8012/api/v1/health/ -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;E;curl -sS -D- http://127.0.0.1:8012/api/v1/health/ -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;CHTTP/1.1 200 OK
-Allow: GET, HEAD, OPTIONS
-HTTP/1.1 200 OK
-Allow: GET, HEAD, OPTIONS
-Content-Length: 68
-Content-Type: application/json
-Cross-Origin-Opener-Policy: same-origin
-Date: Fri, 13 Feb 2026 04:59:46 GMT
-Referrer-Policy: strict-origin-when-cross-origin
-Referrer-Policy: same-origin
-Server: gunicorn
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-Vary: origin, Cookie
-Via: 1.1 Caddy
-X-Content-Type-Options: nosniff
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
-
-200
-Content-Length: 68
-Content-Type: application/json
-Cross-Origin-Opener-Policy: same-origin
-Date: Fri, 13 Feb 2026 04:59:46 GMT
-Referrer-Policy: strict-origin-when-cross-origin
-Referrer-Policy: same-origin
-Server: gunicorn
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-Vary: origin, Cookie
-Via: 1.1 Caddy
-X-Content-Type-Options: nosniff
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
-
-200
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker inspect rims_frontend_prod | grep -A 20 "Endocker inspect rims_frontend_prod | grep -A 20 "Env"
-[?2004lv"
-[?2004l]633;E;docker inspect rims_frontend_prod | grep -A 20 "Env";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker inspect rims_frontend_prod | grep -A 20 "Env";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "NGINX_VERSION=1.25.5",
-                "PKG_RELEASE=1",
-                "NJS_VERSION=0.8.4",
-                "NJS_RELEASE=3"
-            ],
-            "Cmd": [
-                "nginx",
-                "-g",
-                "daemon off;"
-            ],
-            "Healthcheck": {
-                "Test": [
-                    "CMD-SHELL",
-                    "wget --no-verbose --tries=1 --spider http://127.0.0.1/healthz || exit 1"
-                ],
-                "Interval": 30000000000,
-                "Timeout": 3000000000,
-                "StartPeriod": 5000000000,
-                "Retries": 3
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "NGINX_VERSION=1.25.5",
-                "PKG_RELEASE=1",
-                "NJS_VERSION=0.8.4",
-                "NJS_RELEASE=3"
-            ],
-            "Cmd": [
-                "nginx",
-                "-g",
-                "daemon off;"
-            ],
-            "Healthcheck": {
-                "Test": [
-                    "CMD-SHELL",
-                    "wget --no-verbose --tries=1 --spider http://127.0.0.1/healthz || exit 1"
-                ],
-                "Interval": 30000000000,
-                "Timeout": 3000000000,
-                "StartPeriod": 5000000000,
-                "Retries": 3
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker logs --tail 50 rims_backend_prod
-[?2004ldocker logs --tail 50 rims_backend_prod
-[?2004l]633;E;docker logs --tail 50 rims_backend_prod;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker logs --tail 50 rims_backend_prod;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C127.0.0.1 - - [13/Feb/2026:09:44:30 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:45:00 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:45:30 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:46:01 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-2026-02-13 09:46:12,200 WARNING django.request Not Found: /auth/token/
-172.24.0.1 - - [13/Feb/2026:09:46:12 +0500] "POST /auth/token/ HTTP/1.1" 404 179 "https://rims.alshifalab.pk/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:46:31 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:47:01 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:47:32 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:48:02 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:48:32 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:49:03 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:49:33 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:50:03 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:50:34 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:51:04 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:51:34 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:52:04 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:52:35 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:53:05 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:53:35 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:54:06 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:54:36 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-2026-02-13 09:54:56,526 WARNING django.request Not Found: /auth/token/
-172.24.0.1 - - [13/Feb/2026:09:54:56 +0500] "POST /auth/token/ HTTP/1.1" 404 179 "https://rims.alshifalab.pk/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:03 +0500] "GET /admin/ HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:04 +0500] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4268 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:06 +0500] "GET /admin/ HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:55:06 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-172.24.0.1 - - [13/Feb/2026:09:55:07 +0500] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4268 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:31 +0500] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0 "https://rims.alshifalab.pk/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:35 +0500] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0 "https://rims.alshifalab.pk/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:55:37 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-172.24.0.1 - - [13/Feb/2026:09:55:38 +0500] "GET /admin/ HTTP/1.1" 200 27221 "https://rims.alshifalab.pk/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:56:07 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:56:37 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:57:08 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:57:38 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-172.24.0.1 - - [13/Feb/2026:09:58:03 +0500] "GET /admin/auth/user/ HTTP/1.1" 200 29941 "https://rims.alshifalab.pk/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:58:08 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-172.24.0.1 - - [13/Feb/2026:09:58:11 +0500] "GET /admin/jsi18n/ HTTP/1.1" 200 3342 "https://rims.alshifalab.pk/admin/auth/user/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-2026-02-13 09:58:33,084 WARNING django.request Not Found: /auth/token/
-172.24.0.1 - - [13/Feb/2026:09:58:33 +0500] "POST /auth/token/ HTTP/1.1" 404 179 "https://rims.alshifalab.pk/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:58:39 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-2026-02-13 09:58:53,460 WARNING django.request Not Found: /auth/token/
-172.24.0.1 - - [13/Feb/2026:09:58:53 +0500] "POST /auth/token/ HTTP/1.1" 404 179 "https://rims.alshifalab.pk/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:59:09 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-2026-02-13 09:59:37,970 WARNING django.request Method Not Allowed: /api/auth/token/
-172.24.0.1 - - [13/Feb/2026:09:59:37 +0500] "GET /api/auth/token/ HTTP/1.1" 405 40 "-" "curl/8.5.0"
-127.0.0.1 - - [13/Feb/2026:09:59:39 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:44:30 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:45:00 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:45:30 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:46:01 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-2026-02-13 09:46:12,200 WARNING django.request Not Found: /auth/token/
-172.24.0.1 - - [13/Feb/2026:09:46:12 +0500] "POST /auth/token/ HTTP/1.1" 404 179 "https://rims.alshifalab.pk/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:46:31 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:47:01 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:47:32 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:48:02 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:48:32 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:49:03 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:49:33 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:50:03 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:50:34 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:51:04 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:51:34 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:52:04 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:52:35 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:53:05 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:53:35 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:54:06 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:54:36 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-2026-02-13 09:54:56,526 WARNING django.request Not Found: /auth/token/
-172.24.0.1 - - [13/Feb/2026:09:54:56 +0500] "POST /auth/token/ HTTP/1.1" 404 179 "https://rims.alshifalab.pk/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:03 +0500] "GET /admin/ HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:04 +0500] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4268 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:06 +0500] "GET /admin/ HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:55:06 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-172.24.0.1 - - [13/Feb/2026:09:55:07 +0500] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4268 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:31 +0500] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0 "https://rims.alshifalab.pk/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-172.24.0.1 - - [13/Feb/2026:09:55:35 +0500] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0 "https://rims.alshifalab.pk/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:55:37 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-172.24.0.1 - - [13/Feb/2026:09:55:38 +0500] "GET /admin/ HTTP/1.1" 200 27221 "https://rims.alshifalab.pk/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:56:07 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:56:37 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:57:08 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-127.0.0.1 - - [13/Feb/2026:09:57:38 +0500] "GET /api/health/ HTTP/1.1" 200 147 "-" "Python-urllib/3.11"
-172.24.0.1 - - [13/Feb/2026:09:58:03 +0500] "GET /admin/auth/user/ HTTP/1.1" 200 29941 "https://rims.alshifalab.pk/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:58:08 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-172.24.0.1 - - [13/Feb/2026:09:58:11 +0500] "GET /admin/jsi18n/ HTTP/1.1" 200 3342 "https://rims.alshifalab.pk/admin/auth/user/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-2026-02-13 09:58:33,084 WARNING django.request Not Found: /auth/token/
-172.24.0.1 - - [13/Feb/2026:09:58:33 +0500] "POST /auth/token/ HTTP/1.1" 404 179 "https://rims.alshifalab.pk/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:58:39 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-2026-02-13 09:58:53,460 WARNING django.request Not Found: /auth/token/
-172.24.0.1 - - [13/Feb/2026:09:58:53 +0500] "POST /auth/token/ HTTP/1.1" 404 179 "https://rims.alshifalab.pk/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
-127.0.0.1 - - [13/Feb/2026:09:59:09 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-2026-02-13 09:59:37,970 WARNING django.request Method Not Allowed: /api/auth/token/
-172.24.0.1 - - [13/Feb/2026:09:59:37 +0500] "GET /api/auth/token/ HTTP/1.1" 405 40 "-" "curl/8.5.0"
-127.0.0.1 - - [13/Feb/2026:09:59:39 +0500] "GET /api/health/ HTTP/1.1" 200 148 "-" "Python-urllib/3.11"
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker logs --tail 50 lims_backend_prod
-[?2004ldocker logs --tail 50 lims_backend_prod
-[?2004l]633;E;docker logs --tail 50 lims_backend_prod;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker logs --tail 50 lims_backend_prod;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C    serializer.save()
-  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 212, in save
-    self.instance = self.create(validated_data)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/app/apps/orders/serializers.py", line 246, in create
-    Sample.objects.create(
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 677, in create
-    obj.save(force_insert=True, using=self.db)
-  File "/app/apps/samples/models.py", line 185, in save
-    super().save(*args, **kwargs)
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 814, in save
-    self.save_base(
-    serializer.save()
-  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 212, in save
-    self.instance = self.create(validated_data)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/app/apps/orders/serializers.py", line 246, in create
-    Sample.objects.create(
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 677, in create
-    obj.save(force_insert=True, using=self.db)
-  File "/app/apps/samples/models.py", line 185, in save
-    super().save(*args, **kwargs)
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 814, in save
-    self.save_base(
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 901, in save_base
-    updated = self._save_table(
-              ^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1059, in _save_table
-    results = self._do_insert(
-              ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1100, in _do_insert
-    return manager._insert(
-           ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1845, in _insert
-    return query.get_compiler(using=using).execute_sql(returning_fields)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
-    cursor.execute(sql, params)
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
-    return self._execute_with_wrappers(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 901, in save_base
-    updated = self._save_table(
-              ^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1059, in _save_table
-    results = self._do_insert(
-              ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1100, in _do_insert
-    return manager._insert(
-           ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1845, in _insert
-    return query.get_compiler(using=using).execute_sql(returning_fields)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
-    cursor.execute(sql, params)
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
-    return self._execute_with_wrappers(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
-    with self.db.wrap_database_errors:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.IntegrityError: null value in column "collection_source" of relation "samples" violates not-null constraint
-DETAIL:  Failing row contains (7, Serum/Plasma, ORD-20260213-0001-S1, null, null, PENDING, , , , 2026-02-13 04:33:58.302279+00, 2026-02-13 04:33:58.302287+00, null, 8, null, null, ORD-20260213-0001-S1, 1, null, null).
-
-[ERROR] 2026-02-13 09:33:58 django.request log.log_response:241 - Internal Server Error: /api/v1/orders/orders/
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
-    with self.db.wrap_database_errors:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.IntegrityError: null value in column "collection_source" of relation "samples" violates not-null constraint
-DETAIL:  Failing row contains (7, Serum/Plasma, ORD-20260213-0001-S1, null, null, PENDING, , , , 2026-02-13 04:33:58.302279+00, 2026-02-13 04:33:58.302287+00, null, 8, null, null, ORD-20260213-0001-S1, 1, null, null).
-
-[ERROR] 2026-02-13 09:33:58 django.request log.log_response:241 - Internal Server Error: /api/v1/orders/orders/
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bgrep -r "VITE_API" /home/munaim/srv/apps/lims/frongrep -r "VITE_API" /home/munaim/srv/apps/lims/frontend/src || head -n 20 /home/munaim/srv/apps/lims/tend/src || head -n 20 /home/munaim/srv/apps/lims/frontend/.env.production
-[?2004lfrontend/.env.production
-[?2004l]633;E;grep -r "VITE_API" /home/munaim/srv/apps/lims/frontend/src || head -n 20 /home/munaim/srv/apps/lims/frontend/.env.production;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;grep -r "VITE_API" /home/munaim/srv/apps/lims/frontend/src || head -n 20 /home/munaim/srv/apps/lims/frontend/.env.production;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C/home/munaim/srv/apps/lims/frontend/src/api/client.ts:const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
-/home/munaim/srv/apps/lims/frontend/src/test/setup.ts:process.env.VITE_API_BASE_URL = 'http://localhost:8000/api/v1'
-/home/munaim/srv/apps/lims/frontend/src/api/client.ts:const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
-/home/munaim/srv/apps/lims/frontend/src/test/setup.ts:process.env.VITE_API_BASE_URL = 'http://localhost:8000/api/v1'
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcurl -sS -D- -X POST http://127.0.0.1:8015/api/autcurl -sS -D- -X POST http://127.0.0.1:8015/api/auth/token/ -o /dev/null -w "%{http_code}\n"
-[?2004lh/token/ -o /dev/null -w "%{http_code}\n"
-[?2004l]633;E;curl -sS -D- -X POST http://127.0.0.1:8015/api/auth/token/ -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;curl -sS -D- -X POST http://127.0.0.1:8015/api/auth/token/ -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CHTTP/1.1 400 Bad Request
-Server: gunicorn
-Date: Fri, 13 Feb 2026 05:27:05 GMT
-Connection: close
-Content-Type: application/json
-Vary: Accept, origin
-Allow: POST, OPTIONS
-X-Frame-Options: DENY
-Content-Length: 79
-X-Content-Type-Options: nosniff
-Referrer-Policy: same-origin
-Cross-Origin-Opener-Policy: same-origin
-
-HTTP/1.1 400 Bad Request
-Server: gunicorn
-Date: Fri, 13 Feb 2026 05:27:05 GMT
-Connection: close
-Content-Type: application/json
-Vary: Accept, origin
-Allow: POST, OPTIONS
-X-Frame-Options: DENY
-Content-Length: 79
-X-Content-Type-Options: nosniff
-Referrer-Policy: same-origin
-Cross-Origin-Opener-Policy: same-origin
-
-400
-400
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bdocker logs --tail 100 lims_backend_prod | grep "/docker logs --tail 100 lims_backend_prod | grep "/api/v1/auth/login"
-[?2004lapi/v1/auth/login"
-[?2004l]633;E;docker logs --tail 100 lims_backend_prod | grep "/api/v1/auth/login";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;docker logs --tail 100 lims_backend_prod | grep "/api/v1/auth/login";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C              ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1100, in _do_insert
-    return manager._insert(
-              ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1100, in _do_insert
-    return manager._insert(
-           ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1845, in _insert
-    return query.get_compiler(using=using).execute_sql(returning_fields)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
-    cursor.execute(sql, params)
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
-    return self._execute_with_wrappers(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
-    with self.db.wrap_database_errors:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.IntegrityError: null value in column "collection_source" of relation "samples" violates not-null constraint
-DETAIL:  Failing row contains (7, Serum/Plasma, ORD-20260213-0001-S1, null, null, PENDING, , , , 2026-02-13 04:33:58.302279+00, 2026-02-13 04:33:58.302287+00, null, 8, null, null, ORD-20260213-0001-S1, 1, null, null).
-
-           ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1845, in _insert
-    return query.get_compiler(using=using).execute_sql(returning_fields)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
-    cursor.execute(sql, params)
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
-    return self._execute_with_wrappers(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
-    with self.db.wrap_database_errors:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.IntegrityError: null value in column "collection_source" of relation "samples" violates not-null constraint
-DETAIL:  Failing row contains (7, Serum/Plasma, ORD-20260213-0001-S1, null, null, PENDING, , , , 2026-02-13 04:33:58.302279+00, 2026-02-13 04:33:58.302287+00, null, 8, null, null, ORD-20260213-0001-S1, 1, null, null).
-
-[ERROR] 2026-02-13 09:33:58 django.request log.log_response:241 - Internal Server Error: /api/v1/orders/orders/
-[WARNING] 2026-02-13 10:01:09 django.request log.log_response:241 - Bad Request: /api/v1/auth/login/
-[ERROR] 2026-02-13 10:02:10 apps.core.exceptions exceptions.custom_exception_handler:26 - Unhandled exception: duplicate key value violates unique constraint "patients_cnic_key"
-DETAIL:  Key (cnic)=() already exists.
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "patients_cnic_key"
-DETAIL:  Key (cnic)=() already exists.
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/app/apps/patients/views.py", line 115, in create
-    patient = serializer.save(created_by=request.user)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 212, in save
-    self.instance = self.create(validated_data)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 962, in create
-    instance = ModelClass._default_manager.create(**validated_data)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 677, in create
-    obj.save(force_insert=True, using=self.db)
-  File "/app/apps/patients/models.py", line 297, in save
-    super().save(*args, **kwargs)
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 814, in save
-    self.save_base(
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 901, in save_base
-    updated = self._save_table(
-              ^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1059, in _save_table
-    results = self._do_insert(
-              ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1100, in _do_insert
-    return manager._insert(
-           ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1845, in _insert
-    return query.get_compiler(using=using).execute_sql(returning_fields)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
-    cursor.execute(sql, params)
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
-    return self._execute_with_wrappers(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
-    with self.db.wrap_database_errors:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.IntegrityError: duplicate key value violates unique constraint "patients_cnic_key"
-DETAIL:  Key (cnic)=() already exists.
-
-[ERROR] 2026-02-13 10:02:10 django.request log.log_response:241 - Internal Server Error: /api/v1/patients/
-[ERROR] 2026-02-13 09:33:58 django.request log.log_response:241 - Internal Server Error: /api/v1/orders/orders/
-[WARNING] 2026-02-13 10:01:09 django.request log.log_response:241 - Bad Request: /api/v1/auth/login/
-[ERROR] 2026-02-13 10:02:10 apps.core.exceptions exceptions.custom_exception_handler:26 - Unhandled exception: duplicate key value violates unique constraint "patients_cnic_key"
-DETAIL:  Key (cnic)=() already exists.
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "patients_cnic_key"
-DETAIL:  Key (cnic)=() already exists.
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/app/apps/patients/views.py", line 115, in create
-    patient = serializer.save(created_by=request.user)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 212, in save
-    self.instance = self.create(validated_data)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 962, in create
-    instance = ModelClass._default_manager.create(**validated_data)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 677, in create
-    obj.save(force_insert=True, using=self.db)
-  File "/app/apps/patients/models.py", line 297, in save
-    super().save(*args, **kwargs)
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 814, in save
-    self.save_base(
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 901, in save_base
-    updated = self._save_table(
-              ^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1059, in _save_table
-    results = self._do_insert(
-              ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1100, in _do_insert
-    return manager._insert(
-           ^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1845, in _insert
-    return query.get_compiler(using=using).execute_sql(returning_fields)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
-    cursor.execute(sql, params)
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
-    return self._execute_with_wrappers(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
-    with self.db.wrap_database_errors:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.IntegrityError: duplicate key value violates unique constraint "patients_cnic_key"
-DETAIL:  Key (cnic)=() already exists.
-
-[ERROR] 2026-02-13 10:02:10 django.request log.log_response:241 - Internal Server Error: /api/v1/patients/
-]633;D;1]633;D;1]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bgrep -r "login" /home/munaim/srv/apps/lims/frontengrep -r "login" /home/munaim/srv/apps/lims/frontend/src | head -n 50
-d/src | head -n 50
-[?2004l[?2004l]633;E;grep -r "login" /home/munaim/srv/apps/lims/frontend/src | head -n 50;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;E;grep -r "login" /home/munaim/srv/apps/lims/frontend/src | head -n 50;38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;C/home/munaim/srv/apps/lims/frontend/src/contexts/AuthContext.tsx:  login: (credentials: LoginRequest) => Promise<void>;
-/home/munaim/srv/apps/lims/frontend/src/contexts/AuthContext.tsx:  const login = async (credentials: LoginRequest) => {
-/home/munaim/srv/apps/lims/frontend/src/contexts/AuthContext.tsx:      const response = await authApi.login(credentials);
-/home/munaim/srv/apps/lims/frontend/src/contexts/AuthContext.tsx:    login,
-/home/munaim/srv/apps/lims/frontend/src/components/auth/ProtectedRoute.tsx:    return <Navigate to="/login" state={{ from: location }} replace />;
-/home/munaim/srv/apps/lims/frontend/src/components/dashboard/DashboardLayout.tsx:    navigate('/login');
-/home/munaim/srv/apps/lims/frontend/src/api/auth.ts:  login: async (credentials: LoginRequest): Promise<LoginResponse> => {
-/home/munaim/srv/apps/lims/frontend/src/api/auth.ts:    const response = await api.post<LoginResponse>('auth/login/', credentials);
-/home/munaim/srv/apps/lims/frontend/src/api/client.ts:      // For now, just clear auth and redirect to login
-/home/munaim/srv/apps/lims/frontend/src/api/client.ts:      // Only redirect if not already on the login page to avoid infinite loops
-/home/munaim/srv/apps/lims/frontend/src/api/client.ts:      if (!window.location.pathname.includes('/login')) {
-/home/munaim/srv/apps/lims/frontend/src/api/client.ts:        window.location.href = '/login';
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:  const { login, isAuthenticated, isLoading } = useAuth();
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:      await login({ username, password });
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:      <div className={styles.loginBox}>
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:              data-testid="login-email"
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:              data-testid="login-password"
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:            data-testid="login-submit"
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.module.css:.loginBox {
-/home/munaim/srv/apps/lims/frontend/src/pages/settings/SystemSettingsPage.tsx:                          <td>{user.last_login ? new Date(user.last_login).toLocaleString() : '—'}</td>
-/home/munaim/srv/apps/lims/frontend/src/pages/settings/SystemSettingsPage.tsx:                Customize the branding that appears in your application header and login page.
-/home/munaim/srv/apps/lims/frontend/src/pages/settings/SystemSettingsPage.tsx:                  This name will appear in the header and login page. If not set, the Lab Name will be used.
-/home/munaim/srv/apps/lims/frontend/src/pages/settings/SystemSettingsPage.tsx:                  Accepted formats: PNG, JPG, JPEG, WEBP (max 5MB). Logo will appear in header and login page.
-/home/munaim/srv/apps/lims/frontend/src/App.tsx:              <Route path="/login" element={<LoginPage />} />
-/home/munaim/srv/apps/lims/frontend/src/types/index.ts:  last_login: string | null;
-/home/munaim/srv/apps/lims/frontend/src/contexts/AuthContext.tsx:  login: (credentials: LoginRequest) => Promise<void>;
-/home/munaim/srv/apps/lims/frontend/src/contexts/AuthContext.tsx:  const login = async (credentials: LoginRequest) => {
-/home/munaim/srv/apps/lims/frontend/src/contexts/AuthContext.tsx:      const response = await authApi.login(credentials);
-/home/munaim/srv/apps/lims/frontend/src/contexts/AuthContext.tsx:    login,
-/home/munaim/srv/apps/lims/frontend/src/components/auth/ProtectedRoute.tsx:    return <Navigate to="/login" state={{ from: location }} replace />;
-/home/munaim/srv/apps/lims/frontend/src/components/dashboard/DashboardLayout.tsx:    navigate('/login');
-/home/munaim/srv/apps/lims/frontend/src/api/auth.ts:  login: async (credentials: LoginRequest): Promise<LoginResponse> => {
-/home/munaim/srv/apps/lims/frontend/src/api/auth.ts:    const response = await api.post<LoginResponse>('auth/login/', credentials);
-/home/munaim/srv/apps/lims/frontend/src/api/client.ts:      // For now, just clear auth and redirect to login
-/home/munaim/srv/apps/lims/frontend/src/api/client.ts:      // Only redirect if not already on the login page to avoid infinite loops
-/home/munaim/srv/apps/lims/frontend/src/api/client.ts:      if (!window.location.pathname.includes('/login')) {
-/home/munaim/srv/apps/lims/frontend/src/api/client.ts:        window.location.href = '/login';
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:  const { login, isAuthenticated, isLoading } = useAuth();
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:      await login({ username, password });
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:      <div className={styles.loginBox}>
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:              data-testid="login-email"
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:              data-testid="login-password"
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.tsx:            data-testid="login-submit"
-/home/munaim/srv/apps/lims/frontend/src/pages/auth/LoginPage.module.css:.loginBox {
-/home/munaim/srv/apps/lims/frontend/src/pages/settings/SystemSettingsPage.tsx:                          <td>{user.last_login ? new Date(user.last_login).toLocaleString() : '—'}</td>
-/home/munaim/srv/apps/lims/frontend/src/pages/settings/SystemSettingsPage.tsx:                Customize the branding that appears in your application header and login page.
-/home/munaim/srv/apps/lims/frontend/src/pages/settings/SystemSettingsPage.tsx:                  This name will appear in the header and login page. If not set, the Lab Name will be used.
-/home/munaim/srv/apps/lims/frontend/src/pages/settings/SystemSettingsPage.tsx:                  Accepted formats: PNG, JPG, JPEG, WEBP (max 5MB). Logo will appear in header and login page.
-/home/munaim/srv/apps/lims/frontend/src/App.tsx:              <Route path="/login" element={<LoginPage />} />
-/home/munaim/srv/apps/lims/frontend/src/types/index.ts:  last_login: string | null;
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcurl -sS -D- -X POST http://127.0.0.1:8012/api/v1/curl -sS -D- -X POST http://127.0.0.1:8012/api/v1/auth/login/ -H "Host: lims.alshifalab.pk" -o /dev/auth/login/ -H "Host: lims.alshifalab.pk" -o /dev/null -w "%{http_code}\n"
-null -w "%{http_code}\n"
-[?2004l[?2004l]633;E;curl -sS -D- -X POST http://127.0.0.1:8012/api/v1/auth/login/ -H "Host: lims.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;curl -sS -D- -X POST http://127.0.0.1:8012/api/v1/auth/login/ -H "Host: lims.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;CHTTP/1.1 400 Bad Request
-Allow: POST, OPTIONS
-Content-Length: 141
-Content-Type: application/json
-Cross-Origin-Opener-Policy: same-origin
-Date: Fri, 13 Feb 2026 05:28:16 GMT
-Referrer-Policy: strict-origin-when-cross-origin
-Referrer-Policy: same-origin
-Server: gunicorn
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-Vary: origin, Cookie
-Via: 1.1 Caddy
-X-Content-Type-Options: nosniff
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
-
-HTTP/1.1 400 Bad Request
-Allow: POST, OPTIONS
-Content-Length: 141
-Content-Type: application/json
-Cross-Origin-Opener-Policy: same-origin
-Date: Fri, 13 Feb 2026 05:28:16 GMT
-Referrer-Policy: strict-origin-when-cross-origin
-Referrer-Policy: same-origin
-Server: gunicorn
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-Vary: origin, Cookie
-Via: 1.1 Caddy
-X-Content-Type-Options: nosniff
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
-
-400
-400
-]633;D;0]633;D;0]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;Bcurl -k -sS -D- -X POST https://127.0.0.1/api/auth/token/ -H "Host: rims.alshifalab.pk" -o /dev/null -w "%{http_code}\n"
-[?2004lcurl -k -sS -D- -X POST https://127.0.0.1/api/auth/token/ -H "Host: rims.alshifalab.pk" -o /dev/null -w "%{http_code}\n"
-[?2004l]633;E;curl -k -sS -D- -X POST https://127.0.0.1/api/auth/token/ -H "Host: rims.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;C]633;E;curl -k -sS -D- -X POST https://127.0.0.1/api/auth/token/ -H "Host: rims.alshifalab.pk" -o /dev/null -w "%{http_code}\\n";38bb7b6a-de75-48bb-9592-eeb56442d5b1]633;Ccurl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-000
-]633;D;35curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error
-000
-]633;D;35]633;P;Cwd=/home/munaim/srv]633;P;Cwd=/home/munaim/srv[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B[?2004h]633;A]0;munaim@vps: ~/srv[01;32mmunaim@vps[00m:[01;34m~/srv[00m$ ]633;B

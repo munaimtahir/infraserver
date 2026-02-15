@@ -5,13 +5,23 @@
 
 set -euo pipefail
 
+ROOT_DIR="/home/munaim/srv"
+
 if [ $# -eq 0 ]; then
     echo "Usage: $0 <backup_file.tar.gz>"
     exit 1
 fi
 
-BACKUP_FILE="$1"
+BACKUP_FILE="$(realpath "$1")"
 
+# Change to root directory
+cd "$ROOT_DIR" || {
+    echo "ERROR: Cannot change to directory $ROOT_DIR"
+    exit 1
+}
+echo "Working directory: $(pwd)"
+
+# Handle both absolute and relative paths for backup file
 if [ ! -f "$BACKUP_FILE" ]; then
     echo "ERROR: Backup file '$BACKUP_FILE' not found!"
     exit 1

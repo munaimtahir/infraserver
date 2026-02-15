@@ -46,8 +46,17 @@ mkdir -p /home/munaim/srv/proxy/caddy/{logs,overrides}
 # 6. Apply Caddy Configuration
 echo "--- Syncing Caddy Configuration ---"
 # Note: This assumes the user has already cloned the repo into /home/munaim/srv
-if [ -f "/home/munaim/srv/caddy.sh" ]; then
-    bash /home/munaim/srv/caddy.sh
+# Configure Caddy to use the repository's Caddyfile
+if [ -f "/home/munaim/srv/proxy/caddy/Caddyfile" ]; then
+    echo "--- Reloading Caddy Configuration ---"
+    # Link the repository Caddyfile to /etc/caddy/Caddyfile if not already linked
+    if [ ! -L "/etc/caddy/Caddyfile" ] && [ -f "/etc/caddy/Caddyfile" ]; then
+        mv /etc/caddy/Caddyfile /etc/caddy/Caddyfile.bak
+        ln -s /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile
+    elif [ ! -f "/etc/caddy/Caddyfile" ]; then
+        ln -s /home/munaim/srv/proxy/caddy/Caddyfile /etc/caddy/Caddyfile
+    fi
+    systemctl reload caddy || systemctl restart caddy
 fi
 
 echo "=== Setup Complete! ==="

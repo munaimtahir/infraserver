@@ -1,1 +1,0 @@
-{"status": "ok", "server_time": "2026-02-13T11:14:03.819737+00:00", "version": "unknown", "checks": {"db": "ok", "storage": "ok"}, "latency_ms": 10}

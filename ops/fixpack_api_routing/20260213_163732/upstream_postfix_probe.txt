@@ -1,5 +1,0 @@
-## Direct upstream checks (sanity)
--- 18000 GET /api/docs/
-200 text/html; charset=utf-8
--- 18000 POST /api/auth/token/
-400 application/json

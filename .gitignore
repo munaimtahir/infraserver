@@ -27,3 +27,7 @@ secrets_backup_*.tar.gz
 
 
 
+.mypy_cache/
+ops/incident/
+ops/post_mitigation_validation/
+ops/fixpack_*/

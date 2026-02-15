@@ -1,5 +1,0 @@
-Domain                Status                             Server
-ops.alshifalab.pk     "HTTP/1.1 308 Permanent Redirect"  
-portal.alshifalab.pk  "HTTP/1.1 308 Permanent Redirect"  
-lims.alshifalab.pk    "HTTP/1.1 308 Permanent Redirect"  
-rims.alshifalab.pk    "HTTP/1.1 308 Permanent Redirect"  

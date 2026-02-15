@@ -1,4 +1,0 @@
-{"level":"info","ts":1770957447.4357946,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
-{"level":"info","ts":1770957447.452117,"msg":"adapted config to JSON","adapter":"caddyfile"}
-{"level":"info","ts":1770957447.4552898,"msg":"redirected default logger","from":"stderr","to":"/home/munaim/srv/proxy/caddy/logs/error.log"}
-Valid configuration

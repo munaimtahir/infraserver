@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/app/manage.py", line 11, in <module>
-    main()
-  File "/app/manage.py", line 7, in main
-    from django.core.management import execute_from_command_line
-ModuleNotFoundError: No module named 'django'
