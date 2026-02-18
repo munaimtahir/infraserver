@@ -22,3 +22,6 @@
 [submodule "apps/radreport"]
 	path = apps/radreport
 	url = git@github.com:munaimtahir/radreport
+[submodule "apps/vexel-health"]
+	path = apps/vexel-health
+	url = git@github.com:munaimtahir/vexel-health.git
