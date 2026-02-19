@@ -21,10 +21,6 @@ proxy/caddy/XX1wiPAa
 **/node_modules/
 **/__pycache__/
 
-# Backups and secrets
-secrets_backup_*.tar.gz
-*.tar.gz
-
 
 
 .mypy_cache/
