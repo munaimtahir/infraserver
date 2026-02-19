@@ -1,7 +1,7 @@
 {
 	email munaim.tahir@gmail.com
 	log {
-		output stdout
+		output file /home/munaim/srv/proxy/caddy/logs/error.log
 		format json
 	}
 }
@@ -18,7 +18,7 @@
 
 (std_log) {
 	log {
-		output stdout
+		output file /home/munaim/srv/proxy/caddy/logs/access.log
 		format json
 	}
 }
