@@ -1,0 +1,23 @@
+## ss -tulpen
+Netid State  Recv-Q Send-Q   Local Address:Port  Peer Address:PortProcess                                                                                                                
+udp   UNCONN 0      0           127.0.0.54:53         0.0.0.0:*    uid:991 ino:6452 sk:2001 cgroup:/system.slice/systemd-resolved.service <->                                            
+udp   UNCONN 0      0        127.0.0.53%lo:53         0.0.0.0:*    uid:991 ino:6450 sk:2002 cgroup:/system.slice/systemd-resolved.service <->                                            
+udp   UNCONN 0      0      10.128.0.2%ens4:68         0.0.0.0:*    uid:998 ino:7441997 sk:2003 cgroup:/system.slice/systemd-networkd.service <->                                         
+udp   UNCONN 0      0            127.0.0.1:323        0.0.0.0:*    ino:6036 sk:2004 cgroup:/system.slice/chrony.service <->                                                              
+udp   UNCONN 0      0                [::1]:323           [::]:*    ino:6037 sk:2005 cgroup:/system.slice/chrony.service v6only:1 <->                                                     
+udp   UNCONN 0      0                    *:443              *:*    uid:999 ino:6143 sk:2006 cgroup:/system.slice/caddy.service v6only:0 <->                                              
+tcp   LISTEN 0      4096         127.0.0.1:2019       0.0.0.0:*    uid:999 ino:5235827 sk:2007 cgroup:/system.slice/caddy.service <->                                                    
+tcp   LISTEN 0      511          127.0.0.1:33225      0.0.0.0:*    users:(("node",pid=394539,fd=19)) uid:1004 ino:2628951 sk:1004 cgroup:/user.slice/user-1004.slice/session-66.scope <->
+tcp   LISTEN 0      4096         127.0.0.1:3000       0.0.0.0:*    ino:7260536 sk:2008 cgroup:/system.slice/docker.service <->                                                           
+tcp   LISTEN 0      4096         127.0.0.1:3001       0.0.0.0:*    ino:7236370 sk:2009 cgroup:/system.slice/docker.service <->                                                           
+tcp   LISTEN 0      200          127.0.0.1:5432       0.0.0.0:*    uid:110 ino:3806932 sk:1009 cgroup:/system.slice/system-postgresql.slice/postgresql@16-main.service <->               
+tcp   LISTEN 0      4096         127.0.0.1:5000       0.0.0.0:*    ino:7239169 sk:200a cgroup:/system.slice/docker.service <->                                                           
+tcp   LISTEN 0      4096        127.0.0.54:53         0.0.0.0:*    uid:991 ino:6453 sk:100c cgroup:/system.slice/systemd-resolved.service <->                                            
+tcp   LISTEN 0      511          127.0.0.1:40507      0.0.0.0:*    users:(("node",pid=394433,fd=19)) uid:1004 ino:2626933 sk:1011 cgroup:/user.slice/user-1004.slice/session-66.scope <->
+tcp   LISTEN 0      511          127.0.0.1:39457      0.0.0.0:*    users:(("node",pid=578222,fd=27)) uid:1004 ino:4104020 sk:1013 cgroup:/user.slice/user-1004.slice/session-66.scope <->
+tcp   LISTEN 0      4096           0.0.0.0:22         0.0.0.0:*    ino:4838 sk:1014 cgroup:/system.slice/ssh.socket <->                                                                  
+tcp   LISTEN 0      4096     127.0.0.53%lo:53         0.0.0.0:*    uid:991 ino:6451 sk:1015 cgroup:/system.slice/systemd-resolved.service <->                                            
+tcp   LISTEN 0      511          127.0.0.1:46869      0.0.0.0:*    users:(("node",pid=578222,fd=61)) uid:1004 ino:4107350 sk:1017 cgroup:/user.slice/user-1004.slice/session-66.scope <->
+tcp   LISTEN 0      4096              [::]:22            [::]:*    ino:4840 sk:1019 cgroup:/system.slice/ssh.socket v6only:1 <->                                                         
+tcp   LISTEN 0      4096                 *:80               *:*    uid:999 ino:5235831 sk:200b cgroup:/system.slice/caddy.service v6only:0 <->                                           
+tcp   LISTEN 0      4096                 *:443              *:*    uid:999 ino:5235829 sk:200c cgroup:/system.slice/caddy.service v6only:0 <->                                           

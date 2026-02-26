@@ -1,0 +1,16 @@
+## caddy systemd status
+● caddy.service - Caddy
+     Loaded: loaded (/usr/lib/systemd/system/caddy.service; enabled; preset: enabled)
+    Drop-In: /etc/systemd/system/caddy.service.d
+             └─override.conf
+     Active: active (running) since Wed 2026-02-18 23:42:36 PKT; 15h ago
+       Docs: https://caddyserver.com/docs/
+    Process: 739576 ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile --force (code=exited, status=0/SUCCESS)
+   Main PID: 680 (caddy)
+      Tasks: 17 (limit: 26337)
+     Memory: 55.8M (peak: 75.6M)
+        CPU: 41.286s
+     CGroup: /system.slice/caddy.service
+             └─680 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
+
+Warning: some journal files were not opened due to insufficient permissions.

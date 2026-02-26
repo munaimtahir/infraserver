@@ -1,0 +1,78 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Patients" [ref=e3] [cursor=pointer]:
+      - /url: /patients
+    - link "Verification" [ref=e4] [cursor=pointer]:
+      - /url: /verification
+    - link "Admin" [ref=e5] [cursor=pointer]:
+      - /url: /admin
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - heading "Encounter Detail" [level=1] [ref=e8]
+      - link "Back to patients" [ref=e9] [cursor=pointer]:
+        - /url: /patients
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]: "Reg #"
+          - generic [ref=e16]: —
+          - 'button "Copy Reg #" [ref=e17]': Copy
+        - generic [ref=e19]: —
+      - generic "LAB-2026-000014" [ref=e21]: "Visit: LAB-2026-000014"
+    - generic [ref=e23]:
+      - paragraph [ref=e24]: "Visit Code: LAB-2026-000014"
+      - paragraph [ref=e25]: "Status: DOCUMENTED"
+      - paragraph [ref=e26]: "Type: LAB"
+      - paragraph [ref=e27]: "Created: 2/19/2026, 9:44:30 AM"
+      - paragraph [ref=e28]: "Lab status: PUBLISHED"
+    - generic [ref=e29]:
+      - heading "Billing" [level=2] [ref=e30]
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]: Amount
+          - spinbutton [ref=e34]
+        - generic [ref=e35]:
+          - generic [ref=e36]: Method
+          - combobox [ref=e37]:
+            - option "CASH" [selected]
+            - option "CARD"
+            - option "ONLINE"
+            - option "OTHER"
+        - generic [ref=e38]:
+          - generic [ref=e39]: Reference (optional)
+          - textbox "Receipt or ref" [ref=e40]
+        - button "Record payment" [ref=e41]
+    - generic [ref=e42]:
+      - heading "Preparation Data" [level=2] [ref=e43]
+      - generic [ref=e44]:
+        - paragraph [ref=e45]:
+          - generic [ref=e46]: "Specimen Type:"
+          - text: Blood
+        - paragraph [ref=e47]:
+          - generic [ref=e48]: "Collected At:"
+          - text: "-"
+        - paragraph [ref=e49]:
+          - generic [ref=e50]: "Collector Name:"
+          - text: "-"
+        - paragraph [ref=e51]:
+          - generic [ref=e52]: "Received At:"
+          - text: "-"
+        - paragraph [ref=e53]: "Updated At: 2/19/2026, 9:44:30 AM"
+    - generic [ref=e54]:
+      - heading "Main Data" [level=2] [ref=e55]
+      - generic [ref=e56]:
+        - paragraph [ref=e57]:
+          - generic [ref=e58]: "Main Data:"
+          - text: Not saved yet
+        - paragraph [ref=e59]: "Updated At: -"
+    - generic [ref=e60]:
+      - heading "Order Tests" [level=2] [ref=e61]
+      - paragraph [ref=e62]: Loading LAB catalog...
+    - generic [ref=e63]:
+      - heading "Enter Results" [level=2] [ref=e64]
+      - paragraph [ref=e65]: Loading ordered tests...
+    - generic [ref=e66]:
+      - heading "Document" [level=2] [ref=e67]
+      - paragraph [ref=e68]: No document metadata loaded yet.
+      - button "Publish LAB Report" [ref=e70]
+  - alert [ref=e71]

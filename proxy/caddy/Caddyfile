@@ -457,20 +457,48 @@ api.mediq.alshifalab.pk {
 # VEXEL MONOREPO
 vexel.alshifalab.pk {
 	encode zstd gzip
+	import std_headers
+	import std_log vexel
 
-	# --- API under /api ---
-	handle_path /api/* {
-		reverse_proxy 127.0.0.1:3000
+	# API — preserve /api prefix (NestJS setGlobalPrefix('api'))
+	handle /api/* {
+		reverse_proxy 127.0.0.1:9021 {
+			import std_proxy
+		}
 	}
 
-	# --- Optional PDF service ---
+	# PDF service — strip /pdf prefix
 	handle_path /pdf/* {
-		reverse_proxy 127.0.0.1:5000
+		reverse_proxy 127.0.0.1:9022 {
+			import std_proxy
+		}
 	}
 
-	# --- Everything else goes to Web ---
+	# Admin app — preserve /admin prefix (Next.js basePath: '/admin')
+	# Must match both /admin (bare) and /admin/* (all sub-paths)
+	handle /admin {
+		reverse_proxy 127.0.0.1:9023 {
+			import std_proxy
+		}
+	}
+	handle /admin/* {
+		reverse_proxy 127.0.0.1:9023 {
+			import std_proxy
+		}
+	}
+
+	# MinIO storage — bucket direct access for presigned URLs
+	handle /vexel-documents/* {
+		reverse_proxy 127.0.0.1:9027 {
+			import std_proxy
+		}
+	}
+
+	# Operator app — everything else
 	handle {
-		reverse_proxy 127.0.0.1:3001
+		reverse_proxy 127.0.0.1:9024 {
+			import std_proxy
+		}
 	}
 }
 

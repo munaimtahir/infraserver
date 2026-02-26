@@ -1,0 +1,8 @@
+## docker ps
+NAMES                     IMAGE                 STATUS          PORTS
+vexel-health-api-1        vexel-health-api      Up 32 minutes   127.0.0.1:3000->3000/tcp
+vexel-health-web-1        vexel-health-web      Up 35 minutes   127.0.0.1:3001->3000/tcp
+vexel-health-worker-1     vexel-health-worker   Up 35 minutes   
+vexel-health-postgres-1   postgres:15-alpine    Up 35 minutes   5432/tcp
+vexel-health-redis-1      redis:7-alpine        Up 35 minutes   6379/tcp
+vexel-health-pdf-1        vexel-health-pdf      Up 35 minutes   127.0.0.1:5000->8080/tcp

@@ -1,0 +1,107 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Patients" [ref=e3] [cursor=pointer]:
+      - /url: /patients
+    - link "Verification" [ref=e4] [cursor=pointer]:
+      - /url: /verification
+    - link "Admin" [ref=e5] [cursor=pointer]:
+      - /url: /admin
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - heading "Encounter Detail" [level=1] [ref=e8]
+      - link "Back to patients" [ref=e9] [cursor=pointer]:
+        - /url: /patients
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]: "Reg #"
+          - generic [ref=e16]: REG-00000013
+          - 'button "Copy Reg #" [ref=e17]': Copy
+        - generic [ref=e18]:
+          - generic [ref=e19]: Smoke Patient OneByOne
+          - generic [ref=e20]: male
+      - generic "LAB-2026-000014" [ref=e22]: "Visit: LAB-2026-000014"
+    - generic [ref=e24]:
+      - paragraph [ref=e25]: "Visit Code: LAB-2026-000014"
+      - paragraph [ref=e26]: "Status: DOCUMENTED"
+      - paragraph [ref=e27]: "Type: LAB"
+      - paragraph [ref=e28]: "Created: 2/19/2026, 9:44:30 AM"
+      - paragraph [ref=e29]: "Lab status: PUBLISHED"
+    - generic [ref=e30]:
+      - heading "Billing" [level=2] [ref=e31]
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: Amount
+          - spinbutton [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]: Method
+          - combobox [ref=e38]:
+            - option "CASH" [selected]
+            - option "CARD"
+            - option "ONLINE"
+            - option "OTHER"
+        - generic [ref=e39]:
+          - generic [ref=e40]: Reference (optional)
+          - textbox "Receipt or ref" [ref=e41]
+        - button "Record payment" [ref=e42]
+    - generic [ref=e43]:
+      - heading "Preparation Data" [level=2] [ref=e44]
+      - generic [ref=e45]:
+        - paragraph [ref=e46]:
+          - generic [ref=e47]: "Specimen Type:"
+          - text: Blood
+        - paragraph [ref=e48]:
+          - generic [ref=e49]: "Collected At:"
+          - text: "-"
+        - paragraph [ref=e50]:
+          - generic [ref=e51]: "Collector Name:"
+          - text: "-"
+        - paragraph [ref=e52]:
+          - generic [ref=e53]: "Received At:"
+          - text: "-"
+        - paragraph [ref=e54]: "Updated At: 2/19/2026, 9:44:30 AM"
+    - generic [ref=e55]:
+      - heading "Main Data" [level=2] [ref=e56]
+      - generic [ref=e57]:
+        - paragraph [ref=e58]:
+          - generic [ref=e59]: "Main Data:"
+          - text: Not saved yet
+        - paragraph [ref=e60]: "Updated At: -"
+    - generic [ref=e61]:
+      - heading "Order Tests" [level=2] [ref=e62]
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e65]: Catalog Test
+          - combobox [ref=e66]:
+            - option "Biochemistry - Serum Albumin (ALB075541)" [selected]
+            - option "Biochemistry - Smoke Serum Albumin (SMK1771476270)"
+        - button "Add to Encounter" [disabled] [ref=e67]
+      - paragraph [ref=e68]: Ordering is allowed only while encounter is PREP or IN_PROGRESS.
+    - generic [ref=e69]:
+      - heading "Enter Results" [level=2] [ref=e70]
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - paragraph [ref=e74]: Biochemistry - Smoke Serum Albumin (SMK1771476270)
+          - generic [ref=e75]: VERIFIED
+        - table [ref=e77]:
+          - rowgroup [ref=e78]:
+            - 'row "Reg # Parameter Result Unit Range Flag" [ref=e79]':
+              - 'columnheader "Reg #" [ref=e80]'
+              - columnheader "Parameter" [ref=e81]
+              - columnheader "Result" [ref=e82]
+              - columnheader "Unit" [ref=e83]
+              - columnheader "Range" [ref=e84]
+              - columnheader "Flag" [ref=e85]
+          - rowgroup [ref=e86]:
+            - row "REG-00000013 Albumin 4.5 g/dL 3.5-5 NORMAL" [ref=e87]:
+              - cell "REG-00000013" [ref=e88]
+              - cell "Albumin" [ref=e89]
+              - cell "4.5" [ref=e90]
+              - cell "g/dL" [ref=e91]
+              - cell "3.5-5" [ref=e92]
+              - cell "NORMAL" [ref=e93]
+    - generic [ref=e94]:
+      - heading "Document" [level=2] [ref=e95]
+      - paragraph [ref=e96]: No document metadata loaded yet.
+      - button "Publish LAB Report" [ref=e98]
+  - alert [ref=e99]

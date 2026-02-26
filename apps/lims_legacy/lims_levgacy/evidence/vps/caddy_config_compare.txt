@@ -1,0 +1,6 @@
+## /etc/caddy/Caddyfile
+-rw-r--r-- 1 root root 7777 Feb 19 09:55 /etc/caddy/Caddyfile
+
+## checksum compare
+5a2f3099f8f0492889e2370134a15528  /etc/caddy/Caddyfile
+5a2f3099f8f0492889e2370134a15528  /home/munaim/srv/proxy/caddy/Caddyfile

@@ -1,0 +1,930 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tenant {
+  id                 String              @id @default(uuid())
+  name               String
+  status             String
+  createdAt          DateTime            @default(now())
+  domains            TenantDomain[]
+  features           TenantFeature[]
+  users              User[]
+  patients           Patient[]
+  encounters         Encounter[]
+  labEncounterPreps  LabEncounterPrep[]
+  radEncounterPreps  RadEncounterPrep[]
+  opdEncounterPreps  OpdEncounterPrep[]
+  bbEncounterPreps   BbEncounterPrep[]
+  ipdEncounterPreps  IpdEncounterPrep[]
+  labEncounterMains  LabEncounterMain[]
+  radEncounterMains  RadEncounterMain[]
+  opdEncounterMains  OpdEncounterMain[]
+  bbEncounterMains   BbEncounterMain[]
+  ipdEncounterMains  IpdEncounterMain[]
+  patientSequences   PatientSequence[]
+  encounterSequences EncounterSequence[]
+  documents          Document[]
+  auditEvents        AuditEvent[]
+  invoices           Invoice[]
+  payments           Payment[]
+  labTestDefinitions LabTestDefinition[]
+  labTestParameters  LabTestParameter[]
+  labPanels          LabPanel[]
+  labPanelTests      LabPanelTest[]
+  labReferenceRanges LabReferenceRange[]
+  labOrderItems      LabOrderItem[]
+  labResultItems     LabResultItem[]
+  adminUserInvites   AdminUserInvite[]
+  catalogImportJobs  CatalogImportJob[]
+  catalogExportJobs  CatalogExportJob[]
+  testDefinitions    TestDefinition[]
+  parameterDefinitions ParameterDefinition[]
+  catalogUnits       CatalogUnit[]
+  testParameterMaps  TestParameterMap[]
+  parameterReferenceRanges ParameterReferenceRange[]
+  reportLayoutRules  ReportLayoutRule[]
+  testAnnotations    TestAnnotation[]
+  catalogVersions    CatalogVersion[]
+  catalogAuditRuns   CatalogAuditRun[]
+  brandingConfig     TenantBrandingConfig?
+  reportDesignConfig TenantReportDesignConfig?
+  receiptDesignConfig TenantReceiptDesignConfig?
+}
+
+model TenantDomain {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  domain    String   @unique
+  createdAt DateTime @default(now())
+
+  @@index([tenantId])
+}
+
+model TenantFeature {
+  id         String  @id @default(uuid())
+  tenantId   String
+  tenant     Tenant  @relation(fields: [tenantId], references: [id])
+  key        String
+  enabled    Boolean @default(false)
+  configJson String?
+
+  @@unique([tenantId, key])
+  @@index([tenantId])
+}
+
+model User {
+  id           String   @id @default(uuid())
+  tenantId     String
+  tenant       Tenant   @relation(fields: [tenantId], references: [id])
+  email        String
+  passwordHash String
+  name         String?
+  status       String   @default("active")
+  createdAt    DateTime @default(now())
+
+  roleMappings UserRole[]
+
+  @@unique([tenantId, email])
+  @@index([tenantId])
+}
+
+model Role {
+  id          String           @id @default(uuid())
+  tenantId    String
+  name        String
+  permissions RolePermission[]
+  users       UserRole[]
+
+  @@unique([tenantId, name])
+}
+
+model UserRole {
+  userId String
+  roleId String
+  user   User   @relation(fields: [userId], references: [id])
+  role   Role   @relation(fields: [roleId], references: [id])
+
+  @@id([userId, roleId])
+}
+
+model Permission {
+  id          String           @id @default(uuid())
+  key         String           @unique
+  description String?
+  roles       RolePermission[]
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  role         Role       @relation(fields: [roleId], references: [id])
+  permission   Permission @relation(fields: [permissionId], references: [id])
+
+  @@id([roleId, permissionId])
+}
+
+model AuditEvent {
+  id            String   @id @default(uuid())
+  tenantId      String
+  tenant        Tenant   @relation(fields: [tenantId], references: [id])
+  actorUserId   String?
+  eventType     String
+  entityType    String
+  entityId      String
+  payloadJson   String?
+  createdAt     DateTime @default(now())
+  correlationId String?
+
+  @@index([tenantId, createdAt])
+}
+
+model Patient {
+  id                   String    @id @default(uuid())
+  tenantId             String
+  tenant               Tenant    @relation(fields: [tenantId], references: [id])
+  regNo                String
+  mrn                  String?
+  name                 String
+  dob                  DateTime?
+  gender               String?
+  phone                String?
+  fatherOrHusbandName  String?
+  cnic                 String?
+  address              String?
+  createdAt            DateTime  @default(now())
+
+  encounters Encounter[]
+  invoices   Invoice[]
+
+  @@unique([tenantId, regNo])
+  @@unique([tenantId, mrn])
+  @@index([tenantId])
+}
+
+model Encounter {
+  id            String   @id @default(uuid())
+  tenantId      String
+  tenant        Tenant   @relation(fields: [tenantId], references: [id])
+  patientId     String
+  patient       Patient  @relation(fields: [patientId], references: [id])
+  encounterCode String
+  type          String
+  status        String   @default("CREATED")
+  startedAt     DateTime @default(now())
+  endedAt       DateTime?
+  createdAt     DateTime @default(now())
+
+  invoices Invoice[]
+  documents Document[]
+  labPrep   LabEncounterPrep?
+  radPrep   RadEncounterPrep?
+  opdPrep   OpdEncounterPrep?
+  bbPrep    BbEncounterPrep?
+  ipdPrep   IpdEncounterPrep?
+  labMain   LabEncounterMain?
+  radMain   RadEncounterMain?
+  opdMain   OpdEncounterMain?
+  bbMain    BbEncounterMain?
+  ipdMain   IpdEncounterMain?
+  labOrderItems LabOrderItem[]
+
+  @@unique([tenantId, encounterCode])
+  @@index([tenantId, patientId, createdAt])
+}
+
+model LabEncounterPrep {
+  id            String    @id @default(uuid())
+  tenantId      String
+  tenant        Tenant    @relation(fields: [tenantId], references: [id])
+  encounterId   String    @unique
+  encounter     Encounter @relation(fields: [encounterId], references: [id])
+  specimenType  String?
+  collectedAt   DateTime?
+  collectorName String?
+  receivedAt    DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model RadEncounterPrep {
+  id                  String    @id @default(uuid())
+  tenantId            String
+  tenant              Tenant    @relation(fields: [tenantId], references: [id])
+  encounterId         String    @unique
+  encounter           Encounter @relation(fields: [encounterId], references: [id])
+  fastingRequired     Boolean?
+  fastingConfirmed    Boolean?
+  contrastPlanned     Boolean?
+  creatinineChecked   Boolean?
+  pregnancyScreenDone Boolean?
+  notes               String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model OpdEncounterPrep {
+  id              String    @id @default(uuid())
+  tenantId        String
+  tenant          Tenant    @relation(fields: [tenantId], references: [id])
+  encounterId     String    @unique
+  encounter       Encounter @relation(fields: [encounterId], references: [id])
+  systolicBp      Int?
+  diastolicBp     Int?
+  pulse           Int?
+  temperatureC    Float?
+  respiratoryRate Int?
+  weightKg        Float?
+  spo2            Int?
+  triageNotes     String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model BbEncounterPrep {
+  id                String    @id @default(uuid())
+  tenantId          String
+  tenant            Tenant    @relation(fields: [tenantId], references: [id])
+  encounterId       String    @unique
+  encounter         Encounter @relation(fields: [encounterId], references: [id])
+  sampleReceivedAt  DateTime?
+  aboGroup          String?
+  rhType            String?
+  componentRequested String?
+  unitsRequested    Int?
+  urgency           BbUrgency?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model IpdEncounterPrep {
+  id             String    @id @default(uuid())
+  tenantId       String
+  tenant         Tenant    @relation(fields: [tenantId], references: [id])
+  encounterId    String    @unique
+  encounter      Encounter @relation(fields: [encounterId], references: [id])
+  admissionReason String?
+  ward           String?
+  bed            String?
+  admittingNotes String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model LabEncounterMain {
+  id            String    @id @default(uuid())
+  tenantId      String
+  tenant        Tenant    @relation(fields: [tenantId], references: [id])
+  encounterId   String    @unique
+  encounter     Encounter @relation(fields: [encounterId], references: [id])
+  resultSummary String?
+  verifiedBy    String?
+  verifiedAt    DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model RadEncounterMain {
+  id             String    @id @default(uuid())
+  tenantId       String
+  tenant         Tenant    @relation(fields: [tenantId], references: [id])
+  encounterId    String    @unique
+  encounter      Encounter @relation(fields: [encounterId], references: [id])
+  reportText     String?
+  impression     String?
+  radiologistName String?
+  reportedAt     DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model OpdEncounterMain {
+  id               String    @id @default(uuid())
+  tenantId         String
+  tenant           Tenant    @relation(fields: [tenantId], references: [id])
+  encounterId      String    @unique
+  encounter        Encounter @relation(fields: [encounterId], references: [id])
+  chiefComplaint   String?
+  assessment       String?
+  plan             String?
+  prescriptionText String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model BbEncounterMain {
+  id               String             @id @default(uuid())
+  tenantId         String
+  tenant           Tenant             @relation(fields: [tenantId], references: [id])
+  encounterId      String             @unique
+  encounter        Encounter          @relation(fields: [encounterId], references: [id])
+  crossmatchResult BbCrossmatchResult?
+  componentIssued  String?
+  unitsIssued      Int?
+  issuedAt         DateTime?
+  issueNotes       String?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model IpdEncounterMain {
+  id          String    @id @default(uuid())
+  tenantId    String
+  tenant      Tenant    @relation(fields: [tenantId], references: [id])
+  encounterId String    @unique
+  encounter   Encounter @relation(fields: [encounterId], references: [id])
+  dailyNote   String?
+  orders      String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([tenantId])
+  @@unique([tenantId, encounterId])
+}
+
+model LabTestDefinition {
+  id         String   @id @default(uuid())
+  tenantId   String
+  tenant     Tenant   @relation(fields: [tenantId], references: [id])
+  code       String
+  name       String
+  department String
+  active     Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  parameters LabTestParameter[]
+  orderItems LabOrderItem[]
+  panelTests LabPanelTest[]
+  referenceRanges LabReferenceRange[]
+
+  @@unique([tenantId, code])
+  @@index([tenantId, active, name])
+}
+
+model LabTestParameter {
+  id           String            @id @default(uuid())
+  tenantId     String
+  tenant       Tenant            @relation(fields: [tenantId], references: [id])
+  testId       String
+  test         LabTestDefinition @relation(fields: [testId], references: [id])
+  name         String
+  unit         String?
+  refLow       Float?
+  refHigh      Float?
+  refText      String?
+  displayOrder Int               @default(0)
+  active       Boolean           @default(true)
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  resultItems LabResultItem[]
+  referenceRanges LabReferenceRange[]
+
+  @@index([tenantId, testId, displayOrder])
+  @@unique([tenantId, testId, name])
+}
+
+model LabOrderItem {
+  id          String             @id @default(uuid())
+  tenantId    String
+  tenant      Tenant             @relation(fields: [tenantId], references: [id])
+  encounterId String
+  encounter   Encounter          @relation(fields: [encounterId], references: [id])
+  testId      String
+  test        LabTestDefinition  @relation(fields: [testId], references: [id])
+  status      LabOrderItemStatus @default(ORDERED)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  results LabResultItem[]
+
+  @@unique([tenantId, encounterId, testId])
+  @@index([tenantId, encounterId, status])
+}
+
+model LabResultItem {
+  id          String        @id @default(uuid())
+  tenantId    String
+  tenant      Tenant        @relation(fields: [tenantId], references: [id])
+  orderItemId String
+  orderItem   LabOrderItem  @relation(fields: [orderItemId], references: [id])
+  parameterId String
+  parameter   LabTestParameter @relation(fields: [parameterId], references: [id])
+  value       String
+  valueNumeric Float?
+  flag        LabResultFlag @default(UNKNOWN)
+  enteredBy   String?
+  enteredAt   DateTime?
+  verifiedBy  String?
+  verifiedAt  DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@unique([tenantId, orderItemId, parameterId])
+  @@index([tenantId, orderItemId])
+}
+
+model LabPanel {
+  id          String   @id @default(uuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id])
+  code        String
+  name        String
+  description String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tests LabPanelTest[]
+
+  @@unique([tenantId, code])
+  @@index([tenantId, active, name])
+}
+
+model LabPanelTest {
+  id        String            @id @default(uuid())
+  tenantId  String
+  tenant    Tenant            @relation(fields: [tenantId], references: [id])
+  panelId   String
+  panel     LabPanel          @relation(fields: [panelId], references: [id])
+  testId    String
+  test      LabTestDefinition @relation(fields: [testId], references: [id])
+  sortOrder Int               @default(0)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  @@unique([tenantId, panelId, testId])
+  @@unique([tenantId, panelId, sortOrder])
+  @@index([tenantId, panelId, sortOrder])
+}
+
+model LabReferenceRange {
+  id         String            @id @default(uuid())
+  tenantId   String
+  tenant     Tenant            @relation(fields: [tenantId], references: [id])
+  testId     String
+  test       LabTestDefinition @relation(fields: [testId], references: [id])
+  parameterId String
+  parameter  LabTestParameter  @relation(fields: [parameterId], references: [id])
+  sex        String?
+  ageMinDays Int?
+  ageMaxDays Int?
+  low        Float?
+  high       Float?
+  textRange  String?
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+
+  @@unique([tenantId, testId, parameterId, sex, ageMinDays, ageMaxDays])
+  @@index([tenantId, testId, parameterId])
+}
+
+model AdminUserInvite {
+  id              String   @id @default(uuid())
+  tenantId        String
+  tenant          Tenant   @relation(fields: [tenantId], references: [id])
+  email           String
+  name            String?
+  roleNamesCsv    String
+  status          String   @default("PENDING")
+  expiresAt       DateTime
+  invitedByUserId String?
+  acceptedByUserId String?
+  acceptedAt      DateTime?
+  revokedAt       DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([tenantId, email, status])
+  @@index([tenantId, createdAt])
+}
+
+model CatalogImportJob {
+  id            String   @id @default(uuid())
+  tenantId      String
+  tenant        Tenant   @relation(fields: [tenantId], references: [id])
+  fileName      String
+  mode          String   @default("MERGE")
+  status        String   @default("PENDING")
+  processedRows Int      @default(0)
+  successRows   Int      @default(0)
+  failedRows    Int      @default(0)
+  errorJson     Json?
+  createdBy     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([tenantId, createdAt])
+}
+
+model CatalogExportJob {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  entity    String
+  status    String   @default("PENDING")
+  fileName  String?
+  fileBytes Bytes?
+  createdBy String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId, createdAt])
+}
+
+// --- Catalog (contract-first; tenant-scoped; deterministic) ---
+model CatalogUnit {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  code      String
+  name      String
+  symbol    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  parameters ParameterDefinition[]
+
+  @@unique([tenantId, code])
+  @@index([tenantId])
+}
+
+model TestDefinition {
+  id              String    @id @default(uuid())
+  tenantId        String
+  tenant          Tenant    @relation(fields: [tenantId], references: [id])
+  testCode        String
+  testName        String
+  section         String?
+  specimenTypeId  String?
+  tatMinutes      Int?
+  status          String    @default("active")
+  layoutKey       String
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  parameterMaps TestParameterMap[]
+  annotations  TestAnnotation[]
+
+  @@unique([tenantId, testCode])
+  @@index([tenantId, status, section])
+}
+
+model ParameterDefinition {
+  id            String    @id @default(uuid())
+  tenantId      String
+  tenant        Tenant    @relation(fields: [tenantId], references: [id])
+  parameterCode String
+  parameterName String
+  resultType    String
+  unitId        String?
+  unit          CatalogUnit? @relation(fields: [unitId], references: [id])
+  precision     Int?
+  defaultValue  String?
+  enumOptions   Json?
+  formulaSpec   String?
+  status        String    @default("active")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  testMaps         TestParameterMap[]
+  referenceRanges  ParameterReferenceRange[]
+  annotations      TestAnnotation[]
+
+  @@unique([tenantId, parameterCode])
+  @@index([tenantId, status])
+}
+
+model TestParameterMap {
+  id           String   @id @default(uuid())
+  tenantId     String
+  tenant       Tenant   @relation(fields: [tenantId], references: [id])
+  testId       String
+  test         TestDefinition @relation(fields: [testId], references: [id])
+  parameterId  String
+  parameter    ParameterDefinition @relation(fields: [parameterId], references: [id])
+  displayOrder Int      @default(0)
+  required     Boolean  @default(true)
+  visibility   String   @default("normal")
+  readOnly     Boolean  @default(false)
+  printFlag    Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([tenantId, testId, parameterId])
+  @@index([tenantId, testId, displayOrder])
+}
+
+model ParameterReferenceRange {
+  id          String   @id @default(uuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id])
+  parameterId String
+  parameter   ParameterDefinition @relation(fields: [parameterId], references: [id])
+  sex         String
+  ageMinDays  Int?
+  ageMaxDays  Int?
+  refLow      Decimal?
+  refHigh     Decimal?
+  refText     String?
+  priority    Int      @default(0)
+  effectiveFrom DateTime?
+  effectiveTo   DateTime?
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([tenantId, parameterId, sex, priority])
+}
+
+model ReportLayoutRule {
+  id                String   @id @default(uuid())
+  tenantId          String
+  tenant            Tenant   @relation(fields: [tenantId], references: [id])
+  layoutKey         String
+  groupingStrategy  String   @default("by_layout_key")
+  pageBreakPolicy   String   @default("never")
+  maxTestsPerPage   Int?
+  allowedCombineWith Json?
+  renderStyle       String   @default("table")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([tenantId, layoutKey])
+  @@index([tenantId])
+}
+
+model TestAnnotation {
+  id             String   @id @default(uuid())
+  tenantId       String
+  tenant         Tenant   @relation(fields: [tenantId], references: [id])
+  testId         String?
+  test           TestDefinition? @relation(fields: [testId], references: [id])
+  parameterId     String?
+  parameter      ParameterDefinition? @relation(fields: [parameterId], references: [id])
+  annotationType String
+  placement      String
+  text           String
+  visibilityRule String   @default("always")
+  conditionSpec  String?
+  displayOrder   Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([tenantId, testId])
+  @@index([tenantId, parameterId])
+}
+
+model CatalogVersion {
+  id             String   @id @default(uuid())
+  tenantId       String
+  tenant         Tenant   @relation(fields: [tenantId], references: [id])
+  versionTag     String
+  status         String
+  sha256Manifest String?
+  createdBy      String?
+  createdAt      DateTime @default(now())
+  notes          String?
+
+  auditRuns CatalogAuditRun[]
+
+  @@index([tenantId, status])
+}
+
+model CatalogAuditRun {
+  id                String   @id @default(uuid())
+  tenantId          String
+  tenant            Tenant   @relation(fields: [tenantId], references: [id])
+  catalogVersionId  String?
+  catalogVersion    CatalogVersion? @relation(fields: [catalogVersionId], references: [id])
+  createdBy         String?
+  createdAt         DateTime @default(now())
+  summaryJson       Json?
+  findingsJson      Json?
+  sha256            String?
+
+  @@index([tenantId, catalogVersionId])
+  @@index([tenantId, createdAt])
+}
+
+model TenantBrandingConfig {
+  tenantId        String   @id
+  tenant          Tenant   @relation(fields: [tenantId], references: [id])
+  businessName    String   @default("")
+  address         String   @default("")
+  phone           String   @default("")
+  headerLine1     String   @default("")
+  headerLine2     String   @default("")
+  logoAssetName   String?
+  headerAssetName String?
+  footerAssetName String?
+  updatedBy       String?
+  updatedAt       DateTime @updatedAt
+}
+
+model TenantReportDesignConfig {
+  tenantId               String   @id
+  tenant                 Tenant   @relation(fields: [tenantId], references: [id])
+  showLogo               Boolean  @default(true)
+  logoPosition           String   @default("left")
+  headerText1            String   @default("")
+  headerText2            String   @default("")
+  headerDividerStyle     String   @default("thin")
+  patientLayoutStyle     String   @default("compact")
+  showRefNumber          Boolean  @default(true)
+  showConsultant         Boolean  @default(true)
+  showSampleTime         Boolean  @default(true)
+  resultsFontSize        String   @default("normal")
+  showUnitsColumn        Boolean  @default(true)
+  showReferenceRange     Boolean  @default(true)
+  abnormalHighlightStyle String   @default("bold")
+  footerText             String   @default("")
+  showSignatories        Boolean  @default(true)
+  signatoryBlockStyle    String   @default("single")
+  updatedBy              String?
+  updatedAt              DateTime @updatedAt
+}
+
+model TenantReceiptDesignConfig {
+  tenantId               String   @id
+  tenant                 Tenant   @relation(fields: [tenantId], references: [id])
+  showLogo               Boolean  @default(true)
+  businessNameOverride   String   @default("")
+  showAddress            Boolean  @default(true)
+  showContact            Boolean  @default(true)
+  showQuantityColumn     Boolean  @default(true)
+  showUnitPrice          Boolean  @default(true)
+  showDiscountColumn     Boolean  @default(false)
+  showTaxColumn          Boolean  @default(true)
+  showSubtotal           Boolean  @default(true)
+  showDiscount           Boolean  @default(true)
+  showTax                Boolean  @default(true)
+  grandTotalStyle        String   @default("bold")
+  thankYouMessage        String   @default("")
+  termsAndConditions     String   @default("")
+  showQrCodePlaceholder  Boolean  @default(false)
+  receiptWidthMode       String   @default("a4")
+  updatedBy              String?
+  updatedAt              DateTime @updatedAt
+}
+
+model PatientSequence {
+  tenantId  String   @id
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  lastValue Int      @default(0)
+  updatedAt DateTime @updatedAt
+}
+
+model EncounterSequence {
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  type      String
+  year      Int
+  lastValue Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  @@id([tenantId, type, year])
+}
+
+model Invoice {
+  id          String     @id @default(uuid())
+  tenantId    String
+  tenant      Tenant     @relation(fields: [tenantId], references: [id])
+  patientId   String
+  patient     Patient    @relation(fields: [patientId], references: [id])
+  encounterId String?
+  encounter   Encounter? @relation(fields: [encounterId], references: [id])
+  status      String
+  totalAmount Decimal
+  currency    String
+  createdAt   DateTime   @default(now())
+
+  items    InvoiceItem[]
+  payments Payment[]
+
+  @@index([tenantId])
+}
+
+model InvoiceItem {
+  id          String  @id @default(uuid())
+  invoiceId   String
+  invoice     Invoice @relation(fields: [invoiceId], references: [id])
+  itemType    String
+  itemRefId   String?
+  description String
+  qty         Int
+  unitPrice   Decimal
+  amount      Decimal
+}
+
+model Payment {
+  id         String   @id @default(uuid())
+  tenantId   String
+  tenant     Tenant   @relation(fields: [tenantId], references: [id])
+  invoiceId  String
+  invoice    Invoice  @relation(fields: [invoiceId], references: [id])
+  method     String
+  amount     Decimal
+  receivedAt DateTime @default(now())
+  reference  String?
+
+  @@index([tenantId])
+}
+
+model Document {
+  id              String         @id @default(uuid())
+  tenantId        String
+  tenant          Tenant         @relation(fields: [tenantId], references: [id])
+  encounterId     String
+  encounter       Encounter      @relation(fields: [encounterId], references: [id])
+  documentType    DocumentType
+  status          DocumentStatus @default(QUEUED)
+  payloadVersion  Int            @default(1)
+  templateVersion Int            @default(1)
+  payloadJson     Json
+  payloadHash     String
+  storageBackend  StorageBackend @default(LOCAL)
+  storageKey      String?
+  pdfHash         String?
+  errorCode       String?
+  errorMessage    String?
+  createdAt       DateTime       @default(now())
+  renderedAt      DateTime?
+
+  @@index([tenantId])
+  @@index([tenantId, encounterId])
+  @@unique([tenantId, encounterId, documentType, templateVersion, payloadHash])
+}
+
+enum DocumentType {
+  ENCOUNTER_SUMMARY
+}
+
+enum DocumentStatus {
+  QUEUED
+  RENDERED
+  FAILED
+}
+
+enum StorageBackend {
+  LOCAL
+  S3
+}
+
+enum BbUrgency {
+  ROUTINE
+  URGENT
+}
+
+enum BbCrossmatchResult {
+  COMPATIBLE
+  INCOMPATIBLE
+}
+
+enum LabOrderItemStatus {
+  ORDERED
+  RESULTS_ENTERED
+  VERIFIED
+}
+
+enum LabResultFlag {
+  LOW
+  HIGH
+  NORMAL
+  ABNORMAL
+  UNKNOWN
+}

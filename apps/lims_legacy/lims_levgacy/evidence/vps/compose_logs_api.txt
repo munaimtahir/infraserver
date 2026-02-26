@@ -1,0 +1,81 @@
+## logs api --since 2h
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mClsModule dependencies initialized[39m[38;5;3m +33ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mClsCommonModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mClsModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTenancyModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPaymentsModule dependencies initialized[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mClsRootModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMeModule dependencies initialized[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAdminModule dependencies initialized[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPatientsModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mLabCatalogModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDocumentsModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mEncountersModule dependencies initialized[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mLabWorkflowModule dependencies initialized[39m[38;5;3m +0ms[39m
+api-1  | [95m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [95m  DEBUG[39m [38;5;3m[ClsModule] [39m[95mMounting ClsMiddleware to /[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +5ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} route[39m[38;5;3m +2ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPatientsController {/patients}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/patients, POST} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:43 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/patients, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/patients/:id, GET} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mEncountersController {/encounters}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters, GET} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id/billing, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id/payments, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id/prep, GET} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id/main, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:start-prep, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:save-prep, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:save-main, POST} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:start-main, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:finalize, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:document, POST} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mLimsCommandsController {/lims/commands}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/lims/commands/updateEncounterPrep, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mDocumentsController {/documents}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/documents/:documentId, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/documents/:documentId/file, GET} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mLabCatalogController {/lab/tests}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/lab/tests, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/lab/tests, GET} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/lab/tests/:testId, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/lab/tests/:testId/parameters, POST} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/lab/tests/:testId/parameters, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mLabWorkflowController {/encounters}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:lab-add-test, POST} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id/lab-tests, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:lab-enter-results, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:lab-verify, POST} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/encounters/:id\:lab-publish, POST} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mLabVerificationQueueController {/lab}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/lab/verification-queue, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMeController {/me}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/me, GET} route[39m[38;5;3m +1ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/me/features, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAdminController {/admin}:[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/admin/overview, GET} route[39m[38;5;3m +0ms[39m
+api-1  | [32m[Nest] 1  - [39m02/19/2026, 9:10:44 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +104ms[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:10:49 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:29 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m
+api-1  | [33m[Nest] 1  - [39m02/19/2026, 9:11:35 AM [33m   WARN[39m [38;5;3m[TenantContextMiddleware] [39m[33mUsing x-tenant-id development fallback for localhost host=127.0.0.1[39m

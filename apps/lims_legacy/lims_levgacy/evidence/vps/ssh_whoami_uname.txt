@@ -1,0 +1,32 @@
+## whoami
+munaim
+
+## hostname
+vps.us-central1-f.c.munaimfinance.internal
+
+## uname -a
+Linux vps.us-central1-f.c.munaimfinance.internal 6.17.0-1008-gcp #8~24.04.1-Ubuntu SMP Fri Jan 30 23:44:29 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+
+## /etc/os-release
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
+## timezone
+               Local time: Thu 2026-02-19 14:42:54 PKT
+           Universal time: Thu 2026-02-19 09:42:54 UTC
+                 RTC time: Thu 2026-02-19 09:42:54
+                Time zone: Asia/Karachi (PKT, +0500)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no

@@ -1,0 +1,6 @@
+## logs worker --since 2h
+worker-1  | 
+worker-1  | > @vexel/worker@1.0.0 start
+worker-1  | > ts-node src/index.ts
+worker-1  | 
+worker-1  | [worker] started queue=document-render-queue redis=redis://redis:6379

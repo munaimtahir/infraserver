@@ -1,0 +1,28 @@
+## vexel block from /home/munaim/srv/proxy/caddy/Caddyfile
+			import std_proxy
+		}
+	}
+}
+
+# VEXEL MONOREPO
+vexel.alshifalab.pk {
+	encode zstd gzip
+
+	# --- API under /api ---
+	handle_path /api/* {
+		reverse_proxy 127.0.0.1:3000
+	}
+
+	# --- Optional PDF service ---
+	handle_path /pdf/* {
+		reverse_proxy 127.0.0.1:5000
+	}
+
+	# --- Everything else goes to Web ---
+	handle {
+		reverse_proxy 127.0.0.1:3001
+	}
+}
+
+# Load local overrides (do not edit large blocks directly)
+import overrides/*

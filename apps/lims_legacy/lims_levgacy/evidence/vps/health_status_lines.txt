@@ -1,0 +1,9 @@
+## internal status lines
+3:HTTP/1.1 200 OK
+17:HTTP/1.1 200 OK
+25:HTTP/1.1 200 OK
+
+## external status lines
+3:HTTP/2 200 
+19:HTTP/2 200 
+33:HTTP/2 200 

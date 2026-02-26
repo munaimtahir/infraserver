@@ -1,0 +1,14 @@
+## git remote -v
+origin	git@github.com:munaimtahir/vexel-health.git (fetch)
+origin	git@github.com:munaimtahir/vexel-health.git (push)
+
+## git branch --show-current
+main
+
+## git rev-parse HEAD
+d9f588b771f13ecf17388fe87b4eb13832754116
+
+## git status --short
+ M .env.example
+?? .env
+?? evidence/
