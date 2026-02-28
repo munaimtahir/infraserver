@@ -80,7 +80,7 @@ for h in "${hosts[@]}"; do
     code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 6 -H "Host: $h" "http://127.0.0.1/" 2>/dev/null || echo "ERR")
   fi
   [[ "$code" == "503" ]] && flags+=("OFFLINE_DOMAIN")
-  if [[ "$ups" == "-" && "$h" != "34.16.82.13" ]]; then
+  if [[ "$ups" == "-" && "$h" != "34.29.33.138" ]]; then
     flags+=("OFFLINE_DOMAIN")
   fi
 
