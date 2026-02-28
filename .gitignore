@@ -11,6 +11,8 @@ _triage_backups/
 observability/data/
 observability/logs/
 proxy/caddy/logs/
+proxy/caddy/Caddyfile.bak*
+proxy/caddy/Caddyfile.bak_*
 ops/logs/
 ops/caddy_backups/
 ops/truth_audit/
