@@ -323,7 +323,6 @@ api.consult.alshifalab.pk {
 	}
 }
 
-
 # DASHBOARD + OBSERVABILITY
 dashboard.alshifalab.pk {
 	encode gzip zstd
@@ -393,49 +392,50 @@ api.ops.alshifalab.pk {
 # 	}
 # }
 
-http://34.16.82.13 {
+http://34.29.33.138 {
 	redir https://portal.alshifalab.pk{uri} permanent
 }
 
 mediq.alshifalab.pk {
+	encode gzip zstd
+	import std_log mediq
+	import std_headers
 
-    encode gzip zstd
+	handle_path /api/* {
+		reverse_proxy 127.0.0.1:8025 {
+			import std_proxy
+		}
+	}
 
-    header {
-        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-        X-Content-Type-Options "nosniff"
-        X-Frame-Options "SAMEORIGIN"
-        Referrer-Policy "strict-origin-when-cross-origin"
-    }
+	handle_path /admin/* {
+		reverse_proxy 127.0.0.1:8025 {
+			import std_proxy
+		}
+	}
 
-    handle_path /api/* {
-        reverse_proxy 127.0.0.1:8025
-    }
+	handle_path /static/* {
+		reverse_proxy 127.0.0.1:8025 {
+			import std_proxy
+		}
+	}
 
-    handle_path /admin/* {
-        reverse_proxy 127.0.0.1:8025
-    }
+	handle_path /media/* {
+		reverse_proxy 127.0.0.1:8025 {
+			import std_proxy
+		}
+	}
 
-    handle_path /static/* {
-        reverse_proxy 127.0.0.1:8025
-    }
+	handle_path /health {
+		reverse_proxy 127.0.0.1:8025 {
+			import std_proxy
+		}
+	}
 
-    handle_path /media/* {
-        reverse_proxy 127.0.0.1:8025
-    }
-
-    handle_path /health {
-        reverse_proxy 127.0.0.1:8025
-    }
-
-    handle {
-        reverse_proxy 127.0.0.1:3025
-    }
-
-    log {
-        output file /var/log/caddy/mediq.log
-        format json
-    }
+	handle {
+		reverse_proxy 127.0.0.1:3025 {
+			import std_proxy
+		}
+	}
 }
 
 api.mediq.alshifalab.pk {
