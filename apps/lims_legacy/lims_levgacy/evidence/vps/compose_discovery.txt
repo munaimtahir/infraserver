@@ -1,0 +1,6 @@
+## docker compose ls
+NAME                STATUS              CONFIG FILES
+vexel-health        running(6)          /home/munaim/srv/apps/vexel-health/docker-compose.yml
+
+## compose files in app
+-rw-rw-r--+ 1 munaim munaim 2261 Feb 19 06:18 /home/munaim/srv/apps/vexel-health/docker-compose.yml

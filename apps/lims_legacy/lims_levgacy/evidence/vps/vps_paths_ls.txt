@@ -1,0 +1,44 @@
+## ls -la /home/munaim/srv/apps
+total 60
+drwxrwxr-x+ 13 munaim munaim 4096 Feb 19 09:13 .
+drwxrwxr-x+ 10 munaim munaim 4096 Feb 19 06:05 ..
+drwxrwxr-x+ 11 munaim munaim 4096 Feb 15 19:51 accredivault
+drwxrwxr-x+ 14 munaim munaim 4096 Feb 15 19:51 consult
+drwxr-xr-x+  8 munaim munaim 4096 Feb 15 22:52 dashboard
+drwxrwxr-x+ 17 munaim munaim 4096 Feb 15 19:51 fmu-platform
+drwxrwxr-x+ 36 munaim munaim 4096 Feb 16 18:03 lims
+drwxrwxr-x+ 12 munaim munaim 4096 Feb 13 16:41 mediq
+drwxrwxr-x+ 22 munaim munaim 4096 Feb 15 19:51 pgsims
+drwxrwxr-x+ 24 munaim munaim 4096 Feb 18 22:09 radreport
+drwxrwxr-x+ 14 munaim munaim 4096 Feb 19 14:42 vexel-health
+drwxrwxr-x+ 11 munaim munaim 4096 Feb 19 08:28 vexel-health-phase4c
+drwxrwxr-x+ 10 munaim munaim 4096 Feb 19 09:13 vexel-health-pr4-merge
+
+## target path check
+total 732
+drwxrwxr-x+  14 munaim munaim   4096 Feb 19 14:42 .
+drwxrwxr-x+  13 munaim munaim   4096 Feb 19 09:13 ..
+-rw-rw-r--+   1 munaim munaim    110 Feb 19 01:40 .dockerignore
+-rw-rw-r--+   1 munaim munaim    610 Feb 19 14:10 .env
+-rw-rw-r--+   1 munaim munaim    610 Feb 19 14:10 .env.example
+-rw-rw-r--+   1 munaim munaim     45 Feb 19 01:40 .git
+drwxrwxr-x+   3 munaim munaim   4096 Feb 19 01:40 .github
+-rw-rw-r--+   1 munaim munaim    309 Feb 19 10:02 .gitignore
+drwxrwxr-x+   2 munaim munaim   4096 Feb 19 12:37 .playwright-cli
+-rw-rw-r--+   1 munaim munaim   7153 Feb 19 01:40 AGENTS.md
+-rw-rw-r--+   1 munaim munaim    687 Feb 19 10:02 CONTRIBUTING.md
+drwxrwxr-x+   4 munaim munaim   4096 Feb 19 10:02 DEPLOY_RUNS
+-rw-rw-r--+   1 munaim munaim    686 Feb 19 10:02 README.md
+-rw-rw-r--+   1 munaim munaim   3994 Feb 19 10:02 REPOSITORY_SIZE_SUMMARY.md
+drwxrwxr-x+   3 munaim munaim   4096 Feb 19 11:08 _audit_evidence
+drwxrwxr-x+   6 munaim munaim   4096 Feb 19 01:40 apps
+-rw-rw-r--+   1 munaim munaim   2261 Feb 19 06:18 docker-compose.yml
+drwxrwxr-x+   4 munaim munaim   4096 Feb 19 10:02 docs
+drwxrwxr-x+   3 munaim munaim   4096 Feb 19 14:42 evidence
+drwxrwxr-x+   2 munaim munaim   4096 Feb 19 07:47 governance
+drwxrwxr-x+ 664 munaim munaim  20480 Feb 19 01:41 node_modules
+drwxrwxr-x+   3 munaim munaim   4096 Feb 19 12:36 output
+-rw-rw-r--+   1 munaim munaim 618947 Feb 19 07:04 package-lock.json
+-rw-rw-r--+   1 munaim munaim    992 Feb 19 12:29 package.json
+drwxrwxr-x+   5 munaim munaim   4096 Feb 19 01:40 packages
+drwxrwxr-x+   3 munaim munaim   4096 Feb 19 12:29 scripts

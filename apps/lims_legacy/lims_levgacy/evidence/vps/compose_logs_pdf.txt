@@ -1,0 +1,35 @@
+## logs pdf --since 2h
+pdf-1  | warn: Microsoft.AspNetCore.Hosting.Diagnostics[15]
+pdf-1  |       Overriding HTTP_PORTS '8080' and HTTPS_PORTS ''. Binding to values defined by URLS instead 'http://+:8080'.
+pdf-1  | info: Microsoft.Hosting.Lifetime[14]
+pdf-1  |       Now listening on: http://[::]:8080
+pdf-1  | info: Microsoft.Hosting.Lifetime[0]
+pdf-1  |       Application started. Press Ctrl+C to shut down.
+pdf-1  | info: Microsoft.Hosting.Lifetime[0]
+pdf-1  |       Hosting environment: Production
+pdf-1  | info: Microsoft.Hosting.Lifetime[0]
+pdf-1  |       Content root path: /app
+pdf-1  | info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+pdf-1  |       Request starting HTTP/1.1 GET http://127.0.0.1:5000/health - - -
+pdf-1  | info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+pdf-1  |       Executing endpoint 'HTTP: GET /health'
+pdf-1  | info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]
+pdf-1  |       Setting HTTP status code 200.
+pdf-1  | info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]
+pdf-1  |       Writing value of type '<>f__AnonymousType0`1' as Json.
+pdf-1  | info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+pdf-1  |       Executed endpoint 'HTTP: GET /health'
+pdf-1  | info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+pdf-1  |       Request finished HTTP/1.1 GET http://127.0.0.1:5000/health - 200 - application/json;+charset=utf-8 206.6796ms
+pdf-1  | info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+pdf-1  |       Request starting HTTP/1.1 GET http://pdf:8080/health - - -
+pdf-1  | info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+pdf-1  |       Executing endpoint 'HTTP: GET /health'
+pdf-1  | info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]
+pdf-1  |       Setting HTTP status code 200.
+pdf-1  | info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]
+pdf-1  |       Writing value of type '<>f__AnonymousType0`1' as Json.
+pdf-1  | info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+pdf-1  |       Executed endpoint 'HTTP: GET /health'
+pdf-1  | info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+pdf-1  |       Request finished HTTP/1.1 GET http://pdf:8080/health - 200 - application/json;+charset=utf-8 1.7570ms

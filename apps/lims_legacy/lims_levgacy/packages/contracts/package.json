@@ -1,0 +1,28 @@
+{
+    "name": "@vexel/contracts",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "openapi.yaml"
+    ],
+    "scripts": {
+        "generate": "openapi-typescript openapi.yaml -o src/schema.ts",
+        "build": "npm run generate && tsc"
+    },
+    "dependencies": {
+        "openapi-fetch": "^0.13.0"
+    },
+    "devDependencies": {
+        "eslint": "^9.14.0",
+        "openapi-typescript": "^7.13.0",
+        "typescript": "^5.6.3"
+    }
+}

@@ -15,6 +15,7 @@ Host: vps.us-central1-f.c.munaimfinance.internal
 | consult | consult.alshifalab.pk, api.consult.alshifalab.pk | 8011 | 127.0.0.1:8011 | /home/munaim/srv/apps/consult/docker-compose.yml |
 | accredvault-phc | phc.alshifalab.pk, api.phc.alshifalab.pk | 8016 | 127.0.0.1:8016 | /home/munaim/srv/apps/accredivault/infra/docker-compose.prod.yml |
 | accredvault-sos | sos.alshifalab.pk, api.sos.alshifalab.pk | 8017, 8083 | 127.0.0.1:8017, 127.0.0.1:8083 | /home/munaim/srv/apps/accredivault/infra/docker-compose.prod.yml |
+| vexel | vexel.alshifalab.pk | 9021 (api), 9022 (pdf), 9023 (admin), 9024 (operator) | 127.0.0.1:9021–9024 | /home/munaim/srv/apps/vexel/docker-compose.yml |
 | grafana | grafana.alshifalab.pk | 13000 | 127.0.0.1:13000 | /home/munaim/srv/observability/docker-compose.yml |
 | dashboard | dashboard.alshifalab.pk | 4000 + 8013 | 127.0.0.1:4000, 127.0.0.1:8013 | /home/munaim/srv/apps/launchpad/docker-compose.yml |
 

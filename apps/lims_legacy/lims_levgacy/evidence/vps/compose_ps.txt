@@ -1,0 +1,8 @@
+## docker compose ps
+NAME                      IMAGE                 COMMAND                  SERVICE    CREATED          STATUS          PORTS
+vexel-health-api-1        vexel-health-api      "docker-entrypoint.s…"   api        32 minutes ago   Up 32 minutes   127.0.0.1:3000->3000/tcp
+vexel-health-pdf-1        vexel-health-pdf      "dotnet PdfService.d…"   pdf        35 minutes ago   Up 35 minutes   127.0.0.1:5000->8080/tcp
+vexel-health-postgres-1   postgres:15-alpine    "docker-entrypoint.s…"   postgres   35 minutes ago   Up 35 minutes   5432/tcp
+vexel-health-redis-1      redis:7-alpine        "docker-entrypoint.s…"   redis      35 minutes ago   Up 35 minutes   6379/tcp
+vexel-health-web-1        vexel-health-web      "docker-entrypoint.s…"   web        35 minutes ago   Up 35 minutes   127.0.0.1:3001->3000/tcp
+vexel-health-worker-1     vexel-health-worker   "docker-entrypoint.s…"   worker     35 minutes ago   Up 35 minutes   
