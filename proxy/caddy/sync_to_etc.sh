@@ -5,10 +5,10 @@ SRC="/home/munaim/srv/proxy/caddy/Caddyfile"
 DST="/etc/caddy/Caddyfile"
 BACKUP="/etc/caddy/Caddyfile.bak.$(date +%F_%H%M%S)"
 
-sudo -n caddy validate --config "$SRC" --adapter caddyfile
-sudo -n cp "$DST" "$BACKUP"
-sudo -n install -m 0644 -o root -g root "$SRC" "$DST"
-sudo -n systemctl reload caddy
+sudo caddy validate --config "$SRC" --adapter caddyfile
+sudo cp "$DST" "$BACKUP"
+sudo install -m 0644 -o root -g root "$SRC" "$DST"
+sudo systemctl reload caddy
 
 checks=(
   "https://portal.alshifalab.pk|200"
@@ -27,6 +27,7 @@ checks=(
   "https://consult.alshifalab.pk|503"
   "https://api.consult.alshifalab.pk|503"
   "https://sos.alshifalab.pk|503"
+  "https://bill.alshifalab.pk|200"
 )
 
 printf '%-45s %-8s %-8s %-6s\n' "ENDPOINT" "EXPECTED" "ACTUAL" "OK"

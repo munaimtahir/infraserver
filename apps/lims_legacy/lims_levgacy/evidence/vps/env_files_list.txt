@@ -1,3 +1,0 @@
-## env files names (no contents)
-/home/munaim/srv/apps/vexel-health/.env
-/home/munaim/srv/apps/vexel-health/.env.example

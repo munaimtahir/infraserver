@@ -180,32 +180,9 @@ phc.alshifalab.pk {
 	import std_log phc
 	import std_headers
 
-	handle /api/* {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-
-	handle /admin/* {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-
-	handle /static/* {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-
-	handle /media/* {
-		reverse_proxy 127.0.0.1:8016 {
-			import std_proxy
-		}
-	}
-
 	handle {
-		reverse_proxy 127.0.0.1:8016 {
+		# PHC web domain now serves AccrediOps.
+		reverse_proxy 127.0.0.1:18080 {
 			import std_proxy
 		}
 	}
@@ -221,7 +198,8 @@ api.phc.alshifalab.pk {
 	}
 
 	handle {
-		reverse_proxy 127.0.0.1:8016 {
+		# PHC API domain now serves AccrediOps API via the same app Caddy entrypoint.
+		reverse_proxy 127.0.0.1:18080 {
 			import std_proxy
 		}
 	}
@@ -242,6 +220,25 @@ snt.alshifalab.pk {
 	handle {
 		rewrite * /VirtualHostBase/https/snt.alshifalab.pk:443/senaite/VirtualHostRoot{uri}
 		reverse_proxy 127.0.0.1:8018 {
+			import std_proxy
+		}
+	}
+}
+
+# BillSync
+bill.alshifalab.pk {
+	encode gzip zstd
+	import std_log bill
+	import std_headers
+
+	# Media: served directly from host
+	handle_path /media/* {
+		root * /home/munaim/srv/apps/bill/media
+		file_server
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8017 {
 			import std_proxy
 		}
 	}
@@ -367,40 +364,8 @@ dashboard.alshifalab.pk {
 	}
 }
 
-# NEW OPS DASHBOARD (REACT + DJANGO)
-ops.alshifalab.pk {
-	encode gzip zstd
-	import std_log ops
-	import std_headers
-
-	@api_root path /api /api/
-	handle @api_root {
-		redir * /api/docs/ 302
-	}
-
-	handle /api/* {
-		reverse_proxy 127.0.0.1:18000 {
-			import std_proxy
-		}
-	}
-
-	handle {
-		reverse_proxy 127.0.0.1:8013 {
-			import std_proxy
-		}
-	}
-}
-
-api.ops.alshifalab.pk {
-	encode gzip zstd
-	import std_log api_ops
-
-	handle {
-		reverse_proxy 127.0.0.1:18000 {
-			import std_proxy
-		}
-	}
-}
+# ACCREDIOPS legacy OPS-domain routes retired.
+# Canonical local compose runtime allocation: http://127.0.0.1:18080
 
 # grafana.alshifalab.pk {
 # 	encode gzip zstd
@@ -527,6 +492,22 @@ class.alshifalab.pk {
 # VEXEL MONOREPO — rules moved to modular import
 # Edit /home/munaim/srv/apps/vexel/runtime/proxy/vexel.Caddyfile to change Vexel routing.
 # Symlinked as: /home/munaim/srv/proxy/caddy/overrides/vexel.Caddyfile
+
+# QCALL
+qcall.alshifalab.pk {
+	encode gzip zstd
+	import std_log qcall
+	import std_headers
+
+	handle {
+		# NOTE: QCall upstream port intentionally kept out of the generic 80xx pool
+		# because 8040 is commonly reused during deployments. QCall compose/.env
+		# maps host 8041 -> container 8000.
+		reverse_proxy 127.0.0.1:8041 {
+			import std_proxy
+		}
+	}
+}
 
 # Load per-app overrides (absolute path — avoids symlink resolution ambiguity)
 import /home/munaim/srv/proxy/caddy/overrides/*.Caddyfile
