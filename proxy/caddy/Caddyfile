@@ -3,6 +3,10 @@
 	log {
 		output stdout
 		format json
+		# Keep internal logs useful, but drop validation-time auto-HTTPS
+		# and active health-check noise from intentionally special routes.
+		exclude http.auto_https http.handlers.reverse_proxy.health_checker.active tls.cache.maintenance http
+		level INFO
 	}
 }
 
@@ -160,7 +164,7 @@ api.rims.alshifalab.pk {
 	}
 
 	handle @root_path {
-		redir /healthz temporary
+		redir * /healthz 302
 	}
 
 	handle {
@@ -218,6 +222,26 @@ api.phc.alshifalab.pk {
 
 	handle {
 		reverse_proxy 127.0.0.1:8016 {
+			import std_proxy
+		}
+	}
+}
+
+# SENAITE
+snt.alshifalab.pk {
+	encode gzip zstd
+	import std_log snt
+	import std_headers
+
+	@health path /healthz
+	handle @health {
+		header Content-Type "application/json"
+		respond "{\"status\":\"ok\",\"service\":\"snt\"}" 200
+	}
+
+	handle {
+		rewrite * /VirtualHostBase/https/snt.alshifalab.pk:443/senaite/VirtualHostRoot{uri}
+		reverse_proxy 127.0.0.1:8018 {
 			import std_proxy
 		}
 	}
@@ -351,7 +375,7 @@ ops.alshifalab.pk {
 
 	@api_root path /api /api/
 	handle @api_root {
-		redir /api/docs/ temporary
+		redir * /api/docs/ 302
 	}
 
 	handle /api/* {
@@ -454,53 +478,55 @@ api.mediq.alshifalab.pk {
 	}
 }
 
-# VEXEL MONOREPO
-vexel.alshifalab.pk {
-	encode zstd gzip
+# BIKA
+bika.alshifalab.pk {
+	encode gzip zstd
+	import std_log bika
 	import std_headers
-	import std_log vexel
 
-	# API — preserve /api prefix (NestJS setGlobalPrefix('api'))
-	handle /api/* {
-		reverse_proxy 127.0.0.1:9021 {
-			import std_proxy
-		}
+	handle /bikalims {
+		redir * / 302
 	}
 
-	# PDF service — strip /pdf prefix
-	handle_path /pdf/* {
-		reverse_proxy 127.0.0.1:9022 {
-			import std_proxy
-		}
+	handle /bikalims/* {
+		redir * / 302
 	}
 
-	# Admin app — preserve /admin prefix (Next.js basePath: '/admin')
-	# Must match both /admin (bare) and /admin/* (all sub-paths)
-	handle /admin {
-		reverse_proxy 127.0.0.1:9023 {
-			import std_proxy
-		}
-	}
-	handle /admin/* {
-		reverse_proxy 127.0.0.1:9023 {
-			import std_proxy
-		}
-	}
-
-	# MinIO storage — bucket direct access for presigned URLs
-	handle /vexel-documents/* {
-		reverse_proxy 127.0.0.1:9027 {
-			import std_proxy
-		}
-	}
-
-	# Operator app — everything else
 	handle {
-		reverse_proxy 127.0.0.1:9024 {
+		rewrite * /VirtualHostBase/https/bika.alshifalab.pk:443/bikalims/VirtualHostRoot{uri}
+		reverse_proxy 127.0.0.1:8033 127.0.0.1:8034 {
 			import std_proxy
+			lb_policy round_robin
+			health_uri /VirtualHostBase/https/bika.alshifalab.pk:443/bikalims/VirtualHostRoot/login
+			health_interval 15s
+			health_timeout 5s
 		}
 	}
 }
 
-# Load local overrides (do not edit large blocks directly)
-import overrides/*
+class.alshifalab.pk {
+	encode gzip zstd
+
+	# Django REST API (preserve /api prefix for upstream routing)
+	handle /api/* {
+		reverse_proxy 127.0.0.1:9031
+	}
+
+	# Django admin panel — moved to /django-admin/ so that
+	# /admin/* frontend routes are served by Next.js
+	handle /django-admin/* {
+		reverse_proxy 127.0.0.1:9031
+	}
+
+	# Next.js frontend — handles all routes including /admin/* app pages
+	handle {
+		reverse_proxy 127.0.0.1:9030
+	}
+}
+
+# VEXEL MONOREPO — rules moved to modular import
+# Edit /home/munaim/srv/apps/vexel/runtime/proxy/vexel.Caddyfile to change Vexel routing.
+# Symlinked as: /home/munaim/srv/proxy/caddy/overrides/vexel.Caddyfile
+
+# Load per-app overrides (absolute path — avoids symlink resolution ambiguity)
+import /home/munaim/srv/proxy/caddy/overrides/*.Caddyfile
